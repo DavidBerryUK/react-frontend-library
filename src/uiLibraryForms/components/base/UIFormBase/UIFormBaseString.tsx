@@ -8,11 +8,16 @@ import IPropPlaceholder from "../../../interfaces/IPropPlaceholder";
 import IPropValue from "../../../interfaces/IPropValue";
 import UIFormLabel from "../../UIFormLabel/UIFormLabel";
 import UIShowIfTrue from "../../../../uiLibrary/components-ui/components/UIShowIfTrue/UIShowIfTrue";
+import useVariantStyle from "../../../../uiLibrary/hooks/UseVariantStyle";
+import IPropColor from "../../../../uiLibrary/interfaces/properties/IPropColor";
+import classNames from "classnames";
 
-type IProperties = IPropDisabled & IPropPlaceholder & IPropValue<FieldModel> & IPropOnChange<FieldModel> & IPropClassName & IPropInputType;
+type IProperties = IPropDisabled & IPropPlaceholder & IPropValue<FieldModel> & IPropOnChange<FieldModel> & IPropClassName & IPropInputType & IPropColor;
 
-const UIFormBaseString: React.FC<IProperties> = ({ value, onChange, inputType, placeholder, disabled, className }) => {
-  if (!value.active) {
+const UIFormBaseString: React.FC<IProperties> = (props) => {
+  const variantClass = useVariantStyle("fc", props);
+
+  if (!props.value.active) {
     return null;
   }
 
@@ -20,38 +25,39 @@ const UIFormBaseString: React.FC<IProperties> = ({ value, onChange, inputType, p
    * EVENT HANDLERS
    */
   const handleOnChangeEvent = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (onChange) {
-      if (value.dataType === EnumFieldDataType.boolean) {
-        onChange(value.cloneWithValue(event.target.checked));
+    if (props.onChange) {
+      if (props.value.dataType === EnumFieldDataType.boolean) {
+        props.onChange(props.value.cloneWithValue(event.target.checked));
       } else {
-        onChange(value.cloneWithValue(event.target.value));
+        props.onChange(props.value.cloneWithValue(event.target.value));
       }
     }
   };
 
-  const showHelpMessage = !!value.help?.length;
-  const showErrorMessage = !!value.error.length;
-  const inputStyle = `ui-fc-text ${showErrorMessage ? "error" : ""}`;
-  className = `ui-fc-control ${className ?? ""}`;
+  const showHelpMessage = !!props.value.help?.length;
+  const showErrorMessage = !!props.value.error.length;
+  const errorClassName = showErrorMessage ? "error" : "";
+  const containerClassName = classNames("ui-fc-control", props.className);
+  const inputClassName = classNames("ui-fc-text", variantClass, errorClassName);
 
   return (
-    <div className={className}>
-      <UIFormLabel value={value} />
+    <div className={containerClassName}>
+      <UIFormLabel value={props.value} />
       <input
-        type={inputType}
-        id={value.fieldName}
-        value={value.value as string}
-        disabled={disabled}
-        className={inputStyle}
-        placeholder={placeholder}
+        type={props.inputType}
+        id={props.value.fieldName}
+        value={props.value.value as string}
+        disabled={props.disabled}
+        className={inputClassName}
+        placeholder={props.placeholder}
         onChange={handleOnChangeEvent}
         autoComplete="off"
       />
       <UIShowIfTrue value={showHelpMessage}>
-        <div className="ui-fc-help">{value.help}</div>
+        <div className="ui-fc-help">{props.value.help}</div>
       </UIShowIfTrue>
       <UIShowIfTrue value={showErrorMessage}>
-        <div className="ui-fc-error">{value.error}</div>
+        <div className="ui-fc-error">{props.value.error}</div>
       </UIShowIfTrue>
     </div>
   );

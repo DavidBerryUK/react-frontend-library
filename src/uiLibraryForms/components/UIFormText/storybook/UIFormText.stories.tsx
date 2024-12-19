@@ -95,3 +95,32 @@ export const Mandatory: Story = {
     },
   },
 };
+
+export const ColorGallery: Story = {
+  render: () => {
+    const [text, setText] = useState<FieldModel>(FieldModel.create("name", "Name", EnumFieldDataType.string, "Sample Text"));
+
+    const handleOnChangedEvent = (value: FieldModel) => {
+      setText(value);
+    };
+
+    return (
+      <div className="ui-form">
+        <UIFormText default value={text} onChange={handleOnChangedEvent} />
+        <UIFormText primary value={text} onChange={handleOnChangedEvent} />
+        <UIFormText secondary value={text} onChange={handleOnChangedEvent} />
+        <UIFormText success value={text} onChange={handleOnChangedEvent} />
+        <UIFormText info value={text} onChange={handleOnChangedEvent} />
+        <UIFormText warning value={text} onChange={handleOnChangedEvent} />
+        <UIFormText danger value={text} onChange={handleOnChangedEvent} />
+      </div>
+    );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Show different color themes available",
+      },
+    },
+  },
+};

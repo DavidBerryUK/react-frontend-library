@@ -1,4 +1,6 @@
 @use "../variables/ColourPalette.scss" as *;
+@use "../variables/Theme.scss" as *;
+@use "sass:map";
 
 // fc = Form Controls
 $form-row-gap: 16px;
@@ -50,6 +52,12 @@ $form-control-error-font-weight: 600;
       font-weight: $form-control-font-weight;
       width: 100%; // Ensures the text input matches the parent's width
       box-sizing: border-box; // Includes padding and border in the total width
+
+      @each $style, $properties in $theme-styles {
+        &.fc-#{$style} {
+          border-color: map.get($properties, light-border-color);
+        }
+      }
     }
 
     .ui-fc-error {
