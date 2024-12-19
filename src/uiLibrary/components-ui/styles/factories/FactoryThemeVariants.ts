@@ -1,8 +1,7 @@
 import EnumThemeVariant from "../../enums/EnumThemeVariant";
-
+import IPropColor, { GetEnumColorFromProp } from "../../interfaces/properties/IPropColor";
 import ISolidColorConfig from "../models/sections/ISolidColorConfig";
 import IStyleConfig from "../models/IStyleConfig";
-import IPropColor, { GetEnumColorFromProp } from "../../../interfaces/properties/IPropColor";
 
 export default class FactoryThemeVariants {
   // Static dictionary to hold the colors mapped by EnumColor

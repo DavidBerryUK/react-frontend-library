@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import IIconProps from "../interfaces/IIconProps";
-import IPropColor from "../../interfaces/properties/IPropColor";
+import IPropColor from "../../components-ui/interfaces/properties/IPropColor";
 import OptionModel from "../../components-ui/components/UISegment/models/OptionModel";
 import TestFlexGrid from "../../storybook/TestFlexGrid";
 import TestGridSectionHeader from "../../storybook/TestGridSectionHeader";

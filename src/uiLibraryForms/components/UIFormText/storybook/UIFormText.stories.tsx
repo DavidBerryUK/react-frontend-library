@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import UIFormText from "../UIFormText";
-import FieldModel from "../../../models/fields/FieldModel";
 import EnumFieldDataType from "../../../enums/EnumFieldDataType";
-import React, { useState } from "react";
+import FieldModel from "../../../models/fields/FieldModel";
 import FieldValidation from "../../../validation/models/FieldValidation";
+import React, { useState } from "react";
 import RuleMandatory from "../../../validation/rules/RuleMandatory";
 import RuleMaxLength from "../../../validation/rules/RuleMaxLength";
+import type { Meta, StoryObj } from "@storybook/react";
+import UIFormText from "../UIFormText";
 
 const meta: Meta<typeof UIFormText> = {
   title: "Form/UIFormText",
@@ -20,8 +20,10 @@ const meta: Meta<typeof UIFormText> = {
   },
   decorators: [
     (Story) => (
-      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", margin: "30px", padding: "20px" }}>
-        <Story />
+      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", margin: "40px" }}>
+        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", width: "600px", height: "100px", border: "solid 2px blue;" }}>
+          <Story />
+        </div>
       </div>
     ),
   ],

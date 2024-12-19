@@ -5,8 +5,8 @@ import React, { useState } from "react";
 import type { Meta } from "@storybook/react";
 import UISegment from "../UISegment";
 import OptionModel from "../models/OptionModel";
-import TestGridSectionHeader from "../../../../storybook/TestGridSectionHeader";
 import TestFlexGrid from "../../../../storybook/TestFlexGrid";
+import TestGridSectionHeader from "../../../../storybook/TestGridSectionHeader";
 
 const meta = {
   title: "UI/UISegment",

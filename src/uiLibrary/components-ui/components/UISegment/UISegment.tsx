@@ -1,10 +1,10 @@
-import FactoryThemeVariants from "../../../styles/factories/FactoryThemeVariants";
-import IPropColor from "../../../interfaces/properties/IPropColor";
-import IPropDisabled from "../../../interfaces/properties/IPropDisabled";
+import FactoryThemeVariants from "../../styles/factories/FactoryThemeVariants";
+import IPropColor from "../../interfaces/properties/IPropColor";
+import IPropDisabled from "../../interfaces/properties/IPropDisabled";
 import OptionModel from "./models/OptionModel";
 import React from "react";
 
-import IPropOnChange from "../../../interfaces/properties/IPropOnChange";
+import IPropOnChange from "../../interfaces/properties/IPropOnChange";
 import UISegmentButton from "./UISegmentButton";
 
 interface IOptions {

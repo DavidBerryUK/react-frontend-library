@@ -1,6 +1,6 @@
-import IIconProps from "../../../components-icons/interfaces/IIconProps";
-import IPropSize, { GetEnumSizeFromProp } from "../../../interfaces/properties/IPropSize";
 import EnumSize from "../../enums/EnumSize";
+import IIconProps from "../../../components-icons/interfaces/IIconProps";
+import IPropSize, { GetEnumSizeFromProp } from "../../interfaces/properties/IPropSize";
 import ISizeConfig from "../models/ISizeConfig";
 
 export default class FactorySizes {

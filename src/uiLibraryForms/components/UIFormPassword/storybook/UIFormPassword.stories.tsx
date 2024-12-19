@@ -22,7 +22,7 @@ const meta = {
   decorators: [
     (Story) => (
       <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", margin: "30px", padding: "20px" }}>
-        <div style={{ width: "300px", border: "dotted cyan 1px" }}>
+        <div style={{ width: "300px" }}>
           <Story />
         </div>
       </div>
