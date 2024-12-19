@@ -1,0 +1,60 @@
+@use "../variables/Font.scss" as *;
+@use "../variables/Theme.scss" as *;
+@use "sass:map";
+$button-size: 40px;
+$button-radius: 6px;
+
+.ui-pagination {
+  background-color: solid 1px red;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  user-select: none;
+
+  .pg-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $button-size;
+    height: $button-size;
+    border-radius: $button-radius;
+    font-weight: bold;
+    
+    font-size: $font-size-lg;
+    cursor: pointer;
+
+    &.selected {
+        background-color: #666;
+        color: #fff;
+      }
+  
+      &.disabled {
+        background-color: #eee;
+        color: #888;
+        cursor: not-allowed;
+      }
+  
+      &:hover {
+        background-color: #eee;
+        color: #222;
+      }
+    
+
+    @each $style, $properties in $theme-styles {
+        &.pg-#{$style} {
+            background-color: map.get($properties, base-color);           
+            color: map.get($properties, base-text-color);    
+            
+            &.selected {
+                background-color: map.get($properties, dark-color);           
+                color: map.get($properties, dark-text-color);       
+                
+                &:hover {
+                    background-color: map.get($properties, light-color);           
+                    color: map.get($properties, light-text-color);           
+                }    
+            }
+        }
+    }
+  }
+}

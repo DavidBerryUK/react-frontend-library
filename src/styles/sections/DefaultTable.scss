@@ -1,0 +1,37 @@
+// DEFAULT Table Styling for prototyping
+//
+//
+table {
+    width: 100%; // Full width of container
+    border-collapse: collapse; // Remove gaps between cells
+    
+    // Header Styling
+    th {
+      background-color: #333; // Dark background for header
+      color: #fff; // Light text color for contrast
+      font-weight: bold;
+      padding: 10px;
+      text-align: left; // Align header text to the left
+    }
+  
+    // Body Styling
+    td {
+      padding: 6px;
+      border-bottom: 1px solid #ddd; // Subtle line between rows
+    }
+  
+    // Alternating Row Colors
+    tr:nth-child(even) {
+      background-color: #f9f9f9; // Light background for even rows
+    }
+  
+    tr:nth-child(odd) {
+      background-color: #fff; // White background for odd rows
+    }
+  
+    // Optional Hover Effect
+    tr:hover {
+      background-color: #f1f1f1; // Slightly darker shade on hover
+    }
+  }
+  

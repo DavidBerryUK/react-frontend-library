@@ -1,0 +1,44 @@
+@use "../variables/ColourPalette.scss" as *;
+
+.ui-workflow-bar-container {
+    user-select: none;
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+
+    .workflow-group-container {
+        display: inline-flex;
+        border-radius: 0.5rem;
+
+        :first-child {
+            margin-inline-start: 0px;
+            border-start-start-radius: 0.5rem;
+            border-end-start-radius: 0.5rem;
+        }
+
+        :last-child {
+            border-start-end-radius: 0.5rem;
+            border-end-end-radius: 0.5rem;
+        }
+
+        .workflow-selection-button {
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            min-width: 12rem;
+            justify-content: center;
+            border-width: 1px;
+            border-color: $gray-200;
+            border-style: solid;
+            background-color: $white;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+            gap: 1rem;
+            font-weight: 500;
+            color: $gray-800;
+        }
+    }
+}

@@ -1,0 +1,59 @@
+@use "../variables/Theme.scss" as *;
+@use "sass:color";
+@use "sass:map";
+
+// Generate Button Styles
+.ui-button {
+  border-radius: 4px;
+  padding: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: 12pt;
+  border-width: 0;
+
+  &.btn-small {
+    border-radius: 4px;
+    padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: 10pt;
+  }
+
+  &.btn-large {
+    border-radius: 8px;
+    padding: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 24pt;
+  }
+
+  @each $style, $properties in $theme-styles {
+    &.btn-#{$style} {
+      background-color: map.get($properties, base-color);
+      color: map.get($properties, base-text-color);
+
+      &:hover {
+        // background-color: lighten(map.get($properties, base), 15);
+        background-color: color.adjust(map.get($properties, base-color), $lightness: 15%);
+      }
+
+      &:disabled {
+        background-color: map.get($properties, background-color-disabled);
+        color: map.get($properties, text-color-disabled);
+      }
+
+      &.btn-outlined {
+        border-width: 2px;
+        background-color: map.get($properties, outlined-background-color);
+        border-color: map.get($properties, outlined-border-color);
+        color: map.get($properties, outlined-text-color);
+
+        &:disabled {
+          background-color: map.get($properties, outlined-background-color-disabled);
+          border-color: map.get($properties, outlined-border-color-disabled);
+          color: map.get($properties, outlined-text-color-disabled);
+        }
+      }
+    }
+  }
+}

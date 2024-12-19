@@ -1,0 +1,14 @@
+@use "../variables/ColourPaletteMap.scss" as *;
+
+// Loop through each color group and generate CSS variables
+
+@each $color, $shades in $colors {
+  @each $shade, $hex in $shades {
+    .bg-#{$color}-#{$shade} {
+      background-color: $hex;
+    }
+    .#{$color}-#{$shade} {
+      color: $hex;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@use "../variables/ColourPalette.scss" as *;
+@use "../variables/Theme.scss" as *;
+@use "sass:map";
+
+.ui-spinner {
+  // sizes
+  width: 48px;
+  height: 48px;
+
+  &.spn-small {
+    width: 32px;
+    height: 32px;
+  }
+
+  &.spn-large {
+    width: 96px;
+    height: 96px;
+  }
+
+  // background track colour
+  color: $gray-200;
+
+  // colours
+  @each $style, $properties in $theme-styles {
+    &.spn-#{$style} {
+      fill: map.get($properties, base-color);
+    }
+  }
+
+  // apply the rotation animation
+  animation: spin 1s linear infinite;
+
+  // rotate
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}

@@ -1,0 +1,97 @@
+import type { Meta, StoryObj } from "@storybook/react";
+import UIFormText from "../UIFormText";
+import FieldModel from "../../../models/fields/FieldModel";
+import EnumFieldDataType from "../../../enums/EnumFieldDataType";
+import React, { useState } from "react";
+import FieldValidation from "../../../validation/models/FieldValidation";
+import RuleMandatory from "../../../validation/rules/RuleMandatory";
+import RuleMaxLength from "../../../validation/rules/RuleMaxLength";
+
+const meta: Meta<typeof UIFormText> = {
+  title: "Form/UIFormText",
+  component: UIFormText,
+  parameters: {
+    layout: "",
+    docs: {
+      description: {
+        component: "Form Text - A component for rendering and validating text fields in a form.",
+      },
+    },
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", margin: "30px", padding: "20px" }}>
+        <Story />
+      </div>
+    ),
+  ],
+  tags: ["autodocs"],
+};
+
+export default meta;
+
+type Story = StoryObj<typeof UIFormText>;
+
+/**
+ * Simple interactive example
+ */
+export const Interactive: Story = {
+  render: () => {
+    const [forename, setForename] = useState<FieldModel>(FieldModel.create("forename", "Forename", EnumFieldDataType.string, ""));
+    const [surname, setSurname] = useState<FieldModel>(FieldModel.create("surname", "Surname", EnumFieldDataType.string, ""));
+
+    const handleOnForenameChangedEvent = (value: FieldModel) => {
+      setForename(value);
+    };
+
+    const handleOnSurnameChangedEvent = (value: FieldModel) => {
+      setSurname(value);
+    };
+
+    return (
+      <div className="ui-form">
+        <UIFormText value={forename} onChange={handleOnForenameChangedEvent} />
+        <UIFormText value={surname} onChange={handleOnSurnameChangedEvent} />
+      </div>
+    );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "This example demonstrates a simple interactive form with two text fields for Forename and Surname.",
+      },
+    },
+  },
+};
+
+/**
+ * Example with mandatory fields
+ */
+export const Mandatory: Story = {
+  render: () => {
+    const [forename, setForename] = useState<FieldModel>(FieldModel.create("forename", "Forename", EnumFieldDataType.string, "", new FieldValidation([new RuleMandatory(), new RuleMaxLength(20)])));
+    const [surname, setSurname] = useState<FieldModel>(FieldModel.create("surname", "Surname", EnumFieldDataType.string, "", new FieldValidation([new RuleMandatory(), new RuleMaxLength(20)])));
+
+    const handleOnForenameChangedEvent = (value: FieldModel) => {
+      setForename(value);
+    };
+
+    const handleOnSurnameChangedEvent = (value: FieldModel) => {
+      setSurname(value);
+    };
+
+    return (
+      <div className="ui-form">
+        <UIFormText value={forename} onChange={handleOnForenameChangedEvent} />
+        <UIFormText value={surname} onChange={handleOnSurnameChangedEvent} />
+      </div>
+    );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "This example includes mandatory validation rules for both Forename and Surname fields, ensuring user input meets the required criteria.",
+      },
+    },
+  },
+};

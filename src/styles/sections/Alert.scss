@@ -1,0 +1,108 @@
+@use "sass:map";
+@use "../variables/Theme.scss" as *;
+@use "../variables/Font.scss" as *;
+
+$border-regular-width:12px;
+$border-regular-radius:8px;
+$border-regular-bordered-radius:4px;
+
+.ui-alert {
+  border-radius: $border-regular-radius;
+  padding: 16px;
+  font-size: $font-size-base;
+
+  &.al-small {
+    padding: 8px;   
+    font-size: $font-size-sm;
+  }
+
+  &.al-large {
+    padding: 24px;   
+    font-size: $font-size-lg;
+  }
+
+  @each $style, $properties in $theme-styles {
+    &.al-#{$style} {
+      background-color: map.get($properties, base-color);
+      color: map.get($properties, base-text-color);
+
+      &.al-border {
+        border: solid 2px map.get($properties, base-border-color);
+      }
+
+      &.al-border-top {
+        border-top: solid $border-regular-width map.get($properties, base-border-color);
+        border-top-left-radius: $border-regular-bordered-radius;
+        border-top-right-radius: $border-regular-bordered-radius;
+      }
+
+      &.al-border-bottom {
+        border-bottom: solid $border-regular-width map.get($properties, base-border-color);
+        border-bottom-left-radius: $border-regular-bordered-radius;
+        border-bottom-right-radius: $border-regular-bordered-radius;
+      }
+
+      &.al-border-left {
+        border-left: solid $border-regular-width map.get($properties, base-border-color);
+        border-top-right-radius: $border-regular-bordered-radius;
+        border-bottom-right-radius: $border-regular-bordered-radius;
+      }
+
+      &.al-border-right {
+        border-right: solid $border-regular-width map.get($properties, base-border-color);
+        border-top-left-radius: $border-regular-bordered-radius;
+        border-bottom-left-radius: $border-regular-bordered-radius;
+      }
+
+      &.lighter {
+        background-color: map.get($properties, light-color);
+        color: map.get($properties, light-text-color);
+
+        &.al-border {
+          border: solid 2px map.get($properties, light-border-color);
+        }
+
+        &.al-border-top {
+          border-top: solid $border-regular-width map.get($properties, light-border-color);
+        }
+
+        &.al-border-bottom {
+          border-bottom: solid $border-regular-width map.get($properties, light-border-color);
+        }
+
+        &.al-border-left {
+          border-left: solid $border-regular-width map.get($properties, light-border-color);
+        }
+
+        &.al-border-right {
+          border-right: solid $border-regular-width map.get($properties, light-border-color);
+        }
+      }
+
+      &.darker {
+        background-color: map.get($properties, dark-color);
+        color: map.get($properties, dark-text-color);
+
+        &.al-border {
+          border: solid 2px map.get($properties, dark-border-color);
+        }
+
+        &.al-border-top {
+          border-top: solid $border-regular-width map.get($properties, dark-border-color);
+        }
+
+        &.al-border-bottom {
+          border-bottom: solid $border-regular-width map.get($properties, dark-border-color);
+        }
+
+        &.al-border-left {
+          border-left: solid $border-regular-width map.get($properties, dark-border-color);
+        }
+
+        &.al-border-right {
+          border-right: solid $border-regular-width map.get($properties, dark-border-color);
+        }
+      }
+    }
+  }
+}

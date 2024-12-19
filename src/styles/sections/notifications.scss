@@ -1,0 +1,146 @@
+$transition-speed-in: 0.7s;
+$transition-speed-out: 0.6s;
+
+$success: #90ee90;
+$warning: #db7312;
+$info: #91c5f0;
+$danger: #d31414;
+
+.ui-notification-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+
+  .ui-notification {
+    border-radius: 4px;
+    background-color: #eaeaea;
+    border: solid 1px #bbb;
+    display: flex;
+    position: absolute;
+    z-index: 10;
+    width: 640px;
+    height: 100px;
+    transition: opacity 0.25s ease-out;
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+    transition:
+      top $transition-speed-in cubic-bezier(0.23, 0.82, 0.16, 1.46),
+      bottom $transition-speed-in cubic-bezier(0.23, 0.82, 0.16, 1.46),
+      left $transition-speed-in cubic-bezier(0.23, 0.82, 0.16, 1.46),
+      right $transition-speed-in cubic-bezier(0.23, 0.82, 0.16, 1.46);
+
+    .region-icon {
+      width: 90px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .region-message {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      flex-grow: 1;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    .region-actions {
+      width: 90px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: stretch;
+      border-left: solid 1px #ddd;
+    }
+
+    &.theme-success {
+      border-left: solid 8px $success;
+      .notification-icon {
+        background-color: $success;
+      }
+    }
+    &.theme-info {
+      border-left: solid 8px $info;
+      .notification-icon {
+        background-color: $info;
+      }
+    }
+    &.theme-question {
+      border-left: solid 8px $info;
+      .notification-icon {
+        background-color: $info;
+      }
+    }
+    &.theme-warning {
+      border-left: solid 8px $warning;
+      .notification-icon {
+        background-color: $warning;
+      }
+    }
+    &.theme-danger {
+      border-left: solid 8px $danger;
+      .notification-icon {
+        background-color: $danger;
+      }
+    }
+
+    &.shown {
+      opacity: 1;
+
+      pointer-events: all;
+
+      //	opacity: 1;
+      //transition: top 0.5s cubic-bezier(0.23, 0.82, 0.16, 1.46), bottom 0.5s cubic-bezier(0.23, 0.82, 0.16, 1.46), left 0.5s cubic-bezier(0.23, 0.82, 0.16, 1.46), right 0.5s cubic-bezier(0.23, 0.82, 0.16, 1.46);
+    }
+
+    &.dismissed {
+      opacity: 0.8;
+      transition:
+        top $transition-speed-out ease-in-out,
+        bottom $transition-speed-out ease-in-out,
+        left $transition-speed-out ease-in-out,
+        right $transition-speed-out ease-in-out,
+        opacity 0.3s ease-in;
+    }
+
+    &.center {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &.middle {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .timer {
+      position: relative;
+      width: 40px;
+      height: 40px;
+
+      .circle-progress {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 40px;
+        height: 40px;
+      }
+
+      .notification-icon-position {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 32px;
+        height: 32px;
+        transform: translate(-50%, -50%);
+        color: white;
+      }
+    }
+  }
+}

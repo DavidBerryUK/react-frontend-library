@@ -1,0 +1,6 @@
+{
+  "cSpell.words": ["abortable", "cvlink", "initialise", "abcdefghijklmnopqrstuvwxyx", "autodocs", "extralight", "flowbite", "tailwindcss", "tseslint"],
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
+}

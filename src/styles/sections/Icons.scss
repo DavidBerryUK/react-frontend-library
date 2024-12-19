@@ -1,0 +1,22 @@
+@use "../variables/Theme.scss" as *;
+@use "../variables/Icon.scss" as *;
+@use "sass:map";
+
+.ui-icon {
+  width: 32px;
+  height: 32px;
+  
+  // Icon Sizes
+  @each $key, $size in $icon-sizes {
+    &.ic-#{$key} {
+      width: $size;
+      height: $size;
+    }
+  }
+
+  @each $style, $properties in $theme-styles {
+    &.ic-#{$style} {
+      color: map.get($properties, colour-base);
+    }
+  }
+}

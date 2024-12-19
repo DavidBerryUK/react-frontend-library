@@ -1,0 +1,65 @@
+@use "../variables/ColourPalette.scss" as *;
+
+// fc = Form Controls
+$form-row-gap: 16px;
+$form-column-gap: 16px;
+
+$form-control-border-radius: 6px;
+$form-control-border-width: 2px;
+$form-control-font-size: 16px;
+$form-control-font-weight: normal;
+
+$form-control-label-font-size: 14px;
+$form-control-label-font-weight: 200;
+
+$form-control-error-font-size: 12px;
+$form-control-error-font-weight: 600;
+
+//
+// Forms are laid out with the label above the text box by detail
+// but by placing the class 'form-inline', the labels will appear
+// to the left of the control
+
+.ui-form {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  column-gap: $form-column-gap;
+  row-gap: $form-row-gap;
+
+  .ui-fc-control {
+    display: flex;
+    flex-direction: column;
+    flex: 1; // Makes the control take up the remaining width in the flex container
+
+    // label
+    .ui-fc-label {
+      font-size: $form-control-label-font-size;
+      font-weight: $form-control-label-font-weight;
+      margin-bottom: 4px;
+    }
+
+    // input control
+    .ui-fc-text {
+      border: solid $form-control-border-width black;
+      height: 36px;
+      border-radius: $form-control-border-radius;
+
+      padding-left: 8px;
+      padding-right: 6px;
+      font-size: $form-control-font-size;
+      font-weight: $form-control-font-weight;
+      width: 100%; // Ensures the text input matches the parent's width
+      box-sizing: border-box; // Includes padding and border in the total width
+    }
+
+    .ui-fc-error {
+      color: $red-500;
+      font-size: $form-control-error-font-size;
+      font-weight: $form-control-error-font-weight;
+      margin-top: 2px;
+      text-wrap: wrap;
+      width: 100%; // Ensures the text input matches the parent's width
+      box-sizing: border-box; // Includes padding and border in the total width
+    }
+  }
+}

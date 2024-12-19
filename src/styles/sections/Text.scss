@@ -1,0 +1,24 @@
+@use "../variables/Font.scss" as *;
+@use "../variables/Theme.scss" as *;
+@use "sass:map";
+
+.ui-text {
+  // Text sizes
+  @each $key, $size in $font-sizes {
+    &.text-#{$key} {
+      font-size: $size;
+    }
+  }
+  // Font weights
+  @each $key, $weight in $font-weights {
+    &.text-#{"#{$key}"} {
+      font-weight: $weight;
+    }
+  }
+  // Font colours
+  @each $style, $properties in $theme-styles {
+    &.text-#{$style} {
+      color: map.get($properties, colour-base);
+    }
+  }
+}

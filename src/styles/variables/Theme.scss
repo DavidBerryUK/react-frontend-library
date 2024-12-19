@@ -1,0 +1,207 @@
+@use "./ColourPalette.scss" as *;
+
+$theme-styles: (
+  default: (
+    // BASE COLOR
+    base-color: $slate-500,
+    base-text-color: $slate-100,
+    base-border-color: $slate-800,
+
+    // SHADE - LIGHT COLOR
+    light-color: $slate-300,
+    light-text-color: $slate-500,
+    light-border-color: $slate-400,
+
+    // SHADE - DARKER COLOR
+    dark-color: $slate-700,
+    dark-text-color: $slate-200,
+    dark-border-color: $slate-700,
+
+    // DISABLED COLORS
+    background-color-disabled: $slate-200,
+    text-color-disabled: $slate-400,
+
+    // OUTLINE SPECIFIC
+    outlined-background-color: #fff,
+    outlined-border-color: $slate-500,
+    outlined-text-color: $slate-500,
+
+    outlined-background-color-disabled: $slate-100,
+    outlined-border-color-disabled: $slate-200,
+    outlined-text-color-disabled: $slate-400,
+  ),
+  primary: (
+    // BASE COLOR
+    base-color: $purple-700,
+    base-text-color: $purple-100,
+    base-border-color: $purple-800,
+
+    // SHADE - LIGHT COLOR
+    light-color: $purple-300,
+    light-text-color: $purple-600,
+    light-border-color: $purple-400,
+
+    // SHADE - DARKER COLOR
+    dark-color: $purple-700,
+    dark-text-color: $purple-200,
+    dark-border-color: $purple-700,
+
+    // DISABLED COLORS
+    background-color-disabled: $purple-200,
+    text-color-disabled: $purple-400,
+
+    // OUTLINE SPECIFIC
+    outlined-background-color: #fff,
+    outlined-border-color: $indigo-500,
+    outlined-text-color: $indigo-500,
+
+    outlined-background-color-disabled: $slate-100,
+    outlined-border-color-disabled: $purple-200,
+    outlined-text-color-disabled: $purple-400,
+  ),
+  secondary: (
+    // BASE COLOR
+    base-color: $gray-700,
+    base-text-color: $gray-100,
+    base-border-color: $gray-800,
+
+    // SHADE - LIGHT COLOR
+    light-color: $gray-300,
+    light-text-color: $gray-500,
+    light-border-color: $gray-400,
+
+    // SHADE - DARKER COLOR
+    dark-color: $gray-700,
+    dark-text-color: $gray-200,
+    dark-border-color: $gray-700,
+
+    // DISABLED COLORS
+    background-color-disabled: $gray-200,
+    text-color-disabled: $gray-400,
+
+    // OUTLINE SPECIFIC    
+    outlined-background-color: #fff,
+    outlined-border-color: $gray-500,
+    outlined-text-color: $gray-500,
+
+    outlined-background-color-disabled: $slate-100,
+    outlined-border-color-disabled: $gray-200,
+    outlined-text-color-disabled: $gray-400,
+  ),
+  success: (
+    // BASE COLOR
+    base-color: $green-700,
+    base-text-color: $green-100,
+    base-border-color: $green-800,
+
+    // SHADE - LIGHT COLOR
+    light-color: $green-300,
+    light-text-color: $green-700,
+    light-border-color: $green-400,
+
+    // SHADE - DARKER COLOR
+    dark-color: $green-700,
+    dark-text-color: $green-200,
+    dark-border-color: $green-700,
+
+    // DISABLED COLORS
+    background-color-disabled: $green-200,
+    text-color-disabled: $green-400,
+
+    // OUTLINE SPECIFIC
+    outlined-background-color: #fff,
+    outlined-border-color: $green-500,
+    outlined-text-color: $green-500,
+
+    outlined-background-color-disabled: $slate-100,
+    outlined-border-color-disabled: $green-200,
+    outlined-text-color-disabled: $green-400,
+  ),
+  info: (
+    // BASE COLOR
+    base-color: $blue-600,
+    base-text-color: $blue-100,
+    base-border-color: $blue-800,
+
+    // SHADE - LIGHT COLOR
+    light-color: $blue-300,
+    light-text-color: $blue-600,
+    light-border-color: $blue-400,
+
+    // SHADE - DARKER COLOR
+    dark-color: $blue-700,
+    dark-text-color: $blue-200,
+    dark-border-color: $blue-700,
+
+    // DISABLED COLORS
+    background-color-disabled: $blue-200,
+    text-color-disabled: $blue-400,
+
+    // OUTLINE SPECIFIC    
+    outlined-background-color: #fff,
+    outlined-border-color: $blue-600,
+    outlined-text-color: $blue-600,
+
+    outlined-background-color-disabled: $slate-100,
+    outlined-border-color-disabled: $blue-200,
+    outlined-text-color-disabled: $blue-400,
+  ),
+  warning: (
+    // BASE COLOR
+    base-color: $yellow-700,
+    base-text-color: $yellow-100,
+    base-border-color: $yellow-800,
+
+    // SHADE - LIGHT COLOR
+    light-color: $yellow-300,
+    light-text-color: $yellow-700,
+    light-border-color: $yellow-400,
+
+    // SHADE - DARKER COLOR
+    dark-color: $yellow-700,
+    dark-text-color: $yellow-200,
+    dark-border-color: $yellow-700,
+
+    // DISABLED COLORS
+    background-color-disabled: $yellow-200,
+    text-color-disabled: $yellow-400,
+
+    // OUTLINE SPECIFIC
+    outlined-background-color: #fff,
+    outlined-border-color: $yellow-600,
+    outlined-text-color: $yellow-600,
+
+    outlined-background-color-disabled: $slate-100,
+    outlined-border-color-disabled: $yellow-200,
+    outlined-text-color-disabled: $yellow-400,
+  ),
+  danger: (
+    // BASE COLOR
+    base-color: $red-700,
+    base-text-color: $red-100,
+    base-border-color: $red-800,
+
+    // SHADE - LIGHT COLOR
+    light-color: $red-300,
+    light-text-color: $red-500,
+    light-border-color: $red-400,
+
+    // SHADE - DARKER COLOR
+    dark-color: $red-700,
+    dark-text-color: $red-200,
+    dark-border-color: $red-700,
+
+    // DISABLED COLORS
+    background-color-disabled: $red-200,
+    text-color-disabled: $red-400,
+
+    // OUTLINE SPECIFIC
+    outlined-background-color: $white,
+    outlined-border-color: $red-600,
+    outlined-text-color: $red-600,
+
+    outlined-background-color-disabled: $slate-100,
+    outlined-border-color-disabled: $red-200,
+    outlined-text-color-disabled: $red-400,
+  ),
+);

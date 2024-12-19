@@ -1,0 +1,11 @@
+{
+  "urlBookmarks": {
+    "permissionsApi": "https://localhost:8081/api/permissions/",
+    "singleSignOnLoginPage": "http://localhost:8082/login/",
+    "singleSignOnLogOutPage": "http://localhost:8082/logout/",
+    "singleSignOnApi": "https://localhost:8081/api/sso/token",
+    "singleSignOnBaseApi": "https://localhost:8081/",
+    "cvlinkBaseApi": "https://localhost:7277/api/"
+  },
+  "applicationId": 1
+}
