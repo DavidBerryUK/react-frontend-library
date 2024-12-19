@@ -10,6 +10,7 @@
   padding-right: 8px;
   font-size: 12pt;
   border-width: 0;
+  cursor: pointer;
 
   &.btn-small {
     border-radius: 4px;
@@ -38,6 +39,7 @@
       }
 
       &:disabled {
+        cursor: not-allowed;
         background-color: map.get($properties, background-color-disabled);
         color: map.get($properties, text-color-disabled);
       }
