@@ -5,7 +5,9 @@
 .ui-icon {
   width: 32px;
   height: 32px;
-  
+
+  // fill: pink;
+
   // Icon Sizes
   @each $key, $size in $icon-sizes {
     &.ic-#{$key} {
@@ -16,7 +18,7 @@
 
   @each $style, $properties in $theme-styles {
     &.ic-#{$style} {
-      color: map.get($properties, colour-base);
+      color: map.get($properties, base-color);
     }
   }
 }

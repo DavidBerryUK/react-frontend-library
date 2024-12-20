@@ -21,8 +21,8 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", margin: "30px", padding: "20px" }}>
-        <div style={{ width: "300px" }}>
+      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", margin: "40px", paddingBottom: "32px" }}>
+        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", width: "600px", minHeight: "100px", border: "solid 2px blue;" }}>
           <Story />
         </div>
       </div>

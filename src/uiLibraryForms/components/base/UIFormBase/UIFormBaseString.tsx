@@ -11,8 +11,10 @@ import UIShowIfTrue from "../../../../uiLibrary/components-ui/components/UIShowI
 import useVariantStyle from "../../../../uiLibrary/hooks/UseVariantStyle";
 import IPropColor from "../../../../uiLibrary/interfaces/properties/IPropColor";
 import classNames from "classnames";
+import IPropsTextPrefix from "../../../../uiLibrary/interfaces/properties/IPropTextPrefix";
+import IPropsTextSuffix from "../../../../uiLibrary/interfaces/properties/IPropTextSuffix";
 
-type IProperties = IPropDisabled & IPropPlaceholder & IPropValue<FieldModel> & IPropOnChange<FieldModel> & IPropClassName & IPropInputType & IPropColor;
+type IProperties = IPropDisabled & IPropPlaceholder & IPropValue<FieldModel> & IPropOnChange<FieldModel> & IPropClassName & IPropInputType & IPropColor & IPropsTextPrefix & IPropsTextSuffix;
 
 const UIFormBaseString: React.FC<IProperties> = (props) => {
   const variantClass = useVariantStyle("fc", props);
@@ -34,6 +36,8 @@ const UIFormBaseString: React.FC<IProperties> = (props) => {
     }
   };
 
+  const showPrefix = props.textPrefix !== undefined;
+  const showSuffix = props.textSuffix !== undefined;
   const showHelpMessage = !!props.value.help?.length;
   const showErrorMessage = !!props.value.error.length;
   const errorClassName = showErrorMessage ? "error" : "";
@@ -43,16 +47,23 @@ const UIFormBaseString: React.FC<IProperties> = (props) => {
   return (
     <div className={containerClassName}>
       <UIFormLabel value={props.value} />
-      <input
-        type={props.inputType}
-        id={props.value.fieldName}
-        value={props.value.value as string}
-        disabled={props.disabled}
-        className={inputClassName}
-        placeholder={props.placeholder}
-        onChange={handleOnChangeEvent}
-        autoComplete="off"
-      />
+      <div className={inputClassName}>
+        <UIShowIfTrue value={showPrefix}>
+          <div className="fc-prefix-text">{props.textPrefix}</div>
+        </UIShowIfTrue>
+        <input
+          type={props.inputType}
+          id={props.value.fieldName}
+          value={props.value.value as string}
+          disabled={props.disabled}
+          placeholder={props.placeholder}
+          onChange={handleOnChangeEvent}
+          autoComplete="off"
+        />
+        <UIShowIfTrue value={showSuffix}>
+          <div className="fc-suffix-text">{props.textSuffix}</div>
+        </UIShowIfTrue>
+      </div>
       <UIShowIfTrue value={showHelpMessage}>
         <div className="ui-fc-help">{props.value.help}</div>
       </UIShowIfTrue>

@@ -131,9 +131,6 @@ import UIIconUsers from "../UIIconUsers";
 import UIIconUserSolid from "../UIIconUserSolid";
 import UIIconUsersSolid from "../UIIconUsersSolid";
 
-const styleTitle = "text-lg font-semibold";
-const styleSize = "text-xs text-gray-500";
-
 const meta = {
   title: "UIIcons",
   component: UIIconPlusCircleSolid,
@@ -154,7 +151,7 @@ const icons = GetIcons();
 
 export const Default: React.FC = () => {
   return (
-    <div className="flex gap-4">
+    <div className="flex">
       <UIIconTickCircle />
       <UIIconTickCircleSolid />
       <UIIconCrossCircle />
@@ -166,54 +163,52 @@ export const Default: React.FC = () => {
 export const Themes: React.FC = () => {
   return (
     <div>
+      <TestGridSectionHeader title="Themes" colspan={7} />
       <TestFlexGrid columns={7}>
-        <TestGridSectionHeader title="Themes" colspan={7} />
-        <div className="contents">
-          <div>
-            <div className={styleTitle}>Default</div>
-          </div>
-          <div>
-            <div className={styleTitle}>Primary</div>
-          </div>
-          <div>
-            <div className={styleTitle}>Secondary</div>
-          </div>
-          <div>
-            <div className={styleTitle}>Success</div>
-          </div>
-          <div>
-            <div className={styleTitle}>Info</div>
-          </div>
-          <div>
-            <div className={styleTitle}>Warning</div>
-          </div>
-          <div>
-            <div className={styleTitle}>Danger</div>
-          </div>
+        <div>
+          <div className="sb-col-title">Default</div>
         </div>
+        <div>
+          <div className="sb-col-title">Primary</div>
+        </div>
+        <div>
+          <div className="sb-col-title">Secondary</div>
+        </div>
+        <div>
+          <div className="sb-col-title">Success</div>
+        </div>
+        <div>
+          <div className="sb-col-title">Info</div>
+        </div>
+        <div>
+          <div className="sb-col-title">Warning</div>
+        </div>
+        <div>
+          <div className="sb-col-title">Danger</div>
+        </div>
+      </TestFlexGrid>
 
-        <div className="contents">
-          <div>
-            <UIIconTickCircle default />
-          </div>
-          <div>
-            <UIIconTickCircle primary />
-          </div>
-          <div>
-            <UIIconTickCircle secondary />
-          </div>
-          <div>
-            <UIIconTickCircle success />
-          </div>
-          <div>
-            <UIIconTickCircle info />
-          </div>
-          <div>
-            <UIIconTickCircle warning />
-          </div>
-          <div>
-            <UIIconTickCircle danger />
-          </div>
+      <TestFlexGrid columns={7}>
+        <div>
+          <UIIconTickCircle default />
+        </div>
+        <div>
+          <UIIconTickCircle primary />
+        </div>
+        <div>
+          <UIIconTickCircle secondary />
+        </div>
+        <div>
+          <UIIconTickCircle success />
+        </div>
+        <div>
+          <UIIconTickCircle info />
+        </div>
+        <div>
+          <UIIconTickCircle warning />
+        </div>
+        <div>
+          <UIIconTickCircle danger />
         </div>
       </TestFlexGrid>
     </div>
@@ -223,61 +218,59 @@ export const Themes: React.FC = () => {
 export const Sizes: React.FC = () => {
   return (
     <div>
+      <TestGridSectionHeader title="Sizes" colspan={7} />
       <TestFlexGrid columns={7}>
-        <TestGridSectionHeader title="Sizes" colspan={7} />
-        <div className="contents">
-          <div>
-            <div className={styleTitle}>Extra Small</div>
-            <div className={styleSize}>(12px)</div>
-          </div>
-          <div>
-            <div className={styleTitle}>Small</div>
-            <div className={styleSize}>(16px)</div>
-          </div>
-          <div>
-            <div className={styleTitle}>Smaller</div>
-            <div className={styleSize}>(28px)</div>
-          </div>
-          <div>
-            <div className={styleTitle}>Regular</div>
-            <div className={styleSize}>(32px)</div>
-          </div>
-          <div>
-            <div className={styleTitle}>Larger</div>
-            <div className={styleSize}>(40px)</div>
-          </div>
-          <div>
-            <div className={styleTitle}>Large</div>
-            <div className={styleSize}>(48px)</div>
-          </div>
-          <div>
-            <div className={styleTitle}>Extra Large</div>
-            <div className={styleSize}>(64px)</div>
-          </div>
+        <div>
+          <div className="sb-col-title">Extra Small</div>
+          <div className="{styleSize}">(12px)</div>
         </div>
+        <div>
+          <div className="sb-col-title">Small</div>
+          <div className="{styleSize}">(16px)</div>
+        </div>
+        <div>
+          <div className="sb-col-title">Smaller</div>
+          <div className="{styleSize}">(28px)</div>
+        </div>
+        <div>
+          <div className="sb-col-title">Regular</div>
+          <div className="{styleSize}">(32px)</div>
+        </div>
+        <div>
+          <div className="sb-col-title">Larger</div>
+          <div className="{styleSize}">(40px)</div>
+        </div>
+        <div>
+          <div className="sb-col-title">Large</div>
+          <div className="{styleSize}">(48px)</div>
+        </div>
+        <div>
+          <div className="sb-col-title">Extra Large</div>
+          <div className="{styleSize}">(64px)</div>
+        </div>
+      </TestFlexGrid>
 
-        <div className="contents">
-          <div>
-            <UIIconStarSolid extraSmall color="#55efc4" />
-          </div>
-          <div>
-            <UIIconStarSolid small color="#a29bfe" />
-          </div>
-          <div>
-            <UIIconStarSolid smaller color="#b2bec3" />
-          </div>
-          <div>
-            <UIIconStarSolid regular color="#fdcb6e" />
-          </div>
-          <div>
-            <UIIconStarSolid larger color="#d63031" />
-          </div>
-          <div>
-            <UIIconStarSolid large color="#0984e3" />
-          </div>
-          <div>
-            <UIIconStarSolid extraLarge color="#00b894" />
-          </div>
+      <TestFlexGrid columns={7}>
+        <div>
+          <UIIconStarSolid extraSmall color="#55efc4" />
+        </div>
+        <div>
+          <UIIconStarSolid small color="#a29bfe" />
+        </div>
+        <div>
+          <UIIconStarSolid smaller color="#b2bec3" />
+        </div>
+        <div>
+          <UIIconStarSolid regular color="#fdcb6e" />
+        </div>
+        <div>
+          <UIIconStarSolid larger color="#d63031" />
+        </div>
+        <div>
+          <UIIconStarSolid large color="#0984e3" />
+        </div>
+        <div>
+          <UIIconStarSolid extraLarge color="#00b894" />
         </div>
       </TestFlexGrid>
     </div>
@@ -286,12 +279,12 @@ export const Sizes: React.FC = () => {
 
 export const Coloured: React.FC = () => {
   return (
-    <div className="flex gap-4">
+    <TestFlexGrid columns={4}>
       <UIIconTickCircle color="red" />
       <UIIconTickCircleSolid color="green" />
       <UIIconCrossCircle color="#0984e3" />
       <UIIconTickCircleSolid color="#fab1a0" />
-    </div>
+    </TestFlexGrid>
   );
 };
 
@@ -299,21 +292,21 @@ export const ColouredIconsGallery: StoryObj = {
   render: () => {
     const colours = getColours();
     return (
-      <div className="flex flex-wrap justify-around">
-        <div className="mt-5 inline-grid grid-cols-5 gap-5">
+      <div style={{ display: "flex", justifyContent: "space-around" }}>
+        <TestFlexGrid columns={5}>
           {colours.map((colour) => (
             <div key={colour} className="h-10 w-10">
               <UIIconAlertCrossCircleSolid color={colour} />
             </div>
           ))}
-        </div>
-        <div className="mt-5 inline-grid grid-cols-5 gap-5">
+        </TestFlexGrid>
+        <TestFlexGrid columns={5}>
           {colours.map((colour) => (
             <div key={colour} className="h-10 w-10">
               <UIIconTickCircle color={colour} />
             </div>
           ))}
-        </div>
+        </TestFlexGrid>
       </div>
     );
   },
@@ -358,36 +351,23 @@ export const Gallery: StoryObj = {
     };
 
     return (
-      <div>
-        <div className="mb-2 flex flex-wrap justify-between gap-2">
-          <div className="mb-2 flex flex-wrap justify-between gap-2">
-            <UISegment options={colourOptions} selected={selectedColour} onChange={handleColourSelectedEvent} />
-            <UISegment options={shadeOptions} selected={selectedShade} onChange={handleShadeSelectedEvent} />
-          </div>
+      <div className="sb-icon-gallery">
+        <div className="sb-icon-toolbar">
+          <UISegment options={colourOptions} selected={selectedColour} onChange={handleColourSelectedEvent} />
+          <UISegment options={shadeOptions} selected={selectedShade} onChange={handleShadeSelectedEvent} />
           <UISegment options={sizeOptions} selected={selectedSize} onChange={handleSizeSelectedEvent} />
+          <input type="text" value={searchTerm} onChange={handleSearchChange} placeholder="Search icons..." />
         </div>
-        <div className="lr-4 mb-4">
-          <input
-            type="text"
-            value={searchTerm}
-            onChange={handleSearchChange}
-            placeholder="Search icons..."
-            className="w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-        <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5">
+
+        <div className="sb-icon-grid">
           {filteredIcons.map(({ name, component }, index) => {
             const styledComponent = React.cloneElement(component, iconProp);
 
             return (
-              <div key={index} className="group relative w-40">
-                <div className="absolute -top-3 left-1/2 z-10 -translate-x-1/2 transform rounded-md bg-gray-700 px-2 py-1 text-xs text-white opacity-0 shadow-md transition-opacity duration-300 group-hover:opacity-100">
-                  {`<${name}/>`}
-                </div>
-                <div className="flex flex-col justify-center rounded-md border border-gray-300 pb-1 pt-1">
-                  <div className="flex justify-center pb-1 pt-1">{styledComponent}</div>
-                  <div className="text-center text-sm text-gray-400">{FriendlyName(name)}</div>
-                </div>
+              <div key={index} className="sb-icon-cell">
+                <div className="popup-message">{`<${name}/>`}</div>
+                <div className="flex justify-center pb-1 pt-1">{styledComponent}</div>
+                <div className="sb-icon-title">{FriendlyName(name)}</div>
               </div>
             );
           })}
@@ -396,6 +376,7 @@ export const Gallery: StoryObj = {
     );
   },
 };
+
 function convertOptionsToProps(colourOption: OptionModel, sizeOption: OptionModel): IIconProps {
   var prop: IIconProps = {};
 

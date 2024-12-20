@@ -1,12 +1,12 @@
 import type { Meta } from "@storybook/react";
-import UIFormNumber from "../UIFormNumber";
+import UIFormCurrency from "../UIFormCurrency";
 import FieldModel from "../../../models/fields/FieldModel";
 import EnumFieldDataType from "../../../enums/EnumFieldDataType";
 import React, { useState } from "react";
 
 const meta = {
-  title: "Form/UIFormNumber",
-  component: UIFormNumber,
+  title: "Form/UIFormCurrency",
+  component: UIFormCurrency,
   parameters: {
     layout: "",
     docs: {
@@ -25,20 +25,20 @@ const meta = {
     ),
   ],
   tags: ["autodocs"],
-} satisfies Meta<typeof UIFormNumber>;
+} satisfies Meta<typeof UIFormCurrency>;
 
 export default meta;
 
 export const Interactive: React.FC = () => {
-  const [quantity, setQuantity] = useState<FieldModel>(FieldModel.create("qty", "Quantity", EnumFieldDataType.number, ""));
+  const [currency, setCurrency] = useState<FieldModel>(FieldModel.create("price", "Price", EnumFieldDataType.number, ""));
 
   const handleOnValueChangedEvent = (value: FieldModel) => {
-    setQuantity(value);
+    setCurrency(value);
   };
 
   return (
     <div className="ui-form">
-      <UIFormNumber value={quantity} onChange={handleOnValueChangedEvent} />
+      <UIFormCurrency value={currency} onChange={handleOnValueChangedEvent} />
     </div>
   );
 };

@@ -1,12 +1,12 @@
 import type { Meta } from "@storybook/react";
-import UIFormNumber from "../UIFormNumber";
+import UIFormPercent from "../UIFormPercent";
 import FieldModel from "../../../models/fields/FieldModel";
 import EnumFieldDataType from "../../../enums/EnumFieldDataType";
 import React, { useState } from "react";
 
 const meta = {
-  title: "Form/UIFormNumber",
-  component: UIFormNumber,
+  title: "Form/UIFormPercent",
+  component: UIFormPercent,
   parameters: {
     layout: "",
     docs: {
@@ -25,20 +25,20 @@ const meta = {
     ),
   ],
   tags: ["autodocs"],
-} satisfies Meta<typeof UIFormNumber>;
+} satisfies Meta<typeof UIFormPercent>;
 
 export default meta;
 
 export const Interactive: React.FC = () => {
-  const [quantity, setQuantity] = useState<FieldModel>(FieldModel.create("qty", "Quantity", EnumFieldDataType.number, ""));
+  const [percent, setPercent] = useState<FieldModel>(FieldModel.create("discount", "Percent Discount", EnumFieldDataType.number, ""));
 
   const handleOnValueChangedEvent = (value: FieldModel) => {
-    setQuantity(value);
+    setPercent(value);
   };
 
   return (
     <div className="ui-form">
-      <UIFormNumber value={quantity} onChange={handleOnValueChangedEvent} />
+      <UIFormPercent value={percent} onChange={handleOnValueChangedEvent} />
     </div>
   );
 };

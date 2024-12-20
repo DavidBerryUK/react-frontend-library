@@ -6,6 +6,7 @@ import RuleMandatory from "../../../validation/rules/RuleMandatory";
 import RuleMaxLength from "../../../validation/rules/RuleMaxLength";
 import type { Meta, StoryObj } from "@storybook/react";
 import UIFormText from "../UIFormText";
+import TestFlexGrid from "../../../../uiLibrary/storybook/TestFlexGrid";
 
 const meta: Meta<typeof UIFormText> = {
   title: "Form/UIFormText",
@@ -20,8 +21,8 @@ const meta: Meta<typeof UIFormText> = {
   },
   decorators: [
     (Story) => (
-      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", margin: "40px" }}>
-        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", width: "600px", height: "100px", border: "solid 2px blue;" }}>
+      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", margin: "40px", paddingBottom: "32px" }}>
+        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", width: "600px", minHeight: "100px", border: "solid 2px blue;" }}>
           <Story />
         </div>
       </div>
@@ -108,13 +109,15 @@ export const ColorGallery: Story = {
 
     return (
       <div className="ui-form">
-        <UIFormText default value={text} onChange={handleOnChangedEvent} />
-        <UIFormText primary value={text} onChange={handleOnChangedEvent} />
-        <UIFormText secondary value={text} onChange={handleOnChangedEvent} />
-        <UIFormText success value={text} onChange={handleOnChangedEvent} />
-        <UIFormText info value={text} onChange={handleOnChangedEvent} />
-        <UIFormText warning value={text} onChange={handleOnChangedEvent} />
-        <UIFormText danger value={text} onChange={handleOnChangedEvent} />
+        <TestFlexGrid columns={3}>
+          <UIFormText default value={text} onChange={handleOnChangedEvent} />
+          <UIFormText primary value={text} onChange={handleOnChangedEvent} />
+          <UIFormText secondary value={text} onChange={handleOnChangedEvent} />
+          <UIFormText success value={text} onChange={handleOnChangedEvent} />
+          <UIFormText info value={text} onChange={handleOnChangedEvent} />
+          <UIFormText warning value={text} onChange={handleOnChangedEvent} />
+          <UIFormText danger value={text} onChange={handleOnChangedEvent} />
+        </TestFlexGrid>
       </div>
     );
   },

@@ -22,6 +22,10 @@ $form-control-error-font-weight: 600;
 // but by placing the class 'form-inline', the labels will appear
 // to the left of the control
 
+//
+// .fc-prefix-text
+// .fc-suffix-text
+
 .ui-form {
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
@@ -43,14 +47,12 @@ $form-control-error-font-weight: 600;
 
     // input control
     .ui-fc-text {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-stretch;
       border: solid $form-control-border-width black;
       height: 36px;
       border-radius: $form-control-border-radius;
-
-      padding-left: 8px;
-      padding-right: 6px;
-      font-size: $form-control-font-size;
-      font-weight: $form-control-font-weight;
       width: 100%;
       box-sizing: border-box; // Includes padding and border in the total width
 
@@ -58,11 +60,42 @@ $form-control-error-font-weight: 600;
         &.fc-#{$style} {
           border-color: map.get($properties, light-border-color);
 
-          &:focus {
-            outline: 4px solid lighten(map.get($properties, light-border-color), 15);
-            outline-offset: -1px;
+          input {
+            border-radius: $form-control-border-radius;
+            font-size: $form-control-font-size;
+            font-weight: $form-control-font-weight;
+
+            &:focus {
+              outline: 8px solid rgba(map.get($properties, light-border-color), 0.6); // Set opacity to 80%
+              outline-offset: 4px;
+            }
+          }
+
+          .fc-prefix-text,
+          .fc-suffix-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            background: map.get($properties, light-color);
+            color: map.get($properties, light-text-color);
+            z-index: -1;
+          }
+
+          .fc-prefix-text {
+            border-right: 1px solid map.get($properties, light-border-color);
+          }
+          .fc-suffix-text {
+            border-left: 1px solid map.get($properties, light-border-color);
           }
         }
+      }
+
+      input {
+        flex-grow: 1;
+        padding-left: 8px;
+        padding-right: 6px;
+        border: none;
       }
     }
 
