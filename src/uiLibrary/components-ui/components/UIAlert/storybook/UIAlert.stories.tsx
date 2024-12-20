@@ -37,26 +37,24 @@ const Gallery: React.FC<IGallery> = (props) => {
   return (
     <>
       <TestGridSectionHeader title={props.variantTitle} colspan={4} />
-      <div className="contents">
-        <UIAlert {...props} default>
-          {props.variantTitle} Alert
-        </UIAlert>
-        <UIAlert {...props} bordered>
-          {props.variantTitle} Alert with Border
-        </UIAlert>
-        <UIAlert {...props} borderedLeft>
-          {props.variantTitle} Alert with Border Accent
-        </UIAlert>
-        <UIAlert {...props} borderedRight>
-          {props.variantTitle} Alert with Left Border Accent
-        </UIAlert>
-        <UIAlert {...props} borderedTop>
-          {props.variantTitle} Alert with Border Accent
-        </UIAlert>
-        <UIAlert {...props} borderedBottom>
-          {props.variantTitle} Alert with Left Border Accent
-        </UIAlert>
-      </div>
+      <UIAlert {...props} default>
+        {props.variantTitle} Alert
+      </UIAlert>
+      <UIAlert {...props} bordered>
+        {props.variantTitle} Alert with Border
+      </UIAlert>
+      <UIAlert {...props} borderedLeft>
+        {props.variantTitle} Alert with Border Accent
+      </UIAlert>
+      <UIAlert {...props} borderedRight>
+        {props.variantTitle} Alert with Left Border Accent
+      </UIAlert>
+      <UIAlert {...props} borderedTop>
+        {props.variantTitle} Alert with Border Accent
+      </UIAlert>
+      <UIAlert {...props} borderedBottom>
+        {props.variantTitle} Alert with Left Border Accent
+      </UIAlert>
     </>
   );
 };

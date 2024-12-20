@@ -18,7 +18,7 @@
   // Font colours
   @each $style, $properties in $theme-styles {
     &.text-#{$style} {
-      color: map.get($properties, colour-base);
+      color: map.get($properties, base-color);
     }
   }
 }

@@ -1,5 +1,6 @@
 @use "sass:map";
 
+@forward "./sections/Accessability";
 @forward "./sections/Alert.scss";
 @forward "./sections/Buttons.scss";
 @forward "./sections/DefaultTable.scss";

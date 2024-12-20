@@ -22,6 +22,7 @@
 .sb-flex-grid {
   display: grid;
   gap: 4px;
+  margin-bottom: 32px;
 
   > * {
     display: flex; // Make each cell a flex container

@@ -12,12 +12,7 @@ const meta = {
     layout: "centered",
     docs: {
       description: {
-        component:
-          "Application button,<br/> <b>under development</b>" +
-          "<ul>" +
-          "<li>Disabled outline buttons need to be styled</li>" +
-          "<li>Consider standards widths</li>" +
-          "</ul>",
+        component: "Application button,<br/> <b>under development</b>" + "<ul>" + "<li>Disabled outline buttons need to be styled</li>" + "<li>Consider standards widths</li>" + "</ul>",
       },
     },
   },
@@ -45,89 +40,83 @@ export const Gallery: React.FC = () => {
     <div>
       <TestFlexGrid columns={7}>
         <TestGridSectionHeader title="Standard" colspan={7} />
-        <div className="contents">
-          <UIButton default text="Default" onClick={handleOnClickEvent} />
-          <UIButton primary text="Primary" onClick={handleOnClickEvent} />
-          <UIButton secondary text="Secondary" onClick={handleOnClickEvent} />
-          <UIButton success text="Success" onClick={handleOnClickEvent} />
-          <UIButton info text="Info" onClick={handleOnClickEvent} />
-          <UIButton warning text="Warning" onClick={handleOnClickEvent} />
-          <UIButton danger text="Danger" onClick={handleOnClickEvent} />
-        </div>
+        <UIButton default text="Default" onClick={handleOnClickEvent} />
+        <UIButton primary text="Primary" onClick={handleOnClickEvent} />
+        <UIButton secondary text="Secondary" onClick={handleOnClickEvent} />
+        <UIButton success text="Success" onClick={handleOnClickEvent} />
+        <UIButton info text="Info" onClick={handleOnClickEvent} />
+        <UIButton warning text="Warning" onClick={handleOnClickEvent} />
+        <UIButton danger text="Danger" onClick={handleOnClickEvent} />
+      </TestFlexGrid>
+      <TestFlexGrid columns={7}>
         <TestGridSectionHeader title="Disabled" colspan={7} />
-        <div className="contents">
-          <UIButton disabled default text="Default" onClick={handleOnClickEvent} />
-          <UIButton disabled primary text="Primary" onClick={handleOnClickEvent} />
-          <UIButton disabled secondary text="Secondary" onClick={handleOnClickEvent} />
-          <UIButton disabled success text="Success" onClick={handleOnClickEvent} />
-          <UIButton disabled info text="Info" onClick={handleOnClickEvent} />
-          <UIButton disabled warning text="Warning" onClick={handleOnClickEvent} />
-          <UIButton disabled danger text="Danger" onClick={handleOnClickEvent} />
-        </div>
+        <UIButton disabled default text="Default" onClick={handleOnClickEvent} />
+        <UIButton disabled primary text="Primary" onClick={handleOnClickEvent} />
+        <UIButton disabled secondary text="Secondary" onClick={handleOnClickEvent} />
+        <UIButton disabled success text="Success" onClick={handleOnClickEvent} />
+        <UIButton disabled info text="Info" onClick={handleOnClickEvent} />
+        <UIButton disabled warning text="Warning" onClick={handleOnClickEvent} />
+        <UIButton disabled danger text="Danger" onClick={handleOnClickEvent} />
+      </TestFlexGrid>
+      <TestFlexGrid columns={7}>
         <TestGridSectionHeader title="Outlined" colspan={7} />
-        <div className="contents">
-          <UIButton outlined default text="Default" onClick={handleOnClickEvent} />
-          <UIButton outlined primary text="Primary" onClick={handleOnClickEvent} />
-          <UIButton outlined secondary text="Secondary" onClick={handleOnClickEvent} />
-          <UIButton outlined success text="Success" onClick={handleOnClickEvent} />
-          <UIButton outlined info text="Info" onClick={handleOnClickEvent} />
-          <UIButton outlined warning text="Warning" onClick={handleOnClickEvent} />
-          <UIButton outlined danger text="Danger" onClick={handleOnClickEvent} />
-        </div>
+        <UIButton outlined default text="Default" onClick={handleOnClickEvent} />
+        <UIButton outlined primary text="Primary" onClick={handleOnClickEvent} />
+        <UIButton outlined secondary text="Secondary" onClick={handleOnClickEvent} />
+        <UIButton outlined success text="Success" onClick={handleOnClickEvent} />
+        <UIButton outlined info text="Info" onClick={handleOnClickEvent} />
+        <UIButton outlined warning text="Warning" onClick={handleOnClickEvent} />
+        <UIButton outlined danger text="Danger" onClick={handleOnClickEvent} />
+      </TestFlexGrid>
+      <TestFlexGrid columns={7}>
         <TestGridSectionHeader title="Outlined Disabled" colspan={7} />
-        <div className="contents">
-          <UIButton disabled outlined default text="Default" onClick={handleOnClickEvent} />
-          <UIButton disabled outlined primary text="Primary" onClick={handleOnClickEvent} />
-          <UIButton disabled outlined secondary text="Secondary" onClick={handleOnClickEvent} />
-          <UIButton disabled outlined success text="Success" onClick={handleOnClickEvent} />
-          <UIButton disabled outlined info text="Info" onClick={handleOnClickEvent} />
-          <UIButton disabled outlined warning text="Warning" onClick={handleOnClickEvent} />
-          <UIButton disabled outlined danger text="Danger" onClick={handleOnClickEvent} />
-        </div>
-
+        <UIButton disabled outlined default text="Default" onClick={handleOnClickEvent} />
+        <UIButton disabled outlined primary text="Primary" onClick={handleOnClickEvent} />
+        <UIButton disabled outlined secondary text="Secondary" onClick={handleOnClickEvent} />
+        <UIButton disabled outlined success text="Success" onClick={handleOnClickEvent} />
+        <UIButton disabled outlined info text="Info" onClick={handleOnClickEvent} />
+        <UIButton disabled outlined warning text="Warning" onClick={handleOnClickEvent} />
+        <UIButton disabled outlined danger text="Danger" onClick={handleOnClickEvent} />
+      </TestFlexGrid>
+      <TestFlexGrid columns={7}>
         <TestGridSectionHeader title="Small" colspan={7} />
-        <div className="contents">
-          <UIButton small default text="Default" onClick={handleOnClickEvent} />
-          <UIButton small primary text="Primary" onClick={handleOnClickEvent} />
-          <UIButton small secondary text="Secondary" onClick={handleOnClickEvent} />
-          <UIButton small success text="Success" onClick={handleOnClickEvent} />
-          <UIButton small info text="Info" onClick={handleOnClickEvent} />
-          <UIButton small warning text="Warning" onClick={handleOnClickEvent} />
-          <UIButton small danger text="Danger" onClick={handleOnClickEvent} />
-        </div>
-
+        <UIButton small default text="Default" onClick={handleOnClickEvent} />
+        <UIButton small primary text="Primary" onClick={handleOnClickEvent} />
+        <UIButton small secondary text="Secondary" onClick={handleOnClickEvent} />
+        <UIButton small success text="Success" onClick={handleOnClickEvent} />
+        <UIButton small info text="Info" onClick={handleOnClickEvent} />
+        <UIButton small warning text="Warning" onClick={handleOnClickEvent} />
+        <UIButton small danger text="Danger" onClick={handleOnClickEvent} />
+      </TestFlexGrid>
+      <TestFlexGrid columns={7}>
         <TestGridSectionHeader title="Large" colspan={7} />
-        <div className="contents">
-          <UIButton large default text="large" onClick={handleOnClickEvent} />
-          <UIButton large primary text="large" onClick={handleOnClickEvent} />
-          <UIButton large secondary text="large" onClick={handleOnClickEvent} />
-          <UIButton large success text="large" onClick={handleOnClickEvent} />
-          <UIButton large info text="large" onClick={handleOnClickEvent} />
-          <UIButton large warning text="large" onClick={handleOnClickEvent} />
-          <UIButton large danger text="large" onClick={handleOnClickEvent} />
-        </div>
-
+        <UIButton large default text="large" onClick={handleOnClickEvent} />
+        <UIButton large primary text="large" onClick={handleOnClickEvent} />
+        <UIButton large secondary text="large" onClick={handleOnClickEvent} />
+        <UIButton large success text="large" onClick={handleOnClickEvent} />
+        <UIButton large info text="large" onClick={handleOnClickEvent} />
+        <UIButton large warning text="large" onClick={handleOnClickEvent} />
+        <UIButton large danger text="large" onClick={handleOnClickEvent} />
+      </TestFlexGrid>
+      <TestFlexGrid columns={7}>
         <TestGridSectionHeader title="Small Outlined" colspan={7} />
-        <div className="contents">
-          <UIButton outlined small default text="Default" onClick={handleOnClickEvent} />
-          <UIButton outlined small primary text="Primary" onClick={handleOnClickEvent} />
-          <UIButton outlined small secondary text="Secondary" onClick={handleOnClickEvent} />
-          <UIButton outlined small success text="Success" onClick={handleOnClickEvent} />
-          <UIButton outlined small info text="Info" onClick={handleOnClickEvent} />
-          <UIButton outlined small warning text="Warning" onClick={handleOnClickEvent} />
-          <UIButton outlined small danger text="Danger" onClick={handleOnClickEvent} />
-        </div>
-
+        <UIButton outlined small default text="Default" onClick={handleOnClickEvent} />
+        <UIButton outlined small primary text="Primary" onClick={handleOnClickEvent} />
+        <UIButton outlined small secondary text="Secondary" onClick={handleOnClickEvent} />
+        <UIButton outlined small success text="Success" onClick={handleOnClickEvent} />
+        <UIButton outlined small info text="Info" onClick={handleOnClickEvent} />
+        <UIButton outlined small warning text="Warning" onClick={handleOnClickEvent} />
+        <UIButton outlined small danger text="Danger" onClick={handleOnClickEvent} />
+      </TestFlexGrid>
+      <TestFlexGrid columns={7}>
         <TestGridSectionHeader title="Large Outlined" colspan={7} />
-        <div className="contents">
-          <UIButton outlined large default text="large" onClick={handleOnClickEvent} />
-          <UIButton outlined large primary text="large" onClick={handleOnClickEvent} />
-          <UIButton outlined large secondary text="large" onClick={handleOnClickEvent} />
-          <UIButton outlined large success text="large" onClick={handleOnClickEvent} />
-          <UIButton outlined large info text="large" onClick={handleOnClickEvent} />
-          <UIButton outlined large warning text="large" onClick={handleOnClickEvent} />
-          <UIButton outlined large danger text="large" onClick={handleOnClickEvent} />
-        </div>
+        <UIButton outlined large default text="large" onClick={handleOnClickEvent} />
+        <UIButton outlined large primary text="large" onClick={handleOnClickEvent} />
+        <UIButton outlined large secondary text="large" onClick={handleOnClickEvent} />
+        <UIButton outlined large success text="large" onClick={handleOnClickEvent} />
+        <UIButton outlined large info text="large" onClick={handleOnClickEvent} />
+        <UIButton outlined large warning text="large" onClick={handleOnClickEvent} />
+        <UIButton outlined large danger text="large" onClick={handleOnClickEvent} />
       </TestFlexGrid>
     </div>
   );

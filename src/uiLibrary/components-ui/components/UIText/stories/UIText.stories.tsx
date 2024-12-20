@@ -29,49 +29,44 @@ export const Gallery: React.FC = () => {
     <div>
       <TestFlexGrid columns={7}>
         <TestGridSectionHeader title="Colours" colspan={7} />
-        <div className="contents">
-          <UIText default>Default</UIText>
-          <UIText primary>Primary</UIText>
-          <UIText secondary>Secondary</UIText>
-          <UIText success>Success</UIText>
-          <UIText info>Information</UIText>
-          <UIText warning>Warning</UIText>
-          <UIText danger>Danger</UIText>
-        </div>
+        <UIText default>Default</UIText>
+        <UIText primary>Primary</UIText>
+        <UIText secondary>Secondary</UIText>
+        <UIText success>Success</UIText>
+        <UIText info>Information</UIText>
+        <UIText warning>Warning</UIText>
+        <UIText danger>Danger</UIText>
       </TestFlexGrid>
+
       <TestFlexGrid columns={5}>
         <TestGridSectionHeader title="Styles" colspan={5} />
-        <div className="contents">
-          <UIText heading>Heading</UIText>
-          <UIText subHeading>Sub Heading</UIText>
-          <UIText body>Body</UIText>
-          <UIText caption>Caption</UIText>
-          <UIText smallCaption>Small Caption</UIText>
-        </div>
+        <UIText heading>Heading</UIText>
+        <UIText subHeading>Sub Heading</UIText>
+        <UIText body>Body</UIText>
+        <UIText caption>Caption</UIText>
+        <UIText smallCaption>Small Caption</UIText>
       </TestFlexGrid>
+
       <TestFlexGrid columns={8}>
         <TestGridSectionHeader title="Weights" colspan={8} />
-        <div className="contents">
-          <UIText thin>Thin</UIText>
-          <UIText extraLight>Extra-Light</UIText>
-          <UIText light>Light</UIText>
-          <UIText medium>Medium</UIText>
-          <UIText semiBold>Semi-Bold</UIText>
-          <UIText bold>Bold</UIText>
-          <UIText extraBold>Extra-Bold</UIText>
-          <UIText ultraBold>Ultra-Bold</UIText>
-        </div>
+        <UIText thin>Thin</UIText>
+        <UIText extraLight>Extra-Light</UIText>
+        <UIText light>Light</UIText>
+        <UIText medium>Medium</UIText>
+        <UIText semiBold>Semi-Bold</UIText>
+        <UIText bold>Bold</UIText>
+        <UIText extraBold>Extra-Bold</UIText>
+        <UIText ultraBold>Ultra-Bold</UIText>
       </TestFlexGrid>
+
       <TestFlexGrid columns={5}>
         <TestGridSectionHeader title="Sizes" colspan={6} />
-        <div className="contents">
-          <UIText small>Small</UIText>
-          <UIText smaller>Smaller</UIText>
-          <UIText>Regular</UIText>
-          <UIText larger>Larger</UIText>
-          <UIText large>Large</UIText>
-          <UIText extraLarge>Extra Large</UIText>
-        </div>
+        <UIText small>Small</UIText>
+        <UIText smaller>Smaller</UIText>
+        <UIText>Regular</UIText>
+        <UIText larger>Larger</UIText>
+        <UIText large>Large</UIText>
+        <UIText extraLarge>Extra Large</UIText>
       </TestFlexGrid>
     </div>
   );

@@ -33,37 +33,34 @@ export const Gallery: React.FC = () => {
     <div>
       <TestFlexGrid columns={7}>
         <TestGridSectionHeader title="Colour Variants" colspan={7} />
-        <div className="contents">
-          <div>Default</div>
-          <div>Primary</div>
-          <div>Secondary</div>
-          <div>Success</div>
-          <div>Info</div>
-          <div>Warning</div>
-          <div>Danger</div>
-        </div>
-        <div className="contents">
-          <UISpinner default />
-          <UISpinner primary />
-          <UISpinner secondary />
-          <UISpinner success />
-          <UISpinner info />
-          <UISpinner warning />
-          <UISpinner danger />
-        </div>
+
+        <div>Default</div>
+        <div>Primary</div>
+        <div>Secondary</div>
+        <div>Success</div>
+        <div>Info</div>
+        <div>Warning</div>
+        <div>Danger</div>
+      </TestFlexGrid>
+      <TestFlexGrid columns={7}>
+        <UISpinner default />
+        <UISpinner primary />
+        <UISpinner secondary />
+        <UISpinner success />
+        <UISpinner info />
+        <UISpinner warning />
+        <UISpinner danger />
       </TestFlexGrid>
       <TestFlexGrid columns={3}>
         <TestGridSectionHeader title="Size Variants" colspan={3} />
-        <div className="contents">
-          <div>Small</div>
-          <div>Regular (default)</div>
-          <div>Large</div>
-        </div>
-        <div className="contents">
-          <UISpinner default small />
-          <UISpinner default />
-          <UISpinner default large />
-        </div>
+        <div>Small</div>
+        <div>Regular (default)</div>
+        <div>Large</div>
+      </TestFlexGrid>
+      <TestFlexGrid columns={3}>
+        <UISpinner default small />
+        <UISpinner default />
+        <UISpinner default large />
       </TestFlexGrid>
     </div>
   );
