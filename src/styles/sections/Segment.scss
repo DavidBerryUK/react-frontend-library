@@ -1,0 +1,53 @@
+@use "../variables/Theme.scss" as *;
+@use "sass:map";
+
+.ui-segment {
+  display: inline-flex;
+  border-radius: 0.5rem;
+
+  @each $style, $properties in $theme-styles {
+    &.sg-#{$style} {
+      .ui-segment-button {
+        border-color: map.get($properties, base-color);
+
+        &.selected {
+          background-color: map.get($properties, base-color);
+          color: map.get($properties, base-text-color);
+        }
+      }
+    }
+  }
+
+  .ui-segment-button {
+    margin-inline-start: -1px;
+    display: inline-flex;
+    align-items: center;
+    border-style: solid;
+    border-width: 1px;
+    background-color: #ffffff;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+
+    &:first-child {
+      margin-inline-start: 0;
+      border-start-start-radius: 0.5rem;
+      border-end-start-radius: 0.5rem;
+    }
+
+    &:last-child {
+      border-start-end-radius: 0.5rem;
+      border-end-end-radius: 0.5rem;
+    }
+
+    &:hover {
+      background-color: #f9fafb;
+    }
+
+    &:focus {
+      z-index: 10;
+      background-color: #f9fafb;
+      outline: none;
+    }
+  }
+}

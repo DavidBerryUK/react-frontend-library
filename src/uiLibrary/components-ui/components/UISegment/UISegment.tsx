@@ -1,11 +1,11 @@
-import FactoryThemeVariants from "../../styles/factories/FactoryThemeVariants";
 import IPropColor from "../../interfaces/properties/IPropColor";
 import IPropDisabled from "../../interfaces/properties/IPropDisabled";
+import IPropOnChange from "../../interfaces/properties/IPropOnChange";
 import OptionModel from "./models/OptionModel";
 import React from "react";
-
-import IPropOnChange from "../../interfaces/properties/IPropOnChange";
 import UISegmentButton from "./UISegmentButton";
+import useVariantStyle from "../../../hooks/UseVariantStyle";
+import classNames from "classnames";
 
 interface IOptions {
   options: Array<OptionModel>;
@@ -19,8 +19,8 @@ type IProperties = IPropColor & IPropDisabled & IPropOnChange<OptionModel> & IOp
  * @returns
  */
 const UISegment: React.FC<IProperties> = (props) => {
-  const variant = FactoryThemeVariants.getColorModel(props);
-  const buttonStyle = props.disabled ? variant.button.standardDisabled : variant.button.standard;
+  const variantClassName = useVariantStyle("sg", props);
+  const className = classNames("ui-segment", variantClassName);
 
   const handleOnButtonClickEvent = (value: OptionModel) => {
     if (props.onChange) {
@@ -29,9 +29,9 @@ const UISegment: React.FC<IProperties> = (props) => {
   };
 
   return (
-    <div className="inline-flex rounded-lg">
+    <div className={className}>
       {props.options.map((option) => (
-        <UISegmentButton option={option} selected={props.selected} className={buttonStyle} onClick={handleOnButtonClickEvent} />
+        <UISegmentButton option={option} selected={props.selected} onClick={handleOnButtonClickEvent} />
       ))}
     </div>
   );

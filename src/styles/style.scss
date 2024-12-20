@@ -4,16 +4,17 @@
 @forward "./sections/Alert.scss";
 @forward "./sections/Buttons.scss";
 @forward "./sections/DefaultTable.scss";
+@forward "./sections/Form.scss";
 @forward "./sections/Icons.scss";
 @forward "./sections/notifications.scss";
+@forward "./sections/Palette.scss";
 @forward "./sections/Popup.scss";
+@forward "./sections/Segment.scss";
 @forward "./sections/Spinner.scss";
 @forward "./sections/Text.scss";
 @forward "./sections/UINavBar.scss";
-@forward "./sections/UIWorkflowBar.scss";
 @forward "./sections/UIPagination.scss";
-@forward "./sections/Palette.scss";
-@forward "./sections/Form.scss";
+@forward "./sections/UIWorkflowBar.scss";
 
 html,
 body {
