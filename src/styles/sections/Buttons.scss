@@ -1,4 +1,5 @@
 @use "../variables/Theme.scss" as *;
+@use "../variables/Accessability.scss" as *;
 @use "sass:color";
 @use "sass:map";
 
@@ -33,6 +34,12 @@
     &.btn-#{$style} {
       background-color: map.get($properties, base-color);
       color: map.get($properties, base-text-color);
+
+      &:focus {
+        outline: $focus-width solid rgba(map.get($properties, light-border-color), 0.6); // Set opacity to 80%
+        outline-offset: $focus-offset;
+        z-index: $focus-zindex;
+      }
 
       &:hover {
         // background-color: lighten(map.get($properties, base), 15);

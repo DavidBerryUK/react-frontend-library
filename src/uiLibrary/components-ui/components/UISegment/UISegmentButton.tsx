@@ -18,9 +18,9 @@ const UISegmentButton: React.FC<IButtonProperties> = (props) => {
   };
 
   return (
-    <button type="button" className={className} onClick={handleOnButtonClickedEvent}>
+    <div role="tab" className={className} onClick={handleOnButtonClickedEvent}>
       {props.option.text}
-    </button>
+    </div>
   );
 };
 

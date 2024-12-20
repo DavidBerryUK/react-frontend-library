@@ -1,5 +1,6 @@
 @use "../variables/ColourPalette.scss" as *;
 @use "../variables/Theme.scss" as *;
+@use "../variables/Accessability.scss" as *;
 @use "sass:map";
 
 // fc = Form Controls
@@ -66,8 +67,9 @@ $form-control-error-font-weight: 600;
             font-weight: $form-control-font-weight;
 
             &:focus {
-              outline: 8px solid rgba(map.get($properties, light-border-color), 0.6); // Set opacity to 80%
-              outline-offset: 4px;
+              outline: $focus-width solid rgba(map.get($properties, light-border-color), 0.6); // Set opacity to 80%
+              outline-offset: $focus-offset;
+              z-index: $focus-zindex;
             }
           }
 

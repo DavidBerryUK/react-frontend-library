@@ -28,10 +28,34 @@ const UISegment: React.FC<IProperties> = (props) => {
     }
   };
 
+  const handleOnKeyDownEvent = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    const currentIndex = props.options.findIndex((option) => option.text === props.selected.text);
+
+    if (currentIndex === -1) {
+      return;
+    }
+
+    let newIndex = currentIndex;
+
+    if (event.key === "ArrowLeft") {
+      newIndex = (currentIndex - 1 + props.options.length) % props.options.length;
+    }
+
+    if (event.key === "ArrowRight") {
+      newIndex = (currentIndex + 1) % props.options.length;
+    }
+
+    if (newIndex !== currentIndex) {
+      if (props.onChange) {
+        props.onChange(props.options[newIndex]);
+      }
+    }
+  };
+
   return (
-    <div className={className}>
+    <div role="button" tabIndex={0} className={className} onKeyDown={handleOnKeyDownEvent}>
       {props.options.map((option) => (
-        <UISegmentButton option={option} selected={props.selected} onClick={handleOnButtonClickEvent} />
+        <UISegmentButton key={option.text} option={option} selected={props.selected} onClick={handleOnButtonClickEvent} />
       ))}
     </div>
   );

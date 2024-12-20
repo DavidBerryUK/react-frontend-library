@@ -1,10 +1,12 @@
 @use "../variables/Theme.scss" as *;
+@use "../variables/Accessability.scss" as *;
 @use "sass:map";
 
 .ui-segment {
   display: inline-flex;
   border-radius: 0.5rem;
-
+  user-select: none;
+  cursor: pointer;
   @each $style, $properties in $theme-styles {
     &.sg-#{$style} {
       .ui-segment-button {
@@ -14,6 +16,18 @@
           background-color: map.get($properties, base-color);
           color: map.get($properties, base-text-color);
         }
+
+        &:focus {
+          outline: $focus-width solid rgba(map.get($properties, light-border-color), 0.6); // Set opacity to 80%
+          outline-offset: $focus-offset;
+          z-index: $focus-zindex;
+        }
+      }
+
+      &:focus {
+        outline: $focus-width solid rgba(map.get($properties, light-border-color), 0.6); // Set opacity to 80%
+        outline-offset: $focus-offset;
+        z-index: $focus-zindex;
       }
     }
   }
