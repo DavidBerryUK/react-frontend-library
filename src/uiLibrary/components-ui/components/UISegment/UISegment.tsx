@@ -42,7 +42,7 @@ const UISegment: React.FC<IProperties> = (props) => {
       newIndex = (currentIndex - 1 + props.options.length) % props.options.length;
     }
 
-    if (event.key === ConstKeyboardKeys.r) {
+    if (event.key === ConstKeyboardKeys.arrowRight) {
       newIndex = (currentIndex + 1) % props.options.length;
     }
 
