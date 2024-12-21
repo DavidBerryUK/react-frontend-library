@@ -31,6 +31,17 @@ const FieldViewModelRecord = Record<FieldViewModelProps>({
   active: true,
 });
 
+const RecordPropertyNames = {
+  dataType: "dataType",
+  caption: "caption",
+  fieldName: "fieldName",
+  value: "value",
+  error: "error",
+  help: "help",
+  validation: "validation",
+  active: "active",
+} as const;
+
 export default class FieldModel extends FieldViewModelRecord {
   constructor(fieldName: string, dataType: EnumFieldDataType, caption: string, value: FieldValueType, error: string, help: string, validation: IFieldValidation) {
     super({
@@ -72,31 +83,31 @@ export default class FieldModel extends FieldViewModelRecord {
   }
 
   get fieldName(): string {
-    return this.get("fieldName");
+    return this.get(RecordPropertyNames.fieldName);
   }
 
   get caption(): string {
-    return this.get("caption");
+    return this.get(RecordPropertyNames.caption);
   }
 
   get help(): string {
-    return this.get("help");
+    return this.get(RecordPropertyNames.help);
   }
 
   get validation(): FieldValidation {
-    return this.get("validation") as FieldValidation;
+    return this.get(RecordPropertyNames.validation) as FieldValidation;
   }
 
   get value(): FieldValueType {
-    return this.get("value");
+    return this.get(RecordPropertyNames.value);
   }
 
   get dataType(): EnumFieldDataType {
-    return this.get("dataType");
+    return this.get(RecordPropertyNames.dataType);
   }
 
   get active(): boolean {
-    return this.get("active");
+    return this.get(RecordPropertyNames.active);
   }
 
   /**
@@ -124,12 +135,12 @@ export default class FieldModel extends FieldViewModelRecord {
    * Creates a clone of the model with a new value, updating the validation error message accordingly.
    */
   cloneWithValue(newValue: FieldValueType): FieldModel {
-    var newField = this.set("value", newValue);
+    var newField = this.set(RecordPropertyNames.value, newValue);
 
     if (newField.active) {
       this.validation?.validate(newField);
       const errorMessage = this.validation?.validationMessage || "";
-      return newField.set("error", errorMessage) as FieldModel;
+      return newField.set(RecordPropertyNames.error, errorMessage) as FieldModel;
     }
 
     return newField;
@@ -144,7 +155,7 @@ export default class FieldModel extends FieldViewModelRecord {
       field.validation?.clear();
     }
     const errorMessage = field.validation?.validationMessage || "";
-    return field.set("error", errorMessage) as FieldModel;
+    return field.set(RecordPropertyNames.error, errorMessage) as FieldModel;
   }
 
   /**
@@ -167,7 +178,7 @@ export default class FieldModel extends FieldViewModelRecord {
     if (field.validation) {
       field.validation.clear();
     }
-    field = field.set("error", "") as FieldModel;
+    field = field.set(RecordPropertyNames.error, "") as FieldModel;
     return field;
   }
 
@@ -175,8 +186,8 @@ export default class FieldModel extends FieldViewModelRecord {
    * Make field inactive, clear any validation messages
    */
   cloneAsInactive(): FieldModel {
-    let field = this.set("error", "") as FieldModel;
-    field = field.set("active", false);
+    let field = this.set(RecordPropertyNames.error, "") as FieldModel;
+    field = field.set(RecordPropertyNames.active, false);
     return field;
   }
 
@@ -188,12 +199,12 @@ export default class FieldModel extends FieldViewModelRecord {
     var field = this;
 
     if (field.valueAsString === "" || field.valueAsNumber === 0) {
-      field = field.set("error", "");
+      field = field.set(RecordPropertyNames.error, "");
     } else {
       const errorMessage = this.validation?.validationMessage || "";
-      field = field.set("error", errorMessage);
+      field = field.set(RecordPropertyNames.error, errorMessage);
     }
-    field = field.set("active", true);
+    field = field.set(RecordPropertyNames.active, true);
     return field;
   }
 
@@ -201,6 +212,6 @@ export default class FieldModel extends FieldViewModelRecord {
    * Creates a clone of the model with updated help text.
    */
   cloneWithHelp(newHelp: string): FieldModel {
-    return this.set("help", newHelp) as FieldModel;
+    return this.set(RecordPropertyNames.help, newHelp) as FieldModel;
   }
 }

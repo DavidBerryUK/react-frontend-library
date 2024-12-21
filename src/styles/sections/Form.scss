@@ -30,9 +30,18 @@ $form-control-error-font-weight: 600;
 .ui-form {
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
+  flex-direction: row;
   column-gap: $form-column-gap;
   row-gap: $form-row-gap;
   width: 100%;
+
+  &.layoutColumn {
+    flex-direction: column;
+  }
+
+  &.layoutRow {
+    flex-direction: row;
+  }
 
   .ui-fc-control {
     display: flex;
@@ -105,7 +114,7 @@ $form-control-error-font-weight: 600;
       color: $red-500;
       font-size: $form-control-error-font-size;
       font-weight: $form-control-error-font-weight;
-      margin-top: 2px;
+      margin-top: 8px;
       text-wrap: wrap;
       width: 100%;
       box-sizing: border-box; // Includes padding and border in the total width
