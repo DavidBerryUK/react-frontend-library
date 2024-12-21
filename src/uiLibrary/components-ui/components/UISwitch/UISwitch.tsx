@@ -2,10 +2,15 @@ import React from "react";
 import IPropDisabled from "../../interfaces/properties/IPropDisabled";
 import IPropValue from "../../interfaces/properties/IPropValue";
 import IPropOnChange from "../../interfaces/properties/IPropOnChange";
+import IPropColor from "../../interfaces/properties/IPropColor";
+import useVariantStyle from "../../../hooks/UseVariantStyle";
+import classNames from "classnames";
 
-type IProperties = IPropDisabled & IPropValue<boolean> & IPropOnChange<boolean>;
+type IProperties = IPropColor & IPropDisabled & IPropValue<boolean> & IPropOnChange<boolean>;
 
 const UISwitch: React.FC<IProperties> = (props) => {
+  var variantClass = useVariantStyle("swt", props);
+
   const handleOnChangeEvent = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (props.onChange) {
       event.stopPropagation();
@@ -13,16 +18,18 @@ const UISwitch: React.FC<IProperties> = (props) => {
     }
   };
 
+  const className = classNames("ui-switch", variantClass);
+
   return (
-    <div className="ui-switch-control">
-      <div className="ui-switch">
+    <div className={className}>
+      <div>
         <input
           type="checkbox"
           checked={props.value} // Strictly controlled
           onChange={handleOnChangeEvent}
           disabled={props.disabled} // Handle disabled state
         />
-        <span className="ui-switch-slider"></span>
+        <span></span>
       </div>
     </div>
   );
