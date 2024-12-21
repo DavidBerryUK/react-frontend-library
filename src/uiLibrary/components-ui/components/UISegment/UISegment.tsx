@@ -6,6 +6,7 @@ import React from "react";
 import UISegmentButton from "./UISegmentButton";
 import useVariantStyle from "../../../hooks/UseVariantStyle";
 import classNames from "classnames";
+import ConstKeyboardKeys from "../../../constants/ConstKeyboardKeys";
 
 interface IOptions {
   options: Array<OptionModel>;
@@ -37,11 +38,11 @@ const UISegment: React.FC<IProperties> = (props) => {
 
     let newIndex = currentIndex;
 
-    if (event.key === "ArrowLeft") {
+    if (event.key === ConstKeyboardKeys.arrowLeft) {
       newIndex = (currentIndex - 1 + props.options.length) % props.options.length;
     }
 
-    if (event.key === "ArrowRight") {
+    if (event.key === ConstKeyboardKeys.r) {
       newIndex = (currentIndex + 1) % props.options.length;
     }
 

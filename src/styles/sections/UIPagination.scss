@@ -1,5 +1,6 @@
 @use "../variables/Font.scss" as *;
 @use "../variables/Theme.scss" as *;
+@use "../variables/Accessability.scss" as *;
 @use "sass:map";
 $button-size: 40px;
 $button-radius: 6px;
@@ -19,42 +20,52 @@ $button-radius: 6px;
     height: $button-size;
     border-radius: $button-radius;
     font-weight: bold;
-    
+
     font-size: $font-size-lg;
     cursor: pointer;
 
     &.selected {
-        background-color: #666;
-        color: #fff;
-      }
-  
-      &.disabled {
-        background-color: #eee;
-        color: #888;
-        cursor: not-allowed;
-      }
-  
-      &:hover {
-        background-color: #eee;
-        color: #222;
-      }
-    
+      background-color: #666;
+      color: #fff;
+    }
 
-    @each $style, $properties in $theme-styles {
-        &.pg-#{$style} {
-            background-color: map.get($properties, base-color);           
-            color: map.get($properties, base-text-color);    
-            
-            &.selected {
-                background-color: map.get($properties, dark-color);           
-                color: map.get($properties, dark-text-color);       
-                
-                &:hover {
-                    background-color: map.get($properties, light-color);           
-                    color: map.get($properties, light-text-color);           
-                }    
-            }
+    &.disabled {
+      background-color: #eee;
+      color: #888;
+      cursor: not-allowed;
+    }
+
+    &:hover {
+      background-color: #eee;
+      color: #222;
+    }
+  }
+
+  @each $style, $properties in $theme-styles {
+    &.pg-#{$style} {
+      &:focus {
+        border-radius: 8px;
+        outline: $focus-width solid rgba(map.get($properties, light-border-color), 0.6); // Set opacity to 80%
+        outline-offset: $focus-offset;
+        z-index: $focus-zindex;
+      }
+    }
+
+    .pg-button {
+      &.pg-#{$style} {
+        background-color: map.get($properties, base-color);
+        color: map.get($properties, base-text-color);
+
+        &.selected {
+          background-color: map.get($properties, dark-color);
+          color: map.get($properties, dark-text-color);
+
+          &:hover {
+            background-color: map.get($properties, light-color);
+            color: map.get($properties, light-text-color);
+          }
         }
+      }
     }
   }
 }

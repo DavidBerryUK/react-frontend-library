@@ -50,6 +50,7 @@ $form-control-error-font-weight: 600;
 
     // label
     .ui-fc-label {
+      user-select: none;
       font-size: $form-control-label-font-size;
       font-weight: $form-control-label-font-weight;
       margin-bottom: 4px;
@@ -111,6 +112,7 @@ $form-control-error-font-weight: 600;
     }
 
     .ui-fc-error {
+      user-select: none;
       color: $red-500;
       font-size: $form-control-error-font-size;
       font-weight: $form-control-error-font-weight;

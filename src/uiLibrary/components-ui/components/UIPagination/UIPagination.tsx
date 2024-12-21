@@ -4,6 +4,8 @@ import PaginationModel from "./models/PaginationModel";
 import React, { useMemo } from "react";
 import IPropColor from "../../interfaces/properties/IPropColor";
 import useVariantStyle from "../../../hooks/UseVariantStyle";
+import classNames from "classnames";
+import ConstKeyboardKeys from "../../../constants/ConstKeyboardKeys";
 
 type IProperties = IPropColor & {
   page: number;
@@ -40,8 +42,54 @@ const UIPagination: React.FC<IProperties> = (props) => {
     }
   }
 
+  const handleOnKeyDownEvent = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    const currentIndex = props.page;
+
+    if (currentIndex === -1) {
+      return;
+    }
+
+    let newIndex = currentIndex;
+
+    if (event.key === ConstKeyboardKeys.arrowLeft) {
+      if (event.shiftKey) {
+        newIndex = newIndex - 10;
+      } else if (event.ctrlKey) {
+        newIndex = 1;
+      } else {
+        newIndex = newIndex - 1;
+      }
+    }
+
+    if (event.key === ConstKeyboardKeys.arrowRight) {
+      if (event.shiftKey) {
+        newIndex = newIndex + 10;
+      } else if (event.ctrlKey) {
+        newIndex = pageModel.pageCount;
+      } else {
+        newIndex = newIndex + 1;
+      }
+    }
+
+    if (newIndex < 1) {
+      newIndex = 1;
+    }
+
+    if (newIndex > pageModel.pageCount) {
+      newIndex = pageModel.pageCount;
+    }
+
+    if (newIndex !== currentIndex) {
+      if (props.onPageChanged) {
+        props.onPageChanged(newIndex);
+      }
+    }
+  };
+
+  const className = classNames("ui-pagination", variantClass);
+
   return (
-    <div className="ui-pagination">
+    <div className={className} role="button" tabIndex={0} onKeyDown={handleOnKeyDownEvent}>
       <UIPaginationButton selectedClassName={variantClass} enabled={pageModel.enableFirstPageButton} pageNumber={1} onPageSelected={changePageClickHandler} type={EnumButtonType.First} />
       <UIPaginationButton
         selectedClassName={variantClass}

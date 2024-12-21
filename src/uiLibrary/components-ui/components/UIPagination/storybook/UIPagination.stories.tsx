@@ -9,7 +9,7 @@ const meta = {
     layout: "centered",
     docs: {
       description: {
-        component: "page pagination",
+        component: "page pagination. use the left and right arrow keys to change the page number, press shift to just by 10 pages, or press control to just to the first or last page.",
       },
     },
   },
