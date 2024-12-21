@@ -1,9 +1,9 @@
+import { action } from "@storybook/addon-actions";
 import React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
-import UIButton from "../UIButton";
 import TestFlexGrid from "../../../../storybook/TestFlexGrid";
 import TestGridSectionHeader from "../../../../storybook/TestGridSectionHeader";
-import { action } from "@storybook/addon-actions";
+import type { Meta, StoryObj } from "@storybook/react";
+import UIButton from "../UIButton";
 
 const meta = {
   title: "UI/UIButton",
@@ -12,7 +12,7 @@ const meta = {
     layout: "centered",
     docs: {
       description: {
-        component: "Application button,<br/> <b>under development</b>" + "<ul>" + "<li>Disabled outline buttons need to be styled</li>" + "<li>Consider standards widths</li>" + "</ul>",
+        component: `Application button,<br/> <b>under development</b><ul><li>Disabled outline buttons need to be styled</li><li>Consider standards widths</li></ul>`,
       },
     },
   },
