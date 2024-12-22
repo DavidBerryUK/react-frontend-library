@@ -1,8 +1,10 @@
+import FactoryOptionLists from "../../../../storybook/factories/FactoryOptionLists";
+
 import React, { useState } from "react";
+import TestFlexGrid from "../../../../storybook/TestFlexGrid";
+import TestGridSectionHeader from "../../../../storybook/TestGridSectionHeader";
 import type { Meta } from "@storybook/react";
 import UISelect from "../UISelect";
-
-import FactoryOptionLists from "../../../../storybook/factories/FactoryOptionLists";
 import OptionModel from "../../UISegment/models/OptionModel";
 
 const meta = {
@@ -13,15 +15,7 @@ const meta = {
     docs: {
       description: {
         // eslint-disable-next-line no-useless-concat
-        component:
-          "UISelect, allows from a number of values" +
-          "<ul>" +
-          "<li>Add id as property</li>" +
-          "<li>Add sizes</li>" +
-          "<li>Export UISelectButton to separate control</li>" +
-          "<li>style for disabled</li>" +
-          "<li>Export Property</li>" +
-          "</ul>",
+        component: "UISelect, allow selection from a list" + "<ul>" + "<li>Add id as property</li>" + "<li>Add sizes</li>" + "</ul>",
       },
     },
   },
@@ -41,5 +35,48 @@ export const Select: React.FC = () => {
     setSelected(option);
   };
 
-  return <UISelect primary options={options} selected={selected} onChange={handleOnOptionChangedEvent} />;
+  return <UISelect default options={options} selected={selected} onChange={handleOnOptionChangedEvent} />;
+};
+
+export const Gallery: React.FC = () => {
+  const options: Array<OptionModel<string>> = FactoryOptionLists.GetMonthsOfYearList();
+
+  // State variables for each UISelect
+  const [defaultSelected, setDefaultSelected] = useState<OptionModel<string>>(options[0]);
+  const [primarySelected, setPrimarySelected] = useState<OptionModel<string>>(options[0]);
+  const [secondarySelected, setSecondarySelected] = useState<OptionModel<string>>(options[0]);
+  const [successSelected, setSuccessSelected] = useState<OptionModel<string>>(options[0]);
+  const [infoSelected, setInfoSelected] = useState<OptionModel<string>>(options[0]);
+  const [warningSelected, setWarningSelected] = useState<OptionModel<string>>(options[0]);
+  const [dangerSelected, setDangerSelected] = useState<OptionModel<string>>(options[0]);
+
+  // Event handlers for each UISelect
+  const handleDefaultChange = (newValue: OptionModel<string>) => setDefaultSelected(newValue);
+  const handlePrimaryChange = (newValue: OptionModel<string>) => setPrimarySelected(newValue);
+  const handleSecondaryChange = (newValue: OptionModel<string>) => setSecondarySelected(newValue);
+  const handleSuccessChange = (newValue: OptionModel<string>) => setSuccessSelected(newValue);
+  const handleInfoChange = (newValue: OptionModel<string>) => setInfoSelected(newValue);
+  const handleWarningChange = (newValue: OptionModel<string>) => setWarningSelected(newValue);
+  const handleDangerChange = (newValue: OptionModel<string>) => setDangerSelected(newValue);
+
+  return (
+    <div>
+      <TestFlexGrid columns={1}>
+        <TestGridSectionHeader title="Default" colspan={1} />
+        <UISelect default options={options} selected={defaultSelected} onChange={handleDefaultChange} />
+        <TestGridSectionHeader title="Primary" colspan={1} />
+        <UISelect primary options={options} selected={primarySelected} onChange={handlePrimaryChange} />
+        <TestGridSectionHeader title="Secondary" colspan={1} />
+        <UISelect secondary options={options} selected={secondarySelected} onChange={handleSecondaryChange} />
+        <TestGridSectionHeader title="Success" colspan={1} />
+        <UISelect success options={options} selected={successSelected} onChange={handleSuccessChange} />
+        <TestGridSectionHeader title="Information" colspan={1} />
+        <UISelect info options={options} selected={infoSelected} onChange={handleInfoChange} />
+        <TestGridSectionHeader title="Warning" colspan={1} />
+        <UISelect warning options={options} selected={warningSelected} onChange={handleWarningChange} />
+        <TestGridSectionHeader title="Danger" colspan={1} />
+        <UISelect danger options={options} selected={dangerSelected} onChange={handleDangerChange} />
+      </TestFlexGrid>
+    </div>
+  );
 };

@@ -1,0 +1,28 @@
+@use "../variables/ColourPalette.scss" as *;
+@use "../variables/Theme.scss" as *;
+@use "../variables/Accessability.scss" as *;
+@use "../variables/Form.scss" as *;
+@use "sass:map";
+
+.ui-select {
+  border: solid $form-control-border-width black;
+  height: $form-control-hight;
+  border-radius: $form-control-border-radius;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: $form-control-font-size;
+  width: 100%;
+  padding-left: 8px;
+  padding-right: 6px;
+
+  @each $style, $properties in $theme-styles {
+    &.sel-#{$style} {
+      border-color: map.get($properties, light-border-color);
+
+      &:focus {
+        outline: $focus-width solid rgba(map.get($properties, light-border-color), 0.6); // Set opacity to 80%
+        outline-offset: $focus-offset;
+        z-index: $focus-zindex;
+      }
+    }
+  }
+}

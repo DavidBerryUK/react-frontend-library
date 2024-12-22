@@ -1,22 +1,10 @@
 @use "../variables/ColourPalette.scss" as *;
 @use "../variables/Theme.scss" as *;
 @use "../variables/Accessability.scss" as *;
+@use "../variables/Form.scss" as *;
 @use "sass:map";
 
 // fc = Form Controls
-$form-row-gap: 16px;
-$form-column-gap: 16px;
-
-$form-control-border-radius: 6px;
-$form-control-border-width: 2px;
-$form-control-font-size: 16px;
-$form-control-font-weight: normal;
-
-$form-control-label-font-size: 14px;
-$form-control-label-font-weight: 200;
-
-$form-control-error-font-size: 12px;
-$form-control-error-font-weight: 600;
 
 //
 // Forms are laid out with the label above the text box by detail
@@ -62,7 +50,7 @@ $form-control-error-font-weight: 600;
       flex-direction: row;
       align-items: flex-stretch;
       border: solid $form-control-border-width black;
-      height: 36px;
+      height: $form-control-hight;
       border-radius: $form-control-border-radius;
       width: 100%;
       box-sizing: border-box; // Includes padding and border in the total width

@@ -7,6 +7,7 @@ import OptionModel from "../../components-ui/components/UISegment/models/OptionM
 import TestFlexGrid from "../../storybook/TestFlexGrid";
 import TestGridSectionHeader from "../../storybook/TestGridSectionHeader";
 import UISegment from "../../components-ui/components/UISegment/UISegment";
+import FactoryOptionLists from "../../storybook/factories/FactoryOptionLists";
 
 import UIIconAlertCrossCircle from "../UIIconAlertCrossCircle";
 import UIIconAlertCrossCircleSolid from "../UIIconAlertCrossCircleSolid";
@@ -130,6 +131,7 @@ import UIIconUserCircleSolid from "../UIIconUserCircleSolid";
 import UIIconUsers from "../UIIconUsers";
 import UIIconUserSolid from "../UIIconUserSolid";
 import UIIconUsersSolid from "../UIIconUsersSolid";
+import EnumThemeVariant from "../../components-ui/enums/EnumThemeVariant";
 
 const meta = {
   title: "UIIcons",
@@ -138,7 +140,8 @@ const meta = {
     layout: "padded",
     docs: {
       description: {
-        component: "Icons from https://flowbite.com/icons/ IconSize:32px StrokeWidth:2px and https://icons.getbootstrap.com/ <br> Any SVG can be added as an icon",
+        component:
+          "Icons from https://flowbite.com/icons/ IconSize:32px StrokeWidth:2px and https://icons.getbootstrap.com/ <br> Any SVG can be added as an icon",
       },
     },
   },
@@ -317,14 +320,14 @@ export const Gallery: StoryObj = {
     const [searchTerm, setSearchTerm] = useState("");
     const [filteredIcons, setFilteredIcons] = useState(icons);
 
-    const [colourOptions] = useState<Array<OptionModel>>(getColorOptions());
-    const [selectedColour, setSelectedColour] = useState<OptionModel>(colourOptions[0]);
+    const [colourOptions] = useState<Array<OptionModel<EnumThemeVariant>>>(FactoryOptionLists.GetVariantList());
+    const [selectedColour, setSelectedColour] = useState<OptionModel<EnumThemeVariant>>(colourOptions[0]);
 
-    const [sizeOptions] = useState<Array<OptionModel>>(getSizeOptions());
-    const [selectedSize, setSelectedSize] = useState<OptionModel>(sizeOptions[3]);
+    const [sizeOptions] = useState<Array<OptionModel<string>>>(getSizeOptions());
+    const [selectedSize, setSelectedSize] = useState<OptionModel<string>>(sizeOptions[3]);
 
-    const [shadeOptions] = useState<Array<OptionModel>>(getShadeOptions());
-    const [selectedShade, setSelectedShade] = useState<OptionModel>(shadeOptions[1]);
+    const [shadeOptions] = useState<Array<OptionModel<string>>>(getShadeOptions());
+    const [selectedShade, setSelectedShade] = useState<OptionModel<string>>(shadeOptions[1]);
 
     const [iconProp, setIconProp] = useState<IPropColor>({});
 
@@ -335,17 +338,17 @@ export const Gallery: StoryObj = {
       setFilteredIcons(icons.filter((icon) => icon.name.toLowerCase().includes(searchValue)));
     };
 
-    const handleColourSelectedEvent = (option: OptionModel) => {
+    const handleColourSelectedEvent = (option: OptionModel<EnumThemeVariant>) => {
       setSelectedColour(option);
       setIconProp(convertOptionsToProps(option, selectedSize));
     };
 
-    const handleSizeSelectedEvent = (option: OptionModel) => {
+    const handleSizeSelectedEvent = (option: OptionModel<string>) => {
       setSelectedSize(option);
       setIconProp(convertOptionsToProps(selectedColour, option));
     };
 
-    const handleShadeSelectedEvent = (option: OptionModel) => {
+    const handleShadeSelectedEvent = (option: OptionModel<string>) => {
       setSelectedShade(option);
       setIconProp(convertOptionsToProps(selectedColour, option));
     };
@@ -377,30 +380,30 @@ export const Gallery: StoryObj = {
   },
 };
 
-function convertOptionsToProps(colourOption: OptionModel, sizeOption: OptionModel): IIconProps {
+function convertOptionsToProps(colourOption: OptionModel<EnumThemeVariant>, sizeOption: OptionModel<string>): IIconProps {
   var prop: IIconProps = {};
 
   // Using a switch statement for colourOption.text
-  switch (colourOption.text) {
-    case "Default":
+  switch (colourOption.data) {
+    case EnumThemeVariant.default:
       prop.default = true;
       break;
-    case "Success":
+    case EnumThemeVariant.success:
       prop.success = true;
       break;
-    case "Primary":
+    case EnumThemeVariant.primary:
       prop.primary = true;
       break;
-    case "Secondary":
+    case EnumThemeVariant.secondary:
       prop.secondary = true;
       break;
-    case "Info":
+    case EnumThemeVariant.info:
       prop.info = true;
       break;
-    case "Warning":
+    case EnumThemeVariant.warning:
       prop.warning = true;
       break;
-    case "Danger":
+    case EnumThemeVariant.danger:
       prop.danger = true;
       break;
   }
@@ -429,9 +432,6 @@ function convertOptionsToProps(colourOption: OptionModel, sizeOption: OptionMode
       prop.extraLarge = true;
       break;
   }
-
-  console.log(prop);
-
   return prop;
 }
 
@@ -602,31 +602,18 @@ function FriendlyName(value: string): string {
     .trim();
 }
 
-function getShadeOptions(): Array<OptionModel> {
-  return [new OptionModel("Darker"), new OptionModel("Regular"), new OptionModel("Lighter")];
+function getShadeOptions(): Array<OptionModel<string>> {
+  return [new OptionModel<string>("D", "Darker"), new OptionModel<string>("R", "Regular"), new OptionModel<string>("L", "Lighter")];
 }
 
-function getColorOptions(): Array<OptionModel> {
+function getSizeOptions(): Array<OptionModel<string>> {
   return [
-    new OptionModel("Black"),
-    new OptionModel("Default"),
-    new OptionModel("Primary"),
-    new OptionModel("Secondary"),
-    new OptionModel("Success"),
-    new OptionModel("Info"),
-    new OptionModel("Warning"),
-    new OptionModel("Danger"),
-  ];
-}
-
-function getSizeOptions(): Array<OptionModel> {
-  return [
-    new OptionModel("Extra Small"),
-    new OptionModel("Small"),
-    new OptionModel("Smaller"),
-    new OptionModel("Regular"),
-    new OptionModel("Larger"),
-    new OptionModel("Large"),
-    new OptionModel("Extra Large"),
+    new OptionModel<string>("xs", "Extra Small"),
+    new OptionModel<string>("sm", "Small"),
+    new OptionModel<string>("s", "Smaller"),
+    new OptionModel<string>("r", "Regular"),
+    new OptionModel<string>("l", "Larger"),
+    new OptionModel<string>("el", "Large"),
+    new OptionModel<string>("2xl", "Extra Large"),
   ];
 }
