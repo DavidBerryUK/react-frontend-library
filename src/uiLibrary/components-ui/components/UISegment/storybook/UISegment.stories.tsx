@@ -4,6 +4,7 @@ import UISegment from "../UISegment";
 import OptionModel from "../models/OptionModel";
 import TestFlexGrid from "../../../../storybook/TestFlexGrid";
 import TestGridSectionHeader from "../../../../storybook/TestGridSectionHeader";
+import FactoryOptionLists from "../../../../storybook/factories/FactoryOptionLists";
 
 const meta = {
   title: "UI/UISegment",
@@ -34,7 +35,7 @@ export default meta;
 // Simple Story
 //
 export const Field: React.FC = () => {
-  const options: Array<OptionModel<string>> = [new OptionModel<string>("y", "Years"), new OptionModel<string>("m", "Months"), new OptionModel<string>("d", "Days")];
+  const options: Array<OptionModel<string>> = FactoryOptionLists.GetYearMonthDayList();
   const [selected, setSelected] = useState<OptionModel<string>>(options[0]);
 
   const handleOnOptionChangedEvent = (option: OptionModel<string>) => {
@@ -45,7 +46,7 @@ export const Field: React.FC = () => {
 };
 
 export const Gallery: React.FC = () => {
-  const options: Array<OptionModel<string>> = [new OptionModel<string>("y", "Years"), new OptionModel<string>("m", "Months"), new OptionModel<string>("d", "Days")];
+  const options: Array<OptionModel<string>> = FactoryOptionLists.GetYearMonthDayList();
 
   // State variables for each UISegment
   const [defaultSelected, setDefaultSelected] = useState<OptionModel<string>>(options[0]);

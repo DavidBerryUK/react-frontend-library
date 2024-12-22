@@ -11,7 +11,7 @@ interface IOptions {
   selected: OptionModel<any>;
 }
 
-export type IProperties = IPropColor & IPropDisabled & IPropOnChange<OptionModel<string>> & IOptions;
+export type IProperties = IPropColor & IPropDisabled & IPropOnChange<OptionModel<any>> & IOptions;
 
 /**
  * Common Text Field
