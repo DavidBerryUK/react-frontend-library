@@ -4,6 +4,7 @@ import type { Meta } from "@storybook/react";
 import UIFormText from "../../components/UIFormText/UIFormText";
 import UIButton from "../../../uiLibrary/components-ui/components/UIButton/UIButton";
 import { RsvpFormViewModel } from "./RsvpFormViewModel";
+import UIFormSwitch from "../../components/UIFormSwitch/UIFormSwitch";
 
 const meta = {
   title: "Form Examples/RSVP",
@@ -48,7 +49,7 @@ export const Interactive: React.FC = () => {
   return (
     <div className="ui-form layoutColumn">
       <UIFormText value={rsvpDetails.guestName} onChange={handleOnContactFormChangeEvent} />
-      <UIFormText value={rsvpDetails.attending} onChange={handleOnContactFormChangeEvent} />
+      <UIFormSwitch value={rsvpDetails.attending} onChange={handleOnContactFormChangeEvent} />
       <UIFormText value={rsvpDetails.numberOfGuests} onChange={handleOnContactFormChangeEvent} />
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <UIButton secondary large text="Clear" onClick={handleOnClearEvent} />
