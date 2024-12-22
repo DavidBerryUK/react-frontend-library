@@ -1,6 +1,3 @@
-// some styling from here.
-// https://preline.co/docs/button-group.html
-//
 import React, { useState } from "react";
 import type { Meta } from "@storybook/react";
 import UISegment from "../UISegment";
@@ -47,46 +44,44 @@ export const Field: React.FC = () => {
   return <UISegment primary options={options} selected={selected} onChange={handleOnOptionChangedEvent} />;
 };
 
-//export const Gallery: Story = {
 export const Gallery: React.FC = () => {
   const options = [new OptionModel("Years"), new OptionModel("Months"), new OptionModel("Days")];
-  const [selected, setSelected] = useState<OptionModel>(options[0]);
 
-  const handleOnOptionChangedEvent = (option: OptionModel) => {
-    setSelected(option);
-  };
+  // State variables for each UISegment
+  const [defaultSelected, setDefaultSelected] = useState<OptionModel>(options[0]);
+  const [primarySelected, setPrimarySelected] = useState<OptionModel>(options[0]);
+  const [secondarySelected, setSecondarySelected] = useState<OptionModel>(options[0]);
+  const [successSelected, setSuccessSelected] = useState<OptionModel>(options[0]);
+  const [infoSelected, setInfoSelected] = useState<OptionModel>(options[0]);
+  const [warningSelected, setWarningSelected] = useState<OptionModel>(options[0]);
+  const [dangerSelected, setDangerSelected] = useState<OptionModel>(options[0]);
+
+  // Event handlers for each UISegment
+  const handleDefaultChange = (newValue: OptionModel) => setDefaultSelected(newValue);
+  const handlePrimaryChange = (newValue: OptionModel) => setPrimarySelected(newValue);
+  const handleSecondaryChange = (newValue: OptionModel) => setSecondarySelected(newValue);
+  const handleSuccessChange = (newValue: OptionModel) => setSuccessSelected(newValue);
+  const handleInfoChange = (newValue: OptionModel) => setInfoSelected(newValue);
+  const handleWarningChange = (newValue: OptionModel) => setWarningSelected(newValue);
+  const handleDangerChange = (newValue: OptionModel) => setDangerSelected(newValue);
 
   return (
     <div>
       <TestFlexGrid columns={1}>
         <TestGridSectionHeader title="Default" colspan={1} />
-        <div className="contents">
-          <UISegment default options={options} selected={selected} onChange={handleOnOptionChangedEvent} />
-        </div>
+        <UISegment default options={options} selected={defaultSelected} onChange={handleDefaultChange} />
         <TestGridSectionHeader title="Primary" colspan={1} />
-        <div className="contents">
-          <UISegment primary options={options} selected={selected} onChange={handleOnOptionChangedEvent} />
-        </div>
+        <UISegment primary options={options} selected={primarySelected} onChange={handlePrimaryChange} />
         <TestGridSectionHeader title="Secondary" colspan={1} />
-        <div className="contents">
-          <UISegment secondary options={options} selected={selected} onChange={handleOnOptionChangedEvent} />
-        </div>
+        <UISegment secondary options={options} selected={secondarySelected} onChange={handleSecondaryChange} />
         <TestGridSectionHeader title="Success" colspan={1} />
-        <div className="contents">
-          <UISegment success options={options} selected={selected} onChange={handleOnOptionChangedEvent} />
-        </div>
+        <UISegment success options={options} selected={successSelected} onChange={handleSuccessChange} />
         <TestGridSectionHeader title="Information" colspan={1} />
-        <div className="contents">
-          <UISegment info options={options} selected={selected} onChange={handleOnOptionChangedEvent} />
-        </div>
+        <UISegment info options={options} selected={infoSelected} onChange={handleInfoChange} />
         <TestGridSectionHeader title="Warning" colspan={1} />
-        <div className="contents">
-          <UISegment warning options={options} selected={selected} onChange={handleOnOptionChangedEvent} />
-        </div>
-        <TestGridSectionHeader title="danger" colspan={1} />
-        <div className="contents">
-          <UISegment danger options={options} selected={selected} onChange={handleOnOptionChangedEvent} />
-        </div>
+        <UISegment warning options={options} selected={warningSelected} onChange={handleWarningChange} />
+        <TestGridSectionHeader title="Danger" colspan={1} />
+        <UISegment danger options={options} selected={dangerSelected} onChange={handleDangerChange} />
       </TestFlexGrid>
     </div>
   );

@@ -3,6 +3,7 @@
 @use "sass:color";
 @use "sass:map";
 
+$animationSpeed: 0.35s;
 .ui-switch {
   display: flex;
   flex-direction: column;
@@ -43,8 +44,11 @@
           border-radius: 34px;
           background-color: #ccc;
           transition:
-            background-color 0.4s,
-            transform 0.4s;
+            background-color $animationSpeed ease-in-out,
+            transform $animationSpeed ease-in-out;
+          transition:
+            background-color $animationSpeed,
+            transform $animationSpeed;
           cursor: pointer;
 
           &:before {
@@ -57,8 +61,11 @@
             border-radius: 50%;
             background-color: white;
             transition:
-              background-color 0.4s,
-              transform 0.4s;
+              background-color $animationSpeed ease-in-out,
+              transform $animationSpeed ease-in-out;
+            transition:
+              background-color $animationSpeed,
+              transform $animationSpeed;
             box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.45);
           }
         }

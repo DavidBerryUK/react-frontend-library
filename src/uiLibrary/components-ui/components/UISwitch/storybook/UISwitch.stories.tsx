@@ -35,23 +35,33 @@ export const Default: React.FC = () => {
 };
 
 export const Gallery: React.FC = () => {
-  const [isChecked, setIsChecked] = useState<boolean>(true);
+  const [defaultChecked, setDefaultChecked] = useState<boolean>(true);
+  const [primaryChecked, setPrimaryChecked] = useState<boolean>(true);
+  const [secondaryChecked, setSecondaryChecked] = useState<boolean>(true);
+  const [successChecked, setSuccessChecked] = useState<boolean>(true);
+  const [infoChecked, setInfoChecked] = useState<boolean>(true);
+  const [warningChecked, setWarningChecked] = useState<boolean>(true);
+  const [dangerChecked, setDangerChecked] = useState<boolean>(true);
 
-  const handleOnChangedEvent = (newValue: boolean) => {
-    setIsChecked(newValue);
-  };
+  const handleDefaultChange = (newValue: boolean) => setDefaultChecked(newValue);
+  const handlePrimaryChange = (newValue: boolean) => setPrimaryChecked(newValue);
+  const handleSecondaryChange = (newValue: boolean) => setSecondaryChecked(newValue);
+  const handleSuccessChange = (newValue: boolean) => setSuccessChecked(newValue);
+  const handleInfoChange = (newValue: boolean) => setInfoChecked(newValue);
+  const handleWarningChange = (newValue: boolean) => setWarningChecked(newValue);
+  const handleDangerChange = (newValue: boolean) => setDangerChecked(newValue);
 
   return (
     <div>
       <TestFlexGrid columns={7}>
         <TestGridSectionHeader title="Gallery" colspan={7} />
-        <UISwitch default value={isChecked} onChange={handleOnChangedEvent} />
-        <UISwitch primary value={isChecked} onChange={handleOnChangedEvent} />
-        <UISwitch secondary value={isChecked} onChange={handleOnChangedEvent} />
-        <UISwitch success value={isChecked} onChange={handleOnChangedEvent} />
-        <UISwitch info value={isChecked} onChange={handleOnChangedEvent} />
-        <UISwitch warning value={isChecked} onChange={handleOnChangedEvent} />
-        <UISwitch danger value={isChecked} onChange={handleOnChangedEvent} />
+        <UISwitch value={defaultChecked} onChange={handleDefaultChange} />
+        <UISwitch primary value={primaryChecked} onChange={handlePrimaryChange} />
+        <UISwitch secondary value={secondaryChecked} onChange={handleSecondaryChange} />
+        <UISwitch success value={successChecked} onChange={handleSuccessChange} />
+        <UISwitch info value={infoChecked} onChange={handleInfoChange} />
+        <UISwitch warning value={warningChecked} onChange={handleWarningChange} />
+        <UISwitch danger value={dangerChecked} onChange={handleDangerChange} />
       </TestFlexGrid>
     </div>
   );

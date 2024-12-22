@@ -4,15 +4,14 @@ import IPropOnChange from "../../interfaces/properties/IPropOnChange";
 import OptionModel from "./models/OptionModel";
 import React from "react";
 import UISegmentButton from "./UISegmentButton";
-import useVariantStyle from "../../../hooks/UseVariantStyle";
-import classNames from "classnames";
-import ConstKeyboardKeys from "../../../constants/ConstKeyboardKeys";
+import useViewController from "./hooks/useViewController";
 
 interface IOptions {
   options: Array<OptionModel>;
   selected: OptionModel;
 }
-type IProperties = IPropColor & IPropDisabled & IPropOnChange<OptionModel> & IOptions;
+
+export type IProperties = IPropColor & IPropDisabled & IPropOnChange<OptionModel> & IOptions;
 
 /**
  * Common Text Field
@@ -20,38 +19,7 @@ type IProperties = IPropColor & IPropDisabled & IPropOnChange<OptionModel> & IOp
  * @returns
  */
 const UISegment: React.FC<IProperties> = (props) => {
-  const variantClassName = useVariantStyle("sg", props);
-  const className = classNames("ui-segment", variantClassName);
-
-  const handleOnButtonClickEvent = (value: OptionModel) => {
-    if (props.onChange) {
-      props.onChange(value);
-    }
-  };
-
-  const handleOnKeyDownEvent = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    const currentIndex = props.options.findIndex((option) => option.text === props.selected.text);
-
-    if (currentIndex === -1) {
-      return;
-    }
-
-    let newIndex = currentIndex;
-
-    if (event.key === ConstKeyboardKeys.arrowLeft) {
-      newIndex = (currentIndex - 1 + props.options.length) % props.options.length;
-    }
-
-    if (event.key === ConstKeyboardKeys.arrowRight) {
-      newIndex = (currentIndex + 1) % props.options.length;
-    }
-
-    if (newIndex !== currentIndex) {
-      if (props.onChange) {
-        props.onChange(props.options[newIndex]);
-      }
-    }
-  };
+  const { className, handleOnKeyDownEvent, handleOnButtonClickEvent } = useViewController(props);
 
   return (
     <div role="button" tabIndex={0} className={className} onKeyDown={handleOnKeyDownEvent}>
