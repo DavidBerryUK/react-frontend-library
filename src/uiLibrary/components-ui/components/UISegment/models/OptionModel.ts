@@ -1,7 +1,11 @@
-export default class OptionModel {
+export default class OptionModel<T> {
+  key: string;
   text: string;
+  data?: T;
 
-  constructor(text: string) {
+  constructor(key: string, text: string, data?: T) {
+    this.key = key;
     this.text = text;
+    this.data = data;
   }
 }

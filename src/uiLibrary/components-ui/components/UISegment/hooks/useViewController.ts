@@ -8,7 +8,7 @@ const useViewController = (props: IProperties) => {
   const variantClassName = useVariantStyle("sg", props);
   const className = classNames("ui-segment", variantClassName);
 
-  const handleOnButtonClickEvent = (value: OptionModel) => {
+  const handleOnButtonClickEvent = (value: OptionModel<any>) => {
     if (props.onChange) {
       props.onChange(value);
     }

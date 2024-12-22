@@ -7,11 +7,11 @@ import UISegmentButton from "./UISegmentButton";
 import useViewController from "./hooks/useViewController";
 
 interface IOptions {
-  options: Array<OptionModel>;
-  selected: OptionModel;
+  options: Array<OptionModel<any>>;
+  selected: OptionModel<any>;
 }
 
-export type IProperties = IPropColor & IPropDisabled & IPropOnChange<OptionModel> & IOptions;
+export type IProperties = IPropColor & IPropDisabled & IPropOnChange<OptionModel<string>> & IOptions;
 
 /**
  * Common Text Field
@@ -24,7 +24,7 @@ const UISegment: React.FC<IProperties> = (props) => {
   return (
     <div role="button" tabIndex={0} className={className} onKeyDown={handleOnKeyDownEvent}>
       {props.options.map((option) => (
-        <UISegmentButton key={option.text} option={option} selected={props.selected} onClick={handleOnButtonClickEvent} />
+        <UISegmentButton key={option.key} option={option} selected={props.selected} onClick={handleOnButtonClickEvent} />
       ))}
     </div>
   );

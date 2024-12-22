@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import FieldModel from "../../models/fields/FieldModel";
-import IPropColor from "../../../uiLibrary/interfaces/properties/IPropColor";
+import IPropColor, { GetIPropColorFromProperty } from "../../../uiLibrary/interfaces/properties/IPropColor";
 import IPropDisabled from "../../interfaces/IPropDisabled";
 import IPropOnChange from "../../interfaces/IPropOnChange";
 import IPropValue from "../../interfaces/IPropValue";
@@ -27,14 +27,7 @@ const UIFormSwitch: React.FC<IProperties> = (props) => {
   const showHelpMessage = !!props.value.help?.length;
   const showErrorMessage = !!props.value.error.length;
   const containerClassName = classNames("ui-fc-control");
-  const colourProps: IPropColor = {
-    default: props.danger,
-    secondary: props.secondary,
-    success: props.success,
-    info: props.info,
-    warning: props.info,
-    danger: props.danger,
-  };
+  const colourProps = GetIPropColorFromProperty(props);
 
   return (
     <div className={containerClassName}>

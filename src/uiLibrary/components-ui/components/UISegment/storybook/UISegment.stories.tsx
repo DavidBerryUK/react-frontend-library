@@ -34,10 +34,10 @@ export default meta;
 // Simple Story
 //
 export const Field: React.FC = () => {
-  const options = [new OptionModel("Years"), new OptionModel("Months"), new OptionModel("Days")];
-  const [selected, setSelected] = useState<OptionModel>(options[0]);
+  const options: Array<OptionModel<string>> = [new OptionModel<string>("y", "Years"), new OptionModel<string>("m", "Months"), new OptionModel<string>("d", "Days")];
+  const [selected, setSelected] = useState<OptionModel<string>>(options[0]);
 
-  const handleOnOptionChangedEvent = (option: OptionModel) => {
+  const handleOnOptionChangedEvent = (option: OptionModel<string>) => {
     setSelected(option);
   };
 
@@ -45,25 +45,25 @@ export const Field: React.FC = () => {
 };
 
 export const Gallery: React.FC = () => {
-  const options = [new OptionModel("Years"), new OptionModel("Months"), new OptionModel("Days")];
+  const options: Array<OptionModel<string>> = [new OptionModel<string>("y", "Years"), new OptionModel<string>("m", "Months"), new OptionModel<string>("d", "Days")];
 
   // State variables for each UISegment
-  const [defaultSelected, setDefaultSelected] = useState<OptionModel>(options[0]);
-  const [primarySelected, setPrimarySelected] = useState<OptionModel>(options[0]);
-  const [secondarySelected, setSecondarySelected] = useState<OptionModel>(options[0]);
-  const [successSelected, setSuccessSelected] = useState<OptionModel>(options[0]);
-  const [infoSelected, setInfoSelected] = useState<OptionModel>(options[0]);
-  const [warningSelected, setWarningSelected] = useState<OptionModel>(options[0]);
-  const [dangerSelected, setDangerSelected] = useState<OptionModel>(options[0]);
+  const [defaultSelected, setDefaultSelected] = useState<OptionModel<string>>(options[0]);
+  const [primarySelected, setPrimarySelected] = useState<OptionModel<string>>(options[0]);
+  const [secondarySelected, setSecondarySelected] = useState<OptionModel<string>>(options[0]);
+  const [successSelected, setSuccessSelected] = useState<OptionModel<string>>(options[0]);
+  const [infoSelected, setInfoSelected] = useState<OptionModel<string>>(options[0]);
+  const [warningSelected, setWarningSelected] = useState<OptionModel<string>>(options[0]);
+  const [dangerSelected, setDangerSelected] = useState<OptionModel<string>>(options[0]);
 
   // Event handlers for each UISegment
-  const handleDefaultChange = (newValue: OptionModel) => setDefaultSelected(newValue);
-  const handlePrimaryChange = (newValue: OptionModel) => setPrimarySelected(newValue);
-  const handleSecondaryChange = (newValue: OptionModel) => setSecondarySelected(newValue);
-  const handleSuccessChange = (newValue: OptionModel) => setSuccessSelected(newValue);
-  const handleInfoChange = (newValue: OptionModel) => setInfoSelected(newValue);
-  const handleWarningChange = (newValue: OptionModel) => setWarningSelected(newValue);
-  const handleDangerChange = (newValue: OptionModel) => setDangerSelected(newValue);
+  const handleDefaultChange = (newValue: OptionModel<string>) => setDefaultSelected(newValue);
+  const handlePrimaryChange = (newValue: OptionModel<string>) => setPrimarySelected(newValue);
+  const handleSecondaryChange = (newValue: OptionModel<string>) => setSecondarySelected(newValue);
+  const handleSuccessChange = (newValue: OptionModel<string>) => setSuccessSelected(newValue);
+  const handleInfoChange = (newValue: OptionModel<string>) => setInfoSelected(newValue);
+  const handleWarningChange = (newValue: OptionModel<string>) => setWarningSelected(newValue);
+  const handleDangerChange = (newValue: OptionModel<string>) => setDangerSelected(newValue);
 
   return (
     <div>

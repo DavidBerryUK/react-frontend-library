@@ -2,10 +2,10 @@ import classNames from "classnames";
 import OptionModel from "./models/OptionModel";
 
 interface IButtonProperties {
-  option: OptionModel;
-  selected: OptionModel;
+  option: OptionModel<any>;
+  selected: OptionModel<any>;
 
-  onClick: (value: OptionModel) => void;
+  onClick: (value: OptionModel<any>) => void;
 }
 
 const UISegmentButton: React.FC<IButtonProperties> = (props) => {
@@ -18,7 +18,7 @@ const UISegmentButton: React.FC<IButtonProperties> = (props) => {
   };
 
   return (
-    <div role="tab" className={className} onClick={handleOnButtonClickedEvent}>
+    <div role="tab" className={className} data-testid={props.option.key} onClick={handleOnButtonClickedEvent}>
       {props.option.text}
     </div>
   );

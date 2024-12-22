@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import UIPagination from "../UIPagination";
 import React, { useState } from "react";
 
@@ -17,14 +17,6 @@ const meta = {
 } satisfies Meta<typeof UIPagination>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const AlertDefault: Story = {
-  args: {
-    page: 1,
-    pageCount: 20,
-  },
-};
 
 export const Default: React.FC = () => {
   const [pageCount] = useState<number>(20);

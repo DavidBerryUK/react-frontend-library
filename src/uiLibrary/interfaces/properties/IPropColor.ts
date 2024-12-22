@@ -17,6 +17,19 @@ export default interface IPropColor {
   default?: boolean;
 }
 
+export function GetIPropColorFromProperty(props: IPropColor): IPropColor {
+  const colourProps: IPropColor = {
+    default: props.danger,
+    secondary: props.secondary,
+    success: props.success,
+    info: props.info,
+    warning: props.info,
+    danger: props.danger,
+  };
+
+  return colourProps;
+}
+
 export function GetEnumColorFromProp(property: IPropColor): EnumThemeVariant {
   if (property.primary) {
     return EnumThemeVariant.primary;

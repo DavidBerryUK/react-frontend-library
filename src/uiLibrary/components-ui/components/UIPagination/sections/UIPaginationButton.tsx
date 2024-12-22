@@ -74,7 +74,7 @@ const UIPaginationButton: React.FC<IProperties> = (props) => {
   var className = classNames("pg-button", classSelected, classDisabled);
 
   return (
-    <div data-testid={`page${props.pageNumber}`} className={className} title={title} onClick={handleButtonClickEvent}>
+    <div data-testid={title} className={className} title={title} onClick={handleButtonClickEvent}>
       {content}
     </div>
   );
