@@ -1,3 +1,4 @@
+import OptionModel from "../../components-ui/components/UISegment/models/OptionModel";
 import EnumFieldDataType from "../../enums/EnumFieldDataType";
 import IRule from "../../validation/interfaces/IRule";
 
@@ -22,9 +23,15 @@ export default class FieldSchema {
    */
   public rules: Array<IRule>;
 
-  constructor(caption: string, dataType: EnumFieldDataType, rules?: Array<IRule>) {
+  /**
+   * optional list of options for dropdowns / segement control
+   */
+  public options: Array<OptionModel<any>> | undefined;
+
+  constructor(caption: string, dataType: EnumFieldDataType, rules?: Array<IRule>, options?: Array<OptionModel<any>> | undefined) {
     this.caption = caption;
     this.dataType = dataType;
     this.rules = rules ?? new Array<IRule>();
+    this.options = options;
   }
 }

@@ -3,6 +3,7 @@ import FieldSchema from "./FieldSchema";
 import EnumFieldDataType from "../../enums/EnumFieldDataType";
 import IFieldValidation from "../../validation/interfaces/IFieldValidation";
 import FieldValidation from "../../validation/models/FieldValidation";
+import OptionModel from "../../components-ui/components/UISegment/models/OptionModel";
 export type FieldTypeString = string | undefined;
 export type FieldTypeNumber = number | undefined;
 export type FieldTypeBoolean = boolean | undefined;
@@ -18,6 +19,7 @@ interface FieldViewModelProps {
   help: string;
   validation: IFieldValidation | undefined;
   active: boolean;
+  options: Array<OptionModel<any>> | undefined;
 }
 
 const FieldViewModelRecord = Record<FieldViewModelProps>({
@@ -29,6 +31,7 @@ const FieldViewModelRecord = Record<FieldViewModelProps>({
   value: undefined,
   validation: undefined,
   active: true,
+  options: undefined,
 });
 
 const RecordPropertyNames = {
@@ -40,6 +43,7 @@ const RecordPropertyNames = {
   help: "help",
   validation: "validation",
   active: "active",
+  options: "options",
 } as const;
 
 export default class FieldModel extends FieldViewModelRecord {
@@ -51,6 +55,7 @@ export default class FieldModel extends FieldViewModelRecord {
     error: string,
     help: string,
     validation: IFieldValidation,
+    options: Array<OptionModel<any>> | undefined,
   ) {
     super({
       dataType: dataType,
@@ -60,10 +65,18 @@ export default class FieldModel extends FieldViewModelRecord {
       error: error,
       help: help,
       validation: validation,
+      options: options,
     });
   }
 
-  public static create(fieldName: string, caption: string, dataType: EnumFieldDataType, value: FieldValueType, validation?: FieldValidation) {
+  public static create(
+    fieldName: string,
+    caption: string,
+    dataType: EnumFieldDataType,
+    value: FieldValueType,
+    validation?: FieldValidation,
+    options?: Array<OptionModel<any>> | undefined,
+  ) {
     return new FieldModel(
       fieldName, // Field name
       dataType, // Data Type, e.g. String, Number, Boolean, Date
@@ -72,6 +85,7 @@ export default class FieldModel extends FieldViewModelRecord {
       "", // Error message
       "", // help message
       validation ?? new FieldValidation([]), // validation rules
+      options,
     );
   }
 
@@ -87,6 +101,7 @@ export default class FieldModel extends FieldViewModelRecord {
       "", // Error message
       "", // help message
       new FieldValidation(schema.rules), // validation rules
+      schema.options,
     );
   }
 
@@ -116,6 +131,10 @@ export default class FieldModel extends FieldViewModelRecord {
 
   get active(): boolean {
     return this.get(RecordPropertyNames.active);
+  }
+
+  get options(): Array<OptionModel<any>> | undefined {
+    return this.get(RecordPropertyNames.options);
   }
 
   /**
@@ -221,5 +240,12 @@ export default class FieldModel extends FieldViewModelRecord {
    */
   cloneWithHelp(newHelp: string): FieldModel {
     return this.set(RecordPropertyNames.help, newHelp) as FieldModel;
+  }
+
+  /**
+   * Creates a clone of the model with updated options list.
+   */
+  cloneWithOptions(options: Array<OptionModel<any>> | undefined): FieldModel {
+    return this.set(RecordPropertyNames.options, options) as FieldModel;
   }
 }

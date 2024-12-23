@@ -21,7 +21,7 @@ const UISelect: React.FC<ISelectProperties> = (props) => {
 
   return (
     <select className={className} onChange={handleOnChangeEvent} value={props.selected?.key} disabled={props.disabled}>
-      <option key="" data-testid="Select an option" value={""}>
+      <option key="NoSelection" data-testid="NoSelection" value="">
         Select an option
       </option>
       {props.options.map((option) => (
