@@ -1,5 +1,5 @@
 import FactoryOptionLists from "../../../../storybook/factories/FactoryOptionLists";
-
+import FactoryCarLists from "../../../../storybook/factories/FactoryCarLists";
 import React, { useState } from "react";
 import TestFlexGrid from "../../../../storybook/TestFlexGrid";
 import TestGridSectionHeader from "../../../../storybook/TestGridSectionHeader";
@@ -77,6 +77,41 @@ export const Gallery: React.FC = () => {
         <TestGridSectionHeader title="Danger" colspan={1} />
         <UISelect danger options={options} selected={dangerSelected} onChange={handleDangerChange} />
       </TestFlexGrid>
+    </div>
+  );
+};
+
+export const CarMultiSelect: React.FC = () => {
+  // State variables for each UISelect
+  const [makes] = useState<Array<OptionModel<number>>>(FactoryCarLists.GetMakes());
+  const [models, setModels] = useState<Array<OptionModel<number>>>(new Array<OptionModel<number>>());
+  const [colors, setColors] = useState<Array<OptionModel<number>>>(new Array<OptionModel<number>>());
+  const [selectedMake, setSelectedMake] = useState<OptionModel<number>>(new OptionModel<number>("", ""));
+  const [selectedModel, setSelectedModel] = useState<OptionModel<number>>(new OptionModel<number>("", ""));
+  const [selectedColor, setSelectedColor] = useState<OptionModel<number>>(new OptionModel<number>("", ""));
+
+  const handleMakeSelectedEvent = (value: OptionModel<number>) => {
+    setSelectedMake(value);
+    setModels(FactoryCarLists.GetModelsForMake(value.data!));
+    setSelectedModel(new OptionModel<number>("", ""));
+    setSelectedColor(new OptionModel<number>("", ""));
+  };
+
+  const handleModelSelectedEvent = (value: OptionModel<number>) => {
+    setSelectedModel(value);
+    setColors(FactoryCarLists.getColorsForModel(value.data!));
+    setSelectedColor(new OptionModel<number>("", ""));
+  };
+
+  const handleColorSelectedEvent = (value: OptionModel<number>) => {
+    setSelectedColor(value);
+  };
+
+  return (
+    <div style={{ display: "flex", columnGap: 8, width: 800 }}>
+      <UISelect default options={makes} selected={selectedMake} onChange={handleMakeSelectedEvent} />
+      <UISelect default options={models} selected={selectedModel} onChange={handleModelSelectedEvent} />
+      <UISelect default options={colors} selected={selectedColor} onChange={handleColorSelectedEvent} />
     </div>
   );
 };
