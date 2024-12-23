@@ -1,10 +1,10 @@
-import { IProperties } from "../UISegment";
 import classNames from "classnames";
 import ConstKeyboardKeys from "../../../../constants/ConstKeyboardKeys";
+import ISegmentProperties from "../../../../interfaces/controls/ISegmentProperties";
 import OptionModel from "../models/OptionModel";
 import useVariantStyle from "../../../../hooks/UseVariantStyle";
 
-const useViewController = (props: IProperties) => {
+const useViewController = (props: ISegmentProperties) => {
   const variantClassName = useVariantStyle("sg", props);
   const className = classNames("ui-segment", variantClassName);
 

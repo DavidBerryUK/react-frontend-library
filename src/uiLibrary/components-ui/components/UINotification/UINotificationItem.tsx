@@ -1,12 +1,12 @@
-import CommandRemoveNotification from "../../context/actions/CommandRemoveNotification";
-import CommandRequestDismissNotification from "../../context/actions/CommandRequestDismissNotification";
-import CommandUpdateNotification from "../../context/actions/CommandUpdateNotification";
-import { useUiContext } from "../../context/UiContext";
 import { enumAlignHorizontal, enumAlignVertical, enumNotificationStatus } from "./enums/enumNotification";
 import { enumStatusType } from "./enums/EnumStatusType";
 import NotificationModel from "./models/NotificationModel";
 import React, { useEffect, useRef } from "react";
 import UINotificationsIcon from "./UINotificationsIcon";
+import { useUiContext } from "../../../context/UiContext";
+import CommandRequestDismissNotification from "../../../context/actions/CommandRequestDismissNotification";
+import CommandRemoveNotification from "../../../context/actions/CommandRemoveNotification";
+import CommandUpdateNotification from "../../../context/actions/CommandUpdateNotification";
 
 interface IProperties {
   notification: NotificationModel;

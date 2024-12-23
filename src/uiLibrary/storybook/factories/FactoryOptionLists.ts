@@ -1,5 +1,5 @@
 import OptionModel from "../../components-ui/components/UISegment/models/OptionModel";
-import EnumThemeVariant from "../../components-ui/enums/EnumThemeVariant";
+import EnumColor from "../../enums/EnumColor";
 
 /**
  * Factory providing lists for stories / tests
@@ -14,15 +14,15 @@ export default class FactoryOptionLists {
     return options;
   }
 
-  public static GetVariantList(): Array<OptionModel<EnumThemeVariant>> {
-    const options: Array<OptionModel<EnumThemeVariant>> = [
-      new OptionModel<EnumThemeVariant>("default", "Default Theme", EnumThemeVariant.default),
-      new OptionModel<EnumThemeVariant>("primary", "Primary Theme", EnumThemeVariant.primary),
-      new OptionModel<EnumThemeVariant>("secondary", "Secondary Theme", EnumThemeVariant.secondary),
-      new OptionModel<EnumThemeVariant>("success", "Success Theme", EnumThemeVariant.success),
-      new OptionModel<EnumThemeVariant>("info", "Info Theme", EnumThemeVariant.info),
-      new OptionModel<EnumThemeVariant>("warning", "Warning Theme", EnumThemeVariant.warning),
-      new OptionModel<EnumThemeVariant>("danger", "Danger Theme", EnumThemeVariant.danger),
+  public static GetVariantList(): Array<OptionModel<EnumColor>> {
+    const options: Array<OptionModel<EnumColor>> = [
+      new OptionModel<EnumColor>("default", "Default Theme", EnumColor.default),
+      new OptionModel<EnumColor>("primary", "Primary Theme", EnumColor.primary),
+      new OptionModel<EnumColor>("secondary", "Secondary Theme", EnumColor.secondary),
+      new OptionModel<EnumColor>("success", "Success Theme", EnumColor.success),
+      new OptionModel<EnumColor>("info", "Info Theme", EnumColor.info),
+      new OptionModel<EnumColor>("warning", "Warning Theme", EnumColor.warning),
+      new OptionModel<EnumColor>("danger", "Danger Theme", EnumColor.danger),
     ];
     return options;
   }

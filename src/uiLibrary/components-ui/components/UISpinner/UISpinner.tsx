@@ -1,8 +1,8 @@
+import classNames from "classnames";
+import ISpinnerProperties from "../../../interfaces/controls/ISpinnerProperties";
 import React from "react";
-import ISpinnerProperties from "../../interfaces/controls/ISpinnerProperties";
 import useSizeStyle from "../../../hooks/UseSizeStyle";
 import useVariantStyle from "../../../hooks/UseVariantStyle";
-import classNames from "classnames";
 
 /**
  * Common Text Field

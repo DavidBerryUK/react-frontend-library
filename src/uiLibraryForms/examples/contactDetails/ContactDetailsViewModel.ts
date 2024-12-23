@@ -1,11 +1,11 @@
-import BaseViewModel from "../../models/fields/BaseViewModel";
-import EnumFieldDataType from "../../enums/EnumFieldDataType";
-import FieldModel from "../../models/fields/FieldModel";
-import FieldSchema from "../../models/fields/FieldSchema";
-import RuleMandatory from "../../validation/rules/RuleMandatory";
-import RuleMaxLength from "../../validation/rules/RuleMaxLength";
-import RuleMinLength from "../../validation/rules/RuleMinLength";
-import ViewModelSchema, { SchemaBase } from "../../models/fields/ViewModelSchema";
+import BaseViewModel from "../../../uiLibrary/models/fields/BaseViewModel";
+import EnumFieldDataType from "../../../uiLibrary/enums/EnumFieldDataType";
+import FieldModel from "../../../uiLibrary/models/fields/FieldModel";
+import FieldSchema from "../../../uiLibrary/models/fields/FieldSchema";
+import RuleMandatory from "../../../uiLibrary/validation/rules/RuleMandatory";
+import RuleMaxLength from "../../../uiLibrary/validation/rules/RuleMaxLength";
+import RuleMinLength from "../../../uiLibrary/validation/rules/RuleMinLength";
+import ViewModelSchema, { SchemaBase } from "../../../uiLibrary/models/fields/ViewModelSchema";
 
 class ContactDetailsViewModelSchema extends ViewModelSchema {
   fields: SchemaBase = {

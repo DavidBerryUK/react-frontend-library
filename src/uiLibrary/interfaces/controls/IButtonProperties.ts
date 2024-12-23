@@ -5,6 +5,6 @@ import IPropOutline from "../properties/IPropOutline";
 import IPropSize from "../properties/IPropSize";
 import IPropsText from "../properties/IPropText";
 
-type IButtonProperties = IPropColor & IPropDisabled & IPropsText & IPropSize & IPropOutline & IPropOnClick & {testId?: string}
+type IButtonProperties = IPropColor & IPropDisabled & IPropsText & IPropSize & IPropOutline & IPropOnClick & { testId?: string };
 
 export default IButtonProperties;

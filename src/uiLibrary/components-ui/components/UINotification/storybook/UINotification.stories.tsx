@@ -1,12 +1,11 @@
+import { enumNotificationDuration } from "../enums/enumNotification";
+import { enumStatusType } from "../enums/EnumStatusType";
+import { UiContextProvider, useUiContext } from "../../../../context/UiContext";
+import CommandAddNotification from "../../../../context/actions/CommandAddNotification";
 import React from "react";
 import type { Meta } from "@storybook/react";
-
-import CommandAddNotification from "../../../context/actions/CommandAddNotification";
-import UINotifications from "../UINotifications";
-import { UiContextProvider, useUiContext } from "../../../context/UiContext";
-import { enumStatusType } from "../enums/EnumStatusType";
-import { enumNotificationDuration } from "../enums/enumNotification";
 import UIButton from "../../UIButton/UIButton";
+import UINotifications from "../UINotifications";
 
 const meta = {
   title: "UI/UINotification",

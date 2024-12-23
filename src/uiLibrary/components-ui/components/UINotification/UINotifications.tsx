@@ -1,6 +1,6 @@
 import React from "react";
 import UINotificationItem from "./UINotificationItem";
-import { useUiContext } from "../../context/UiContext";
+import { useUiContext } from "../../../context/UiContext";
 
 const UINotifications: React.FC = () => {
   const { uiState } = useUiContext();

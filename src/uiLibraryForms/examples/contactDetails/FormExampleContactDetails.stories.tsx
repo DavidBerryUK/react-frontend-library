@@ -1,9 +1,9 @@
 import ContactDetailsViewModel from "./ContactDetailsViewModel";
-import FieldModel from "../../models/fields/FieldModel";
 import React, { useState } from "react";
 import type { Meta } from "@storybook/react";
-import UIFormText from "../../components/UIFormText/UIFormText";
+import UIFormText from "../../../uiLibrary/components-forms/UIFormText/UIFormText";
 import UIButton from "../../../uiLibrary/components-ui/components/UIButton/UIButton";
+import FieldModel from "../../../uiLibrary/models/fields/FieldModel";
 
 const meta = {
   title: "Form Examples/ContactDetails",

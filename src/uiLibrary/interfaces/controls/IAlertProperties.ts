@@ -4,6 +4,6 @@ import IPropColor from "../properties/IPropColor";
 import IPropShade from "../properties/IPropShade";
 import IPropSize from "../properties/IPropSize";
 
-type IAlertProperties = IPropColor & IAlertStyles & IPropSize & IPropShade & IPropChildren & {testId?: string};
+type IAlertProperties = IPropColor & IAlertStyles & IPropSize & IPropShade & IPropChildren & { testId?: string };
 
 export default IAlertProperties;

@@ -1,11 +1,11 @@
 import { useMemo, useState } from "react";
-import PaginationModel from "../models/PaginationModel";
-import { IProperties } from "../UIPagination";
-import useVariantStyle from "../../../../hooks/UseVariantStyle";
-import ConstKeyboardKeys from "../../../../constants/ConstKeyboardKeys";
 import classNames from "classnames";
+import ConstKeyboardKeys from "../../../../constants/ConstKeyboardKeys";
+import IPaginationProperties from "../../../../interfaces/controls/IPaginationProperties";
+import PaginationModel from "../models/PaginationModel";
+import useVariantStyle from "../../../../hooks/UseVariantStyle";
 
-const useViewController = (props: IProperties) => {
+const useViewController = (props: IPaginationProperties) => {
   const [pageModel, setPageModel] = useState(new PaginationModel(props.page, props.pageCount));
   const variantClass = useVariantStyle("pg", props);
 

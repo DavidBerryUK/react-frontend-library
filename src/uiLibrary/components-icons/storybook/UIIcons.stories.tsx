@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
-
+import FactoryOptionLists from "../../storybook/factories/FactoryOptionLists";
 import IIconProps from "../interfaces/IIconProps";
-import IPropColor from "../../components-ui/interfaces/properties/IPropColor";
 import OptionModel from "../../components-ui/components/UISegment/models/OptionModel";
+import React, { useState } from "react";
 import TestFlexGrid from "../../storybook/TestFlexGrid";
 import TestGridSectionHeader from "../../storybook/TestGridSectionHeader";
+import type { Meta, StoryObj } from "@storybook/react";
 import UISegment from "../../components-ui/components/UISegment/UISegment";
-import FactoryOptionLists from "../../storybook/factories/FactoryOptionLists";
 
 import UIIconAlertCrossCircle from "../UIIconAlertCrossCircle";
 import UIIconAlertCrossCircleSolid from "../UIIconAlertCrossCircleSolid";
@@ -131,7 +129,8 @@ import UIIconUserCircleSolid from "../UIIconUserCircleSolid";
 import UIIconUsers from "../UIIconUsers";
 import UIIconUserSolid from "../UIIconUserSolid";
 import UIIconUsersSolid from "../UIIconUsersSolid";
-import EnumThemeVariant from "../../components-ui/enums/EnumThemeVariant";
+import EnumColor from "../../enums/EnumColor";
+import IPropColor from "../../interfaces/properties/IPropColor";
 
 const meta = {
   title: "UIIcons",
@@ -320,8 +319,8 @@ export const Gallery: StoryObj = {
     const [searchTerm, setSearchTerm] = useState("");
     const [filteredIcons, setFilteredIcons] = useState(icons);
 
-    const [colourOptions] = useState<Array<OptionModel<EnumThemeVariant>>>(FactoryOptionLists.GetVariantList());
-    const [selectedColour, setSelectedColour] = useState<OptionModel<EnumThemeVariant>>(colourOptions[0]);
+    const [colourOptions] = useState<Array<OptionModel<EnumColor>>>(FactoryOptionLists.GetVariantList());
+    const [selectedColour, setSelectedColour] = useState<OptionModel<EnumColor>>(colourOptions[0]);
 
     const [sizeOptions] = useState<Array<OptionModel<string>>>(getSizeOptions());
     const [selectedSize, setSelectedSize] = useState<OptionModel<string>>(sizeOptions[3]);
@@ -338,7 +337,7 @@ export const Gallery: StoryObj = {
       setFilteredIcons(icons.filter((icon) => icon.name.toLowerCase().includes(searchValue)));
     };
 
-    const handleColourSelectedEvent = (option: OptionModel<EnumThemeVariant>) => {
+    const handleColourSelectedEvent = (option: OptionModel<EnumColor>) => {
       setSelectedColour(option);
       setIconProp(convertOptionsToProps(option, selectedSize));
     };
@@ -380,30 +379,30 @@ export const Gallery: StoryObj = {
   },
 };
 
-function convertOptionsToProps(colourOption: OptionModel<EnumThemeVariant>, sizeOption: OptionModel<string>): IIconProps {
+function convertOptionsToProps(colourOption: OptionModel<EnumColor>, sizeOption: OptionModel<string>): IIconProps {
   var prop: IIconProps = {};
 
   // Using a switch statement for colourOption.text
   switch (colourOption.data) {
-    case EnumThemeVariant.default:
+    case EnumColor.default:
       prop.default = true;
       break;
-    case EnumThemeVariant.success:
+    case EnumColor.success:
       prop.success = true;
       break;
-    case EnumThemeVariant.primary:
+    case EnumColor.primary:
       prop.primary = true;
       break;
-    case EnumThemeVariant.secondary:
+    case EnumColor.secondary:
       prop.secondary = true;
       break;
-    case EnumThemeVariant.info:
+    case EnumColor.info:
       prop.info = true;
       break;
-    case EnumThemeVariant.warning:
+    case EnumColor.warning:
       prop.warning = true;
       break;
-    case EnumThemeVariant.danger:
+    case EnumColor.danger:
       prop.danger = true;
       break;
   }

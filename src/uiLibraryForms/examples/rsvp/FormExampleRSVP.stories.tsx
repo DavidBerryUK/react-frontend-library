@@ -1,10 +1,10 @@
-import FieldModel from "../../models/fields/FieldModel";
 import React, { useState } from "react";
 import type { Meta } from "@storybook/react";
-import UIFormText from "../../components/UIFormText/UIFormText";
 import UIButton from "../../../uiLibrary/components-ui/components/UIButton/UIButton";
 import { RsvpFormViewModel } from "./RsvpFormViewModel";
-import UIFormSwitch from "../../components/UIFormSwitch/UIFormSwitch";
+import UIFormText from "../../../uiLibrary/components-forms/UIFormText/UIFormText";
+import UIFormSwitch from "../../../uiLibrary/components-forms/UIFormSwitch/UIFormSwitch";
+import FieldModel from "../../../uiLibrary/models/fields/FieldModel";
 
 const meta = {
   title: "Form Examples/RSVP",

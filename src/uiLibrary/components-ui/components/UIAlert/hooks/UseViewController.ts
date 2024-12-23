@@ -1,7 +1,7 @@
 import classNames from "classnames";
-import IAlertProperties from "../../../interfaces/controls/IAlertProperties";
-import useVariantStyle from "../../../../hooks/UseVariantStyle";
+import IAlertProperties from "../../../../interfaces/controls/IAlertProperties";
 import useSizeStyle from "../../../../hooks/UseSizeStyle";
+import useVariantStyle from "../../../../hooks/UseVariantStyle";
 
 const useViewController = (props: IAlertProperties) => {
   var shadeClass = "";

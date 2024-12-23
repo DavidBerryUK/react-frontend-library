@@ -1,9 +1,9 @@
 import classNames from "classnames";
-import IButtonProperties from "../../interfaces/controls/IButtonProperties";
 import React from "react";
 import useSizeStyle from "../../../hooks/UseSizeStyle";
 import useStyleOutlined from "../../../hooks/UseOutlinedStyle";
 import useVariantStyle from "../../../hooks/UseVariantStyle";
+import IButtonProperties from "../../../interfaces/controls/IButtonProperties";
 
 /**
  * Common button

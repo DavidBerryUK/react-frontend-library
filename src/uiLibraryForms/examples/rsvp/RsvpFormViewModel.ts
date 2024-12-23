@@ -1,13 +1,13 @@
-import BaseViewModel from "../../models/fields/BaseViewModel";
-import EnumFieldDataType from "../../enums/EnumFieldDataType";
-import FieldModel from "../../models/fields/FieldModel";
-import FieldSchema from "../../models/fields/FieldSchema";
-import RuleInteger from "../../validation/rules/RuleInteger";
-import RuleMandatory from "../../validation/rules/RuleMandatory";
-import RuleMaxLength from "../../validation/rules/RuleMaxLength";
-import RuleMinLength from "../../validation/rules/RuleMinLength";
-import RuleValueBetween from "../../validation/rules/RuleValueBetween";
-import ViewModelSchema, { SchemaBase } from "../../models/fields/ViewModelSchema";
+import BaseViewModel from "../../../uiLibrary/models/fields/BaseViewModel";
+import EnumFieldDataType from "../../../uiLibrary/enums/EnumFieldDataType";
+import FieldModel from "../../../uiLibrary/models/fields/FieldModel";
+import FieldSchema from "../../../uiLibrary/models/fields/FieldSchema";
+import RuleInteger from "../../../uiLibrary/validation/rules/RuleInteger";
+import RuleMandatory from "../../../uiLibrary/validation/rules/RuleMandatory";
+import RuleMaxLength from "../../../uiLibrary/validation/rules/RuleMaxLength";
+import RuleMinLength from "../../../uiLibrary/validation/rules/RuleMinLength";
+import RuleValueBetween from "../../../uiLibrary/validation/rules/RuleValueBetween";
+import ViewModelSchema, { SchemaBase } from "../../../uiLibrary/models/fields/ViewModelSchema";
 
 class RsvpViewModelSchema extends ViewModelSchema {
   fields: SchemaBase = {

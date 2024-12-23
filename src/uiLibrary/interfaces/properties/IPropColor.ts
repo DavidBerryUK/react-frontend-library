@@ -1,4 +1,4 @@
-import EnumThemeVariant from "../../components-ui/enums/EnumThemeVariant";
+import EnumColor from "../../enums/EnumColor";
 
 export default interface IPropColor {
   /** Use the Primary Style */
@@ -30,34 +30,34 @@ export function GetIPropColorFromProperty(props: IPropColor): IPropColor {
   return colourProps;
 }
 
-export function GetEnumColorFromProp(property: IPropColor): EnumThemeVariant {
+export function GetEnumColorFromProp(property: IPropColor): EnumColor {
   if (property.primary) {
-    return EnumThemeVariant.primary;
+    return EnumColor.primary;
   }
 
   if (property.secondary) {
-    return EnumThemeVariant.secondary;
+    return EnumColor.secondary;
   }
 
   if (property.success) {
-    return EnumThemeVariant.success;
+    return EnumColor.success;
   }
 
   if (property.info) {
-    return EnumThemeVariant.info;
+    return EnumColor.info;
   }
 
   if (property.warning) {
-    return EnumThemeVariant.warning;
+    return EnumColor.warning;
   }
 
   if (property.danger) {
-    return EnumThemeVariant.danger;
+    return EnumColor.danger;
   }
 
   if (property.default) {
-    return EnumThemeVariant.default;
+    return EnumColor.default;
   }
 
-  return EnumThemeVariant.default;
+  return EnumColor.default;
 }

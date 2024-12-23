@@ -1,4 +1,4 @@
-import EnumSize from "../../components-ui/enums/EnumSize";
+import EnumSize from "../../enums/EnumSize";
 
 interface IPropSize {
   size?: EnumSize;

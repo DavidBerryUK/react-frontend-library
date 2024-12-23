@@ -1,10 +1,11 @@
 import classNames from "classnames";
-import ITextProperties from "../../interfaces/controls/ITextProperties";
+
 import React from "react";
 import useExtendedSizeStyle from "../../../hooks/UseExtendedSizeStyle";
 import useFontStyle from "../../../hooks/UseFontStyle";
 import useFontWeightStyle from "../../../hooks/UseFontWeightStyle";
 import useVariantStyle from "../../../hooks/UseVariantStyle";
+import ITextProperties from "../../../interfaces/controls/ITextProperties";
 
 /**
  * @param props

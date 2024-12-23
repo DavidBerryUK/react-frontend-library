@@ -1,19 +1,9 @@
-import React from "react";
-import IPropColor from "../../interfaces/properties/IPropColor";
-import IPropDisabled from "../../interfaces/properties/IPropDisabled";
-import IPropOnChange from "../../interfaces/properties/IPropOnChange";
-import OptionModel from "../UISegment/models/OptionModel";
 import classNames from "classnames";
+import React from "react";
 import useVariantStyle from "../../../hooks/UseVariantStyle";
+import { ISelectProperties } from "../../../interfaces/controls/ISelectProperties";
 
-interface IOptions {
-  options: Array<OptionModel<any>>;
-  selected: OptionModel<any>;
-}
-
-export type IProperties = IPropColor & IPropDisabled & IPropOnChange<OptionModel<any>> & IOptions & IPropColor;
-
-const UISelect: React.FC<IProperties> = (props) => {
+const UISelect: React.FC<ISelectProperties> = (props) => {
   /**
    * Handle event when user chooses a new option
    * @param event - from select element

@@ -1,15 +1,10 @@
 import React from "react";
-import IPropDisabled from "../../interfaces/properties/IPropDisabled";
-import IPropValue from "../../interfaces/properties/IPropValue";
-import IPropOnChange from "../../interfaces/properties/IPropOnChange";
-import IPropColor from "../../interfaces/properties/IPropColor";
 import useVariantStyle from "../../../hooks/UseVariantStyle";
 import classNames from "classnames";
 import ConstKeyboardKeys from "../../../constants/ConstKeyboardKeys";
+import ISwitchProperties from "../../../interfaces/controls/ISwitchProperties";
 
-type IProperties = IPropColor & IPropDisabled & IPropValue<boolean> & IPropOnChange<boolean>;
-
-const UISwitch: React.FC<IProperties> = (props) => {
+const UISwitch: React.FC<ISwitchProperties> = (props) => {
   var variantClass = useVariantStyle("swt", props);
 
   const handleOnChangeEvent = (event: React.ChangeEvent<HTMLInputElement>) => {

@@ -1,13 +1,9 @@
-import { ReactNode } from "react";
+import IShowIfTrueProperties from "../../../interfaces/controls/IShowIfTrueProperties";
 //
 // helper component to show child functions if a condition is met
 //
-interface IProperties {
-  value?: boolean | null;
-  children?: ReactNode;
-}
 
-const UIShowIfTrue: React.FC<IProperties> = ({ value, children }) => {
+const UIShowIfTrue: React.FC<IShowIfTrueProperties> = ({ value, children }) => {
   //
   // if the isTrue property is provided, then evaluate if
   //

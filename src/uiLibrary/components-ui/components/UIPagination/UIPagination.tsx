@@ -1,24 +1,24 @@
 import { EnumButtonType } from "./enums/EnumButtonType";
-import IPropColor from "../../interfaces/properties/IPropColor";
+import IPaginationProperties from "../../../interfaces/controls/IPaginationProperties";
 import React from "react";
 import UIPaginationButton from "./sections/UIPaginationButton";
 import useViewController from "./hooks/UseViewController";
 
-export type IProperties = IPropColor & {
-  page: number;
-  pageCount: number;
-  onPageChanged?: (page: number) => void;
-};
-
 // Component
 // Displays a row of pagination buttons
 //
-const UIPagination: React.FC<IProperties> = (props) => {
+const UIPagination: React.FC<IPaginationProperties> = (props) => {
   const { pageModel, variantClass, className, handleOnKeyDownEvent, handlechangePageClickEvent } = useViewController(props);
 
   return (
     <div className={className} role="button" tabIndex={0} onKeyDown={handleOnKeyDownEvent}>
-      <UIPaginationButton selectedClassName={variantClass} enabled={pageModel.enableFirstPageButton} pageNumber={1} onPageSelected={handlechangePageClickEvent} type={EnumButtonType.First} />
+      <UIPaginationButton
+        selectedClassName={variantClass}
+        enabled={pageModel.enableFirstPageButton}
+        pageNumber={1}
+        onPageSelected={handlechangePageClickEvent}
+        type={EnumButtonType.First}
+      />
       <UIPaginationButton
         selectedClassName={variantClass}
         enabled={pageModel.enableSkipPreviousPageButton}
