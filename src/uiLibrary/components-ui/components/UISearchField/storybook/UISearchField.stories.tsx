@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import UISearchField from "../UISearchField";
 
 const meta = {
-  title: "UI/UISearchField",
+  title: "1 - UI/UISearchField",
   component: UISearchField,
   parameters: {
     layout: "centered",

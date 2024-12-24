@@ -5,7 +5,7 @@ import EnumFieldDataType from "../../../enums/EnumFieldDataType";
 import React, { useState } from "react";
 
 const meta = {
-  title: "Form/UIFormCurrency",
+  title: "2 - Form/UIFormCurrency",
   component: UIFormCurrency,
   parameters: {
     layout: "",

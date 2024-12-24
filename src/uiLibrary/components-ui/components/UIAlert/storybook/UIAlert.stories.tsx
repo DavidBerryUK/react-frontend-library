@@ -3,10 +3,10 @@ import TestFlexGrid from "../../../../storybook/TestFlexGrid";
 import TestGridSectionHeader from "../../../../storybook/TestGridSectionHeader";
 import type { Meta, StoryObj } from "@storybook/react";
 import UIAlert from "../UIAlert";
-import IAlertProperties from "../../../interfaces/controls/IAlertProperties";
+import IAlertProperties from "../../../../interfaces/controls/IAlertProperties";
 
 const meta = {
-  title: "UI/UIAlert",
+  title: "1 - UI/UIAlert",
   component: UIAlert,
   parameters: {
     layout: "centered",

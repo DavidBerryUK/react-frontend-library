@@ -8,7 +8,7 @@ import UIButton from "../../UIButton/UIButton";
 import UINotifications from "../UINotifications";
 
 const meta = {
-  title: "UI/UINotification",
+  title: "1 - UI/UINotification",
   component: UINotifications,
   decorators: [
     (Story) => (

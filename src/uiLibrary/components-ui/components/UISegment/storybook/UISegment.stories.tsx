@@ -7,7 +7,7 @@ import TestGridSectionHeader from "../../../../storybook/TestGridSectionHeader";
 import FactoryOptionLists from "../../../../storybook/factories/FactoryOptionLists";
 
 const meta = {
-  title: "UI/UISegment",
+  title: "1 - UI/UISegment",
   component: UISegment,
   parameters: {
     layout: "centered",

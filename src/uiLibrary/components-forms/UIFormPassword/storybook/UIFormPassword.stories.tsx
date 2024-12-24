@@ -9,7 +9,7 @@ import RuleMinLength from "../../../validation/rules/RuleMinLength";
 import RuleMaxLength from "../../../validation/rules/RuleMaxLength";
 
 const meta = {
-  title: "Form/UIFormPassword",
+  title: "2 - Form/UIFormPassword",
   component: UIFormPassword,
   parameters: {
     layout: "",
@@ -35,7 +35,13 @@ export default meta;
 
 export const Interactive: React.FC = () => {
   const [password, setPassword] = useState<FieldModel>(
-    FieldModel.create("password", "Password", EnumFieldDataType.string, "", new FieldValidation([new RuleMandatory(), new RuleMinLength(8), new RuleMaxLength(12)])),
+    FieldModel.create(
+      "password",
+      "Password",
+      EnumFieldDataType.string,
+      "",
+      new FieldValidation([new RuleMandatory(), new RuleMinLength(8), new RuleMaxLength(12)]),
+    ),
   );
 
   const handleOnValueChangedEvent = (value: FieldModel) => {

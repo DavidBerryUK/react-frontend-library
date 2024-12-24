@@ -9,7 +9,7 @@ import UIFormText from "../UIFormText";
 import TestFlexGrid from "../../../../uiLibrary/storybook/TestFlexGrid";
 
 const meta: Meta<typeof UIFormText> = {
-  title: "Form/UIFormText",
+  title: "2 - Form/UIFormText",
   component: UIFormText,
   parameters: {
     layout: "",
@@ -72,8 +72,12 @@ export const Interactive: Story = {
  */
 export const Mandatory: Story = {
   render: () => {
-    const [forename, setForename] = useState<FieldModel>(FieldModel.create("forename", "Forename", EnumFieldDataType.string, "", new FieldValidation([new RuleMandatory(), new RuleMaxLength(20)])));
-    const [surname, setSurname] = useState<FieldModel>(FieldModel.create("surname", "Surname", EnumFieldDataType.string, "", new FieldValidation([new RuleMandatory(), new RuleMaxLength(20)])));
+    const [forename, setForename] = useState<FieldModel>(
+      FieldModel.create("forename", "Forename", EnumFieldDataType.string, "", new FieldValidation([new RuleMandatory(), new RuleMaxLength(20)])),
+    );
+    const [surname, setSurname] = useState<FieldModel>(
+      FieldModel.create("surname", "Surname", EnumFieldDataType.string, "", new FieldValidation([new RuleMandatory(), new RuleMaxLength(20)])),
+    );
 
     const handleOnForenameChangedEvent = (value: FieldModel) => {
       setForename(value);

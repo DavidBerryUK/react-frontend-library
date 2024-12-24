@@ -16,34 +16,7 @@
 // .fc-suffix-text
 
 .ui-form {
-  font-family: Arial, Helvetica, sans-serif;
-  display: flex;
-  flex-direction: row;
-  column-gap: $form-column-gap;
-  row-gap: $form-row-gap;
-  width: 100%;
-
-  &.layoutColumn {
-    flex-direction: column;
-  }
-
-  &.layoutRow {
-    flex-direction: row;
-  }
-
   .ui-fc-control {
-    display: flex;
-    flex-direction: column;
-    flex: 1; // Makes the control take up the remaining width in the flex container
-
-    // label
-    .ui-fc-label {
-      user-select: none;
-      font-size: $form-control-label-font-size;
-      font-weight: $form-control-label-font-weight;
-      margin-bottom: 4px;
-    }
-
     // input control
     .ui-fc-text {
       display: flex;
@@ -58,6 +31,36 @@
       @each $style, $properties in $theme-styles {
         &.fc-#{$style} {
           border-color: map.get($properties, light-border-color);
+
+          input {
+            border-radius: $form-control-border-radius;
+            font-size: $form-control-font-size;
+            font-weight: $form-control-font-weight;
+
+            &:focus {
+              outline: $focus-width solid rgba(map.get($properties, light-border-color), 0.6); // Set opacity to 80%
+              outline-offset: $focus-offset;
+              z-index: $focus-zindex;
+            }
+          }
+
+          .fc-prefix-text,
+          .fc-suffix-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            background: map.get($properties, light-color);
+            color: map.get($properties, light-text-color);
+            z-index: -1;
+          }
+
+          .fc-prefix-text {
+            border-right: 1px solid map.get($properties, light-border-color);
+          }
+          .fc-suffix-text {
+            border-left: 1px solid map.get($properties, light-border-color);
+          }
         }
       }
 
@@ -67,17 +70,6 @@
         padding-right: 6px;
         border: none;
       }
-    }
-
-    .ui-fc-error {
-      user-select: none;
-      color: $red-500;
-      font-size: $form-control-error-font-size;
-      font-weight: $form-control-error-font-weight;
-      margin-top: 8px;
-      text-wrap: wrap;
-      width: 100%;
-      box-sizing: border-box; // Includes padding and border in the total width
     }
   }
 }

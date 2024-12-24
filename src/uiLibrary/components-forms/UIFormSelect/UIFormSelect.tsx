@@ -6,7 +6,7 @@ import IPropOnChange from "../../interfaces/properties/IPropOnChange";
 import IPropValue from "../../interfaces/properties/IPropValue";
 import OptionModel from "../../components-ui/components/UISegment/models/OptionModel";
 import UISelect from "../../components-ui/components/UISelect/UISelect";
-import UIFormLabel from "../UIFormLabel/UIFormLabel";
+import UIFormControlWrapper from "../base/UIFormBase/UIFormControlWrapper";
 
 type IProperties = IPropDisabled & IPropValue<FieldModel> & IPropOnChange<FieldModel> & IPropClassName & IPropColor;
 
@@ -24,10 +24,9 @@ const UIFormSelect: React.FC<IProperties> = (props) => {
   const selected = props.value.options?.filter((item) => item.key === props.value.valueAsString)![0]!;
 
   return (
-    <div>
-      <UIFormLabel value={props.value} />
+    <UIFormControlWrapper {...props}>
       <UISelect {...props} onChange={handleOnChangeEvent} options={props.value.options!} selected={selected} />
-    </div>
+    </UIFormControlWrapper>
   );
 };
 

@@ -7,7 +7,7 @@ import EnumFieldDataType from "../../enums/EnumFieldDataType";
 import TestFlexGrid from "../../../uiLibrary/storybook/TestFlexGrid";
 
 const meta: Meta<typeof UIFormSwitch> = {
-  title: "Form/UIFormSwitch",
+  title: "2 - Form/UIFormSwitch",
   component: UIFormSwitch,
   parameters: {
     layout: "",
@@ -38,7 +38,9 @@ type Story = StoryObj<typeof UIFormSwitch>;
  */
 export const Interactive: Story = {
   render: () => {
-    const [documentProvided, setDocumentProvided] = useState<FieldModel>(FieldModel.create("isDocProvided", "Has Document Been Provided", EnumFieldDataType.boolean, true));
+    const [documentProvided, setDocumentProvided] = useState<FieldModel>(
+      FieldModel.create("isDocProvided", "Has Document Been Provided", EnumFieldDataType.boolean, true),
+    );
 
     const handleOnSurnameChangedEvent = (value: FieldModel) => {
       setDocumentProvided(value);
@@ -63,7 +65,9 @@ export const ColorGallery: Story = {
   render: () => {
     const [defaultSwitch, setDefaultSwitch] = useState<FieldModel>(FieldModel.create("defaultSwitch", "Default Switch", EnumFieldDataType.boolean, true));
     const [primarySwitch, setPrimarySwitch] = useState<FieldModel>(FieldModel.create("primarySwitch", "Primary Switch", EnumFieldDataType.boolean, true));
-    const [secondarySwitch, setSecondarySwitch] = useState<FieldModel>(FieldModel.create("secondarySwitch", "Secondary Switch", EnumFieldDataType.boolean, true));
+    const [secondarySwitch, setSecondarySwitch] = useState<FieldModel>(
+      FieldModel.create("secondarySwitch", "Secondary Switch", EnumFieldDataType.boolean, true),
+    );
     const [successSwitch, setSuccessSwitch] = useState<FieldModel>(FieldModel.create("successSwitch", "Success Switch", EnumFieldDataType.boolean, true));
     const [infoSwitch, setInfoSwitch] = useState<FieldModel>(FieldModel.create("infoSwitch", "Info Switch", EnumFieldDataType.boolean, true));
     const [warningSwitch, setWarningSwitch] = useState<FieldModel>(FieldModel.create("warningSwitch", "Warning Switch", EnumFieldDataType.boolean, true));

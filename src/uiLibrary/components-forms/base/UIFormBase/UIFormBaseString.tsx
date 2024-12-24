@@ -13,6 +13,7 @@ import IPropValue from "../../../interfaces/properties/IPropValue";
 import UIFormLabel from "../../UIFormLabel/UIFormLabel";
 import UIShowIfTrue from "../../../components-ui/components/UIShowIfTrue/UIShowIfTrue";
 import useVariantStyle from "../../../hooks/UseVariantStyle";
+import UIFormControlWrapper from "./UIFormControlWrapper";
 
 type IProperties = IPropDisabled &
   IPropPlaceholder &
@@ -46,15 +47,11 @@ const UIFormBaseString: React.FC<IProperties> = (props) => {
 
   const showPrefix = props.textPrefix !== undefined;
   const showSuffix = props.textSuffix !== undefined;
-  const showHelpMessage = !!props.value.help?.length;
-  const showErrorMessage = !!props.value.error.length;
-  const errorClassName = showErrorMessage ? "error" : "";
-  const containerClassName = classNames("ui-fc-control", props.className);
-  const inputClassName = classNames("ui-fc-text", variantClass, errorClassName);
+
+  const inputClassName = classNames("ui-fc-text", variantClass);
 
   return (
-    <div className={containerClassName}>
-      <UIFormLabel value={props.value} />
+    <UIFormControlWrapper {...props}>
       <div className={inputClassName}>
         <UIShowIfTrue value={showPrefix}>
           <div className="fc-prefix-text">{props.textPrefix}</div>
@@ -72,13 +69,7 @@ const UIFormBaseString: React.FC<IProperties> = (props) => {
           <div className="fc-suffix-text">{props.textSuffix}</div>
         </UIShowIfTrue>
       </div>
-      <UIShowIfTrue value={showHelpMessage}>
-        <div className="ui-fc-help">{props.value.help}</div>
-      </UIShowIfTrue>
-      <UIShowIfTrue value={showErrorMessage}>
-        <div className="ui-fc-error">{props.value.error}</div>
-      </UIShowIfTrue>
-    </div>
+    </UIFormControlWrapper>
   );
 };
 

@@ -5,7 +5,7 @@ import type { Meta } from "@storybook/react";
 import UISwitch from "../UISwitch";
 
 const meta = {
-  title: "UI/UISwitch",
+  title: "1 - UI/UISwitch",
   component: UISwitch,
   parameters: {
     layout: "centered",

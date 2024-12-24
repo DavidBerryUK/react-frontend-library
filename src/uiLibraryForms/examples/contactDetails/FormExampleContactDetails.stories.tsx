@@ -6,7 +6,7 @@ import UIButton from "../../../uiLibrary/components-ui/components/UIButton/UIBut
 import FieldModel from "../../../uiLibrary/models/fields/FieldModel";
 
 const meta = {
-  title: "Form Examples/ContactDetails",
+  title: "3 - Form Examples/ContactDetails",
   component: UIFormText,
   parameters: {
     layout: "",

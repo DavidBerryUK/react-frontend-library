@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import UIText from "../UIText";
 
 const meta = {
-  title: "UI/UIText",
+  title: "1 - UI/UIText",
   component: UIText,
   parameters: {
     layout: "centered",

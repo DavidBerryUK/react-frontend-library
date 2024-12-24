@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import FactoryCarLists from "../../../storybook/factories/FactoryCarLists";
 
 const meta = {
-  title: "Form/UIFormSelect",
+  title: "2 - Form/UIFormSelect",
   component: UIFormSelect,
   parameters: {
     layout: "",
@@ -37,26 +37,25 @@ export const Interactive: React.FC = () => {
   const [carModel, setCarModel] = useState<FieldModel>(FieldModel.create("model", "Car Model", EnumFieldDataType.string, "", undefined, []));
   const [carColor, setCarColor] = useState<FieldModel>(FieldModel.create("color", "Car Color", EnumFieldDataType.string, "", undefined, []));
 
-  const handleOnValueChangedEvent = (value: FieldModel) => {
-    if (value.fieldName === carMake.fieldName) {
-      setCarMake(value);
-      setCarModel(carModel.cloneWithOptions(FactoryCarLists.GetModelsForMake(Number(value.valueAsString))).cloneAndClear());
-      setCarColor(carColor.cloneAndClear().cloneWithOptions([]));
-    }
-    if (value.fieldName === carModel.fieldName) {
-      setCarModel(value);
-      setCarColor(carColor.cloneAndClear().cloneWithOptions(FactoryCarLists.getColorsForModel(Number(value.valueAsString))));
-    }
-    if (value.fieldName === carColor.fieldName) {
-      setCarColor(value);
-    }
+  const handleOnMakeValueChangedEvent = (value: FieldModel) => {
+    setCarMake(value);
+    setCarModel(carModel.cloneWithOptions(FactoryCarLists.GetModelsForMake(Number(value.valueAsString))).cloneAndClear());
+    setCarColor(carColor.cloneAndClear().cloneWithOptions([]));
+  };
+
+  const handleOnModelValueChangedEvent = (value: FieldModel) => {
+    setCarModel(value);
+    setCarColor(carColor.cloneAndClear().cloneWithOptions(FactoryCarLists.getColorsForModel(Number(value.valueAsString))));
+  };
+  const handleOnColorValueChangedEvent = (value: FieldModel) => {
+    setCarColor(value);
   };
 
   return (
     <div className="ui-form">
-      <UIFormSelect value={carMake} onChange={handleOnValueChangedEvent} />
-      <UIFormSelect value={carModel} onChange={handleOnValueChangedEvent} />
-      <UIFormSelect value={carColor} onChange={handleOnValueChangedEvent} />
+      <UIFormSelect value={carMake} onChange={handleOnMakeValueChangedEvent} />
+      <UIFormSelect value={carModel} onChange={handleOnModelValueChangedEvent} />
+      <UIFormSelect value={carColor} onChange={handleOnColorValueChangedEvent} />
     </div>
   );
 };

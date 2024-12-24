@@ -6,7 +6,7 @@ import TestFlexGrid from "../../../../storybook/TestFlexGrid";
 import TestGridSectionHeader from "../../../../storybook/TestGridSectionHeader";
 
 const meta = {
-  title: "UI/UISpinner",
+  title: "1 - UI/UISpinner",
   component: UISpinner,
   parameters: {
     layout: "centered",

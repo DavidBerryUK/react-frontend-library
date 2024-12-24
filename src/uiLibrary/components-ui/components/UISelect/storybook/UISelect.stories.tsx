@@ -8,7 +8,7 @@ import UISelect from "../UISelect";
 import OptionModel from "../../UISegment/models/OptionModel";
 
 const meta = {
-  title: "UI/UISelect",
+  title: "1 - UI/UISelect",
   component: UISelect,
   parameters: {
     layout: "centered",

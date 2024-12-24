@@ -133,7 +133,7 @@ import EnumColor from "../../enums/EnumColor";
 import IPropColor from "../../interfaces/properties/IPropColor";
 
 const meta = {
-  title: "UIIcons",
+  title: "4 - Icons/UIIcons",
   component: UIIconPlusCircleSolid,
   parameters: {
     layout: "padded",
