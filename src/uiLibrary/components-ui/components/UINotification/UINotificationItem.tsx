@@ -15,36 +15,42 @@ import UIAlert from "../UIAlert/UIAlert";
 import UIButton from "../UIButton/UIButton";
 import UINotificationsIcon from "./UINotificationsIcon";
 import UIText from "../UIText/UIText";
+import EnumNotificationPlacement from "./enums/EnumNotificationPlacement";
 
 interface IProperties {
   notification: NotificationModel;
 }
 
 const UINotificationItem: React.FC<IProperties> = (props) => {
-  const { uiDispatch } = useUiContext();
+  const { uiState, uiDispatch } = useUiContext();
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const verticalAlignment = uiState.notificationManager.configuration.alignVertical;
+  const horizontalAlignment = uiState.notificationManager.configuration.alignHorizontal;
+  const placement = uiState.notificationManager.configuration.placement;
+
   console.log("----------------------------------");
-  console.log(`vertical: ${EnumAlignVertical[props.notification.alignVertical]} horizontal:${EnumAlignHorizontal[props.notification.alignHorizontal]}`);
+  console.log(`${EnumNotificationPlacement[placement]}`);
+  console.log(`vertical: ${EnumAlignVertical[uiState.notificationManager.configuration.alignVertical]} horizontal:${EnumAlignHorizontal[horizontalAlignment]}`);
 
   let style: any = { transitionDelay: `${props.notification.transitionDelay}s` };
 
-  if (props.notification.alignVertical === EnumAlignVertical.top) {
+  if (verticalAlignment === EnumAlignVertical.top) {
     console.log(`position to top ${props.notification.y}`);
     style.top = props.notification.y;
   }
 
-  if (props.notification.alignVertical === EnumAlignVertical.bottom) {
+  if (verticalAlignment === EnumAlignVertical.bottom) {
     console.log(`position to bottom ${props.notification.y}`);
     style.bottom = props.notification.y;
   }
 
-  if (props.notification.alignHorizontal === EnumAlignHorizontal.left) {
+  if (horizontalAlignment === EnumAlignHorizontal.left) {
     console.log(`position to left ${props.notification.x}`);
     style.left = props.notification.x;
   }
 
-  if (props.notification.alignHorizontal === EnumAlignHorizontal.right) {
+  if (horizontalAlignment === EnumAlignHorizontal.right) {
     console.log(`position to right ${props.notification.x}`);
     style.right = props.notification.x;
   }
@@ -98,7 +104,7 @@ const UINotificationItem: React.FC<IProperties> = (props) => {
     className = `${className} dismissed`;
   }
 
-  if (props.notification.alignHorizontal === EnumAlignHorizontal.center) {
+  if (horizontalAlignment === EnumAlignHorizontal.center) {
     className = `${className} center`;
   }
 

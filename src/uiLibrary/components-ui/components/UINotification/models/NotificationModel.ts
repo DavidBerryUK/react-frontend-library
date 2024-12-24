@@ -1,6 +1,4 @@
 import { nanoid } from "nanoid";
-import EnumAlignHorizontal from "../enums/EnumAlignHorizontal";
-import EnumAlignVertical from "../enums/EnumAlignVertical";
 import EnumNotificationDuration from "../enums/EnumNotificationDuration";
 import EnumNotificationStatus from "../enums/EnumNotificationStatus";
 import EnumNotificationType from "../enums/EnumNotificationType";
@@ -20,8 +18,6 @@ export default class NotificationModel {
   width: number;
   height: number;
   transitionDelay: number;
-  alignVertical: EnumAlignVertical;
-  alignHorizontal: EnumAlignHorizontal;
 
   constructor(type: EnumNotificationType, duration: EnumNotificationDuration, title: string, message: string) {
     this.id = nanoid();
@@ -35,8 +31,6 @@ export default class NotificationModel {
     this.width = 0;
     this.height = 0;
     this.transitionDelay = 0;
-    this.alignVertical = EnumAlignVertical.none;
-    this.alignHorizontal = EnumAlignHorizontal.none;
   }
 
   clone(): NotificationModel {
@@ -48,8 +42,6 @@ export default class NotificationModel {
     copy.width = this.width;
     copy.height = this.height;
     copy.transitionDelay = this.transitionDelay;
-    copy.alignVertical = this.alignVertical;
-    copy.alignHorizontal = this.alignHorizontal;
     return copy;
   }
 }

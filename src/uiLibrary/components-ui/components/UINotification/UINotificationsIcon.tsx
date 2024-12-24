@@ -2,7 +2,7 @@ import NotificationModel from "./models/NotificationModel";
 import React, { ReactNode, useRef, useState } from "react";
 
 import useAnimatedProgressCircle from "./hooks/useAnimatedProgressCircle";
-import EnumStatusTypeHelper from "./models/EnumStatusTypeHelper";
+import EnumStatusTypeHelper from "./hooks/EnumStatusTypeHelper";
 
 interface IProperties {
   notification: NotificationModel;
