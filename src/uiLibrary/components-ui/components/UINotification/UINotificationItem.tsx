@@ -1,12 +1,18 @@
 import { enumAlignHorizontal, enumAlignVertical, enumNotificationStatus } from "./enums/enumNotification";
 import { enumStatusType } from "./enums/EnumStatusType";
+import { useUiContext } from "../../../context/UiContext";
+import CommandRemoveNotification from "../../../context/actions/CommandRemoveNotification";
+import CommandRequestDismissNotification from "../../../context/actions/CommandRequestDismissNotification";
+import CommandUpdateNotification from "../../../context/actions/CommandUpdateNotification";
+import IAlertProperties from "../../../interfaces/controls/IAlertProperties";
+import IButtonProperties from "../../../interfaces/controls/IButtonProperties";
+import ITextProperties from "../../../interfaces/controls/ITextProperties";
 import NotificationModel from "./models/NotificationModel";
 import React, { useEffect, useRef } from "react";
+import UIAlert from "../UIAlert/UIAlert";
+import UIButton from "../UIButton/UIButton";
 import UINotificationsIcon from "./UINotificationsIcon";
-import { useUiContext } from "../../../context/UiContext";
-import CommandRequestDismissNotification from "../../../context/actions/CommandRequestDismissNotification";
-import CommandRemoveNotification from "../../../context/actions/CommandRemoveNotification";
-import CommandUpdateNotification from "../../../context/actions/CommandUpdateNotification";
+import UIText from "../UIText/UIText";
 
 interface IProperties {
   notification: NotificationModel;
@@ -34,6 +40,42 @@ const UINotificationItem: React.FC<IProperties> = (props) => {
     style.right = props.notification.x;
   }
 
+  var alertProps: IAlertProperties = { lighter: true };
+  var textProps: ITextProperties = {};
+  var buttonProps: IButtonProperties = { text: "Dismiss" };
+
+  switch (props.notification.type) {
+    case enumStatusType.info:
+      alertProps.info = true;
+      textProps.info = true;
+      buttonProps.info = true;
+      break;
+
+    case enumStatusType.question:
+      alertProps.primary = true;
+      textProps.primary = true;
+      buttonProps.primary = true;
+      break;
+
+    case enumStatusType.warning:
+      alertProps.warning = true;
+      textProps.warning = true;
+      buttonProps.warning = true;
+      break;
+
+    case enumStatusType.danger:
+      alertProps.danger = true;
+      textProps.danger = true;
+      buttonProps.danger = true;
+      break;
+
+    case enumStatusType.success:
+      alertProps.success = true;
+      textProps.success = true;
+      buttonProps.success = true;
+      break;
+  }
+
   let className = "ui-notification";
   if (
     props.notification.status === enumNotificationStatus.showing ||
@@ -49,22 +91,6 @@ const UINotificationItem: React.FC<IProperties> = (props) => {
 
   if (props.notification.alignHorizontal === enumAlignHorizontal.center) {
     className = `${className} center`;
-  }
-
-  if (props.notification.type === enumStatusType.success) {
-    className = `${className} theme-success`;
-  }
-  if (props.notification.type === enumStatusType.info) {
-    className = `${className} theme-info`;
-  }
-  if (props.notification.type === enumStatusType.warning) {
-    className = `${className} theme-warning`;
-  }
-  if (props.notification.type === enumStatusType.danger) {
-    className = `${className} theme-danger`;
-  }
-  if (props.notification.type === enumStatusType.question) {
-    className = `${className} theme-question`;
   }
 
   useEffect(() => {
@@ -108,22 +134,24 @@ const UINotificationItem: React.FC<IProperties> = (props) => {
 
   return (
     <div className={className} style={style} ref={containerRef}>
-      <div className="region-icon">
-        <UINotificationsIcon notification={props.notification} onTimerComplete={handleTimerCompleteEvent} />
-      </div>
-      <div className="region-message">
-        <div className="">
-          <h4 className="text-lg font-semibold">{props.notification.title}</h4>
+      <UIAlert borderedLeft {...alertProps}>
+        <div className="region-content">
+          <div className="region-icon">
+            <UINotificationsIcon notification={props.notification} onTimerComplete={handleTimerCompleteEvent} />
+          </div>
+          <div className="region-body">
+            <UIText {...textProps} subHeading>
+              {props.notification.title}
+            </UIText>
+            <UIText {...textProps} body>
+              {props.notification.message}
+            </UIText>
+          </div>
+          <div className="region-actions">
+            <UIButton {...buttonProps} onClick={handleTimerCompleteEvent} />
+          </div>
         </div>
-        <p className="text-sm">
-          <span dangerouslySetInnerHTML={{ __html: props.notification.message }} />
-        </p>
-      </div>
-      <div className="region-actions">
-        <button onClick={handleTimerCompleteEvent} className="text-gray-500 hover:text-gray-700">
-          Dismiss
-        </button>
-      </div>
+      </UIAlert>
     </div>
   );
 };

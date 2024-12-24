@@ -1,58 +1,25 @@
 import { enumStatusType } from "../enums/EnumStatusType";
-import UIIconAlertCrossCircle from "../../../../components-icons/UIIconAlertCrossCircle";
-import UIIconAlertCrossCircleSolid from "../../../../components-icons/UIIconAlertCrossCircleSolid";
-import UIIconAlertExclamationCircle from "../../../../components-icons/UIIconAlertExclamationCircle";
-import UIIconAlertExclamationCircleSolid from "../../../../components-icons/UIIconAlertExclamationCircleSolid";
-import UIIconAlertInfoCircle from "../../../../components-icons/UIIconAlertInfoCircle";
-import UIIconAlertInfoCircleSolid from "../../../../components-icons/UIIconAlertInfoCircleSolid";
-import UIIconAlertQuestionCircle from "../../../../components-icons/UIIconAlertQuestionCircle";
-import UIIconAlertQuestionCircleSolid from "../../../../components-icons/UIIconAlertQuestionCircleSolid";
-import UIIconAlertSuccessCircle from "../../../../components-icons/UIIconAlertSuccessCircle";
-import UIIconAlertSuccessCircleSolid from "../../../../components-icons/UIIconAlertSuccessCircleSolid";
+import IPropColor from "../../../../interfaces/properties/IPropColor";
 import React, { ReactNode } from "react";
+import UIIconAlertCrossCircleSolid from "../../../../components-icons/UIIconAlertCrossCircleSolid";
+import UIIconAlertExclamationCircleSolid from "../../../../components-icons/UIIconAlertExclamationCircleSolid";
+import UIIconAlertInfoCircleSolid from "../../../../components-icons/UIIconAlertInfoCircleSolid";
+import UIIconAlertQuestionCircleSolid from "../../../../components-icons/UIIconAlertQuestionCircleSolid";
+import UIIconAlertSuccessCircleSolid from "../../../../components-icons/UIIconAlertSuccessCircleSolid";
 
 export default class EnumStatusTypeHelper {
-  static readonly iconDanger = (<UIIconAlertCrossCircle />);
-  static readonly iconDangerSolid = (<UIIconAlertCrossCircleSolid />);
-
-  static readonly iconInfo = (<UIIconAlertInfoCircle />);
-  static readonly iconInfoSolid = (<UIIconAlertInfoCircleSolid />);
-
-  static readonly iconSuccess = (<UIIconAlertSuccessCircle />);
-  static readonly iconSuccessSolid = (<UIIconAlertSuccessCircleSolid />);
-
-  static readonly iconWarning = (<UIIconAlertExclamationCircle />);
-  static readonly iconWarningSolid = (<UIIconAlertExclamationCircleSolid />);
-
-  static readonly iconQuestion = (<UIIconAlertQuestionCircle />);
-  static readonly iconQuestionSolid = (<UIIconAlertQuestionCircleSolid />);
-
-  static getIconForStatus(status: enumStatusType, solid: boolean): ReactNode {
+  static getIconForStatus(status: enumStatusType): ReactNode {
     switch (status) {
       case enumStatusType.success:
-        return solid ? EnumStatusTypeHelper.iconSuccessSolid : EnumStatusTypeHelper.iconSuccess;
+        return <UIIconAlertSuccessCircleSolid success />;
       case enumStatusType.info:
-        return solid ? EnumStatusTypeHelper.iconInfoSolid : EnumStatusTypeHelper.iconInfo;
+        return <UIIconAlertInfoCircleSolid info />;
       case enumStatusType.warning:
-        return solid ? EnumStatusTypeHelper.iconWarningSolid : EnumStatusTypeHelper.iconWarning;
+        return <UIIconAlertExclamationCircleSolid warning />;
       case enumStatusType.danger:
-        return solid ? EnumStatusTypeHelper.iconDangerSolid : EnumStatusTypeHelper.iconDanger;
+        return <UIIconAlertCrossCircleSolid danger />;
       case enumStatusType.question:
-        return solid ? EnumStatusTypeHelper.iconQuestionSolid : EnumStatusTypeHelper.iconQuestion;
-    }
-  }
-
-  static getDarkenedColorForStatus(status: enumStatusType): string {
-    switch (status) {
-      case enumStatusType.success:
-      case enumStatusType.question:
-        return "#105736"; // darkened by 25%
-      case enumStatusType.info:
-        return "#08839b"; // darkened by 25%
-      case enumStatusType.warning:
-        return "#aa7f00"; // darkened by 25%
-      case enumStatusType.danger:
-        return "#971a26"; // darkened by 25%
+        return <UIIconAlertQuestionCircleSolid primary />;
     }
   }
 

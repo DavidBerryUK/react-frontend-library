@@ -1,7 +1,7 @@
 export enum enumStatusType {
-    success,
-    info,
-    warning,
-    danger,
-    question,
+  success,
+  info,
+  warning,
+  danger,
+  question,
 }

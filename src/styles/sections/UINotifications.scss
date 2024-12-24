@@ -1,11 +1,6 @@
 $transition-speed-in: 0.7s;
 $transition-speed-out: 0.6s;
 
-$success: #90ee90;
-$warning: #db7312;
-$info: #91c5f0;
-$danger: #d31414;
-
 .ui-notification-container {
   position: fixed;
   top: 0;
@@ -15,16 +10,15 @@ $danger: #d31414;
   pointer-events: none;
   z-index: 10;
   overflow: hidden;
+  border: none;
 
   .ui-notification {
     border-radius: 4px;
-    background-color: #eaeaea;
-    border: solid 1px #bbb;
-    display: flex;
+
     position: absolute;
     z-index: 10;
     width: 640px;
-    height: 100px;
+    // height: 100px;
     transition: opacity 0.25s ease-out;
     opacity: 0;
     pointer-events: none;
@@ -35,58 +29,31 @@ $danger: #d31414;
       left $transition-speed-in cubic-bezier(0.23, 0.82, 0.16, 1.46),
       right $transition-speed-in cubic-bezier(0.23, 0.82, 0.16, 1.46);
 
-    .region-icon {
-      width: 90px;
+    .region-content {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    .region-message {
-      display: flex;
-      justify-content: flex-start;
-      flex-direction: column;
-      flex-grow: 1;
-      padding-left: 16px;
-      padding-right: 16px;
-    }
-    .region-actions {
-      width: 90px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: stretch;
-      border-left: solid 1px #ddd;
-    }
 
-    &.theme-success {
-      border-left: solid 8px $success;
-      .notification-icon {
-        background-color: $success;
+      .region-icon {
+        width: 90px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
-    }
-    &.theme-info {
-      border-left: solid 8px $info;
-      .notification-icon {
-        background-color: $info;
+
+      .region-body {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        gap: 4px;
+        padding-right: 8px;
       }
-    }
-    &.theme-question {
-      border-left: solid 8px $info;
-      .notification-icon {
-        background-color: $info;
-      }
-    }
-    &.theme-warning {
-      border-left: solid 8px $warning;
-      .notification-icon {
-        background-color: $warning;
-      }
-    }
-    &.theme-danger {
-      border-left: solid 8px $danger;
-      .notification-icon {
-        background-color: $danger;
+
+      .region-actions {
+        width: 90px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
       }
     }
 
@@ -121,15 +88,16 @@ $danger: #d31414;
 
     .timer {
       position: relative;
-      width: 40px;
-      height: 40px;
+      width: 54px;
+      height: 54px;
 
       .circle-progress {
         position: absolute;
         top: 0;
         left: 0;
-        width: 40px;
-        height: 40px;
+        width: 54px;
+        height: 54px;
+        background-color: solid 1px red;
       }
 
       .notification-icon-position {

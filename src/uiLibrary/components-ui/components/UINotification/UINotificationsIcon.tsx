@@ -10,7 +10,7 @@ interface IProperties {
 }
 
 const UINotificationsIcon: React.FC<IProperties> = (props) => {
-  const [IconComponent] = useState<ReactNode>(EnumStatusTypeHelper.getIconForStatus(props.notification.type, true));
+  const [IconComponent] = useState<ReactNode>(EnumStatusTypeHelper.getIconForStatus(props.notification.type));
 
   const refCanvas = useRef<HTMLCanvasElement>(null);
 
@@ -18,9 +18,7 @@ const UINotificationsIcon: React.FC<IProperties> = (props) => {
     props.onTimerComplete();
   };
 
-  const color = EnumStatusTypeHelper.getDarkenedColorForStatus(props.notification.type);
-
-  useAnimatedProgressCircle(refCanvas.current!, props.notification.duration, color, handleTimerCompleteEvent);
+  useAnimatedProgressCircle(refCanvas.current!, props.notification.duration, handleTimerCompleteEvent);
 
   return (
     <div className="timer">

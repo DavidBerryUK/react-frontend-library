@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { differenceInMilliseconds } from "date-fns";
 import useProgressCircleRenderer from "./useProgressCircleRenderer";
 
-function useAnimatedProgressCircle(canvas: HTMLCanvasElement, targetDuration: number, color: string, OnTimeComplete: () => void) {
+function useAnimatedProgressCircle(canvas: HTMLCanvasElement, targetDuration: number, OnTimeComplete: () => void) {
   const [lastSnapshotTime] = useState<Date>(new Date());
   const [durationTarget] = useState<number>(targetDuration);
   const progressCircleRenderer = useProgressCircleRenderer();
@@ -16,7 +16,7 @@ function useAnimatedProgressCircle(canvas: HTMLCanvasElement, targetDuration: nu
       if (percentage > 100) {
         percentage = 100;
       }
-      progressCircleRenderer.render(canvas, color, percentage);
+      progressCircleRenderer.render(canvas, percentage);
 
       if (percentage < 100) {
         window.requestAnimationFrame(drawFrame);

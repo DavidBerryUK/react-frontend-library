@@ -2,22 +2,23 @@
 @use "../variables/Theme.scss" as *;
 @use "../variables/Font.scss" as *;
 
-$border-regular-width:12px;
-$border-regular-radius:8px;
-$border-regular-bordered-radius:4px;
+$border-regular-width: 12px;
+$border-regular-radius: 8px;
+$border-regular-bordered-radius: 4px;
 
 .ui-alert {
+  position: relative;
   border-radius: $border-regular-radius;
   padding: 16px;
   font-size: $font-size-base;
 
   &.al-small {
-    padding: 8px;   
+    padding: 8px;
     font-size: $font-size-sm;
   }
 
   &.al-large {
-    padding: 24px;   
+    padding: 24px;
     font-size: $font-size-lg;
   }
 
