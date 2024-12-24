@@ -1,9 +1,11 @@
-import { enumAlignHorizontal, enumAlignVertical, enumNotificationStatus } from "./enums/enumNotification";
-import { enumStatusType } from "./enums/EnumStatusType";
 import { useUiContext } from "../../../context/UiContext";
 import CommandRemoveNotification from "../../../context/actions/CommandRemoveNotification";
 import CommandRequestDismissNotification from "../../../context/actions/CommandRequestDismissNotification";
 import CommandUpdateNotification from "../../../context/actions/CommandUpdateNotification";
+import EnumAlignHorizontal from "./enums/EnumAlignHorizontal";
+import EnumAlignVertical from "./enums/EnumAlignVertical";
+import EnumNotificationStatus from "./enums/EnumNotificationStatus";
+import EnumNotificationType from "./enums/EnumNotificationType";
 import IAlertProperties from "../../../interfaces/controls/IAlertProperties";
 import IButtonProperties from "../../../interfaces/controls/IButtonProperties";
 import ITextProperties from "../../../interfaces/controls/ITextProperties";
@@ -22,21 +24,28 @@ const UINotificationItem: React.FC<IProperties> = (props) => {
   const { uiDispatch } = useUiContext();
   const containerRef = useRef<HTMLDivElement>(null);
 
+  console.log("----------------------------------");
+  console.log(`vertical: ${EnumAlignVertical[props.notification.alignVertical]} horizontal:${EnumAlignHorizontal[props.notification.alignHorizontal]}`);
+
   let style: any = { transitionDelay: `${props.notification.transitionDelay}s` };
 
-  if (props.notification.alignVertical === enumAlignVertical.top) {
+  if (props.notification.alignVertical === EnumAlignVertical.top) {
+    console.log(`position to top ${props.notification.y}`);
     style.top = props.notification.y;
   }
 
-  if (props.notification.alignVertical === enumAlignVertical.bottom) {
+  if (props.notification.alignVertical === EnumAlignVertical.bottom) {
+    console.log(`position to bottom ${props.notification.y}`);
     style.bottom = props.notification.y;
   }
 
-  if (props.notification.alignHorizontal === enumAlignHorizontal.left) {
+  if (props.notification.alignHorizontal === EnumAlignHorizontal.left) {
+    console.log(`position to left ${props.notification.x}`);
     style.left = props.notification.x;
   }
 
-  if (props.notification.alignHorizontal === enumAlignHorizontal.right) {
+  if (props.notification.alignHorizontal === EnumAlignHorizontal.right) {
+    console.log(`position to right ${props.notification.x}`);
     style.right = props.notification.x;
   }
 
@@ -45,31 +54,31 @@ const UINotificationItem: React.FC<IProperties> = (props) => {
   var buttonProps: IButtonProperties = { text: "Dismiss" };
 
   switch (props.notification.type) {
-    case enumStatusType.info:
+    case EnumNotificationType.info:
       alertProps.info = true;
       textProps.info = true;
       buttonProps.info = true;
       break;
 
-    case enumStatusType.question:
+    case EnumNotificationType.question:
       alertProps.primary = true;
       textProps.primary = true;
       buttonProps.primary = true;
       break;
 
-    case enumStatusType.warning:
+    case EnumNotificationType.warning:
       alertProps.warning = true;
       textProps.warning = true;
       buttonProps.warning = true;
       break;
 
-    case enumStatusType.danger:
+    case EnumNotificationType.danger:
       alertProps.danger = true;
       textProps.danger = true;
       buttonProps.danger = true;
       break;
 
-    case enumStatusType.success:
+    case EnumNotificationType.success:
       alertProps.success = true;
       textProps.success = true;
       buttonProps.success = true;
@@ -78,44 +87,44 @@ const UINotificationItem: React.FC<IProperties> = (props) => {
 
   let className = "ui-notification";
   if (
-    props.notification.status === enumNotificationStatus.showing ||
-    props.notification.status === enumNotificationStatus.requestedToDismiss ||
-    props.notification.status === enumNotificationStatus.dismissing
+    props.notification.status === EnumNotificationStatus.showing ||
+    props.notification.status === EnumNotificationStatus.requestedToDismiss ||
+    props.notification.status === EnumNotificationStatus.dismissing
   ) {
     className = `${className} shown`;
   }
 
-  if (props.notification.status === enumNotificationStatus.requestedToDismiss || props.notification.status === enumNotificationStatus.dismissing) {
+  if (props.notification.status === EnumNotificationStatus.requestedToDismiss || props.notification.status === EnumNotificationStatus.dismissing) {
     className = `${className} dismissed`;
   }
 
-  if (props.notification.alignHorizontal === enumAlignHorizontal.center) {
+  if (props.notification.alignHorizontal === EnumAlignHorizontal.center) {
     className = `${className} center`;
   }
 
   useEffect(() => {
     if (containerRef.current !== null) {
-      if (props.notification.status === enumNotificationStatus.initialising) {
+      if (props.notification.status === EnumNotificationStatus.initialising) {
         const size = containerRef.current.getBoundingClientRect();
         var copy = props.notification.clone();
         copy.width = size.width;
         copy.height = size.height;
-        copy.status = enumNotificationStatus.willShow;
+        copy.status = EnumNotificationStatus.willShow;
         uiDispatch(new CommandUpdateNotification(copy));
         return;
       }
 
-      if (props.notification.status === enumNotificationStatus.willShow) {
+      if (props.notification.status === EnumNotificationStatus.willShow) {
         setTimeout(() => {
           const copy = props.notification.clone();
-          copy.status = enumNotificationStatus.showing;
+          copy.status = EnumNotificationStatus.showing;
           uiDispatch(new CommandUpdateNotification(copy));
         }, 150);
       }
 
-      if (props.notification.status === enumNotificationStatus.requestedToDismiss) {
+      if (props.notification.status === EnumNotificationStatus.requestedToDismiss) {
         const copy = props.notification.clone();
-        copy.status = enumNotificationStatus.dismissing;
+        copy.status = EnumNotificationStatus.dismissing;
 
         setTimeout(() => {
           uiDispatch(new CommandRemoveNotification(copy));
@@ -127,7 +136,7 @@ const UINotificationItem: React.FC<IProperties> = (props) => {
 
   const handleTimerCompleteEvent = () => {
     console.log("handleTimerCompleteEvent");
-    if (props.notification.status !== enumNotificationStatus.dismissing && props.notification.status !== enumNotificationStatus.requestedToDismiss) {
+    if (props.notification.status !== EnumNotificationStatus.dismissing && props.notification.status !== EnumNotificationStatus.requestedToDismiss) {
       uiDispatch(new CommandRequestDismissNotification(props.notification));
     }
   };

@@ -1,6 +1,6 @@
-import { enumNotificationDuration } from "../../components-ui/components/UINotification/enums/enumNotification";
-import { enumStatusType } from "../../components-ui/components/UINotification/enums/EnumStatusType";
 import { IUiContextDispatchCommand, UiContextProps } from "../UiContext";
+import EnumNotificationDuration from "../../components-ui/components/UINotification/enums/EnumNotificationDuration";
+import EnumNotificationType from "../../components-ui/components/UINotification/enums/EnumNotificationType";
 import NotificationModel from "../../components-ui/components/UINotification/models/NotificationModel";
 
 export default class CommandAddNotification implements IUiContextDispatchCommand {
@@ -8,7 +8,7 @@ export default class CommandAddNotification implements IUiContextDispatchCommand
 
   // Create the command with all data needed to update
   //  the state
-  constructor(type: enumStatusType, duration: enumNotificationDuration, title: string, message: string) {
+  constructor(type: EnumNotificationType, duration: EnumNotificationDuration, title: string, message: string) {
     this.notification = new NotificationModel(type, duration, title, message);
   }
 

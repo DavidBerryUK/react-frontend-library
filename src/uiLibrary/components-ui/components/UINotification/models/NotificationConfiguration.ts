@@ -1,10 +1,10 @@
-import { enumNotificationPlacement } from "../enums/enumNotification";
+import EnumNotificationPlacement from "../enums/EnumNotificationPlacement";
 
 export default class NotificationConfiguration {
-  placement: enumNotificationPlacement;
+  placement: EnumNotificationPlacement;
 
   constructor() {
-    this.placement = enumNotificationPlacement.bottomRight;
+    this.placement = EnumNotificationPlacement.bottomRight;
   }
 
   static get default(): NotificationConfiguration {
@@ -17,7 +17,7 @@ export default class NotificationConfiguration {
     return model;
   }
 
-  cloneWithPlacement(placement: enumNotificationPlacement): NotificationConfiguration {
+  cloneWithPlacement(placement: EnumNotificationPlacement): NotificationConfiguration {
     var model = new NotificationConfiguration();
     model.placement = placement;
     return model;

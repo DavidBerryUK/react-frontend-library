@@ -1,6 +1,6 @@
-import { enumNotificationStatus } from "../../components-ui/components/UINotification/enums/enumNotification";
-import NotificationModel from "../../components-ui/components/UINotification/models/NotificationModel";
 import { IUiContextDispatchCommand, UiContextProps } from "../UiContext";
+import EnumNotificationStatus from "../../components-ui/components/UINotification/enums/EnumNotificationStatus";
+import NotificationModel from "../../components-ui/components/UINotification/models/NotificationModel";
 
 export default class CommandDismissNotification implements IUiContextDispatchCommand {
   notification: NotificationModel;
@@ -13,7 +13,7 @@ export default class CommandDismissNotification implements IUiContextDispatchCom
   // (this is called from within the ApplicationContext)
   execute(state: UiContextProps): UiContextProps {
     const notificationManager = state.notificationManager.clone();
-    this.notification.status = enumNotificationStatus.dismissing;
+    this.notification.status = EnumNotificationStatus.dismissing;
     notificationManager.update(this.notification);
 
     return {

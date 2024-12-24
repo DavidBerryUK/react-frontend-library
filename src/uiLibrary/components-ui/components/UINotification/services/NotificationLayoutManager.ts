@@ -1,7 +1,10 @@
-import { enumAlignHorizontal, enumAlignVertical, enumNotificationStatus } from "../enums/enumNotification";
+import EnumAlignHorizontal from "../enums/EnumAlignHorizontal";
+import EnumAlignVertical from "../enums/EnumAlignVertical";
+import EnumNotificationStatus from "../enums/EnumNotificationStatus";
 import NotificationCollection from "../models/NotificationCollection";
 import NotificationConfiguration from "../models/NotificationConfiguration";
 import NotificationPlacementModel from "../models/NotificationPlacementModel";
+
 //
 // manage the positions and state of notification views
 //
@@ -33,7 +36,7 @@ export default class NotificationLayoutManager {
   //
   //
   private calculateDismissRequests() {
-    let items = this.notificationCollection.collection.filter((item) => item.status === enumNotificationStatus.requestedToDismiss);
+    let items = this.notificationCollection.collection.filter((item) => item.status === EnumNotificationStatus.requestedToDismiss);
     if (items.length === 0) {
       return;
     }
@@ -42,20 +45,20 @@ export default class NotificationLayoutManager {
       //
       // note the +10 is to cater for the shadow
       //
-      if (placementModel.alignHorizontal === enumAlignHorizontal.left) {
+      if (placementModel.alignHorizontal === EnumAlignHorizontal.left) {
         // notification will exit to the left
         notification.x = -(notification.width + 20);
       }
-      if (placementModel.alignHorizontal === enumAlignHorizontal.right) {
+      if (placementModel.alignHorizontal === EnumAlignHorizontal.right) {
         // notification will exit to the right
         notification.x = -(notification.width + 20);
       }
-      if (placementModel.alignHorizontal === enumAlignHorizontal.center) {
-        if (placementModel.adjustmentVertical === enumAlignVertical.top) {
+      if (placementModel.alignHorizontal === EnumAlignHorizontal.center) {
+        if (placementModel.adjustmentVertical === EnumAlignVertical.top) {
           // notification will exit to the top
           notification.y = -(notification.height + 20);
         }
-        if (placementModel.adjustmentVertical === enumAlignVertical.bottom) {
+        if (placementModel.adjustmentVertical === EnumAlignVertical.bottom) {
           // notification will exit to the bottom
           notification.y = -(notification.height + 20);
         }
@@ -68,14 +71,14 @@ export default class NotificationLayoutManager {
   //
   private calculateOffScreenStartPositions() {
     const placementModel = new NotificationPlacementModel(this.configuration.placement);
-    let items = this.notificationCollection.collection.filter((item) => item.status === enumNotificationStatus.willShow);
+    let items = this.notificationCollection.collection.filter((item) => item.status === EnumNotificationStatus.willShow);
     if (items.length === 0) {
       return;
     }
     items.forEach((notification) => {
       notification.alignHorizontal = placementModel.alignHorizontal;
       notification.alignVertical = placementModel.alignVertical;
-      if (placementModel.adjustmentVertical === enumAlignVertical.top || placementModel.adjustmentVertical === enumAlignVertical.bottom) {
+      if (placementModel.adjustmentVertical === EnumAlignVertical.top || placementModel.adjustmentVertical === EnumAlignVertical.bottom) {
         notification.x = 10;
         notification.y = -notification.height;
       }
@@ -88,20 +91,24 @@ export default class NotificationLayoutManager {
   private calculateShowPositions() {
     const placementModel = new NotificationPlacementModel(this.configuration.placement);
 
-    let items = this.notificationCollection.collection.filter((item) => item.status === enumNotificationStatus.showing);
+    let items = this.notificationCollection.collection.filter((item) => item.status === EnumNotificationStatus.showing);
     if (items.length === 0) {
       return;
     }
     let x = 10;
     let y = 10;
+
+    //
+    //  Loop though each notification
+    //
     for (var index = items.length - 1; index >= 0; index--) {
       const notification = items[index];
       notification.alignHorizontal = placementModel.alignHorizontal;
       notification.alignVertical = placementModel.alignVertical;
-      if (notification.status === enumNotificationStatus.showing) {
+      if (notification.status === EnumNotificationStatus.showing) {
         notification.y = y;
 
-        if (placementModel.adjustmentHorizontal === enumAlignHorizontal.center) {
+        if (placementModel.adjustmentHorizontal === EnumAlignHorizontal.center) {
         } else {
           notification.x = x;
         }
@@ -117,7 +124,7 @@ export default class NotificationLayoutManager {
   // is added or removed
   //
   private calculateMovementDelays() {
-    let items = this.notificationCollection.collection.filter((item) => item.status === enumNotificationStatus.showing);
+    let items = this.notificationCollection.collection.filter((item) => item.status === EnumNotificationStatus.showing);
     if (items.length === 0) {
       return;
     }

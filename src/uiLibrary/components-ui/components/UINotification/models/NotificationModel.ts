@@ -1,17 +1,18 @@
 import { nanoid } from "nanoid";
-import { enumAlignHorizontal, enumAlignVertical, enumNotificationStatus } from "../enums/enumNotification";
-
-import { enumNotificationDuration } from "../enums/enumNotification";
-import { enumStatusType } from "../enums/EnumStatusType";
+import EnumAlignHorizontal from "../enums/EnumAlignHorizontal";
+import EnumAlignVertical from "../enums/EnumAlignVertical";
+import EnumNotificationDuration from "../enums/EnumNotificationDuration";
+import EnumNotificationStatus from "../enums/EnumNotificationStatus";
+import EnumNotificationType from "../enums/EnumNotificationType";
 
 //
 // Represents an individual notification
 //
 export default class NotificationModel {
-  status: enumNotificationStatus;
+  status: EnumNotificationStatus;
   id: string;
-  type: enumStatusType;
-  duration: enumNotificationDuration;
+  type: EnumNotificationType;
+  duration: EnumNotificationDuration;
   title: string;
   message: string;
   x: number;
@@ -19,23 +20,23 @@ export default class NotificationModel {
   width: number;
   height: number;
   transitionDelay: number;
-  alignVertical: enumAlignVertical;
-  alignHorizontal: enumAlignHorizontal;
+  alignVertical: EnumAlignVertical;
+  alignHorizontal: EnumAlignHorizontal;
 
-  constructor(type: enumStatusType, duration: enumNotificationDuration, title: string, message: string) {
+  constructor(type: EnumNotificationType, duration: EnumNotificationDuration, title: string, message: string) {
     this.id = nanoid();
     this.type = type;
     this.title = title;
     this.duration = duration;
     this.message = message;
-    this.status = enumNotificationStatus.initialising;
+    this.status = EnumNotificationStatus.initialising;
     this.x = 0;
     this.y = 0;
     this.width = 0;
     this.height = 0;
     this.transitionDelay = 0;
-    this.alignVertical = enumAlignVertical.none;
-    this.alignHorizontal = enumAlignHorizontal.none;
+    this.alignVertical = EnumAlignVertical.none;
+    this.alignHorizontal = EnumAlignHorizontal.none;
   }
 
   clone(): NotificationModel {

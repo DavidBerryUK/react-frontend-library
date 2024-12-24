@@ -1,24 +1,32 @@
-import { enumNotificationDuration } from "../enums/enumNotification";
-import { enumStatusType } from "../enums/EnumStatusType";
+import EnumNotificationDuration from "../enums/EnumNotificationDuration";
+import EnumNotificationType from "../enums/EnumNotificationType";
 import { UiContextProvider, useUiContext } from "../../../../context/UiContext";
 import CommandAddNotification from "../../../../context/actions/CommandAddNotification";
-import React from "react";
+import CommandSetNotificationConfiguration from "../../../../context/actions/CommandSetNotificationConfiguration";
+
+import FactoryNotificationOptionLists from "../../../../storybook/factories/FactoryNotificationOptionLists";
+import React, { useState } from "react";
 import type { Meta } from "@storybook/react";
 import UIButton from "../../UIButton/UIButton";
 import UINotifications from "../UINotifications";
+import UISegment from "../../UISegment/UISegment";
+import OptionModel from "../../UISegment/models/OptionModel";
+import EnumNotificationPlacement from "../enums/EnumNotificationPlacement";
 
 const meta = {
   title: "1 - UI/UINotification",
   component: UINotifications,
   decorators: [
     (Story) => (
-      <UiContextProvider>
-        <Story />
-      </UiContextProvider>
+      <div style={{ position: "relative" }}>
+        <UiContextProvider>
+          <Story />
+        </UiContextProvider>
+      </div>
     ),
   ],
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
     docs: {
       description: {
         component: "Application notifications,<br/> <b>under development</b><ul></ul>",
@@ -31,46 +39,52 @@ const meta = {
 export default meta;
 
 export const Notifications: React.FC = () => {
-  const { uiDispatch } = useUiContext();
+  /**
+   * Get Context Handlers
+   */
+  const { uiState, uiDispatch } = useUiContext();
 
-  const handleOnSuccessNotificationClickEvent = () => {
-    uiDispatch(new CommandAddNotification(enumStatusType.success, enumNotificationDuration.short, "Success", "You have just activated a Success Notification"));
+  /**
+   * Setup State
+   */
+  const [notificationTypes] = useState<Array<OptionModel<EnumNotificationType>>>(FactoryNotificationOptionLists.GetNotificationTypes());
+  const [selectedType, setSelectedType] = useState<OptionModel<EnumNotificationType>>(FactoryNotificationOptionLists.GetNotificationTypes()[0]);
+
+  const [notificationPlacements] = useState<Array<OptionModel<EnumNotificationPlacement>>>(FactoryNotificationOptionLists.GetNotificationPlacements());
+  const [selectedPlacement, setSelectedPlacement] = useState<OptionModel<EnumNotificationPlacement>>(
+    FactoryNotificationOptionLists.GetNotificationPlacements()[0],
+  );
+
+  /**
+   * Event Handlers
+   */
+  const handleOnNotificationTypeChanged = (value: OptionModel<EnumNotificationType>) => {
+    setSelectedType(value);
   };
 
-  const handleOnInfoNotificationClickEvent = () => {
-    uiDispatch(
-      new CommandAddNotification(enumStatusType.info, enumNotificationDuration.short, "Information", "You have just activated a Information Notification"),
-    );
+  const handleOnNotificationPlacementChanged = (value: OptionModel<EnumNotificationPlacement>) => {
+    setSelectedPlacement(value);
+    const config = uiState.notificationManager.configuration.cloneWithPlacement(selectedPlacement.data!);
+    uiDispatch(new CommandSetNotificationConfiguration(config));
   };
 
-  const handleOnWarningNotificationClickEvent = () => {
-    uiDispatch(new CommandAddNotification(enumStatusType.warning, enumNotificationDuration.short, "Warning", "You have just activated a Warning Notification"));
+  const handleOnPublishClickEvent = () => {
+    const typeName = FactoryNotificationOptionLists.getNotificationTypeName(selectedType.data!);
+
+    uiDispatch(new CommandAddNotification(selectedType.data!, EnumNotificationDuration.short, typeName, `You have just activated a ${typeName} Notification`));
   };
 
-  const handleOnQuestionNotificationClickEvent = () => {
-    uiDispatch(
-      new CommandAddNotification(enumStatusType.question, enumNotificationDuration.short, "Question", "You have just activated a Question Notification"),
-    );
-  };
-
-  const handleOnDangerNotificationClickEvent = () => {
-    uiDispatch(new CommandAddNotification(enumStatusType.danger, enumNotificationDuration.short, "Danger!", "You have just activated a Danger Notification"));
-  };
+  /**
+   * Template
+   */
   return (
-    <div
-      style={{
-        width: "800px",
-        height: "800px",
-        maxWidth: "800px",
-        maxHeight: "800px",
-        position: "relative",
-      }}
-    >
-      <UIButton default text="Question Notification" onClick={handleOnQuestionNotificationClickEvent} />
-      <UIButton success text="Success Notification" onClick={handleOnSuccessNotificationClickEvent} />
-      <UIButton info text="Information Notification" onClick={handleOnInfoNotificationClickEvent} />
-      <UIButton warning text="Warning Notification" onClick={handleOnWarningNotificationClickEvent} />
-      <UIButton danger text="Danger Notification" onClick={handleOnDangerNotificationClickEvent} />
+    <div>
+      <div style={{ display: "flex", justifyContent: "space-between", margin: 12 }}>
+        <UISegment options={notificationTypes} selected={selectedType} onChange={handleOnNotificationTypeChanged} />
+        <UISegment options={notificationPlacements} selected={selectedPlacement} onChange={handleOnNotificationPlacementChanged} />
+        <UIButton primary text="GO" large onClick={handleOnPublishClickEvent} />
+      </div>
+
       <UINotifications />
     </div>
   );
