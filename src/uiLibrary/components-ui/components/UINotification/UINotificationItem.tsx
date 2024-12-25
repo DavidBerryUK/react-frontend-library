@@ -15,7 +15,6 @@ import UIAlert from "../UIAlert/UIAlert";
 import UIButton from "../UIButton/UIButton";
 import UINotificationsIcon from "./UINotificationsIcon";
 import UIText from "../UIText/UIText";
-import EnumNotificationPlacement from "./enums/EnumNotificationPlacement";
 
 interface IProperties {
   notification: NotificationModel;
@@ -27,11 +26,6 @@ const UINotificationItem: React.FC<IProperties> = (props) => {
 
   const verticalAlignment = uiState.notificationManager.configuration.alignVertical;
   const horizontalAlignment = uiState.notificationManager.configuration.alignHorizontal;
-  const placement = uiState.notificationManager.configuration.placement;
-
-  // console.log("----------------------------------");
-  // console.log(`${EnumNotificationPlacement[placement]}`);
-  // console.log(`vertical: ${EnumAlignVertical[uiState.notificationManager.configuration.alignVertical]} horizontal:${EnumAlignHorizontal[horizontalAlignment]}`);
 
   let style: any = { transitionDelay: `${props.notification.transitionDelay}s` };
 
@@ -46,12 +40,12 @@ const UINotificationItem: React.FC<IProperties> = (props) => {
   }
 
   if (horizontalAlignment === EnumAlignHorizontal.left) {
-    // console.log(`position to left ${props.notification.x}`);
+    console.log(`position to left ${props.notification.x}`);
     style.left = props.notification.x;
   }
 
   if (horizontalAlignment === EnumAlignHorizontal.right) {
-    // console.log(`position to right ${props.notification.x}`);
+    console.log(`position to right ${props.notification.x}`);
     style.right = props.notification.x;
   }
 

@@ -89,8 +89,8 @@ export default class NotificationLayoutManager {
     if (items.length === 0) {
       return;
     }
-    let x = 10;
-    let y = 10;
+    let x = 20;
+    let y = 20;
     for (var index = items.length - 1; index >= 0; index--) {
       const notification = items[index];
 
@@ -98,6 +98,7 @@ export default class NotificationLayoutManager {
         notification.y = y;
 
         if (this.configuration.adjustmentHorizontal === EnumAlignHorizontal.center) {
+          notification.x = 0;
         } else {
           notification.x = x;
         }
