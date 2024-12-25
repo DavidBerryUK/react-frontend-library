@@ -51,6 +51,7 @@ export const Notifications: React.FC = () => {
   const [selectedType, setSelectedType] = useState<OptionModel<EnumNotificationType>>(FactoryNotificationOptionLists.GetNotificationTypes()[0]);
 
   const [notificationPlacements] = useState<Array<OptionModel<EnumNotificationPlacement>>>(FactoryNotificationOptionLists.GetNotificationPlacements());
+
   const [selectedPlacement, setSelectedPlacement] = useState<OptionModel<EnumNotificationPlacement>>(
     FactoryNotificationOptionLists.GetNotificationPlacements()[0],
   );
@@ -64,8 +65,9 @@ export const Notifications: React.FC = () => {
 
   const handleOnNotificationPlacementChanged = (value: OptionModel<EnumNotificationPlacement>) => {
     setSelectedPlacement(value);
-    const config = uiState.notificationManager.configuration.cloneWithPlacement(selectedPlacement.data!);
+    const config = uiState.notificationManager.configuration.cloneWithPlacement(value.data!);
     uiDispatch(new CommandSetNotificationConfiguration(config));
+    console.log(`set placement to ${EnumNotificationPlacement[config.placement]}`);
   };
 
   const handleOnPublishClickEvent = () => {
