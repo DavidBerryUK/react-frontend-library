@@ -76,6 +76,11 @@ export const Notifications: React.FC = () => {
     uiDispatch(new CommandAddNotification(selectedType.data!, EnumNotificationDuration.short, typeName, `You have just activated a ${typeName} Notification`));
   };
 
+  const handleOnRandomPublishClickEvent = () => {
+    const config = FactoryNotificationOptionLists.GetRandomNotificationConfig();
+    uiDispatch(new CommandAddNotification(config.type, config.duration, config.title, config.message));
+  };
+
   /**
    * Template
    */
@@ -84,6 +89,7 @@ export const Notifications: React.FC = () => {
       <div style={{ display: "flex", justifyContent: "space-between", margin: 12 }}>
         <UISegment options={notificationTypes} selected={selectedType} onChange={handleOnNotificationTypeChanged} />
         <UISegment options={notificationPlacements} selected={selectedPlacement} onChange={handleOnNotificationPlacementChanged} />
+        <UIButton info text="Random" large onClick={handleOnRandomPublishClickEvent} />
         <UIButton primary text="GO" large onClick={handleOnPublishClickEvent} />
       </div>
 

@@ -29,29 +29,29 @@ const UINotificationItem: React.FC<IProperties> = (props) => {
   const horizontalAlignment = uiState.notificationManager.configuration.alignHorizontal;
   const placement = uiState.notificationManager.configuration.placement;
 
-  console.log("----------------------------------");
-  console.log(`${EnumNotificationPlacement[placement]}`);
-  console.log(`vertical: ${EnumAlignVertical[uiState.notificationManager.configuration.alignVertical]} horizontal:${EnumAlignHorizontal[horizontalAlignment]}`);
+  // console.log("----------------------------------");
+  // console.log(`${EnumNotificationPlacement[placement]}`);
+  // console.log(`vertical: ${EnumAlignVertical[uiState.notificationManager.configuration.alignVertical]} horizontal:${EnumAlignHorizontal[horizontalAlignment]}`);
 
   let style: any = { transitionDelay: `${props.notification.transitionDelay}s` };
 
   if (verticalAlignment === EnumAlignVertical.top) {
-    console.log(`position to top ${props.notification.y}`);
+    // console.log(`position to top ${props.notification.y}`);
     style.top = props.notification.y;
   }
 
   if (verticalAlignment === EnumAlignVertical.bottom) {
-    console.log(`position to bottom ${props.notification.y}`);
+    // console.log(`position to bottom ${props.notification.y}`);
     style.bottom = props.notification.y;
   }
 
   if (horizontalAlignment === EnumAlignHorizontal.left) {
-    console.log(`position to left ${props.notification.x}`);
+    // console.log(`position to left ${props.notification.x}`);
     style.left = props.notification.x;
   }
 
   if (horizontalAlignment === EnumAlignHorizontal.right) {
-    console.log(`position to right ${props.notification.x}`);
+    // console.log(`position to right ${props.notification.x}`);
     style.right = props.notification.x;
   }
 
@@ -141,7 +141,7 @@ const UINotificationItem: React.FC<IProperties> = (props) => {
   }, [containerRef, props.notification.status]);
 
   const handleTimerCompleteEvent = () => {
-    console.log("handleTimerCompleteEvent");
+    // console.log("handleTimerCompleteEvent");
     if (props.notification.status !== EnumNotificationStatus.dismissing && props.notification.status !== EnumNotificationStatus.requestedToDismiss) {
       uiDispatch(new CommandRequestDismissNotification(props.notification));
     }
