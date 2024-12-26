@@ -6,8 +6,9 @@ export default class NotificationConfiguration {
   placement: EnumNotificationPlacement;
   alignVertical: EnumAlignVertical = EnumAlignVertical.none;
   alignHorizontal: EnumAlignHorizontal = EnumAlignHorizontal.none;
-  public adjustmentVertical: number = 0;
-  public adjustmentHorizontal: number = 0;
+  borderTopBottom: number = 16;
+  borderLeftRight: number = 16;
+  notificationWidth: number = 640;
 
   constructor(placement: EnumNotificationPlacement) {
     this.placement = placement;
@@ -35,14 +36,12 @@ export default class NotificationConfiguration {
       case EnumNotificationPlacement.topLeft:
       case EnumNotificationPlacement.topRight:
         this.alignVertical = EnumAlignVertical.top;
-        this.adjustmentVertical = 1;
         break;
 
       case EnumNotificationPlacement.bottomCenter:
       case EnumNotificationPlacement.bottomLeft:
       case EnumNotificationPlacement.bottomRight:
         this.alignVertical = EnumAlignVertical.bottom;
-        this.adjustmentVertical = -1;
         break;
     }
   }
@@ -52,19 +51,16 @@ export default class NotificationConfiguration {
       case EnumNotificationPlacement.topLeft:
       case EnumNotificationPlacement.bottomLeft:
         this.alignHorizontal = EnumAlignHorizontal.left;
-        this.adjustmentHorizontal = 0;
         break;
 
       case EnumNotificationPlacement.topCenter:
       case EnumNotificationPlacement.bottomCenter:
         this.alignHorizontal = EnumAlignHorizontal.center;
-        this.adjustmentHorizontal = 0;
         break;
 
       case EnumNotificationPlacement.topRight:
       case EnumNotificationPlacement.bottomRight:
         this.alignHorizontal = EnumAlignHorizontal.right;
-        this.adjustmentHorizontal = 0;
         break;
     }
   }

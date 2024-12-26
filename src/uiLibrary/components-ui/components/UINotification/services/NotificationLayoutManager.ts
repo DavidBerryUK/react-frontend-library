@@ -53,11 +53,11 @@ export default class NotificationLayoutManager {
         notification.x = -(notification.width + 20);
       }
       if (this.configuration.alignHorizontal === EnumAlignHorizontal.center) {
-        if (this.configuration.adjustmentVertical === EnumAlignVertical.top) {
+        if (this.configuration.alignVertical === EnumAlignVertical.top) {
           // notification will exit to the top
           notification.y = -(notification.height + 20);
         }
-        if (this.configuration.adjustmentVertical === EnumAlignVertical.bottom) {
+        if (this.configuration.alignVertical === EnumAlignVertical.bottom) {
           // notification will exit to the bottom
           notification.y = -(notification.height + 20);
         }
@@ -69,15 +69,20 @@ export default class NotificationLayoutManager {
   // calculate the first off screen position for new notifications
   //
   private calculateOffScreenStartPositions() {
-    let items = this.notificationCollection.collection.filter((item) => item.status === EnumNotificationStatus.willShow);
+    let items = this.notificationCollection.collection.filter(
+      (item) => item.status === EnumNotificationStatus.willShow || item.status === EnumNotificationStatus.initialising,
+    );
     if (items.length === 0) {
       return;
     }
     items.forEach((notification) => {
-      if (this.configuration.adjustmentVertical === EnumAlignVertical.top || this.configuration.adjustmentVertical === EnumAlignVertical.bottom) {
-        notification.x = 10;
-        notification.y = -notification.height;
+      if (this.configuration.alignHorizontal === EnumAlignHorizontal.center) {
+        notification.x = 0;
+      } else {
+        notification.x = this.configuration.borderLeftRight;
       }
+      notification.y = -notification.height;
+      notification.width = this.configuration.notificationWidth;
     });
   }
 
@@ -89,22 +94,20 @@ export default class NotificationLayoutManager {
     if (items.length === 0) {
       return;
     }
-    let x = 20;
-    let y = 20;
+    let y = this.configuration.borderTopBottom;
     for (var index = items.length - 1; index >= 0; index--) {
       const notification = items[index];
 
       if (notification.status === EnumNotificationStatus.showing) {
         notification.y = y;
 
-        if (this.configuration.adjustmentHorizontal === EnumAlignHorizontal.center) {
+        if (this.configuration.alignHorizontal === EnumAlignHorizontal.center) {
           notification.x = 0;
         } else {
-          notification.x = x;
+          notification.x = this.configuration.borderLeftRight;
         }
 
-        x = x + (notification.width + 10) * this.configuration.adjustmentHorizontal;
-        y = y + (notification.height + 10) * this.configuration.adjustmentVertical;
+        y = y + (notification.height + 10);
       }
     }
   }

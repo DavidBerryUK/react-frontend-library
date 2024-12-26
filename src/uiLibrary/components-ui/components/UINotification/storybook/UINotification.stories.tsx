@@ -1,17 +1,16 @@
-import EnumNotificationDuration from "../enums/EnumNotificationDuration";
-import EnumNotificationType from "../enums/EnumNotificationType";
 import { UiContextProvider, useUiContext } from "../../../../context/UiContext";
 import CommandAddNotification from "../../../../context/actions/CommandAddNotification";
 import CommandSetNotificationConfiguration from "../../../../context/actions/CommandSetNotificationConfiguration";
-
+import EnumNotificationDuration from "../enums/EnumNotificationDuration";
+import EnumNotificationPlacement from "../enums/EnumNotificationPlacement";
+import EnumNotificationType from "../enums/EnumNotificationType";
 import FactoryNotificationOptionLists from "../../../../storybook/factories/FactoryNotificationOptionLists";
+import OptionModel from "../../UISegment/models/OptionModel";
 import React, { useState } from "react";
 import type { Meta } from "@storybook/react";
 import UIButton from "../../UIButton/UIButton";
 import UINotifications from "../UINotifications";
 import UISegment from "../../UISegment/UISegment";
-import OptionModel from "../../UISegment/models/OptionModel";
-import EnumNotificationPlacement from "../enums/EnumNotificationPlacement";
 
 const meta = {
   title: "1 - UI/UINotification",
@@ -52,16 +51,16 @@ export const Notifications: React.FC = () => {
 
   const [notificationPlacements] = useState<Array<OptionModel<EnumNotificationPlacement>>>(FactoryNotificationOptionLists.GetNotificationPlacements());
 
-  const [selectedPlacement, setSelectedPlacement] = useState<OptionModel<EnumNotificationPlacement>>(
-    FactoryNotificationOptionLists.GetNotificationPlacements()[0],
+  const [selectedPlacement, setSelectedPlacement] = useState<OptionModel<EnumNotificationPlacement> | undefined>(
+    FactoryNotificationOptionLists.GetNotificationPlacements().find((item) => item.data === uiState.notificationManager.configuration.placement),
   );
 
   /**
    * Event Handlers
    */
-  const handleOnNotificationTypeChanged = (value: OptionModel<EnumNotificationType>) => {
+  function handleOnNotificationTypeChanged(value: OptionModel<EnumNotificationType>) {
     setSelectedType(value);
-  };
+  }
 
   const handleOnNotificationPlacementChanged = (value: OptionModel<EnumNotificationPlacement>) => {
     setSelectedPlacement(value);
@@ -72,7 +71,6 @@ export const Notifications: React.FC = () => {
 
   const handleOnPublishClickEvent = () => {
     const typeName = FactoryNotificationOptionLists.getNotificationTypeName(selectedType.data!);
-
     uiDispatch(new CommandAddNotification(selectedType.data!, EnumNotificationDuration.short, typeName, `You have just activated a ${typeName} Notification`));
   };
 

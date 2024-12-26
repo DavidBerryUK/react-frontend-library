@@ -6,8 +6,8 @@ import UIIconAlertInfoCircleSolid from "../../../../components-icons/UIIconAlert
 import UIIconAlertQuestionCircleSolid from "../../../../components-icons/UIIconAlertQuestionCircleSolid";
 import UIIconAlertSuccessCircleSolid from "../../../../components-icons/UIIconAlertSuccessCircleSolid";
 
-export default class EnumStatusTypeHelper {
-  static getIconForStatus(status: EnumNotificationType): ReactNode {
+const useGetNotificationIcon = () => {
+  const getIconForType = (status: EnumNotificationType): ReactNode => {
     switch (status) {
       case EnumNotificationType.success:
         return <UIIconAlertSuccessCircleSolid success />;
@@ -20,5 +20,10 @@ export default class EnumStatusTypeHelper {
       case EnumNotificationType.question:
         return <UIIconAlertQuestionCircleSolid primary />;
     }
-  }
-}
+  };
+  return {
+    getIconForType,
+  };
+};
+
+export default useGetNotificationIcon;

@@ -28,8 +28,6 @@ export default class FactoryNotificationOptionLists {
   }
 
   public static getNotificationTypeName = (type: EnumNotificationType): string => {
-    console.log(`type : ${type}`);
-
     switch (type) {
       case EnumNotificationType.success:
         return "Success";

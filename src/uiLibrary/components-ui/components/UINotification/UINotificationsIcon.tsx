@@ -2,7 +2,8 @@ import NotificationModel from "./models/NotificationModel";
 import React, { ReactNode, useRef, useState } from "react";
 
 import useAnimatedProgressCircle from "./hooks/useAnimatedProgressCircle";
-import EnumStatusTypeHelper from "./hooks/EnumStatusTypeHelper";
+
+import useGetNotificationIcon from "./hooks/useGetNotificationIcon";
 
 interface IProperties {
   notification: NotificationModel;
@@ -10,7 +11,9 @@ interface IProperties {
 }
 
 const UINotificationsIcon: React.FC<IProperties> = (props) => {
-  const [IconComponent] = useState<ReactNode>(EnumStatusTypeHelper.getIconForStatus(props.notification.type));
+  const getNotificationIcon = useGetNotificationIcon();
+
+  const [IconComponent] = useState<ReactNode>(getNotificationIcon.getIconForType(props.notification.type));
 
   const refCanvas = useRef<HTMLCanvasElement>(null);
 
