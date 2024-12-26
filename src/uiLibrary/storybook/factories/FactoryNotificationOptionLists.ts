@@ -27,6 +27,15 @@ export default class FactoryNotificationOptionLists {
     return options;
   }
 
+  public static GetNotificationDurations(): Array<OptionModel<EnumNotificationDuration>> {
+    const options: Array<OptionModel<EnumNotificationDuration>> = [
+      new OptionModel<EnumNotificationDuration>("s", "Short", EnumNotificationDuration.short),
+      new OptionModel<EnumNotificationDuration>("m", "Medium", EnumNotificationDuration.medium),
+      new OptionModel<EnumNotificationDuration>("l", "Long", EnumNotificationDuration.long),
+    ];
+    return options;
+  }
+
   public static getNotificationTypeName = (type: EnumNotificationType): string => {
     switch (type) {
       case EnumNotificationType.success:
