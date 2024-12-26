@@ -131,6 +131,7 @@ import UIIconUserSolid from "../UIIconUserSolid";
 import UIIconUsersSolid from "../UIIconUsersSolid";
 import EnumColor from "../../enums/EnumColor";
 import IPropColor from "../../interfaces/properties/IPropColor";
+import IPropShade from "../../interfaces/properties/IPropShade";
 
 const meta = {
   title: "4 - Icons/UIIcons",
@@ -165,8 +166,9 @@ export const Default: React.FC = () => {
 export const Themes: React.FC = () => {
   return (
     <div>
-      <TestGridSectionHeader title="Themes" colspan={7} />
-      <TestFlexGrid columns={7}>
+      <TestGridSectionHeader title="Themes" colspan={8} />
+      <TestFlexGrid columns={8}>
+        <div></div>
         <div>
           <div className="sb-col-title">Default</div>
         </div>
@@ -190,27 +192,78 @@ export const Themes: React.FC = () => {
         </div>
       </TestFlexGrid>
 
-      <TestFlexGrid columns={7}>
+      <TestFlexGrid columns={8}>
+        <div>Lighter</div>
         <div>
-          <UIIconTickCircle default />
+          <UIIconTickCircleSolid lighter default />
         </div>
         <div>
-          <UIIconTickCircle primary />
+          <UIIconTickCircleSolid lighter primary />
         </div>
         <div>
-          <UIIconTickCircle secondary />
+          <UIIconTickCircleSolid lighter secondary />
         </div>
         <div>
-          <UIIconTickCircle success />
+          <UIIconTickCircleSolid lighter success />
         </div>
         <div>
-          <UIIconTickCircle info />
+          <UIIconTickCircleSolid lighter info />
         </div>
         <div>
-          <UIIconTickCircle warning />
+          <UIIconTickCircleSolid lighter warning />
         </div>
         <div>
-          <UIIconTickCircle danger />
+          <UIIconTickCircleSolid lighter danger />
+        </div>
+      </TestFlexGrid>
+
+      <TestFlexGrid columns={8}>
+        <div>Normal</div>
+        <div>
+          <UIIconTickCircleSolid default />
+        </div>
+        <div>
+          <UIIconTickCircleSolid primary />
+        </div>
+        <div>
+          <UIIconTickCircleSolid secondary />
+        </div>
+        <div>
+          <UIIconTickCircleSolid success />
+        </div>
+        <div>
+          <UIIconTickCircleSolid info />
+        </div>
+        <div>
+          <UIIconTickCircleSolid warning />
+        </div>
+        <div>
+          <UIIconTickCircleSolid danger />
+        </div>
+      </TestFlexGrid>
+
+      <TestFlexGrid columns={8}>
+        <div>Darker</div>
+        <div>
+          <UIIconTickCircleSolid darker default />
+        </div>
+        <div>
+          <UIIconTickCircleSolid darker primary />
+        </div>
+        <div>
+          <UIIconTickCircleSolid darker secondary />
+        </div>
+        <div>
+          <UIIconTickCircleSolid darker success />
+        </div>
+        <div>
+          <UIIconTickCircleSolid darker info />
+        </div>
+        <div>
+          <UIIconTickCircleSolid darker warning />
+        </div>
+        <div>
+          <UIIconTickCircleSolid darker danger />
         </div>
       </TestFlexGrid>
     </div>
@@ -328,7 +381,7 @@ export const Gallery: StoryObj = {
     const [shadeOptions] = useState<Array<OptionModel<string>>>(getShadeOptions());
     const [selectedShade, setSelectedShade] = useState<OptionModel<string>>(shadeOptions[1]);
 
-    const [iconProp, setIconProp] = useState<IPropColor>({});
+    const [iconProp, setIconProp] = useState<IPropColor & IPropShade>({});
 
     // Function to handle search input
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -339,17 +392,17 @@ export const Gallery: StoryObj = {
 
     const handleColourSelectedEvent = (option: OptionModel<EnumColor>) => {
       setSelectedColour(option);
-      setIconProp(convertOptionsToProps(option, selectedSize));
+      setIconProp(convertOptionsToProps(option, selectedSize, selectedShade));
     };
 
     const handleSizeSelectedEvent = (option: OptionModel<string>) => {
       setSelectedSize(option);
-      setIconProp(convertOptionsToProps(selectedColour, option));
+      setIconProp(convertOptionsToProps(selectedColour, option, selectedShade));
     };
 
     const handleShadeSelectedEvent = (option: OptionModel<string>) => {
       setSelectedShade(option);
-      setIconProp(convertOptionsToProps(selectedColour, option));
+      setIconProp(convertOptionsToProps(selectedColour, selectedSize, option));
     };
 
     return (
@@ -379,8 +432,20 @@ export const Gallery: StoryObj = {
   },
 };
 
-function convertOptionsToProps(colourOption: OptionModel<EnumColor>, sizeOption: OptionModel<string>): IIconProps {
+function convertOptionsToProps(colourOption: OptionModel<EnumColor>, sizeOption: OptionModel<string>, shadeOption: OptionModel<string>): IIconProps {
   var prop: IIconProps = {};
+
+  console.log("convert options to props");
+
+  switch (shadeOption.key) {
+    case "l":
+      prop.lighter = true;
+      break;
+
+    case "d":
+      prop.darker = true;
+      break;
+  }
 
   // Using a switch statement for colourOption.text
   switch (colourOption.data) {
@@ -602,7 +667,7 @@ function FriendlyName(value: string): string {
 }
 
 function getShadeOptions(): Array<OptionModel<string>> {
-  return [new OptionModel<string>("D", "Darker"), new OptionModel<string>("R", "Regular"), new OptionModel<string>("L", "Lighter")];
+  return [new OptionModel<string>("d", "Darker"), new OptionModel<string>("r", "Regular"), new OptionModel<string>("l", "Lighter")];
 }
 
 function getSizeOptions(): Array<OptionModel<string>> {

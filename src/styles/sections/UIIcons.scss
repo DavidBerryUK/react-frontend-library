@@ -19,6 +19,14 @@
   @each $style, $properties in $theme-styles {
     &.ic-#{$style} {
       color: map.get($properties, base-color);
+
+      &.ic-darker {
+        color: map.get($properties, dark-color);
+      }
+
+      &.ic-lighter {
+        color: map.get($properties, light-color);
+      }
     }
   }
 }

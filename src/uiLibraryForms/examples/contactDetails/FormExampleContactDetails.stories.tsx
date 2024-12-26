@@ -1,9 +1,9 @@
 import ContactDetailsViewModel from "./ContactDetailsViewModel";
+import FieldModel from "../../../uiLibrary/models/fields/FieldModel";
 import React, { useState } from "react";
 import type { Meta } from "@storybook/react";
-import UIFormText from "../../../uiLibrary/components-forms/UIFormText/UIFormText";
 import UIButton from "../../../uiLibrary/components-ui/components/UIButton/UIButton";
-import FieldModel from "../../../uiLibrary/models/fields/FieldModel";
+import UIFormText from "../../../uiLibrary/components-forms/UIFormText/UIFormText";
 
 const meta = {
   title: "3 - Form Examples/ContactDetails",
@@ -33,7 +33,7 @@ export default meta;
 export const Interactive: React.FC = () => {
   const [contactDetails, setContactDetails] = useState<ContactDetailsViewModel>(ContactDetailsViewModel.CreateEmptyViewModel());
 
-  const handleOnContactFormChangeEvent = (field: FieldModel) => {
+  const handleOnFormChangeEvent = (field: FieldModel) => {
     setContactDetails(contactDetails.cloneWithField(field));
   };
 
@@ -47,10 +47,10 @@ export const Interactive: React.FC = () => {
 
   return (
     <div className="ui-form layoutColumn">
-      <UIFormText value={contactDetails.forename} onChange={handleOnContactFormChangeEvent} />
-      <UIFormText value={contactDetails.surname} onChange={handleOnContactFormChangeEvent} />
-      <UIFormText value={contactDetails.emailAddress} onChange={handleOnContactFormChangeEvent} />
-      <UIFormText value={contactDetails.message} onChange={handleOnContactFormChangeEvent} />
+      <UIFormText value={contactDetails.forename} onChange={handleOnFormChangeEvent} />
+      <UIFormText value={contactDetails.surname} onChange={handleOnFormChangeEvent} />
+      <UIFormText value={contactDetails.emailAddress} onChange={handleOnFormChangeEvent} />
+      <UIFormText value={contactDetails.message} onChange={handleOnFormChangeEvent} />
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <UIButton secondary large text="Clear" onClick={handleOnClearEvent} />
         <UIButton success large text="Submit" onClick={handleOnSubmitEvent} />

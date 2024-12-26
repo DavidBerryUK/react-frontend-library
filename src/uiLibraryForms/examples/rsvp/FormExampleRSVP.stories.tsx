@@ -1,10 +1,10 @@
+import { RsvpFormViewModel } from "./RsvpFormViewModel";
+import FieldModel from "../../../uiLibrary/models/fields/FieldModel";
 import React, { useState } from "react";
 import type { Meta } from "@storybook/react";
 import UIButton from "../../../uiLibrary/components-ui/components/UIButton/UIButton";
-import { RsvpFormViewModel } from "./RsvpFormViewModel";
-import UIFormText from "../../../uiLibrary/components-forms/UIFormText/UIFormText";
 import UIFormSwitch from "../../../uiLibrary/components-forms/UIFormSwitch/UIFormSwitch";
-import FieldModel from "../../../uiLibrary/models/fields/FieldModel";
+import UIFormText from "../../../uiLibrary/components-forms/UIFormText/UIFormText";
 
 const meta = {
   title: "3 - Form Examples/RSVP",
@@ -34,7 +34,7 @@ export default meta;
 export const Interactive: React.FC = () => {
   const [rsvpDetails, setRsvpDetails] = useState<RsvpFormViewModel>(RsvpFormViewModel.CreateEmptyViewModel());
 
-  const handleOnContactFormChangeEvent = (field: FieldModel) => {
+  const handleOnFormChangeEvent = (field: FieldModel) => {
     setRsvpDetails(rsvpDetails.cloneWithField(field));
   };
 
@@ -48,9 +48,9 @@ export const Interactive: React.FC = () => {
 
   return (
     <div className="ui-form layoutColumn">
-      <UIFormText value={rsvpDetails.guestName} onChange={handleOnContactFormChangeEvent} />
-      <UIFormSwitch value={rsvpDetails.attending} onChange={handleOnContactFormChangeEvent} />
-      <UIFormText value={rsvpDetails.numberOfGuests} onChange={handleOnContactFormChangeEvent} />
+      <UIFormText value={rsvpDetails.guestName} onChange={handleOnFormChangeEvent} />
+      <UIFormSwitch value={rsvpDetails.attending} onChange={handleOnFormChangeEvent} />
+      <UIFormText value={rsvpDetails.numberOfGuests} onChange={handleOnFormChangeEvent} />
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <UIButton secondary large text="Clear" onClick={handleOnClearEvent} />
         <UIButton primary large text="Submit" onClick={handleOnSubmitEvent} />
