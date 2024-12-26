@@ -1,6 +1,7 @@
 @use "../variables/Font.scss" as *;
 @use "../variables/Theme.scss" as *;
 @use "../variables/Accessability.scss" as *;
+@use "../mixins/MixinFocus.scss" as *;
 @use "sass:map";
 $button-size: 40px;
 $button-radius: 6px;
@@ -44,10 +45,11 @@ $button-radius: 6px;
   @each $style, $properties in $theme-styles {
     &.pg-#{$style} {
       &:focus {
+        @include focus-style(map.get($properties, light-border-color));
         border-radius: 8px;
-        outline: $focus-width solid rgba(map.get($properties, light-border-color), 0.6); // Set opacity to 80%
-        outline-offset: $focus-offset;
-        z-index: $focus-zindex;
+        // outline: $focus-width solid rgba(map.get($properties, light-border-color), 0.6); // Set opacity to 80%
+        // outline-offset: $focus-offset;
+        // z-index: $focus-zindex;
       }
     }
 

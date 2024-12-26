@@ -2,6 +2,7 @@
 @use "../variables/Theme.scss" as *;
 @use "../variables/Accessability.scss" as *;
 @use "../variables/Form.scss" as *;
+@use "../mixins/MixinFocus.scss" as *;
 @use "sass:map";
 
 .ui-select {
@@ -19,9 +20,7 @@
       border-color: map.get($properties, light-border-color);
 
       &:focus {
-        outline: $focus-width solid rgba(map.get($properties, light-border-color), 0.6); // Set opacity to 80%
-        outline-offset: $focus-offset;
-        z-index: $focus-zindex;
+        @include focus-style(map.get($properties, light-border-color));
       }
     }
   }

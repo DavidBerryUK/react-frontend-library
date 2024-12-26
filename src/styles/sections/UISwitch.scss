@@ -1,5 +1,6 @@
 @use "../variables/Theme.scss" as *;
 @use "../variables/Accessability.scss" as *;
+@use "../mixins/MixinFocus.scss" as *;
 @use "sass:color";
 @use "sass:map";
 
@@ -29,9 +30,7 @@ $animationSpeed: 0.35s;
           z-index: $focus-zindex + 1;
 
           &:focus + span {
-            outline: $focus-width solid rgba(map.get($properties, light-border-color), 0.6);
-            outline-offset: $focus-offset;
-            z-index: $focus-zindex;
+            @include focus-style(map.get($properties, light-border-color));
           }
         }
 

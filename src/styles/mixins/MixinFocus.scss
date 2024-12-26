@@ -1,0 +1,11 @@
+@use "../variables/Accessability.scss" as *;
+
+@mixin focus-style($color) {
+  outline: $focus-width solid rgba($color, 0.6); // Set opacity to 80%
+  outline-offset: $focus-offset;
+  z-index: $focus-zindex;
+  box-shadow: 0 2px 2px 8px rgba($color, 0.6);
+  transition:
+    outline $focus-transition-speed ease-in-out,
+    box-shadow $focus-transition-speed ease-in-out;
+}

@@ -1,6 +1,7 @@
 @use "../variables/Theme.scss" as *;
 @use "../variables/Accessability.scss" as *;
 @use "sass:map";
+@use "../mixins/MixinFocus.scss" as *;
 
 .ui-segment {
   display: inline-flex;
@@ -19,16 +20,18 @@
         }
 
         &:focus {
-          outline: $focus-width solid rgba(map.get($properties, light-border-color), 0.6); // Set opacity to 80%
-          outline-offset: $focus-offset;
-          z-index: $focus-zindex;
+          @include focus-style(map.get($properties, light-border-color));
+          // outline: $focus-width solid rgba(map.get($properties, light-border-color), 0.6); // Set opacity to 80%
+          // outline-offset: $focus-offset;
+          // z-index: $focus-zindex;
         }
       }
 
       &:focus {
-        outline: $focus-width solid rgba(map.get($properties, light-border-color), 0.6); // Set opacity to 80%
-        outline-offset: $focus-offset;
-        z-index: $focus-zindex;
+        @include focus-style(map.get($properties, light-border-color));
+        // outline: $focus-width solid rgba(map.get($properties, light-border-color), 0.6); // Set opacity to 80%
+        // outline-offset: $focus-offset;
+        // z-index: $focus-zindex;
       }
     }
   }
@@ -60,9 +63,10 @@
     }
 
     &:focus {
-      z-index: 10;
-      background-color: #f9fafb;
-      outline: none;
+      @include focus-style(#f9fafb);
+      // z-index: 10;
+      // background-color: #f9fafb;
+      // outline: none;
     }
   }
 }
