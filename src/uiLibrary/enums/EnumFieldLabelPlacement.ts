@@ -1,6 +1,6 @@
 enum EnumFieldLabelPlacement {
-  above,
-  beside,
+  column,
+  row,
 }
 
 export default EnumFieldLabelPlacement;

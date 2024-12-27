@@ -1,16 +1,15 @@
-import FieldModel from "../../models/fields/FieldModel";
-import IPropValue from "../../interfaces/properties/IPropValue";
-
-type IProperties = IPropValue<FieldModel>;
+import classNames from "classnames";
+import ILabelProperties from "../../interfaces/controls/ILabelProperties";
 
 /**
  * Common Text Field
  * @param props
  * @returns
  */
-const UIFormLabel: React.FC<IProperties> = (props) => {
+const UIFormLabel: React.FC<ILabelProperties> = (props) => {
+  const className = classNames("ui-fc-label", props.className);
   return (
-    <label htmlFor={props.value.fieldName} aria-label={props.value.caption} className="ui-fc-label">
+    <label htmlFor={props.value.fieldName} aria-label={props.value.caption} className={className}>
       {props.value.caption}
     </label>
   );

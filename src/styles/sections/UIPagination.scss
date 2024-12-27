@@ -47,9 +47,6 @@ $button-radius: 6px;
       &:focus {
         @include focus-style(map.get($properties, light-border-color));
         border-radius: 8px;
-        // outline: $focus-width solid rgba(map.get($properties, light-border-color), 0.6); // Set opacity to 80%
-        // outline-offset: $focus-offset;
-        // z-index: $focus-zindex;
       }
     }
 

@@ -5,8 +5,9 @@ import IPropClassName from "../../../interfaces/properties/IPropClassName";
 import IPropValue from "../../../interfaces/properties/IPropValue";
 import UIFormLabel from "../../UIFormLabel/UIFormLabel";
 import UIShowIfTrue from "../../../components-ui/components/UIShowIfTrue/UIShowIfTrue";
+import IPropLabelPlacementMode from "../../../interfaces/properties/IPropLabelPlacementMode";
 
-type IProperties = IPropChildren & IPropValue<FieldModel> & IPropClassName;
+type IProperties = IPropChildren & IPropValue<FieldModel> & IPropClassName & IPropLabelPlacementMode;
 
 /**
  * Create a consistant form control wrapper for forms,
@@ -18,23 +19,22 @@ type IProperties = IPropChildren & IPropValue<FieldModel> & IPropClassName;
  *
  * The form control is reponsible for its own rendering including color (variant) styling
  */
-const UIFormControlWrapper: React.FC<IProperties> = ({ children, value, className }) => {
+const UIFormControlWrapper: React.FC<IProperties> = ({ children, value, className, row: labelAside }) => {
   const showHelpMessage = !!value.help?.length;
   const showErrorMessage = !!value.error.length;
-  const containerClassName = classNames("ui-fc-control", className);
+  var labelPlacementClass = labelAside ? "layout-row" : "layout-column";
+  const containerClassName = classNames("ui-fc-control", labelPlacementClass, className);
 
   return (
     <div className={containerClassName}>
-      <UIFormLabel value={value} />
-      <div>
-        {children}
-        <UIShowIfTrue value={showHelpMessage}>
-          <div className="ui-fc-help">{value.help}</div>
-        </UIShowIfTrue>
-        <UIShowIfTrue value={showErrorMessage}>
-          <div className="ui-fc-error">{value.error}</div>
-        </UIShowIfTrue>
-      </div>
+      <UIFormLabel value={value} className="cell-label" />
+      <div className="cell-control">{children}</div>
+      <UIShowIfTrue value={showHelpMessage}>
+        <div className="cell-help">{value.help}</div>
+      </UIShowIfTrue>
+      <UIShowIfTrue value={showErrorMessage}>
+        <div className="cell-error ui-fc-error">{value.error}</div>
+      </UIShowIfTrue>
     </div>
   );
 };

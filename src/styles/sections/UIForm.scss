@@ -11,30 +11,61 @@
 // but by placing the class 'form-inline', the labels will appear
 // to the left of the control
 
-//
-// .fc-prefix-text
-// .fc-suffix-text
-
 .ui-form {
-  font-family: Arial, Helvetica, sans-serif;
-  display: flex;
-  flex-direction: row;
-  column-gap: $form-column-gap;
-  row-gap: $form-row-gap;
   width: 100%;
-
-  &.layoutColumn {
-    flex-direction: column;
-  }
-
-  &.layoutRow {
-    flex-direction: row;
-  }
-
   .ui-fc-control {
-    display: flex;
-    flex-direction: column;
-    flex: 1; // Makes the control take up the remaining width in the flex container
+    font-family: Arial, Helvetica, sans-serif;
+    display: grid;
+    width: 100%;
+    margin-bottom: 12px;
+
+    &.layout-column {
+      .cell-label {
+        grid-row: 1;
+        grid-column: 1;
+      }
+
+      .cell-control {
+        grid-row: 2;
+        grid-column: 1;
+      }
+
+      .cell-error {
+        grid-row: 3;
+        grid-column: 1;
+      }
+
+      .cell-help {
+        grid-row: 4;
+        grid-column: 1;
+      }
+    }
+
+    &.layout-row {
+      grid-template-columns: $form-layout-row-label-width auto;
+
+      .cell-label {
+        display: flex;
+        grid-row: 1;
+        grid-column: 1;
+        align-items: center;
+      }
+
+      .cell-control {
+        grid-row: 1;
+        grid-column: 2;
+      }
+
+      .cell-error {
+        grid-row: 2;
+        grid-column: 2;
+      }
+
+      .cell-help {
+        grid-row: 3;
+        grid-column: 2;
+      }
+    }
 
     // label
     .ui-fc-label {
@@ -42,6 +73,7 @@
       font-size: $form-control-label-font-size;
       font-weight: $form-control-label-font-weight;
       margin-bottom: 4px;
+      margin-right: 8px;
     }
 
     // input control
@@ -62,11 +94,21 @@
       }
 
       input {
-        flex-grow: 1;
         padding-left: 8px;
         padding-right: 6px;
         border: none;
       }
+    }
+
+    .ui-fc-help {
+      user-select: none;
+      color: $green-500;
+      font-size: $form-control-help-font-size;
+      font-weight: $form-control-help-font-weight;
+      margin-top: 6px;
+      text-wrap: wrap;
+      width: 100%;
+      box-sizing: border-box; // Includes padding and border in the total width
     }
 
     .ui-fc-error {
@@ -74,7 +116,7 @@
       color: $red-500;
       font-size: $form-control-error-font-size;
       font-weight: $form-control-error-font-weight;
-      margin-top: 8px;
+      margin-top: 6px;
       text-wrap: wrap;
       width: 100%;
       box-sizing: border-box; // Includes padding and border in the total width

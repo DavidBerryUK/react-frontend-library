@@ -1,6 +1,9 @@
 $form-row-gap: 16px;
 $form-column-gap: 16px;
 
+// the width of columns when layout is row.
+$form-layout-row-label-width: 100px;
+
 $form-control-border-radius: 6px;
 $form-control-border-width: 2px;
 $form-control-font-size: 16px;
@@ -11,5 +14,8 @@ $form-control-label-font-weight: 200;
 
 $form-control-error-font-size: 12px;
 $form-control-error-font-weight: 600;
+
+$form-control-help-font-size: 12px;
+$form-control-help-font-weight: 600;
 
 $form-control-hight: 36px;

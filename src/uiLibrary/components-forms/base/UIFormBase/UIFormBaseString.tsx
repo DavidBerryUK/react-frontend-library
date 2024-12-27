@@ -10,10 +10,10 @@ import IPropPlaceholder from "../../../interfaces/properties/IPropPlaceholder";
 import IPropsTextPrefix from "../../../interfaces/properties/IPropTextPrefix";
 import IPropsTextSuffix from "../../../interfaces/properties/IPropTextSuffix";
 import IPropValue from "../../../interfaces/properties/IPropValue";
-import UIFormLabel from "../../UIFormLabel/UIFormLabel";
 import UIShowIfTrue from "../../../components-ui/components/UIShowIfTrue/UIShowIfTrue";
 import useVariantStyle from "../../../hooks/UseVariantStyle";
 import UIFormControlWrapper from "./UIFormControlWrapper";
+import IPropLabelPlacementMode from "../../../interfaces/properties/IPropLabelPlacementMode";
 
 type IProperties = IPropDisabled &
   IPropPlaceholder &
@@ -22,6 +22,7 @@ type IProperties = IPropDisabled &
   IPropClassName &
   IPropInputType &
   IPropColor &
+  IPropLabelPlacementMode &
   IPropsTextPrefix &
   IPropsTextSuffix;
 
