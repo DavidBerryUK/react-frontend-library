@@ -9,7 +9,7 @@ import RuleMinLength from "../../../validation/rules/RuleMinLength";
 import RuleMaxLength from "../../../validation/rules/RuleMaxLength";
 
 const meta = {
-  title: "2 - Form/UIFormPassword",
+  title: "3 - Form/UIFormPassword",
   component: UIFormPassword,
   parameters: {
     layout: "",

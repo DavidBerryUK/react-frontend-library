@@ -5,7 +5,7 @@ import EnumFieldDataType from "../../../enums/EnumFieldDataType";
 import React, { useState } from "react";
 
 const meta = {
-  title: "2 - Form/UIFormPercent",
+  title: "3 - Form/UIFormPercent",
   component: UIFormPercent,
   parameters: {
     layout: "",

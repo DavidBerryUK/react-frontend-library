@@ -31,15 +31,20 @@
 
       @each $style, $properties in $theme-styles {
         &.fc-#{$style} {
-          border-color: map.get($properties, light-border-color);
-
           input {
-            border-radius: $form-control-border-radius;
+            //border-color: map.get($properties, light-border-color);
+            border-radius: $form-control-border-radius - 2px;
             font-size: $form-control-font-size;
             font-weight: $form-control-font-weight;
+            border: none;
 
             &:focus {
               @include focus-style(map.get($properties, light-border-color));
+            }
+
+            &:read-only {
+              border-color: map.get($properties, border-color);
+              background-color: map.get($properties, light-color);
             }
           }
 

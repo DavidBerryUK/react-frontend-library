@@ -134,7 +134,7 @@ import IPropColor from "../../interfaces/properties/IPropColor";
 import IPropShade from "../../interfaces/properties/IPropShade";
 
 const meta = {
-  title: "4 - Icons/UIIcons",
+  title: "2 - Icons/UIIcons",
   component: UIIconPlusCircleSolid,
   parameters: {
     layout: "padded",

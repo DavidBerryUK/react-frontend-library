@@ -7,7 +7,7 @@ import EnumFieldDataType from "../../enums/EnumFieldDataType";
 import TestFlexGrid from "../../../uiLibrary/storybook/TestFlexGrid";
 
 const meta: Meta<typeof UIFormSwitch> = {
-  title: "2 - Form/UIFormSwitch",
+  title: "3 - Form/UIFormSwitch",
   component: UIFormSwitch,
   parameters: {
     layout: "",

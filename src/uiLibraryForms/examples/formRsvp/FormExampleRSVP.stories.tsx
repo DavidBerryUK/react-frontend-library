@@ -7,7 +7,7 @@ import UIFormSwitch from "../../../uiLibrary/components-forms/UIFormSwitch/UIFor
 import UIFormText from "../../../uiLibrary/components-forms/UIFormText/UIFormText";
 
 const meta = {
-  title: "3 - Form Examples/RSVP",
+  title: "5 - Form Examples/RSVP",
   component: UIFormText,
   parameters: {
     layout: "",

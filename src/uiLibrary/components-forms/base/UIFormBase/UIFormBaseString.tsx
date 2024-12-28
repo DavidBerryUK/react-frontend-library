@@ -1,42 +1,27 @@
 import classNames from "classnames";
 import EnumFieldDataType from "../../../enums/EnumFieldDataType";
-import FieldModel from "../../../models/fields/FieldModel";
-import IPropClassName from "../../../interfaces/properties/IPropClassName";
-import IPropColor from "../../../interfaces/properties/IPropColor";
-import IPropDisabled from "../../../interfaces/properties/IPropDisabled";
-import IPropInputType from "../../../interfaces/properties/IPropInputType";
-import IPropOnChange from "../../../interfaces/properties/IPropOnChange";
-import IPropPlaceholder from "../../../interfaces/properties/IPropPlaceholder";
-import IPropsTextPrefix from "../../../interfaces/properties/IPropTextPrefix";
-import IPropsTextSuffix from "../../../interfaces/properties/IPropTextSuffix";
-import IPropValue from "../../../interfaces/properties/IPropValue";
 import UIShowIfTrue from "../../../components-ui/components/UIShowIfTrue/UIShowIfTrue";
 import useVariantStyle from "../../../hooks/UseVariantStyle";
 import UIFormControlWrapper from "./UIFormControlWrapper";
-import IPropLabelPlacementMode from "../../../interfaces/properties/IPropLabelPlacementMode";
+import IFormTextProperties from "../../../interfaces/controls/IFormTextProperties";
+import IPropInputType from "../../../interfaces/properties/IPropInputType";
+import IPropsTextPrefix from "../../../interfaces/properties/IPropTextPrefix";
+import IPropsTextSuffix from "../../../interfaces/properties/IPropTextSuffix";
+import EnumFieldInteractionMode from "../../../enums/EnumFieldInteractionMode";
+import IPropInteractionMode from "../../../interfaces/properties/IPropInteractionMode";
 
-type IProperties = IPropDisabled &
-  IPropPlaceholder &
-  IPropValue<FieldModel> &
-  IPropOnChange<FieldModel> &
-  IPropClassName &
-  IPropInputType &
-  IPropColor &
-  IPropLabelPlacementMode &
-  IPropsTextPrefix &
-  IPropsTextSuffix;
+type IProperties = IFormTextProperties & IPropInputType & IPropsTextPrefix & IPropsTextSuffix & IPropInteractionMode;
 
 const UIFormBaseString: React.FC<IProperties> = (props) => {
   const variantClass = useVariantStyle("fc", props);
-
-  if (!props.value.active) {
-    return null;
-  }
 
   /**
    * EVENT HANDLERS
    */
   const handleOnChangeEvent = (event: React.ChangeEvent<HTMLInputElement>) => {
+    /**
+     * Event Handlers
+     */
     if (props.onChange) {
       if (props.value.dataType === EnumFieldDataType.boolean) {
         props.onChange(props.value.cloneWithValue(event.target.checked));
@@ -46,9 +31,12 @@ const UIFormBaseString: React.FC<IProperties> = (props) => {
     }
   };
 
+  /**
+   * Calculate attributes
+   */
   const showPrefix = props.textPrefix !== undefined;
   const showSuffix = props.textSuffix !== undefined;
-
+  const isReadOnly = props.readonly === true || props.interactionMode === EnumFieldInteractionMode.ReadOnly;
   const inputClassName = classNames("ui-fc-text", variantClass);
 
   return (
@@ -59,6 +47,7 @@ const UIFormBaseString: React.FC<IProperties> = (props) => {
         </UIShowIfTrue>
         <input
           type={props.inputType}
+          readOnly={isReadOnly}
           id={props.value.fieldName}
           value={props.value.value as string}
           disabled={props.disabled}

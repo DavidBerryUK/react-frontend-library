@@ -1,22 +1,7 @@
-import FieldModel from "../../models/fields/FieldModel";
-import IPropClassName from "../../interfaces/properties/IPropClassName";
-import IPropColor from "../../interfaces/properties/IPropColor";
-import IPropDisabled from "../../interfaces/properties/IPropDisabled";
-import IPropOnChange from "../../interfaces/properties/IPropOnChange";
-import IPropPlaceholder from "../../interfaces/properties/IPropPlaceholder";
-import IPropValue from "../../interfaces/properties/IPropValue";
 import UIFormBaseString from "../base/UIFormBase/UIFormBaseString";
-import IPropLabelPlacementMode from "../../interfaces/properties/IPropLabelPlacementMode";
+import IFormTextProperties from "../../interfaces/controls/IFormTextProperties";
 
-type IProperties = IPropDisabled &
-  IPropPlaceholder &
-  IPropValue<FieldModel> &
-  IPropOnChange<FieldModel> &
-  IPropClassName &
-  IPropColor &
-  IPropLabelPlacementMode;
-
-const UIFormText: React.FC<IProperties> = (props) => {
+const UIFormText: React.FC<IFormTextProperties> = (props) => {
   return <UIFormBaseString {...props} inputType="text" />;
 };
 

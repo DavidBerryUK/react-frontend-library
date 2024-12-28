@@ -9,7 +9,7 @@ import UIFormText from "../UIFormText";
 import TestFlexGrid from "../../../../uiLibrary/storybook/TestFlexGrid";
 
 const meta: Meta<typeof UIFormText> = {
-  title: "2 - Form/UIFormText",
+  title: "3 - Form/UIFormText",
   component: UIFormText,
   parameters: {
     layout: "",
@@ -129,6 +129,33 @@ export const ColorGallery: Story = {
     docs: {
       description: {
         story: "Show different color themes available",
+      },
+    },
+  },
+};
+
+export const ReadOnlyGallery: Story = {
+  render: () => {
+    const [text] = useState<FieldModel>(FieldModel.create("fullName", "Full Name", EnumFieldDataType.string, "Brian Smith"));
+
+    return (
+      <div className="ui-form">
+        <TestFlexGrid columns={3}>
+          <UIFormText default value={text} readonly />
+          <UIFormText primary value={text} readonly />
+          <UIFormText secondary value={text} readonly />
+          <UIFormText success value={text} readonly />
+          <UIFormText info value={text} readonly />
+          <UIFormText warning value={text} readonly />
+          <UIFormText danger value={text} readonly />
+        </TestFlexGrid>
+      </div>
+    );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Show read only fields in each themes available",
       },
     },
   },
