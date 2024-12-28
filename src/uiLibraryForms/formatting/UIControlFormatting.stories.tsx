@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import UIFormText from "../../uiLibrary/components-forms/UIFormText/UIFormText";
 import UISegment from "../../uiLibrary/components-ui/components/UISegment/UISegment";
 import UIText from "../../uiLibrary/components-ui/components/UIText/UIText";
-import useControlAndFormattingViewController from "./UseControlAndFormattingViewController";
+import useControlAndFormattingViewController from "./hooks/UseControlAndFormattingViewController";
 
 const meta: Meta<typeof UIFormText> = {
   title: "3 - Form Formatting/Placement and Interaction",

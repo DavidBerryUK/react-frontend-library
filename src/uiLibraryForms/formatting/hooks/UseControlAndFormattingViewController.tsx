@@ -1,15 +1,15 @@
 import { useState } from "react";
-import OptionModel from "../../uiLibrary/components-ui/components/UISegment/models/OptionModel";
-import EnumFieldDataType from "../../uiLibrary/enums/EnumFieldDataType";
-import EnumFieldInteractionMode from "../../uiLibrary/enums/EnumFieldInteractionMode";
-import EnumFieldLabelPlacement from "../../uiLibrary/enums/EnumFieldLabelPlacement";
-import IPropInteractionMode from "../../uiLibrary/interfaces/properties/IPropInteractionMode";
-import IPropLabelPlacementMode from "../../uiLibrary/interfaces/properties/IPropLabelPlacementMode";
-import FieldModel from "../../uiLibrary/models/fields/FieldModel";
-import FactorFormsLayoutLists from "../../uiLibrary/storybook/factories/FactorFormsLayoutLists";
-import FieldValidation from "../../uiLibrary/validation/models/FieldValidation";
-import RuleMandatory from "../../uiLibrary/validation/rules/RuleMandatory";
-import RuleMaxLength from "../../uiLibrary/validation/rules/RuleMaxLength";
+import OptionModel from "../../../uiLibrary/components-ui/components/UISegment/models/OptionModel";
+import EnumFieldDataType from "../../../uiLibrary/enums/EnumFieldDataType";
+import EnumFieldInteractionMode from "../../../uiLibrary/enums/EnumFieldInteractionMode";
+import EnumFieldLabelPlacement from "../../../uiLibrary/enums/EnumFieldLabelPlacement";
+import IPropInteractionMode from "../../../uiLibrary/interfaces/properties/IPropInteractionMode";
+import IPropLabelPlacementMode from "../../../uiLibrary/interfaces/properties/IPropLabelPlacementMode";
+import FieldModel from "../../../uiLibrary/models/fields/FieldModel";
+import FactorFormsLayoutLists from "../../../uiLibrary/storybook/factories/FactorFormsLayoutLists";
+import FieldValidation from "../../../uiLibrary/validation/models/FieldValidation";
+import RuleMandatory from "../../../uiLibrary/validation/rules/RuleMandatory";
+import RuleMaxLength from "../../../uiLibrary/validation/rules/RuleMaxLength";
 
 const useControlAndFormattingViewController = () => {
   const [placementList] = useState<Array<OptionModel<EnumFieldLabelPlacement>>>(FactorFormsLayoutLists.GetFieldLabelPlacment());

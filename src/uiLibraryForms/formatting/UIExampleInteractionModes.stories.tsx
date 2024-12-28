@@ -7,13 +7,13 @@ import UIText from "../../uiLibrary/components-ui/components/UIText/UIText";
 import EnumFieldInteractionMode from "../../uiLibrary/enums/EnumFieldInteractionMode";
 
 const meta: Meta<typeof UIFormText> = {
-  title: "3 - Form Formatting/Interaction Examples",
+  title: "3 - Form Formatting/Example Interaction Modes",
   component: UIFormText,
   parameters: {
     layout: "",
     docs: {
       description: {
-        component: "Formatting of controls, including label placement and interaction modes",
+        component: "Demonstrate how to use different interaction modes, editable (default), readonly and hidden",
       },
     },
   },
@@ -31,9 +31,6 @@ export default meta;
 
 type Story = StoryObj<typeof UIFormText>;
 
-/**
- * Example with mandatory fields
- */
 export const PlacementAndInteraction: Story = {
   render: () => {
     const [forename, setForename] = useState<FieldModel>(FieldModel.create("forename", "Forename", EnumFieldDataType.string, "Brian"));
@@ -77,12 +74,5 @@ export const PlacementAndInteraction: Story = {
         </div>
       </div>
     );
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: "This example includes mandatory validation rules for both Forename and Surname fields, ensuring user input meets the required criteria.",
-      },
-    },
   },
 };

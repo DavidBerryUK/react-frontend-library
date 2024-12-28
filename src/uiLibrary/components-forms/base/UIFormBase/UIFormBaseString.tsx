@@ -13,7 +13,7 @@ import IPropInteractionMode from "../../../interfaces/properties/IPropInteractio
 type IProperties = IFormTextProperties & IPropInputType & IPropsTextPrefix & IPropsTextSuffix & IPropInteractionMode;
 
 const UIFormBaseString: React.FC<IProperties> = (props) => {
-  const variantClass = useVariantStyle("fc", props);
+  const variantClass = useVariantStyle("fc", props, props.value);
 
   /**
    * EVENT HANDLERS
