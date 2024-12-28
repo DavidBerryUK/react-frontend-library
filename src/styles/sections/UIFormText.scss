@@ -20,6 +20,7 @@
   .ui-fc-control {
     // input control
     .ui-fc-text {
+      position: relative;
       display: flex;
       flex-direction: row;
       align-items: flex-stretch;
@@ -37,6 +38,7 @@
             font-size: $form-control-font-size;
             font-weight: $form-control-font-weight;
             border: none;
+            padding-right: 34px; // allow space for validation icon
 
             &:focus {
               @include focus-style(map.get($properties, light-border-color));
@@ -46,6 +48,17 @@
               border-color: map.get($properties, border-color);
               background-color: map.get($properties, light-color);
             }
+          }
+
+          .fc-validation-icon {
+            position: absolute;
+            right: 2px;
+            z-index: 10;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
           }
 
           .fc-prefix-text,
