@@ -1,15 +1,17 @@
 import type { Meta } from "@storybook/react";
-import UIFormSelect from "../UIFormSelect";
+import UIFormSegment from "../UIFormSegment";
 import FieldModel from "../../../models/fields/FieldModel";
 import EnumFieldDataType from "../../../enums/EnumFieldDataType";
 import React, { useState } from "react";
 import FactoryCarLists from "../../../storybook/factories/FactoryCarLists";
 import RuleMandatory from "../../../validation/rules/RuleMandatory";
 import FieldValidation from "../../../validation/models/FieldValidation";
+import EnumValidationState from "../../../validation/enum/EnumValidationState";
+import UIButton from "../../../components-ui/components/UIButton/UIButton";
 
 const meta = {
-  title: "3 - Form/UIFormSelect",
-  component: UIFormSelect,
+  title: "3 - Form/UIFormSegment",
+  component: UIFormSegment,
   parameters: {
     docs: {
       description: {
@@ -27,7 +29,7 @@ const meta = {
     ),
   ],
   tags: ["autodocs"],
-} satisfies Meta<typeof UIFormSelect>;
+} satisfies Meta<typeof UIFormSegment>;
 
 export default meta;
 
@@ -57,11 +59,18 @@ export const Interactive: React.FC = () => {
     setCarColor(value);
   };
 
+  const handleOnSubmitClickEvent = () => {
+    setCarMake(carMake.cloneWithUpdatedValidation());
+    setCarModel(carModel.cloneWithUpdatedValidation());
+    setCarColor(carColor.cloneWithUpdatedValidation());
+  };
   return (
     <div className="ui-form">
-      <UIFormSelect value={carMake} onChange={handleOnMakeValueChangedEvent} />
-      <UIFormSelect value={carModel} onChange={handleOnModelValueChangedEvent} />
-      <UIFormSelect value={carColor} onChange={handleOnColorValueChangedEvent} />
+      <UIFormSegment primary value={carMake} onChange={handleOnMakeValueChangedEvent} />
+      <UIFormSegment primary value={carModel} onChange={handleOnModelValueChangedEvent} />
+      <UIFormSegment primary value={carColor} onChange={handleOnColorValueChangedEvent} />
+
+      <UIButton text="Submit" large onClick={handleOnSubmitClickEvent} />
     </div>
   );
 };

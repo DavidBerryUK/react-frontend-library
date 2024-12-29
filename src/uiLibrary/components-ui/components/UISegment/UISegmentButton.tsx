@@ -9,7 +9,9 @@ interface IButtonProperties {
 }
 
 const UISegmentButton: React.FC<IButtonProperties> = (props) => {
-  const selectedClassName = props.selected.text === props.option.text ? "selected" : "";
+  const selectedClassName = props.selected?.text === props.option.text ? "selected" : "";
+
+  // console.log(`Rendering Button ${props.option?.text}  selectedOption:${props.selected?.data}`);
 
   const className = classNames("ui-segment-button", selectedClassName);
 

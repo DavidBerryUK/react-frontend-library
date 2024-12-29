@@ -1,0 +1,35 @@
+@use "../variables/ColourPalette.scss" as *;
+@use "../variables/Theme.scss" as *;
+@use "../variables/Accessability.scss" as *;
+@use "../variables/Form.scss" as *;
+@use "../mixins/MixinFocus.scss" as *;
+@use "sass:map";
+
+.ui-form {
+  .ui-fc-control {
+    .ui-fc-segment {
+      position: relative;
+
+      .segment-control-container {
+        position: relative;
+        display: inline-block;
+        width: none;
+
+        .ui-segment {
+          margin-right: 32px;
+        }
+
+        .fc-validation-icon {
+          position: absolute;
+          right: 4px;
+          z-index: 10;
+          top: 0;
+          bottom: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

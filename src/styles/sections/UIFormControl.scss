@@ -18,6 +18,7 @@
     display: grid;
     width: 100%;
     margin-bottom: 12px;
+    grid-template-columns: "auto";
 
     &.layout-column {
       .cell-label {
