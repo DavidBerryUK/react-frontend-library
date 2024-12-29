@@ -1,14 +1,14 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import UIShowIfTrue from "../UIShowIfTrue";
+import UIShowIfFalse from "../UIShowIfFalse";
 import TestColorSwatch from "../../../../storybook/TestColorSwatch";
 
 /**
  * Setup Story Documentation
  */
 const meta = {
-  title: "1 - UI/UIShowIfTrue",
-  component: UIShowIfTrue,
+  title: "1 - UI/UIShowIfFalse",
+  component: UIShowIfFalse,
   parameters: {
     layout: "centered",
     docs: {
@@ -20,7 +20,7 @@ const meta = {
     },
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof UIShowIfTrue>;
+} satisfies Meta<typeof UIShowIfFalse>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

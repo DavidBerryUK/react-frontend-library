@@ -14,7 +14,6 @@
 
 //
 // .fc-prefix-text
-// .fc-suffix-text
 
 .ui-form {
   .ui-fc-control {
@@ -32,13 +31,14 @@
 
       @each $style, $properties in $theme-styles {
         &.fc-#{$style} {
+          border-color: map.get($properties, light-border-color);
           input {
-            //border-color: map.get($properties, light-border-color);
             border-radius: $form-control-border-radius - 2px;
             font-size: $form-control-font-size;
             font-weight: $form-control-font-weight;
             border: none;
             padding-right: 34px; // allow space for validation icon
+            padding-left: 8px;
 
             &:focus {
               @include focus-style(map.get($properties, light-border-color));

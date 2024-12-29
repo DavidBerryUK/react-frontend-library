@@ -9,7 +9,6 @@ const meta = {
   title: "5 - Form Examples/ContactDetails",
   component: UIFormText,
   parameters: {
-    layout: "",
     docs: {
       description: {
         component: "Very basic data entry form with simple validation",
@@ -19,7 +18,7 @@ const meta = {
   decorators: [
     (Story) => (
       <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", margin: "40px", paddingBottom: "32px" }}>
-        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", width: "500px", height: "500px", border: "solid 2px blue;" }}>
+        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", width: "500px", height: "500px" }}>
           <Story />
         </div>
       </div>

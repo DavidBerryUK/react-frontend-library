@@ -10,7 +10,6 @@ const meta: Meta<typeof UIFormText> = {
   title: "3 - Form Formatting/Example Interaction Modes",
   component: UIFormText,
   parameters: {
-    layout: "",
     docs: {
       description: {
         component: "Demonstrate how to use different interaction modes, editable (default), readonly and hidden",

@@ -86,7 +86,7 @@ export default abstract class BaseViewModel<T extends BaseViewModel<any>> {
     this.fields.forEach((keyField) => {
       var oldField = this.fields.get(keyField.fieldName);
       var field = form.fields.get(keyField.fieldName);
-      form = form.cloneWithField(field.cloneAndClear());
+      form = form.cloneWithField(field.cloneAndReset());
       form = form.onFieldUpdated(form, oldField, field);
     });
 

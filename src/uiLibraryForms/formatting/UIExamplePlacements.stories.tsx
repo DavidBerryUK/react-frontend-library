@@ -1,16 +1,14 @@
+import EnumFieldDataType from "../../uiLibrary/enums/EnumFieldDataType";
+import FieldModel from "../../uiLibrary/models/fields/FieldModel";
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import UIFormText from "../../uiLibrary/components-forms/UIFormText/UIFormText";
-import FieldModel from "../../uiLibrary/models/fields/FieldModel";
-import EnumFieldDataType from "../../uiLibrary/enums/EnumFieldDataType";
 import UIText from "../../uiLibrary/components-ui/components/UIText/UIText";
-import EnumFieldInteractionMode from "../../uiLibrary/enums/EnumFieldInteractionMode";
 
 const meta: Meta<typeof UIFormText> = {
   title: "3 - Form Formatting/Example Placement Options",
   component: UIFormText,
   parameters: {
-    layout: "",
     docs: {
       description: {
         component: "Demonstrate how to use different placement options, coloun (default) or  row",

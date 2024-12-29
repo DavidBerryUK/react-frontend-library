@@ -11,7 +11,7 @@ const UISelect: React.FC<ISelectProperties> = (props) => {
   const handleOnChangeEvent = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedKey = event.target.value;
     const selectedOption = props.options.find((option) => option.key === selectedKey);
-    if (selectedOption && props.onChange) {
+    if (props.onChange) {
       props.onChange(selectedOption); // Call onChange handler with the selected OptionModel
     }
   };

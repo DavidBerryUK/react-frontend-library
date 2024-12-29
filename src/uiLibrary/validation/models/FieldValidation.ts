@@ -1,5 +1,5 @@
-import FieldModel from "../../models/fields/FieldModel";
 import EnumValidationState from "../enum/EnumValidationState";
+import FieldModel from "../../models/fields/FieldModel";
 import IFieldValidation from "../interfaces/IFieldValidation";
 import IRule from "../interfaces/IRule";
 
@@ -13,12 +13,22 @@ export default class FieldValidation implements IFieldValidation {
   public state: EnumValidationState = EnumValidationState.indeterminate;
 
   constructor(rules: Array<IRule>) {
+    console.log("**** CREATE FieldValidation ****");
+
     this.rules = rules;
     this.messages = new Array<string>();
   }
 
   get countAll(): number {
     return this.messages.length;
+  }
+
+  get hasRules(): boolean {
+    return this.rules.length > 0;
+  }
+
+  get ruleCount(): number {
+    return this.rules.length;
   }
 
   private get messagesAsSummary(): string {
@@ -46,6 +56,8 @@ export default class FieldValidation implements IFieldValidation {
   }
 
   validate(field: FieldModel): boolean {
+    console.log(`BEGIN VALIDATION FOR FIELD ${field.fieldName}`);
+
     var isValid = true;
     this.messages = new Array<string>();
     this.fieldCaption = field.caption;
@@ -61,11 +73,14 @@ export default class FieldValidation implements IFieldValidation {
 
     this.state = isValid ? EnumValidationState.valid : EnumValidationState.invalid;
 
+    console.log(`       VALIDATE: field state is ${EnumValidationState[this.state]} ${this.messagesAsSummary}`);
+
     return isValid;
   }
 
   clear() {
     this.messages = new Array<string>();
     this.state = EnumValidationState.indeterminate;
+    console.log(`       CLEAR: field state is ${EnumValidationState[this.state]} ${this.messagesAsSummary}`);
   }
 }

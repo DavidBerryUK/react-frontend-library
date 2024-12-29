@@ -12,7 +12,6 @@ const meta: Meta<typeof UIFormText> = {
   title: "3 - Form/UIFormText",
   component: UIFormText,
   parameters: {
-    layout: "",
     docs: {
       description: {
         component: "Form Text - A component for rendering and validating text fields in a form.",
@@ -22,7 +21,7 @@ const meta: Meta<typeof UIFormText> = {
   decorators: [
     (Story) => (
       <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", margin: "40px", paddingBottom: "32px" }}>
-        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", width: "600px", minHeight: "100px", border: "solid 2px blue;" }}>
+        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", width: "600px", minHeight: "100px" }}>
           <Story />
         </div>
       </div>

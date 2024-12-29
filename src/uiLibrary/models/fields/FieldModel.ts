@@ -85,7 +85,7 @@ export default class FieldModel extends FieldViewModelRecord {
       "", // Error message
       "", // help message
       validation ?? new FieldValidation([]), // validation rules
-      options,
+      options ?? new Array<OptionModel<any>>(),
     );
   }
 
@@ -167,7 +167,8 @@ export default class FieldModel extends FieldViewModelRecord {
     if (newField.active) {
       this.validation?.validate(newField);
       const errorMessage = this.validation?.validationMessage || "";
-      return newField.set(RecordPropertyNames.error, errorMessage) as FieldModel;
+      const clonedModel = newField.set(RecordPropertyNames.error, errorMessage) as FieldModel;
+      return clonedModel;
     }
 
     return newField;
@@ -188,7 +189,24 @@ export default class FieldModel extends FieldViewModelRecord {
   /**
    * Creates a clone of the model with a new value, updating the validation error message accordingly.
    */
+  cloneAndReset(): FieldModel {
+    let field = this.ClearFieldValue();
+    if (field.validation) {
+      field.validation.clear();
+    }
+    field = field.set(RecordPropertyNames.error, "") as FieldModel;
+    return field;
+  }
+
+  /**
+   * Clone and clear field value, but does not reset the validation
+   */
   cloneAndClear(): FieldModel {
+    let field = this.ClearFieldValue();
+    return field;
+  }
+
+  private ClearFieldValue(): FieldModel {
     let field: FieldModel = this;
 
     switch (field.dataType) {
@@ -202,10 +220,7 @@ export default class FieldModel extends FieldViewModelRecord {
         field = field.cloneWithValue(false) as FieldModel;
         break;
     }
-    if (field.validation) {
-      field.validation.clear();
-    }
-    field = field.set(RecordPropertyNames.error, "") as FieldModel;
+
     return field;
   }
 

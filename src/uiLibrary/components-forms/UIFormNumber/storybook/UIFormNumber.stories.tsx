@@ -8,7 +8,6 @@ const meta = {
   title: "3 - Form/UIFormNumber",
   component: UIFormNumber,
   parameters: {
-    layout: "",
     docs: {
       description: {
         component: "Form Text",
@@ -18,7 +17,7 @@ const meta = {
   decorators: [
     (Story) => (
       <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", margin: "40px", paddingBottom: "32px" }}>
-        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", width: "600px", minHeight: "100px", border: "solid 2px blue;" }}>
+        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", width: "600px", minHeight: "100px" }}>
           <Story />
         </div>
       </div>

@@ -1,7 +1,7 @@
-import "../../../../../index.css";
-import TestColorSwatch from "../../../../storybook/TestColorSwatch";
-import UIShowIfTrue from "../UIShowIfTrue";
 import React from "react";
+import TestColorSwatch from "../../../../storybook/TestColorSwatch";
+import UIShowIfFalse from "../UIShowIfFalse";
+import "../../../../../index.css";
 
 describe("UIShowIf (Render)", () => {
   //
@@ -9,9 +9,9 @@ describe("UIShowIf (Render)", () => {
   //
   it("ensure child control is visible", () => {
     cy.mount(
-      <UIShowIfTrue value={true}>
+      <UIShowIfFalse value={true}>
         <TestColorSwatch />
-      </UIShowIfTrue>,
+      </UIShowIfFalse>,
     );
     cy.get("#sample-child-control").should("exist");
   });
@@ -21,18 +21,18 @@ describe("UIShowIf (Render)", () => {
   //
   it("ensure child control is hidden with default value", () => {
     cy.mount(
-      <UIShowIfTrue>
+      <UIShowIfFalse>
         <TestColorSwatch />
-      </UIShowIfTrue>,
+      </UIShowIfFalse>,
     );
     cy.get("#sample-child-control").should("not.exist");
   });
 
   it("ensure child control is hidden with explicit value", () => {
     cy.mount(
-      <UIShowIfTrue value={false}>
+      <UIShowIfFalse value={false}>
         <TestColorSwatch />
-      </UIShowIfTrue>,
+      </UIShowIfFalse>,
     );
     cy.get("#sample-child-control").should("not.exist");
   });

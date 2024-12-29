@@ -10,7 +10,6 @@ const meta = {
   title: "5 - Form Examples/RSVP",
   component: UIFormText,
   parameters: {
-    layout: "",
     docs: {
       description: {
         component: "Very basic data entry form with simple validation and optional field",
@@ -20,7 +19,7 @@ const meta = {
   decorators: [
     (Story) => (
       <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", margin: "40px", paddingBottom: "32px" }}>
-        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", width: "500px", height: "450px", border: "solid 2px blue;" }}>
+        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", width: "500px", height: "450px" }}>
           <Story />
         </div>
       </div>

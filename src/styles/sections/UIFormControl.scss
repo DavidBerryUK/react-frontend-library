@@ -76,30 +76,6 @@
       margin-right: 8px;
     }
 
-    // input control
-    .ui-fc-text {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-stretch;
-      border: solid $form-control-border-width black;
-      height: $form-control-hight;
-      border-radius: $form-control-border-radius;
-      width: 100%;
-      box-sizing: border-box; // Includes padding and border in the total width
-
-      @each $style, $properties in $theme-styles {
-        &.fc-#{$style} {
-          border-color: map.get($properties, light-border-color);
-        }
-      }
-
-      input {
-        padding-left: 8px;
-        padding-right: 6px;
-        border: none;
-      }
-    }
-
     .ui-fc-help {
       user-select: none;
       color: $green-500;

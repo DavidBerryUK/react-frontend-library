@@ -1,0 +1,44 @@
+@use "../variables/ColourPalette.scss" as *;
+@use "../variables/Theme.scss" as *;
+@use "../variables/Accessability.scss" as *;
+@use "../variables/Form.scss" as *;
+@use "../mixins/MixinFocus.scss" as *;
+@use "sass:map";
+
+.ui-form {
+  .ui-fc-control {
+    .ui-fc-select {
+      position: relative;
+
+      @each $style, $properties in $theme-styles {
+        &.fc-#{$style} {
+          border-style: solid;
+          border-color: map.get($properties, light-border-color);
+          border-radius: $form-control-border-radius;
+
+          select {
+            font-size: $form-control-font-size;
+            font-weight: $form-control-font-weight;
+            border: none;
+            padding-right: 34px; // allow space for validation icon
+            padding-left: 8px;
+
+            &:focus {
+              @include focus-style(map.get($properties, light-border-color));
+            }
+          }
+        }
+      }
+      .fc-validation-icon {
+        position: absolute;
+        right: 18px;
+        z-index: 10;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}

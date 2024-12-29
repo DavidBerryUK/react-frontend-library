@@ -9,7 +9,6 @@ const meta: Meta<typeof UIFormText> = {
   title: "3 - Form Formatting/Placement and Interaction",
   component: UIFormText,
   parameters: {
-    layout: "",
     docs: {
       description: {
         component: "Formatting of controls, including label placement and interaction modes",
