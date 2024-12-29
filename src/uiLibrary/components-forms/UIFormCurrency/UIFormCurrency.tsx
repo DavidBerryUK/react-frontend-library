@@ -10,7 +10,7 @@ import UIFormBaseString from "../base/UIFormBase/UIFormBaseString";
 type IProperties = IPropDisabled & IPropPlaceholder & IPropValue<FieldModel> & IPropOnChange<FieldModel> & IPropClassName & IPropColor;
 
 const UIFormCurrency: React.FC<IProperties> = (props) => {
-  return <UIFormBaseString {...props} inputType="number" textPrefix="£" />;
+  return <UIFormBaseString {...props} alignTextRight inputType="number" textPrefix="£" />;
 };
 
 export default UIFormCurrency;
