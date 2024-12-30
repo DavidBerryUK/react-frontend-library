@@ -3,6 +3,7 @@ import type { Meta } from "@storybook/react";
 import UILayoutGrid from "../UILayoutGrid";
 import UIGridCell from "../UIGridCell";
 import UIAlert from "../../UIAlert/UIAlert";
+import UIText from "../../UIText/UIText";
 
 const meta = {
   title: "1 - UI/UILayoutGrid",
@@ -138,7 +139,7 @@ export const BasicGrid2x6: React.FC = () => {
 /**
  * Column Spans
  */
-export const BasicGridWithColumnSpan: React.FC = () => {
+export const ColumnSpan: React.FC = () => {
   return (
     <UILayoutGrid columns6 colGap3 rowGap2>
       <UIAlert info lighter>
@@ -179,11 +180,11 @@ export const BasicGridWithColumnSpan: React.FC = () => {
 /**
  * Row and Column Spans
  */
-export const GridWithRowAndColumnSpans: React.FC = () => {
+export const RowAndColumnSpans: React.FC = () => {
   return (
     <UILayoutGrid columns6 colGap3 rowGap2>
       <UIGridCell colSpan3>
-        <UIAlert warning lighter>
+        <UIAlert danger lighter>
           Cell 1 + 2 + 3
         </UIAlert>
       </UIGridCell>
@@ -191,8 +192,8 @@ export const GridWithRowAndColumnSpans: React.FC = () => {
         Cell 4
       </UIAlert>
       <UIGridCell rowSpan4>
-        <UIAlert warning lighter>
-          Cell 5 spans all four rows of the grid, displacing the other cells and maintaining layout.
+        <UIAlert success lighter>
+          <UIText subHeading>Cell 5 spans all four rows of the grid, displacing the other cells</UIText>
         </UIAlert>
       </UIGridCell>
       <UIAlert info lighter>
@@ -202,18 +203,16 @@ export const GridWithRowAndColumnSpans: React.FC = () => {
         Cell 7
       </UIAlert>
       <UIGridCell colSpan2>
-        <UIAlert warning lighter>
+        <UIAlert default lighter>
           Cell 8 + 9
         </UIAlert>
       </UIGridCell>
       <UIAlert info lighter>
         Cell 10
       </UIAlert>
-
       <UIAlert info lighter>
         Cell 12
       </UIAlert>
-
       <UIAlert info lighter>
         Cell 13
       </UIAlert>
@@ -226,21 +225,19 @@ export const GridWithRowAndColumnSpans: React.FC = () => {
       <UIAlert info lighter>
         Cell 16
       </UIAlert>
-
       <UIAlert info lighter>
         Cell 18
       </UIAlert>
       <UIGridCell colSpan2>
-        <UIAlert warning lighter>
+        <UIAlert primary lighter>
           Cell 19 + 20
         </UIAlert>
       </UIGridCell>
       <UIGridCell colSpan2>
-        <UIAlert warning lighter>
+        <UIAlert primary lighter>
           Cell 21 + 22
         </UIAlert>
       </UIGridCell>
-
       <UIAlert info lighter>
         Cell 24
       </UIAlert>

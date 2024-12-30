@@ -53,14 +53,19 @@
 
       &.btn-outlined {
         border-width: 2px;
-        background-color: map.get($properties, outlined-background-color);
-        border-color: map.get($properties, outlined-border-color);
-        color: map.get($properties, outlined-text-color);
+        background-color: lighten(map.get($properties, base-color), 65);
+        border-color: map.get($properties, light-border-color);
+        color: map.get($properties, light-text-color);
+
+        &:hover {
+          background-color: lighten(map.get($properties, base-color), 40);
+        }
 
         &:disabled {
-          background-color: map.get($properties, outlined-background-color-disabled);
-          border-color: map.get($properties, outlined-border-color-disabled);
-          color: map.get($properties, outlined-text-color-disabled);
+          border-width: 2px;
+          background-color: lighten(map.get($properties, base-color), 65);
+          border-color: lighten(map.get($properties, light-border-color), 20);
+          color: lighten(map.get($properties, light-text-color), 30);
         }
       }
     }
