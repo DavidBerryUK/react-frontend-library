@@ -1,12 +1,14 @@
 @forward "./sections/DefaultTable.scss";
+@forward "./sections/Text.scss";
 @forward "./sections/UIAccessability";
 @forward "./sections/UIAlert.scss";
 @forward "./sections/UIButtons.scss";
 @forward "./sections/UIFormControl.scss";
-@forward "./sections/UIFormText.scss";
-@forward "./sections/UIFormSelect.scss";
 @forward "./sections/UIFormSegment.scss";
+@forward "./sections/UIFormSelect.scss";
+@forward "./sections/UIFormText.scss";
 @forward "./sections/UIIcons.scss";
+@forward "./sections/UILayoutGrid.scss";
 @forward "./sections/UINavBar.scss";
 @forward "./sections/UINotifications.scss";
 @forward "./sections/UIPagination.scss";
@@ -18,7 +20,7 @@
 @forward "./sections/UISwitch.scss";
 @forward "./sections/UIText.scss";
 @forward "./sections/UIWorkflowBar.scss";
-@forward "./sections/Text.scss";
+
 html,
 body {
   height: 100%;
