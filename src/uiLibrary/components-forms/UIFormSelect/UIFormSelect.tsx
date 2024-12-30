@@ -49,10 +49,8 @@ const UIFormSelect: React.FC<IProperties> = (props) => {
       <UIShowIfFalse value={isReadOnly}>
         <UIFormControlWrapper {...props}>
           <div className={inputClassName}>
-            <UIShowIfFalse value={isReadOnly}>
-              <UISelect {...props} onChange={handleOnChangeEvent} options={props.value.options!} selected={selected} />
-              <div className="fc-validation-icon">{validationIcon}</div>
-            </UIShowIfFalse>
+            <UISelect {...props} onChange={handleOnChangeEvent} options={props.value.options!} selected={selected} />
+            <div className="fc-validation-icon">{validationIcon}</div>
           </div>
         </UIFormControlWrapper>
       </UIShowIfFalse>

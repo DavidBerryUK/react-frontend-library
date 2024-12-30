@@ -49,13 +49,11 @@ const UIFormSegment: React.FC<IProperties> = (props) => {
       <UIShowIfFalse value={isReadOnly}>
         <UIFormControlWrapper {...props}>
           <div className={inputClassName}>
-            <UIShowIfFalse value={isReadOnly}>
-              <div className="segment-control-container">
-                <UISegment {...props} onChange={handleOnChangeEvent} options={props.value.options!} selected={selected} />
+            <div className="segment-control-container">
+              <UISegment {...props} onChange={handleOnChangeEvent} options={props.value.options!} selected={selected} />
 
-                <div className="fc-validation-icon">{validationIcon}</div>
-              </div>
-            </UIShowIfFalse>
+              <div className="fc-validation-icon">{validationIcon}</div>
+            </div>
           </div>
         </UIFormControlWrapper>
       </UIShowIfFalse>

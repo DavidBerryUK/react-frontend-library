@@ -11,6 +11,7 @@ import UIShowIfTrue from "../../../components-ui/components/UIShowIfTrue/UIShowI
 import useGetValidationIcon from "../../../hooks/UseGetValidationIcon";
 import useVariantStyle from "../../../hooks/UseVariantStyle";
 import IPropTextAlignment from "../../../interfaces/properties/IPropTextAlignment";
+import useTextAlignmentStyle from "../../../hooks/UseTextAlignmentStyle";
 
 type IProperties = IFormTextProperties & IPropInputType & IPropsTextPrefix & IPropsTextSuffix & IPropInteractionMode & IPropTextAlignment;
 
@@ -42,14 +43,7 @@ const UIFormBaseString: React.FC<IProperties> = (props) => {
   const inputClassName = classNames("ui-fc-text", variantClass);
   const validationIcon = useGetValidationIcon(props);
 
-  var elementClassName = "";
-  if (props.alignTextLeft) {
-    elementClassName = "align-text-left";
-  } else if (props.alignTextRight) {
-    elementClassName = "align-text-right";
-  } else if (props.alignTextCenter) {
-    elementClassName = "align-text-center";
-  }
+  var textAlignmentStyle = useTextAlignmentStyle(props);
 
   return (
     <UIFormControlWrapper {...props}>
@@ -58,7 +52,7 @@ const UIFormBaseString: React.FC<IProperties> = (props) => {
           <div className="fc-prefix-text">{props.textPrefix}</div>
         </UIShowIfTrue>
         <input
-          className={elementClassName}
+          className={textAlignmentStyle}
           type={props.inputType}
           readOnly={isReadOnly}
           id={props.value.fieldName}
