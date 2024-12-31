@@ -1,40 +1,22 @@
 import IPropGridRowSpan from "../interfaces/properties/IPropGridRowSpan";
 
 const useGridRowSpanStyle = (style: IPropGridRowSpan): string => {
-  let rows = style.rowSpan;
+  const rows =
+    (style.rowSpan1 && 1) ||
+    (style.rowSpan2 && 2) ||
+    (style.rowSpan3 && 3) ||
+    (style.rowSpan4 && 4) ||
+    (style.rowSpan5 && 5) ||
+    (style.rowSpan6 && 6) ||
+    (style.rowSpan7 && 7) ||
+    (style.rowSpan8 && 8) ||
+    (style.rowSpan9 && 9) ||
+    (style.rowSpan10 && 10) ||
+    (style.rowSpan11 && 11) ||
+    (style.rowSpan12 && 12) ||
+    style.rowSpan;
 
-  // Map rowSpan style to rowSpan value
-  if (style.rowSpan1) {
-    rows = 1;
-  } else if (style.rowSpan2) {
-    rows = 2;
-  } else if (style.rowSpan3) {
-    rows = 3;
-  } else if (style.rowSpan4) {
-    rows = 4;
-  } else if (style.rowSpan5) {
-    rows = 5;
-  } else if (style.rowSpan6) {
-    rows = 6;
-  } else if (style.rowSpan7) {
-    rows = 7;
-  } else if (style.rowSpan8) {
-    rows = 8;
-  } else if (style.rowSpan9) {
-    rows = 9;
-  } else if (style.rowSpan10) {
-    rows = 10;
-  } else if (style.rowSpan11) {
-    rows = 11;
-  } else if (style.rowSpan12) {
-    rows = 12;
-  }
-
-  if (rows) {
-    return `row-span-${rows}`;
-  }
-
-  return "";
+  return rows ? `row-span-${rows}` : "";
 };
 
 export default useGridRowSpanStyle;

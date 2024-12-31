@@ -1,39 +1,22 @@
 import IPropGridColGap from "../interfaces/properties/IPropGridColGap";
 
 const useGridColGapStyle = (style: IPropGridColGap): string => {
-  let colGap = style.colGap;
+  const colGap =
+    (style.colGap1 && 1) ||
+    (style.colGap2 && 2) ||
+    (style.colGap3 && 3) ||
+    (style.colGap4 && 4) ||
+    (style.colGap5 && 5) ||
+    (style.colGap6 && 6) ||
+    (style.colGap7 && 7) ||
+    (style.colGap8 && 8) ||
+    (style.colGap9 && 9) ||
+    (style.colGap10 && 10) ||
+    (style.colGap11 && 11) ||
+    (style.colGap12 && 12) ||
+    style.colGap;
 
-  if (style.colGap1) {
-    colGap = 1;
-  } else if (style.colGap2) {
-    colGap = 2;
-  } else if (style.colGap3) {
-    colGap = 3;
-  } else if (style.colGap4) {
-    colGap = 4;
-  } else if (style.colGap5) {
-    colGap = 5;
-  } else if (style.colGap6) {
-    colGap = 6;
-  } else if (style.colGap7) {
-    colGap = 7;
-  } else if (style.colGap8) {
-    colGap = 8;
-  } else if (style.colGap9) {
-    colGap = 9;
-  } else if (style.colGap10) {
-    colGap = 10;
-  } else if (style.colGap11) {
-    colGap = 11;
-  } else if (style.colGap12) {
-    colGap = 12;
-  }
-
-  if (colGap) {
-    return `column-gap-${colGap}`;
-  }
-
-  return "";
+  return colGap ? `column-gap-${colGap}` : "";
 };
 
 export default useGridColGapStyle;

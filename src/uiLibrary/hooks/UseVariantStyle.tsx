@@ -12,29 +12,20 @@ import IPropColor from "../interfaces/properties/IPropColor";
  */
 const useVariantStyle = (prefix: string, color: IPropColor, field?: FieldModel): string => {
   if (field) {
-    if (field.validation.state === EnumValidationState.invalid) {
-      color = { danger: true };
-    } else if (field.validation.state === EnumValidationState.valid) {
-      color = { success: true };
-    }
+    color = {
+      danger: field.validation.state === EnumValidationState.invalid,
+      success: field.validation.state === EnumValidationState.valid,
+    };
   }
 
-  var value = "";
-  if (color.primary) {
-    value = "primary";
-  } else if (color.secondary) {
-    value = "secondary";
-  } else if (color.success) {
-    value = "success";
-  } else if (color.info) {
-    value = "info";
-  } else if (color.warning) {
-    value = "warning";
-  } else if (color.danger) {
-    value = "danger";
-  } else {
-    value = "default";
-  }
+  const value =
+    (color.primary && "primary") ||
+    (color.secondary && "secondary") ||
+    (color.success && "success") ||
+    (color.info && "info") ||
+    (color.warning && "warning") ||
+    (color.danger && "danger") ||
+    "default";
 
   return `${prefix}-${value}`;
 };

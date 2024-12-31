@@ -1,38 +1,22 @@
 import IPropGridColSpan from "../interfaces/properties/IPropGridColSpan";
 
 const useGridColumnSpanStyle = (style: IPropGridColSpan): string => {
-  let columns = style.columnSpan;
+  const columns =
+    (style.colSpan1 && 1) ||
+    (style.colSpan2 && 2) ||
+    (style.colSpan3 && 3) ||
+    (style.colSpan4 && 4) ||
+    (style.colSpan5 && 5) ||
+    (style.colSpan6 && 6) ||
+    (style.colSpan7 && 7) ||
+    (style.colSpan8 && 8) ||
+    (style.colSpan9 && 9) ||
+    (style.colSpan10 && 10) ||
+    (style.colSpan11 && 11) ||
+    (style.colSpan12 && 12) ||
+    style.columnSpan;
 
-  if (style.colSpan1) {
-    columns = 1;
-  } else if (style.colSpan2) {
-    columns = 2;
-  } else if (style.colSpan3) {
-    columns = 3;
-  } else if (style.colSpan4) {
-    columns = 4;
-  } else if (style.colSpan5) {
-    columns = 5;
-  } else if (style.colSpan6) {
-    columns = 6;
-  } else if (style.colSpan7) {
-    columns = 7;
-  } else if (style.colSpan8) {
-    columns = 8;
-  } else if (style.colSpan9) {
-    columns = 9;
-  } else if (style.colSpan10) {
-    columns = 10;
-  } else if (style.colSpan11) {
-    columns = 11;
-  } else if (style.colSpan12) {
-    columns = 12;
-  }
-  if (columns) {
-    return `column-span-${columns}`;
-  }
-
-  return "";
+  return columns ? `column-span-${columns}` : "";
 };
 
 export default useGridColumnSpanStyle;
