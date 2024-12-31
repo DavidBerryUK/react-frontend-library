@@ -23,8 +23,6 @@ const UseGridAlignmentStyle = (style: IPropGridAlignment): string => {
         return "alignBottomCenter";
       case EnumGridAlign.bottomRight:
         return "alignBottomRight";
-      default:
-        return "alignDefault";
     }
   }
 

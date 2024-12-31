@@ -32,7 +32,7 @@ export const Gallery: React.FC = () => {
   return (
     <div>
       <UIText subHeading>Colour Variants</UIText>
-      <UILayoutGrid columns7>
+      <UILayoutGrid columns7 topCenter>
         <div>Default</div>
         <div>Primary</div>
         <div>Secondary</div>
@@ -49,7 +49,7 @@ export const Gallery: React.FC = () => {
         <UISpinner danger />
       </UILayoutGrid>
       <UIText subHeading>Size Variants</UIText>
-      <UILayoutGrid columns3>
+      <UILayoutGrid columns3 topCenter>
         <div>Small</div>
         <div>Regular (default)</div>
         <div>Large</div>
