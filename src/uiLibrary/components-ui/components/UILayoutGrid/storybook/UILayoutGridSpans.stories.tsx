@@ -6,7 +6,7 @@ import UIAlert from "../../UIAlert/UIAlert";
 import UIText from "../../UIText/UIText";
 
 const meta = {
-  title: "1 - UI/UILayoutGrid",
+  title: "1 - UI/UILayoutGrid (Spans)",
   component: UILayoutGrid,
   parameters: {
     layout: "centered",

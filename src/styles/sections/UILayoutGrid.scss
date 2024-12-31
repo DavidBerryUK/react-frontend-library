@@ -4,6 +4,39 @@ $gap-values: (2px, 4px, 8px, 16px, 32px, 64px);
   // GRID
   display: grid;
   width: 100%;
+
+  &.alignDefault {
+    place-items: stretch;
+  }
+
+  &.alignTopLeft {
+    place-items: start;
+  }
+  &.alignTopCenter {
+    place-items: start center;
+  }
+  &.alignTopRight {
+    place-items: start end;
+  }
+  &.alignMiddleLeft {
+    place-items: center start;
+  }
+  &.alignMiddleCenter {
+    place-items: center;
+  }
+  &.alignMiddleEnd {
+    place-items: center end;
+  }
+  &.alignBottomLeft {
+    place-items: end start;
+  }
+  &.alignBottomCenter {
+    place-items: end center;
+  }
+  &.alignBottomRight {
+    place-items: end;
+  }
+
   @for $i from 1 through 12 {
     &.columns-#{$i} {
       grid-template-columns: repeat($i, 1fr);
