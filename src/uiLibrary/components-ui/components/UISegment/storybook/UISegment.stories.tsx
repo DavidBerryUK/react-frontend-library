@@ -1,10 +1,10 @@
+import FactoryOptionLists from "../../../../storybook/factories/FactoryOptionLists";
+import OptionModel from "../models/OptionModel";
 import React, { useState } from "react";
 import type { Meta } from "@storybook/react";
+import UILayoutGrid from "../../UILayoutGrid/UILayoutGrid";
 import UISegment from "../UISegment";
-import OptionModel from "../models/OptionModel";
-import TestFlexGrid from "../../../../storybook/TestFlexGrid";
-import TestGridSectionHeader from "../../../../storybook/TestGridSectionHeader";
-import FactoryOptionLists from "../../../../storybook/factories/FactoryOptionLists";
+import UIText from "../../UIText/UIText";
 
 const meta = {
   title: "1 - UI/UISegment",
@@ -68,22 +68,22 @@ export const Gallery: React.FC = () => {
 
   return (
     <div>
-      <TestFlexGrid columns={1}>
-        <TestGridSectionHeader title="Default" colspan={1} />
+      <UILayoutGrid columns1 rowGap4>
+        <UIText subHeading>Default</UIText>
         <UISegment default options={options} selected={defaultSelected} onChange={handleDefaultChange} />
-        <TestGridSectionHeader title="Primary" colspan={1} />
+        <UIText subHeading>Primary</UIText>
         <UISegment primary options={options} selected={primarySelected} onChange={handlePrimaryChange} />
-        <TestGridSectionHeader title="Secondary" colspan={1} />
+        <UIText subHeading>Secondary</UIText>
         <UISegment secondary options={options} selected={secondarySelected} onChange={handleSecondaryChange} />
-        <TestGridSectionHeader title="Success" colspan={1} />
+        <UIText subHeading>Success</UIText>
         <UISegment success options={options} selected={successSelected} onChange={handleSuccessChange} />
-        <TestGridSectionHeader title="Information" colspan={1} />
+        <UIText subHeading>Information</UIText>
         <UISegment info options={options} selected={infoSelected} onChange={handleInfoChange} />
-        <TestGridSectionHeader title="Warning" colspan={1} />
+        <UIText subHeading>Warning</UIText>
         <UISegment warning options={options} selected={warningSelected} onChange={handleWarningChange} />
-        <TestGridSectionHeader title="Danger" colspan={1} />
+        <UIText subHeading>Danger</UIText>
         <UISegment danger options={options} selected={dangerSelected} onChange={handleDangerChange} />
-      </TestFlexGrid>
+      </UILayoutGrid>
     </div>
   );
 };

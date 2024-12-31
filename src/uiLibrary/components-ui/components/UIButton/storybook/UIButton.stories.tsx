@@ -1,9 +1,11 @@
 import { action } from "@storybook/addon-actions";
 import React from "react";
-import TestFlexGrid from "../../../../storybook/TestFlexGrid";
+
 import TestGridSectionHeader from "../../../../storybook/TestGridSectionHeader";
 import type { Meta, StoryObj } from "@storybook/react";
 import UIButton from "../UIButton";
+import UILayoutGrid from "../../UILayoutGrid/UILayoutGrid";
+import UIText from "../../UIText/UIText";
 
 const meta = {
   title: "1 - UI/UIButton",
@@ -38,8 +40,8 @@ export const Gallery: React.FC = () => {
 
   return (
     <div>
-      <TestFlexGrid columns={7}>
-        <TestGridSectionHeader title="Standard" colspan={7} />
+      <UIText subHeading>Standard</UIText>
+      <UILayoutGrid columns7 colGap4 rowGap4>
         <UIButton default text="Default" onClick={handleOnClickEvent} />
         <UIButton primary text="Primary" onClick={handleOnClickEvent} />
         <UIButton secondary text="Secondary" onClick={handleOnClickEvent} />
@@ -47,9 +49,9 @@ export const Gallery: React.FC = () => {
         <UIButton info text="Info" onClick={handleOnClickEvent} />
         <UIButton warning text="Warning" onClick={handleOnClickEvent} />
         <UIButton danger text="Danger" onClick={handleOnClickEvent} />
-      </TestFlexGrid>
-      <TestFlexGrid columns={7}>
-        <TestGridSectionHeader title="Disabled" colspan={7} />
+      </UILayoutGrid>
+      <UIText subHeading>Disabled</UIText>
+      <UILayoutGrid columns7 colGap4 rowGap4>
         <UIButton disabled default text="Default" onClick={handleOnClickEvent} />
         <UIButton disabled primary text="Primary" onClick={handleOnClickEvent} />
         <UIButton disabled secondary text="Secondary" onClick={handleOnClickEvent} />
@@ -57,9 +59,9 @@ export const Gallery: React.FC = () => {
         <UIButton disabled info text="Info" onClick={handleOnClickEvent} />
         <UIButton disabled warning text="Warning" onClick={handleOnClickEvent} />
         <UIButton disabled danger text="Danger" onClick={handleOnClickEvent} />
-      </TestFlexGrid>
-      <TestFlexGrid columns={7}>
-        <TestGridSectionHeader title="Outlined" colspan={7} />
+      </UILayoutGrid>
+      <UIText subHeading>Outlined</UIText>
+      <UILayoutGrid columns7 colGap4 rowGap4>
         <UIButton outlined default text="Default" onClick={handleOnClickEvent} />
         <UIButton outlined primary text="Primary" onClick={handleOnClickEvent} />
         <UIButton outlined secondary text="Secondary" onClick={handleOnClickEvent} />
@@ -67,9 +69,9 @@ export const Gallery: React.FC = () => {
         <UIButton outlined info text="Info" onClick={handleOnClickEvent} />
         <UIButton outlined warning text="Warning" onClick={handleOnClickEvent} />
         <UIButton outlined danger text="Danger" onClick={handleOnClickEvent} />
-      </TestFlexGrid>
-      <TestFlexGrid columns={7}>
-        <TestGridSectionHeader title="Outlined Disabled" colspan={7} />
+      </UILayoutGrid>
+      <UIText subHeading>Outlined Disabled</UIText>
+      <UILayoutGrid columns7 colGap4 rowGap4>
         <UIButton disabled outlined default text="Default" onClick={handleOnClickEvent} />
         <UIButton disabled outlined primary text="Primary" onClick={handleOnClickEvent} />
         <UIButton disabled outlined secondary text="Secondary" onClick={handleOnClickEvent} />
@@ -77,9 +79,9 @@ export const Gallery: React.FC = () => {
         <UIButton disabled outlined info text="Info" onClick={handleOnClickEvent} />
         <UIButton disabled outlined warning text="Warning" onClick={handleOnClickEvent} />
         <UIButton disabled outlined danger text="Danger" onClick={handleOnClickEvent} />
-      </TestFlexGrid>
-      <TestFlexGrid columns={7}>
-        <TestGridSectionHeader title="Small" colspan={7} />
+      </UILayoutGrid>
+      <UIText subHeading>Small</UIText>
+      <UILayoutGrid columns7 colGap4 rowGap4>
         <UIButton small default text="Default" onClick={handleOnClickEvent} />
         <UIButton small primary text="Primary" onClick={handleOnClickEvent} />
         <UIButton small secondary text="Secondary" onClick={handleOnClickEvent} />
@@ -87,9 +89,9 @@ export const Gallery: React.FC = () => {
         <UIButton small info text="Info" onClick={handleOnClickEvent} />
         <UIButton small warning text="Warning" onClick={handleOnClickEvent} />
         <UIButton small danger text="Danger" onClick={handleOnClickEvent} />
-      </TestFlexGrid>
-      <TestFlexGrid columns={7}>
-        <TestGridSectionHeader title="Large" colspan={7} />
+      </UILayoutGrid>
+      <UIText subHeading>Large</UIText>
+      <UILayoutGrid columns7 colGap4 rowGap4>
         <UIButton large default text="large" onClick={handleOnClickEvent} />
         <UIButton large primary text="large" onClick={handleOnClickEvent} />
         <UIButton large secondary text="large" onClick={handleOnClickEvent} />
@@ -97,9 +99,9 @@ export const Gallery: React.FC = () => {
         <UIButton large info text="large" onClick={handleOnClickEvent} />
         <UIButton large warning text="large" onClick={handleOnClickEvent} />
         <UIButton large danger text="large" onClick={handleOnClickEvent} />
-      </TestFlexGrid>
-      <TestFlexGrid columns={7}>
-        <TestGridSectionHeader title="Small Outlined" colspan={7} />
+      </UILayoutGrid>
+      <UIText subHeading>Small Outlined</UIText>
+      <UILayoutGrid columns7 colGap4 rowGap4>
         <UIButton outlined small default text="Default" onClick={handleOnClickEvent} />
         <UIButton outlined small primary text="Primary" onClick={handleOnClickEvent} />
         <UIButton outlined small secondary text="Secondary" onClick={handleOnClickEvent} />
@@ -107,9 +109,9 @@ export const Gallery: React.FC = () => {
         <UIButton outlined small info text="Info" onClick={handleOnClickEvent} />
         <UIButton outlined small warning text="Warning" onClick={handleOnClickEvent} />
         <UIButton outlined small danger text="Danger" onClick={handleOnClickEvent} />
-      </TestFlexGrid>
-      <TestFlexGrid columns={7}>
-        <TestGridSectionHeader title="Large Outlined" colspan={7} />
+      </UILayoutGrid>
+      <UIText subHeading>Large Outlined</UIText>
+      <UILayoutGrid columns7 colGap4 rowGap4>
         <UIButton outlined large default text="large" onClick={handleOnClickEvent} />
         <UIButton outlined large primary text="large" onClick={handleOnClickEvent} />
         <UIButton outlined large secondary text="large" onClick={handleOnClickEvent} />
@@ -117,7 +119,7 @@ export const Gallery: React.FC = () => {
         <UIButton outlined large info text="large" onClick={handleOnClickEvent} />
         <UIButton outlined large warning text="large" onClick={handleOnClickEvent} />
         <UIButton outlined large danger text="large" onClick={handleOnClickEvent} />
-      </TestFlexGrid>
+      </UILayoutGrid>
     </div>
   );
 };

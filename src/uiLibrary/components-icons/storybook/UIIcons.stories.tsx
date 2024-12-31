@@ -5,7 +5,9 @@ import React, { useState } from "react";
 import TestFlexGrid from "../../storybook/TestFlexGrid";
 import TestGridSectionHeader from "../../storybook/TestGridSectionHeader";
 import type { Meta, StoryObj } from "@storybook/react";
+import UILayoutGrid from "../../components-ui/components/UILayoutGrid/UILayoutGrid";
 import UISegment from "../../components-ui/components/UISegment/UISegment";
+import UIText from "../../components-ui/components/UIText/UIText";
 
 import UIIconAlertCrossCircle from "../UIIconAlertCrossCircle";
 import UIIconAlertCrossCircleSolid from "../UIIconAlertCrossCircleSolid";
@@ -137,7 +139,7 @@ const meta = {
   title: "2 - Icons/UIIcons",
   component: UIIconPlusCircleSolid,
   parameters: {
-    layout: "padded",
+    layout: "centered",
     docs: {
       description: {
         component:
@@ -154,118 +156,53 @@ const icons = GetIcons();
 
 export const Default: React.FC = () => {
   return (
-    <div className="flex">
+    <UILayoutGrid columns4 colGap4>
       <UIIconTickCircle />
       <UIIconTickCircleSolid />
       <UIIconCrossCircle />
       <UIIconTickCircleSolid />
-    </div>
+    </UILayoutGrid>
   );
 };
 
 export const Themes: React.FC = () => {
   return (
     <div>
-      <TestGridSectionHeader title="Themes" colspan={8} />
-      <TestFlexGrid columns={8}>
+      <UIText subHeading>Themes</UIText>
+      <UILayoutGrid columns8 colGap4 rowGap4>
         <div></div>
-        <div>
-          <div className="sb-col-title">Default</div>
-        </div>
-        <div>
-          <div className="sb-col-title">Primary</div>
-        </div>
-        <div>
-          <div className="sb-col-title">Secondary</div>
-        </div>
-        <div>
-          <div className="sb-col-title">Success</div>
-        </div>
-        <div>
-          <div className="sb-col-title">Info</div>
-        </div>
-        <div>
-          <div className="sb-col-title">Warning</div>
-        </div>
-        <div>
-          <div className="sb-col-title">Danger</div>
-        </div>
-      </TestFlexGrid>
-
-      <TestFlexGrid columns={8}>
-        <div>Lighter</div>
-        <div>
-          <UIIconTickCircleSolid lighter default />
-        </div>
-        <div>
-          <UIIconTickCircleSolid lighter primary />
-        </div>
-        <div>
-          <UIIconTickCircleSolid lighter secondary />
-        </div>
-        <div>
-          <UIIconTickCircleSolid lighter success />
-        </div>
-        <div>
-          <UIIconTickCircleSolid lighter info />
-        </div>
-        <div>
-          <UIIconTickCircleSolid lighter warning />
-        </div>
-        <div>
-          <UIIconTickCircleSolid lighter danger />
-        </div>
-      </TestFlexGrid>
-
-      <TestFlexGrid columns={8}>
-        <div>Normal</div>
-        <div>
-          <UIIconTickCircleSolid default />
-        </div>
-        <div>
-          <UIIconTickCircleSolid primary />
-        </div>
-        <div>
-          <UIIconTickCircleSolid secondary />
-        </div>
-        <div>
-          <UIIconTickCircleSolid success />
-        </div>
-        <div>
-          <UIIconTickCircleSolid info />
-        </div>
-        <div>
-          <UIIconTickCircleSolid warning />
-        </div>
-        <div>
-          <UIIconTickCircleSolid danger />
-        </div>
-      </TestFlexGrid>
-
-      <TestFlexGrid columns={8}>
-        <div>Darker</div>
-        <div>
-          <UIIconTickCircleSolid darker default />
-        </div>
-        <div>
-          <UIIconTickCircleSolid darker primary />
-        </div>
-        <div>
-          <UIIconTickCircleSolid darker secondary />
-        </div>
-        <div>
-          <UIIconTickCircleSolid darker success />
-        </div>
-        <div>
-          <UIIconTickCircleSolid darker info />
-        </div>
-        <div>
-          <UIIconTickCircleSolid darker warning />
-        </div>
-        <div>
-          <UIIconTickCircleSolid darker danger />
-        </div>
-      </TestFlexGrid>
+        <UIText caption>Default</UIText>
+        <UIText caption>Primary</UIText>
+        <UIText caption>Secondary</UIText>
+        <UIText caption>Success</UIText>
+        <UIText caption>Info</UIText>
+        <UIText caption>Warning</UIText>
+        <UIText caption>Danger</UIText>
+        <UIText caption>Lighter</UIText>
+        <UIIconTickCircleSolid lighter default />
+        <UIIconTickCircleSolid lighter primary />
+        <UIIconTickCircleSolid lighter secondary />
+        <UIIconTickCircleSolid lighter success />
+        <UIIconTickCircleSolid lighter info />
+        <UIIconTickCircleSolid lighter warning />
+        <UIIconTickCircleSolid lighter danger />
+        <UIText caption>Normal</UIText>
+        <UIIconTickCircleSolid default />
+        <UIIconTickCircleSolid primary />
+        <UIIconTickCircleSolid secondary />
+        <UIIconTickCircleSolid success />
+        <UIIconTickCircleSolid info />
+        <UIIconTickCircleSolid warning />
+        <UIIconTickCircleSolid danger />
+        <UIText caption>Darker</UIText>
+        <UIIconTickCircleSolid darker default />
+        <UIIconTickCircleSolid darker primary />
+        <UIIconTickCircleSolid darker secondary />
+        <UIIconTickCircleSolid darker success />
+        <UIIconTickCircleSolid darker info />
+        <UIIconTickCircleSolid darker warning />
+        <UIIconTickCircleSolid darker danger />
+      </UILayoutGrid>
     </div>
   );
 };
@@ -273,60 +210,44 @@ export const Themes: React.FC = () => {
 export const Sizes: React.FC = () => {
   return (
     <div>
-      <TestGridSectionHeader title="Sizes" colspan={7} />
+      <UIText subHeading>Sizes</UIText>
+      <UILayoutGrid columns8 colGap4 rowGap4></UILayoutGrid>
       <TestFlexGrid columns={7}>
         <div>
-          <div className="sb-col-title">Extra Small</div>
-          <div className="{styleSize}">(12px)</div>
+          <UIText bold>Extra Small</UIText>
+          <UIText caption>(12px)</UIText>
         </div>
         <div>
-          <div className="sb-col-title">Small</div>
-          <div className="{styleSize}">(16px)</div>
+          <UIText bold>Small</UIText>
+          <UIText caption>(16px)</UIText>
         </div>
         <div>
-          <div className="sb-col-title">Smaller</div>
-          <div className="{styleSize}">(28px)</div>
+          <UIText bold>Smaller</UIText>
+          <UIText caption>(28px)</UIText>
         </div>
         <div>
-          <div className="sb-col-title">Regular</div>
-          <div className="{styleSize}">(32px)</div>
+          <UIText bold>Regular</UIText>
+          <UIText caption>(32px)</UIText>
         </div>
         <div>
-          <div className="sb-col-title">Larger</div>
-          <div className="{styleSize}">(40px)</div>
+          <UIText bold>Larger</UIText>
+          <UIText caption>(40px)</UIText>
         </div>
         <div>
-          <div className="sb-col-title">Large</div>
-          <div className="{styleSize}">(48px)</div>
+          <UIText bold>Large</UIText>
+          <UIText caption>(48px)</UIText>
         </div>
         <div>
-          <div className="sb-col-title">Extra Large</div>
-          <div className="{styleSize}">(64px)</div>
+          <UIText bold>Extra Large</UIText>
+          <UIText caption>(64px)</UIText>
         </div>
-      </TestFlexGrid>
-
-      <TestFlexGrid columns={7}>
-        <div>
-          <UIIconStarSolid extraSmall color="#55efc4" />
-        </div>
-        <div>
-          <UIIconStarSolid small color="#a29bfe" />
-        </div>
-        <div>
-          <UIIconStarSolid smaller color="#b2bec3" />
-        </div>
-        <div>
-          <UIIconStarSolid regular color="#fdcb6e" />
-        </div>
-        <div>
-          <UIIconStarSolid larger color="#d63031" />
-        </div>
-        <div>
-          <UIIconStarSolid large color="#0984e3" />
-        </div>
-        <div>
-          <UIIconStarSolid extraLarge color="#00b894" />
-        </div>
+        <UIIconStarSolid extraSmall color="#55efc4" />
+        <UIIconStarSolid small color="#a29bfe" />
+        <UIIconStarSolid smaller color="#b2bec3" />
+        <UIIconStarSolid regular color="#fdcb6e" />
+        <UIIconStarSolid larger color="#d63031" />
+        <UIIconStarSolid large color="#0984e3" />
+        <UIIconStarSolid extraLarge color="#00b894" />
       </TestFlexGrid>
     </div>
   );
@@ -334,12 +255,12 @@ export const Sizes: React.FC = () => {
 
 export const Coloured: React.FC = () => {
   return (
-    <TestFlexGrid columns={4}>
+    <UILayoutGrid columns8 colGap4 rowGap4>
       <UIIconTickCircle color="red" />
       <UIIconTickCircleSolid color="green" />
       <UIIconCrossCircle color="#0984e3" />
       <UIIconTickCircleSolid color="#fab1a0" />
-    </TestFlexGrid>
+    </UILayoutGrid>
   );
 };
 

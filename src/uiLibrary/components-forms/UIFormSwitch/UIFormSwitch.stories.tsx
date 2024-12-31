@@ -5,6 +5,7 @@ import UIFormSwitch from "./UIFormSwitch";
 import FieldModel from "../../models/fields/FieldModel";
 import EnumFieldDataType from "../../enums/EnumFieldDataType";
 import TestFlexGrid from "../../../uiLibrary/storybook/TestFlexGrid";
+import UILayoutGrid from "../../components-ui/components/UILayoutGrid/UILayoutGrid";
 
 const meta: Meta<typeof UIFormSwitch> = {
   title: "3 - Form/UIFormSwitch",
@@ -82,7 +83,7 @@ export const ColorGallery: Story = {
 
     return (
       <div className="ui-form">
-        <TestFlexGrid columns={1}>
+        <UILayoutGrid rowGap4>
           <UIFormSwitch default value={defaultSwitch} onChange={handleDefaultChange} />
           <UIFormSwitch primary value={primarySwitch} onChange={handlePrimaryChange} />
           <UIFormSwitch secondary value={secondarySwitch} onChange={handleSecondaryChange} />
@@ -90,7 +91,7 @@ export const ColorGallery: Story = {
           <UIFormSwitch info value={infoSwitch} onChange={handleInfoChange} />
           <UIFormSwitch warning value={warningSwitch} onChange={handleWarningChange} />
           <UIFormSwitch danger value={dangerSwitch} onChange={handleDangerChange} />
-        </TestFlexGrid>
+        </UILayoutGrid>
       </div>
     );
   },

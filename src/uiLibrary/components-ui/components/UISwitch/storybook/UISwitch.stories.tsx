@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import TestFlexGrid from "../../../../storybook/TestFlexGrid";
-import TestGridSectionHeader from "../../../../storybook/TestGridSectionHeader";
+import UILayoutGrid from "../../UILayoutGrid/UILayoutGrid";
+import UIText from "../../UIText/UIText";
 import type { Meta } from "@storybook/react";
 import UISwitch from "../UISwitch";
 
@@ -53,8 +53,8 @@ export const Gallery: React.FC = () => {
 
   return (
     <div>
-      <TestFlexGrid columns={7}>
-        <TestGridSectionHeader title="Gallery" colspan={7} />
+      <UIText subHeading>Gallery</UIText>
+      <UILayoutGrid columns7 colGap4>
         <UISwitch value={defaultChecked} onChange={handleDefaultChange} />
         <UISwitch primary value={primaryChecked} onChange={handlePrimaryChange} />
         <UISwitch secondary value={secondaryChecked} onChange={handleSecondaryChange} />
@@ -62,7 +62,7 @@ export const Gallery: React.FC = () => {
         <UISwitch info value={infoChecked} onChange={handleInfoChange} />
         <UISwitch warning value={warningChecked} onChange={handleWarningChange} />
         <UISwitch danger value={dangerChecked} onChange={handleDangerChange} />
-      </TestFlexGrid>
+      </UILayoutGrid>
     </div>
   );
 };

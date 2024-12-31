@@ -1,9 +1,9 @@
+import IAlertProperties from "../../../../interfaces/controls/IAlertProperties";
 import React from "react";
-import TestFlexGrid from "../../../../storybook/TestFlexGrid";
-import TestGridSectionHeader from "../../../../storybook/TestGridSectionHeader";
 import type { Meta, StoryObj } from "@storybook/react";
 import UIAlert from "../UIAlert";
-import IAlertProperties from "../../../../interfaces/controls/IAlertProperties";
+import UILayoutGrid from "../../UILayoutGrid/UILayoutGrid";
+import UIText from "../../UIText/UIText";
 
 const meta = {
   title: "1 - UI/UIAlert",
@@ -35,43 +35,43 @@ type IGallery = IAlertProperties & {
 
 const Gallery: React.FC<IGallery> = (props) => {
   return (
-    <>
-      <TestGridSectionHeader title={props.variantTitle} colspan={4} />
-      <UIAlert {...props} default>
-        {props.variantTitle} Alert
-      </UIAlert>
-      <UIAlert {...props} bordered>
-        {props.variantTitle} Alert with Border
-      </UIAlert>
-      <UIAlert {...props} borderedLeft>
-        {props.variantTitle} Alert with Border Accent
-      </UIAlert>
-      <UIAlert {...props} borderedRight>
-        {props.variantTitle} Alert with Left Border Accent
-      </UIAlert>
-      <UIAlert {...props} borderedTop>
-        {props.variantTitle} Alert with Border Accent
-      </UIAlert>
-      <UIAlert {...props} borderedBottom>
-        {props.variantTitle} Alert with Left Border Accent
-      </UIAlert>
-    </>
+    <div>
+      <UIText subHeading>{props.variantTitle}</UIText>
+      <UILayoutGrid columns4 colGap4 rowGap4>
+        <UIAlert {...props} default>
+          {props.variantTitle} Alert
+        </UIAlert>
+        <UIAlert {...props} bordered>
+          {props.variantTitle} Alert with Border
+        </UIAlert>
+        <UIAlert {...props} borderedLeft>
+          {props.variantTitle} Alert with Border Accent
+        </UIAlert>
+        <UIAlert {...props} borderedRight>
+          {props.variantTitle} Alert with Left Border Accent
+        </UIAlert>
+        <UIAlert {...props} borderedTop>
+          {props.variantTitle} Alert with Border Accent
+        </UIAlert>
+        <UIAlert {...props} borderedBottom>
+          {props.variantTitle} Alert with Left Border Accent
+        </UIAlert>
+      </UILayoutGrid>
+    </div>
   );
 };
 
 export const GalleryLight: React.FC = () => {
   return (
     <div>
-      <TestFlexGrid columns={4}>
-        <Gallery variantTitle="Default" default lighter />
-        <Gallery variantTitle="Primary" primary lighter />
-        <Gallery variantTitle="Secondary" secondary lighter />
-        <Gallery variantTitle="Success" success lighter />
-        <Gallery variantTitle="Success" success lighter />
-        <Gallery variantTitle="Information" info lighter />
-        <Gallery variantTitle="Warning" warning lighter />
-        <Gallery variantTitle="Danger" danger lighter />
-      </TestFlexGrid>
+      <Gallery variantTitle="Default" default lighter />
+      <Gallery variantTitle="Primary" primary lighter />
+      <Gallery variantTitle="Secondary" secondary lighter />
+      <Gallery variantTitle="Success" success lighter />
+      <Gallery variantTitle="Success" success lighter />
+      <Gallery variantTitle="Information" info lighter />
+      <Gallery variantTitle="Warning" warning lighter />
+      <Gallery variantTitle="Danger" danger lighter />
     </div>
   );
 };
@@ -79,16 +79,14 @@ export const GalleryLight: React.FC = () => {
 export const GalleryRegular: React.FC = () => {
   return (
     <div>
-      <TestFlexGrid columns={4}>
-        <Gallery variantTitle="Default" default />
-        <Gallery variantTitle="Primary" primary />
-        <Gallery variantTitle="Secondary" secondary />
-        <Gallery variantTitle="Success" success />
-        <Gallery variantTitle="Success" success />
-        <Gallery variantTitle="Information" info />
-        <Gallery variantTitle="Warning" warning />
-        <Gallery variantTitle="Danger" danger />
-      </TestFlexGrid>
+      <Gallery variantTitle="Default" default />
+      <Gallery variantTitle="Primary" primary />
+      <Gallery variantTitle="Secondary" secondary />
+      <Gallery variantTitle="Success" success />
+      <Gallery variantTitle="Success" success />
+      <Gallery variantTitle="Information" info />
+      <Gallery variantTitle="Warning" warning />
+      <Gallery variantTitle="Danger" danger />
     </div>
   );
 };
@@ -96,16 +94,14 @@ export const GalleryRegular: React.FC = () => {
 export const GalleryDarker: React.FC = () => {
   return (
     <div>
-      <TestFlexGrid columns={4}>
-        <Gallery variantTitle="Default" default darker />
-        <Gallery variantTitle="Primary" primary darker />
-        <Gallery variantTitle="Secondary" secondary darker />
-        <Gallery variantTitle="Success" success darker />
-        <Gallery variantTitle="Success" success darker />
-        <Gallery variantTitle="Information" info darker />
-        <Gallery variantTitle="Warning" warning darker />
-        <Gallery variantTitle="Danger" danger darker />
-      </TestFlexGrid>
+      <Gallery variantTitle="Default" default darker />
+      <Gallery variantTitle="Primary" primary darker />
+      <Gallery variantTitle="Secondary" secondary darker />
+      <Gallery variantTitle="Success" success darker />
+      <Gallery variantTitle="Success" success darker />
+      <Gallery variantTitle="Information" info darker />
+      <Gallery variantTitle="Warning" warning darker />
+      <Gallery variantTitle="Danger" danger darker />
     </div>
   );
 };

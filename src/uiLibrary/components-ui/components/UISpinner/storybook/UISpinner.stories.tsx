@@ -1,9 +1,9 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import UIButton from "../UISpinner";
+import UILayoutGrid from "../../UILayoutGrid/UILayoutGrid";
 import UISpinner from "../UISpinner";
-import TestFlexGrid from "../../../../storybook/TestFlexGrid";
-import TestGridSectionHeader from "../../../../storybook/TestGridSectionHeader";
+import UIText from "../../UIText/UIText";
 
 const meta = {
   title: "1 - UI/UISpinner",
@@ -31,9 +31,8 @@ export const Spinner: Story = {
 export const Gallery: React.FC = () => {
   return (
     <div>
-      <TestFlexGrid columns={7}>
-        <TestGridSectionHeader title="Colour Variants" colspan={7} />
-
+      <UIText subHeading>Colour Variants</UIText>
+      <UILayoutGrid columns7>
         <div>Default</div>
         <div>Primary</div>
         <div>Secondary</div>
@@ -41,8 +40,6 @@ export const Gallery: React.FC = () => {
         <div>Info</div>
         <div>Warning</div>
         <div>Danger</div>
-      </TestFlexGrid>
-      <TestFlexGrid columns={7}>
         <UISpinner default />
         <UISpinner primary />
         <UISpinner secondary />
@@ -50,18 +47,16 @@ export const Gallery: React.FC = () => {
         <UISpinner info />
         <UISpinner warning />
         <UISpinner danger />
-      </TestFlexGrid>
-      <TestFlexGrid columns={3}>
-        <TestGridSectionHeader title="Size Variants" colspan={3} />
+      </UILayoutGrid>
+      <UIText subHeading>Size Variants</UIText>
+      <UILayoutGrid columns3>
         <div>Small</div>
         <div>Regular (default)</div>
         <div>Large</div>
-      </TestFlexGrid>
-      <TestFlexGrid columns={3}>
         <UISpinner default small />
         <UISpinner default />
         <UISpinner default large />
-      </TestFlexGrid>
+      </UILayoutGrid>
     </div>
   );
 };

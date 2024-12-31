@@ -7,10 +7,10 @@ import IPropertiesLayoutGrid from "../../../interfaces/controls/ILayoutGridPrope
 
 const UILayoutGrid: React.FC<IPropertiesLayoutGrid> = (props) => {
   const columnsClassName = useGridColumnsStyle(props);
-  const columnRowClassName = useGridRowGapStyle(props);
-  const columnGapClassName = useGridColGapStyle(props);
+  const rowClassName = useGridRowGapStyle(props);
+  const colGapClassName = useGridColGapStyle(props);
 
-  const className = classNames("ui-layout-grid", columnsClassName, columnGapClassName, columnRowClassName);
+  const className = classNames("ui-layout-grid", columnsClassName, colGapClassName, rowClassName);
 
   return <div className={className}>{props.children}</div>;
 };

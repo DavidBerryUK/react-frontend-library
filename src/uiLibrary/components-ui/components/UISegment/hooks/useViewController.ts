@@ -15,7 +15,10 @@ const useViewController = (props: ISegmentProperties) => {
   };
 
   const handleOnKeyDownEvent = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    const currentIndex = props.options.findIndex((option) => option.text === props.selected.text);
+    if (props.options === undefined) {
+      return;
+    }
+    const currentIndex = props.options.findIndex((option) => option.text === props.selected?.text);
 
     if (currentIndex === -1) {
       return;

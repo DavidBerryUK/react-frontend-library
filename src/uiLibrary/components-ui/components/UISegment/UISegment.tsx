@@ -11,10 +11,14 @@ import useViewController from "./hooks/useViewController";
 const UISegment: React.FC<ISegmentProperties> = (props) => {
   const { className, handleOnKeyDownEvent, handleOnButtonClickEvent } = useViewController(props);
 
+  if (props.options === undefined) {
+    return null;
+  }
+
   return (
     <div role="button" tabIndex={0} className={className} onKeyDown={handleOnKeyDownEvent}>
       {props.options.map((option) => (
-        <UISegmentButton key={option.key} option={option} selected={props.selected} onClick={handleOnButtonClickEvent} />
+        <UISegmentButton key={option.key} option={option} selected={props.selected!} onClick={handleOnButtonClickEvent} />
       ))}
     </div>
   );
