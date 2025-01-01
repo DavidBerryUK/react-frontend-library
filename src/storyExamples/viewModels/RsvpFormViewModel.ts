@@ -1,13 +1,13 @@
-import BaseViewModel from "../../../uiLibrary/models/fields/BaseViewModel";
-import EnumFieldDataType from "../../../uiLibrary/enums/EnumFieldDataType";
-import FieldModel from "../../../uiLibrary/models/fields/FieldModel";
-import FieldSchema from "../../../uiLibrary/models/fields/FieldSchema";
-import RuleInteger from "../../../uiLibrary/validation/rules/RuleInteger";
-import RuleMandatory from "../../../uiLibrary/validation/rules/RuleMandatory";
-import RuleMaxLength from "../../../uiLibrary/validation/rules/RuleMaxLength";
-import RuleMinLength from "../../../uiLibrary/validation/rules/RuleMinLength";
-import RuleValueBetween from "../../../uiLibrary/validation/rules/RuleValueBetween";
-import ViewModelSchema, { SchemaBase } from "../../../uiLibrary/models/fields/ViewModelSchema";
+import BaseViewModel from "../../uiLibrary/models/fields/BaseViewModel";
+import EnumFieldDataType from "../../uiLibrary/enums/EnumFieldDataType";
+import FieldModel from "../../uiLibrary/models/fields/FieldModel";
+import FieldSchema from "../../uiLibrary/models/fields/FieldSchema";
+import RuleInteger from "../../uiLibrary/validation/rules/RuleInteger";
+import RuleMandatory from "../../uiLibrary/validation/rules/RuleMandatory";
+import RuleMaxLength from "../../uiLibrary/validation/rules/RuleMaxLength";
+import RuleMinLength from "../../uiLibrary/validation/rules/RuleMinLength";
+import RuleValueBetween from "../../uiLibrary/validation/rules/RuleValueBetween";
+import ViewModelSchema, { SchemaBase } from "../../uiLibrary/models/fields/ViewModelSchema";
 
 class RsvpViewModelSchema extends ViewModelSchema {
   fields: SchemaBase = {
@@ -28,7 +28,7 @@ class RsvpViewModelSchema extends ViewModelSchema {
  * only the changes fields have a new instance, resulting in faster mutations
  * and reduction in memory changes
  */
-export class RsvpFormViewModel extends BaseViewModel<RsvpFormViewModel> {
+export default class RsvpFormViewModel extends BaseViewModel<RsvpFormViewModel> {
   // the schema provides field meta data such as fieldname, ui-caption, data types
 
   static modelSchema = new RsvpViewModelSchema();
