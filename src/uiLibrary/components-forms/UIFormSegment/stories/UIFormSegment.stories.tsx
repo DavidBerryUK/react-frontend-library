@@ -3,11 +3,10 @@ import UIFormSegment from "../UIFormSegment";
 import FieldModel from "../../../models/fields/FieldModel";
 import EnumFieldDataType from "../../../enums/EnumFieldDataType";
 import React, { useState } from "react";
-import FactoryCarLists from "../../../storybook/factories/FactoryCarLists";
 import RuleMandatory from "../../../validation/rules/RuleMandatory";
 import FieldValidation from "../../../validation/models/FieldValidation";
-import EnumValidationState from "../../../validation/enum/EnumValidationState";
 import UIButton from "../../../components-ui/components/UIButton/UIButton";
+import FactoryCarLists from "../../../../storyExamples/factories/FactoryCarLists";
 
 const meta = {
   title: "3 - Form/UIFormSegment",

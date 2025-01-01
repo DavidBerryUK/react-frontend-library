@@ -1,6 +1,6 @@
 import React from "react";
-import TestFlexGrid from "../../../../storybook/TestFlexGrid";
-import TestGridSectionHeader from "../../../../storybook/TestGridSectionHeader";
+
+import UILayoutGrid from "../../../../components-ui/components/UILayoutGrid/UILayoutGrid";
 import type { Meta, StoryObj } from "@storybook/react";
 import UIText from "../UIText";
 
@@ -26,9 +26,9 @@ type Story = StoryObj<typeof meta>;
 //export const Gallery: Story = {
 export const Gallery: React.FC = () => {
   return (
-    <div>
-      <TestFlexGrid columns={7}>
-        <TestGridSectionHeader title="Colours" colspan={7} />
+    <UILayoutGrid colGap4 rowGap5 columns1>
+      <UIText subHeading>Colours</UIText>
+      <UILayoutGrid columns7 colGap4 middleCenter>
         <UIText default>Default</UIText>
         <UIText primary>Primary</UIText>
         <UIText secondary>Secondary</UIText>
@@ -36,19 +36,19 @@ export const Gallery: React.FC = () => {
         <UIText info>Information</UIText>
         <UIText warning>Warning</UIText>
         <UIText danger>Danger</UIText>
-      </TestFlexGrid>
+      </UILayoutGrid>
 
-      <TestFlexGrid columns={5}>
-        <TestGridSectionHeader title="Styles" colspan={5} />
+      <UIText subHeading>Styles</UIText>
+      <UILayoutGrid columns5 colGap4 middleCenter>
         <UIText heading>Heading</UIText>
         <UIText subHeading>Sub Heading</UIText>
         <UIText body>Body</UIText>
         <UIText caption>Caption</UIText>
         <UIText smallCaption>Small Caption</UIText>
-      </TestFlexGrid>
+      </UILayoutGrid>
 
-      <TestFlexGrid columns={8}>
-        <TestGridSectionHeader title="Weights" colspan={8} />
+      <UIText subHeading>Weights</UIText>
+      <UILayoutGrid columns8 colGap4 middleCenter>
         <UIText thin>Thin</UIText>
         <UIText extraLight>Extra-Light</UIText>
         <UIText light>Light</UIText>
@@ -57,18 +57,18 @@ export const Gallery: React.FC = () => {
         <UIText bold>Bold</UIText>
         <UIText extraBold>Extra-Bold</UIText>
         <UIText ultraBold>Ultra-Bold</UIText>
-      </TestFlexGrid>
+      </UILayoutGrid>
 
-      <TestFlexGrid columns={5}>
-        <TestGridSectionHeader title="Sizes" colspan={6} />
+      <UIText subHeading>Sizes</UIText>
+      <UILayoutGrid columns6 colGap4 middleCenter>
         <UIText small>Small</UIText>
         <UIText smaller>Smaller</UIText>
         <UIText>Regular</UIText>
         <UIText larger>Larger</UIText>
         <UIText large>Large</UIText>
         <UIText extraLarge>Extra Large</UIText>
-      </TestFlexGrid>
-    </div>
+      </UILayoutGrid>
+    </UILayoutGrid>
   );
 };
 export const DefaultText: Story = {

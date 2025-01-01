@@ -1,5 +1,5 @@
-import OptionModel from "../../components-ui/components/UISegment/models/OptionModel";
-import EnumColor from "../../enums/EnumColor";
+import OptionModel from "../../uiLibrary/components-ui/components/UISegment/models/OptionModel";
+import EnumColor from "../../uiLibrary/enums/EnumColor";
 
 /**
  * Factory providing lists for stories / tests

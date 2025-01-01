@@ -1,20 +1,38 @@
-const TestColorSwatch: React.FC = () => {
-  return (
-    <div id="sample-child-control" className="w-[400px] rounded-lg border-2 border-red-800 bg-red-100">
-      <div className="p-2 text-center font-mono text-lg">SAMPLE CHILD CONTROL</div>
+import UIIconAlertCrossCircleSolid from "../components-icons/UIIconAlertCrossCircleSolid";
+import UILayoutGrid from "../components-ui/components/UILayoutGrid/UILayoutGrid";
 
-      <div className="flex h-12 p-2">
-        <div className="flex-grow bg-red-100" />
-        <div className="flex-grow bg-red-200" />
-        <div className="flex-grow bg-red-300" />
-        <div className="flex-grow bg-red-400" />
-        <div className="flex-grow bg-red-500" />
-        <div className="flex-grow bg-red-600" />
-        <div className="flex-grow bg-red-700" />
-        <div className="flex-grow bg-red-800" />
-        <div className="flex-grow bg-red-900" />
-      </div>
-    </div>
+const TestColorSwatch: React.FC = () => {
+  const colours = [
+    "#55efc4",
+    "#81ecec",
+    "#74b9ff",
+    "#a29bfe",
+    "#dfe6e9",
+    "#00b894",
+    "#00cec9",
+    "#0984e3",
+    "#6c5ce7",
+    "#b2bec3",
+    "#ffeaa7",
+    "#fab1a0",
+    "#ff7675",
+    "#fd79a8",
+    "#636e72",
+    "#fdcb6e",
+    "#e17055",
+    "#d63031",
+    "#e84393",
+    "#2d3436",
+  ];
+
+  return (
+    <UILayoutGrid columns5 colGap3 rowGap3>
+      {colours.map((colour) => (
+        <div key={colour} className="h-10 w-10">
+          <UIIconAlertCrossCircleSolid color={colour} />
+        </div>
+      ))}
+    </UILayoutGrid>
   );
 };
 

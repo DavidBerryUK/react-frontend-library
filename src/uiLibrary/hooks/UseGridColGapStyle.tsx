@@ -16,7 +16,7 @@ const useGridColGapStyle = (style: IPropGridColGap): string => {
     (style.colGap12 && 12) ||
     style.colGap;
 
-  return colGap ? `column-gap-${colGap}` : "";
+  return colGap ? `col-gap-${colGap}` : "";
 };
 
 export default useGridColGapStyle;

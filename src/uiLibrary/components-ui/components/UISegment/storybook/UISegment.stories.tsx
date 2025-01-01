@@ -1,4 +1,4 @@
-import FactoryOptionLists from "../../../../storybook/factories/FactoryOptionLists";
+import FactoryOptionLists from "../../../../../storyExamples/factories/FactoryOptionLists";
 import OptionModel from "../models/OptionModel";
 import React, { useState } from "react";
 import type { Meta } from "@storybook/react";

@@ -6,7 +6,7 @@ import EnumFieldLabelPlacement from "../../../uiLibrary/enums/EnumFieldLabelPlac
 import IPropInteractionMode from "../../../uiLibrary/interfaces/properties/IPropInteractionMode";
 import IPropLabelPlacementMode from "../../../uiLibrary/interfaces/properties/IPropLabelPlacementMode";
 import FieldModel from "../../../uiLibrary/models/fields/FieldModel";
-import FactorFormsLayoutLists from "../../../uiLibrary/storybook/factories/FactorFormsLayoutLists";
+import FactorFormsLayoutLists from "../../factories/FactorFormsLayoutLists";
 import FieldValidation from "../../../uiLibrary/validation/models/FieldValidation";
 import RuleMandatory from "../../../uiLibrary/validation/rules/RuleMandatory";
 import RuleMaxLength from "../../../uiLibrary/validation/rules/RuleMaxLength";

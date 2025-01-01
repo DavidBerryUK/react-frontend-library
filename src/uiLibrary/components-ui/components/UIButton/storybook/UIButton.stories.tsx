@@ -1,7 +1,5 @@
 import { action } from "@storybook/addon-actions";
 import React from "react";
-
-import TestGridSectionHeader from "../../../../storybook/TestGridSectionHeader";
 import type { Meta, StoryObj } from "@storybook/react";
 import UIButton from "../UIButton";
 import UILayoutGrid from "../../UILayoutGrid/UILayoutGrid";

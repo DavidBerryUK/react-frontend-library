@@ -1,8 +1,7 @@
-import FactoryOptionLists from "../../storybook/factories/FactoryOptionLists";
+import FactoryOptionLists from "../../../storyExamples/factories/FactoryOptionLists";
 import IIconProps from "../interfaces/IIconProps";
 import OptionModel from "../../components-ui/components/UISegment/models/OptionModel";
 import React, { useState } from "react";
-import TestFlexGrid from "../../storybook/TestFlexGrid";
 import type { Meta, StoryObj } from "@storybook/react";
 import UILayoutGrid from "../../components-ui/components/UILayoutGrid/UILayoutGrid";
 import UISegment from "../../components-ui/components/UISegment/UISegment";
@@ -168,7 +167,7 @@ export const Themes: React.FC = () => {
   return (
     <div>
       <UIText subHeading>Themes</UIText>
-      <UILayoutGrid columns8 colGap4 rowGap4>
+      <UILayoutGrid columns8 colGap4 rowGap4 middleCenter>
         <div></div>
         <UIText caption>Default</UIText>
         <UIText caption>Primary</UIText>
@@ -210,8 +209,7 @@ export const Sizes: React.FC = () => {
   return (
     <div>
       <UIText subHeading>Sizes</UIText>
-      <UILayoutGrid columns8 colGap4 rowGap4></UILayoutGrid>
-      <TestFlexGrid columns={7}>
+      <UILayoutGrid columns7 colGap4 rowGap4 middleCenter>
         <div>
           <UIText bold>Extra Small</UIText>
           <UIText caption>(12px)</UIText>
@@ -247,14 +245,14 @@ export const Sizes: React.FC = () => {
         <UIIconStarSolid larger color="#d63031" />
         <UIIconStarSolid large color="#0984e3" />
         <UIIconStarSolid extraLarge color="#00b894" />
-      </TestFlexGrid>
+      </UILayoutGrid>
     </div>
   );
 };
 
 export const Coloured: React.FC = () => {
   return (
-    <UILayoutGrid columns8 colGap4 rowGap4>
+    <UILayoutGrid columns8 colGap4 rowGap4 middleCenter>
       <UIIconTickCircle color="red" />
       <UIIconTickCircleSolid color="green" />
       <UIIconCrossCircle color="#0984e3" />
@@ -267,22 +265,22 @@ export const ColouredIconsGallery: StoryObj = {
   render: () => {
     const colours = getColours();
     return (
-      <div style={{ display: "flex", justifyContent: "space-around" }}>
-        <TestFlexGrid columns={5}>
+      <UILayoutGrid columns2 colGap8>
+        <UILayoutGrid columns5 colGap3 rowGap3>
           {colours.map((colour) => (
             <div key={colour} className="h-10 w-10">
               <UIIconAlertCrossCircleSolid color={colour} />
             </div>
           ))}
-        </TestFlexGrid>
-        <TestFlexGrid columns={5}>
+        </UILayoutGrid>
+        <UILayoutGrid columns5 colGap3 rowGap3>
           {colours.map((colour) => (
             <div key={colour} className="h-10 w-10">
               <UIIconTickCircle color={colour} />
             </div>
           ))}
-        </TestFlexGrid>
-      </div>
+        </UILayoutGrid>
+      </UILayoutGrid>
     );
   },
 };

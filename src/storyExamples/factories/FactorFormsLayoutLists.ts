@@ -1,7 +1,7 @@
-import OptionModel from "../../components-ui/components/UISegment/models/OptionModel";
-import EnumFieldInteractionMode from "../../enums/EnumFieldInteractionMode";
-import EnumFieldLabelPlacement from "../../enums/EnumFieldLabelPlacement";
-import EnumGridAlign from "../../enums/EnumGridAlign";
+import OptionModel from "../../uiLibrary/components-ui/components/UISegment/models/OptionModel";
+import EnumFieldInteractionMode from "../../uiLibrary/enums/EnumFieldInteractionMode";
+import EnumFieldLabelPlacement from "../../uiLibrary/enums/EnumFieldLabelPlacement";
+import EnumGridAlign from "../../uiLibrary/enums/EnumGridAlign";
 
 /**
  * Factory providing lists for stories / tests

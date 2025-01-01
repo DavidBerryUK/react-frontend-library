@@ -1,4 +1,4 @@
-import OptionModel from "../../components-ui/components/UISegment/models/OptionModel";
+import OptionModel from "../../uiLibrary/components-ui/components/UISegment/models/OptionModel";
 
 export default class FactoryCarLists {
   /**

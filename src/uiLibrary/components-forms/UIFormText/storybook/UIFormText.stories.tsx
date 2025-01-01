@@ -6,7 +6,7 @@ import RuleMandatory from "../../../validation/rules/RuleMandatory";
 import RuleMaxLength from "../../../validation/rules/RuleMaxLength";
 import type { Meta, StoryObj } from "@storybook/react";
 import UIFormText from "../UIFormText";
-import TestFlexGrid from "../../../../uiLibrary/storybook/TestFlexGrid";
+import UILayoutGrid from "../../../components-ui/components/UILayoutGrid/UILayoutGrid";
 
 const meta: Meta<typeof UIFormText> = {
   title: "3 - Form/UIFormText",
@@ -112,7 +112,7 @@ export const ColorGallery: Story = {
 
     return (
       <div className="ui-form">
-        <TestFlexGrid columns={3}>
+        <UILayoutGrid columns3 colGap4>
           <UIFormText default value={text} onChange={handleOnChangedEvent} />
           <UIFormText primary value={text} onChange={handleOnChangedEvent} />
           <UIFormText secondary value={text} onChange={handleOnChangedEvent} />
@@ -120,7 +120,7 @@ export const ColorGallery: Story = {
           <UIFormText info value={text} onChange={handleOnChangedEvent} />
           <UIFormText warning value={text} onChange={handleOnChangedEvent} />
           <UIFormText danger value={text} onChange={handleOnChangedEvent} />
-        </TestFlexGrid>
+        </UILayoutGrid>
       </div>
     );
   },
@@ -139,7 +139,7 @@ export const ReadOnlyGallery: Story = {
 
     return (
       <div className="ui-form">
-        <TestFlexGrid columns={3}>
+        <UILayoutGrid columns3 colGap4>
           <UIFormText default value={text} readonly />
           <UIFormText primary value={text} readonly />
           <UIFormText secondary value={text} readonly />
@@ -147,7 +147,7 @@ export const ReadOnlyGallery: Story = {
           <UIFormText info value={text} readonly />
           <UIFormText warning value={text} readonly />
           <UIFormText danger value={text} readonly />
-        </TestFlexGrid>
+        </UILayoutGrid>
       </div>
     );
   },

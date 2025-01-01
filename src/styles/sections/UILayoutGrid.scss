@@ -1,4 +1,4 @@
-$gap-values: (2px, 4px, 8px, 16px, 32px, 64px);
+@use "../variables/Spacing.scss" as *;
 
 .ui-layout-grid {
   // GRID
@@ -43,10 +43,10 @@ $gap-values: (2px, 4px, 8px, 16px, 32px, 64px);
     }
   }
 
-  @for $i from 1 through length($gap-values) {
-    $value: nth($gap-values, $i);
+  @for $i from 1 through length($spacing-values) {
+    $value: nth($spacing-values, $i);
 
-    &.column-gap-#{$i} {
+    &.col-gap-#{$i} {
       column-gap: $value;
     }
 
@@ -55,7 +55,7 @@ $gap-values: (2px, 4px, 8px, 16px, 32px, 64px);
     }
   }
 
-  // Cell .ui-grid-cell {
+  // Cell spans
   @for $i from 1 through 12 {
     .column-span-#{$i} {
       grid-column: span $i;

@@ -5,7 +5,7 @@ import UIBoxAnimated from "../../UIBoxAnimated/UIBoxAnimated";
 import UISegment from "../../UISegment/UISegment";
 import OptionModel from "../../UISegment/models/OptionModel";
 import EnumGridAlign from "../../../../enums/EnumGridAlign";
-import FactorFormsLayoutLists from "../../../../storybook/factories/FactorFormsLayoutLists";
+import FactorFormsLayoutLists from "../../../../../storyExamples/factories/FactorFormsLayoutLists";
 
 const meta = {
   title: "1 - UI/UILayoutGrid (Alignment)",

@@ -1,5 +1,5 @@
-import FactoryCarLists from "../../../../storybook/factories/FactoryCarLists";
-import FactoryOptionLists from "../../../../storybook/factories/FactoryOptionLists";
+import FactoryCarLists from "../../../../../storyExamples/factories/FactoryCarLists";
+import FactoryOptionLists from "../../../../../storyExamples//factories/FactoryOptionLists";
 import OptionModel from "../../UISegment/models/OptionModel";
 import React, { useState } from "react";
 import type { Meta } from "@storybook/react";

@@ -4,7 +4,7 @@ import CommandSetNotificationConfiguration from "../../../../context/actions/Com
 import EnumNotificationDuration from "../enums/EnumNotificationDuration";
 import EnumNotificationPlacement from "../enums/EnumNotificationPlacement";
 import EnumNotificationType from "../enums/EnumNotificationType";
-import FactoryNotificationOptionLists from "../../../../storybook/factories/FactoryNotificationOptionLists";
+import FactoryNotificationOptionLists from "../../../../../storyExamples/factories/FactoryNotificationOptionLists";
 import OptionModel from "../../UISegment/models/OptionModel";
 import React, { useState } from "react";
 import type { Meta } from "@storybook/react";

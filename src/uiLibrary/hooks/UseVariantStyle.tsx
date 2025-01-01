@@ -11,7 +11,14 @@ import IPropColor from "../interfaces/properties/IPropColor";
  * @returns
  */
 const useVariantStyle = (prefix: string, color: IPropColor, field?: FieldModel): string => {
-  if (field) {
+  console.log("-----------------------");
+  console.log("Field");
+  console.log(field);
+
+  console.log("color");
+  console.log(color);
+
+  if (field && field.validation.hasRules) {
     color = {
       danger: field.validation.state === EnumValidationState.invalid,
       success: field.validation.state === EnumValidationState.valid,
@@ -27,7 +34,11 @@ const useVariantStyle = (prefix: string, color: IPropColor, field?: FieldModel):
     (color.danger && "danger") ||
     "default";
 
-  return `${prefix}-${value}`;
+  const className = `${prefix}-${value}`;
+
+  console.log(className);
+
+  return className;
 };
 
 export default useVariantStyle;

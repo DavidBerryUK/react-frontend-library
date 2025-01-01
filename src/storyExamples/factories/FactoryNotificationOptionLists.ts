@@ -1,7 +1,7 @@
-import EnumNotificationDuration from "../../components-ui/components/UINotification/enums/EnumNotificationDuration";
-import EnumNotificationPlacement from "../../components-ui/components/UINotification/enums/EnumNotificationPlacement";
-import EnumNotificationType from "../../components-ui/components/UINotification/enums/EnumNotificationType";
-import OptionModel from "../../components-ui/components/UISegment/models/OptionModel";
+import EnumNotificationDuration from "../../uiLibrary/components-ui/components/UINotification/enums/EnumNotificationDuration";
+import EnumNotificationPlacement from "../../uiLibrary/components-ui/components/UINotification/enums/EnumNotificationPlacement";
+import EnumNotificationType from "../../uiLibrary/components-ui/components/UINotification/enums/EnumNotificationType";
+import OptionModel from "../../uiLibrary/components-ui/components/UISegment/models/OptionModel";
 
 export default class FactoryNotificationOptionLists {
   public static GetNotificationTypes(): Array<OptionModel<EnumNotificationType>> {
