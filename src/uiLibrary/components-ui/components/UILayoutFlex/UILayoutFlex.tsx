@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import ILayoutFlexProperties from "../../../interfaces/properties/ILayoutFlexProperties";
+import ILayoutFlexProperties from "../../../interfaces/controls/ILayoutFlexProperties";
 import useLayoutAlignClass from "../../../hooks/UseLayoutAlignClass";
 import useLayoutColGapStyle from "../../../hooks/UseLayoutColGapStyle";
 import useLayoutDirectionStyle from "../../../hooks/UseLayoutDirection";
