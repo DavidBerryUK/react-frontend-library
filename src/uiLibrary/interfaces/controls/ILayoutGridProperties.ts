@@ -1,9 +1,9 @@
 import IPropChildren from "../properties/IPropChildren";
-import IPropGridAlignment from "../properties/IPropGridAlignment";
-import IPropGridColGap from "../properties/IPropGridColGap";
-import IPropGridColumns from "../properties/IPropGridColumns";
-import IPropGridRowGap from "../properties/IPropGridRowGap";
+import IPropLayoutAlignment from "../properties/IPropLayoutAlignment";
+import IPropLayoutColGap from "../properties/IPropLayoutColGap";
+import IPropLayoutColumns from "../properties/IPropLayoutColumns";
+import IPropLayoutRowGap from "../properties/IPropLayoutRowGap";
 
-type IPropertiesLayoutGrid = IPropChildren & IPropGridColumns & IPropGridRowGap & IPropGridColGap & IPropGridAlignment;
+type IPropertiesLayoutGrid = IPropChildren & IPropLayoutColumns & IPropLayoutRowGap & IPropLayoutColGap & IPropLayoutAlignment;
 
 export default IPropertiesLayoutGrid;

@@ -1,6 +1,6 @@
-import IPropGridRowGap from "../interfaces/properties/IPropGridRowGap";
+import IPropLayoutRowGap from "../interfaces/properties/IPropLayoutRowGap";
 
-const useGridRowGapStyle = (style: IPropGridRowGap): string => {
+const useLayoutRowGapStyle = (style: IPropLayoutRowGap): string => {
   const rowGap =
     (style.rowGap1 && 1) ||
     (style.rowGap2 && 2) ||
@@ -19,4 +19,4 @@ const useGridRowGapStyle = (style: IPropGridRowGap): string => {
   return rowGap ? `row-gap-${rowGap}` : "";
 };
 
-export default useGridRowGapStyle;
+export default useLayoutRowGapStyle;

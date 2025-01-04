@@ -1,12 +1,12 @@
 import classNames from "classnames";
 import IGridCellProperties from "../../../interfaces/controls/IGridCellProperties";
 import React from "react";
-import useGridColumnSpanStyle from "../../../hooks/UseGridColumnSpanStyle";
-import useGridRowSpanStyle from "../../../hooks/UseGridRowSpanStyle";
+import useLayoutColumnSpanStyle from "../../../hooks/UseLayoutColumnSpanStyle";
+import useLayoutRowSpanStyle from "../../../hooks/UseLayoutRowSpanStyle";
 
 const UIGridCell: React.FC<IGridCellProperties> = (props) => {
-  let columnSpanClassName = useGridColumnSpanStyle(props);
-  let rowSpanClassName = useGridRowSpanStyle(props);
+  let columnSpanClassName = useLayoutColumnSpanStyle(props);
+  let rowSpanClassName = useLayoutRowSpanStyle(props);
 
   const className = classNames("ui-grid-cell", columnSpanClassName, rowSpanClassName);
 

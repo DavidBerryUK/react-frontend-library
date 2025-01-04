@@ -1,6 +1,6 @@
-import IPropGridColSpan from "../interfaces/properties/IPropGridColSpan";
+import IPropLayoutColSpan from "../interfaces/properties/IPropLayoutColSpan";
 
-const useGridColumnSpanStyle = (style: IPropGridColSpan): string => {
+const useLayoutColumnSpanStyle = (style: IPropLayoutColSpan): string => {
   const columns =
     (style.colSpan1 && 1) ||
     (style.colSpan2 && 2) ||
@@ -19,4 +19,4 @@ const useGridColumnSpanStyle = (style: IPropGridColSpan): string => {
   return columns ? `column-span-${columns}` : "";
 };
 
-export default useGridColumnSpanStyle;
+export default useLayoutColumnSpanStyle;

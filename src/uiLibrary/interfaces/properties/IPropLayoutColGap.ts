@@ -1,4 +1,4 @@
-export default interface IPropGridColGap {
+export default interface IPropLayoutColGap {
   //
   //
   colGap?: number;

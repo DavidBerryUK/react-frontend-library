@@ -1,7 +1,7 @@
 import EnumGridAlign from "../enums/EnumGridAlign";
-import IPropGridAlignment from "../interfaces/properties/IPropGridAlignment";
+import IPropLayoutAlignment from "../interfaces/properties/IPropLayoutAlignment";
 
-const UseGridAlignmentStyle = (style: IPropGridAlignment): string => {
+const UseLayoutAlignmentStyle = (style: IPropLayoutAlignment): string => {
   // Handle when style is an Enum
   if (typeof style.alignment) {
     switch (style.alignment) {
@@ -43,4 +43,4 @@ const UseGridAlignmentStyle = (style: IPropGridAlignment): string => {
   return "alignDefault";
 };
 
-export default UseGridAlignmentStyle;
+export default UseLayoutAlignmentStyle;

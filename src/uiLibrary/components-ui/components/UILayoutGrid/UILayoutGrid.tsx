@@ -1,16 +1,16 @@
 import classNames from "classnames";
 import React from "react";
-import useGridColGapStyle from "../../../hooks/UseGridColGapStyle";
-import useGridColumnsStyle from "../../../hooks/UseGridColumnsStyle";
-import useGridRowGapStyle from "../../../hooks/UseGridRowGapStyle";
+import useLayoutColGapStyle from "../../../hooks/UseLayoutColGapStyle";
+import useLayoutColumnsStyle from "../../../hooks/UseLayoutColumnsStyle";
+import useLayoutRowGapStyle from "../../../hooks/UseLayoutRowGapStyle";
 import IPropertiesLayoutGrid from "../../../interfaces/controls/ILayoutGridProperties";
-import UseGridAlignmentStyle from "../../../hooks/UseGridAlignmentStyle";
+import UseLayoutAlignmentStyle from "../../../hooks/UseLayoutAlignmentStyle";
 
 const UILayoutGrid: React.FC<IPropertiesLayoutGrid> = (props) => {
-  const columnsClassName = useGridColumnsStyle(props);
-  const rowGapClassName = useGridRowGapStyle(props);
-  const colGapClassName = useGridColGapStyle(props);
-  const alignmentClassName = UseGridAlignmentStyle(props);
+  const columnsClassName = useLayoutColumnsStyle(props);
+  const rowGapClassName = useLayoutRowGapStyle(props);
+  const colGapClassName = useLayoutColGapStyle(props);
+  const alignmentClassName = UseLayoutAlignmentStyle(props);
 
   const className = classNames("ui-layout-grid ", alignmentClassName, columnsClassName, colGapClassName, rowGapClassName);
 

@@ -1,0 +1,88 @@
+@use "../variables/Spacing.scss" as *;
+@use "../variables/Spacing.scss" as *;
+
+.ui-layout-flex {
+  display: flex;
+
+  //
+  // Flex Direction
+  //
+  &.dir-row {
+    flex-direction: row;
+  }
+
+  &.dir-col {
+    flex-direction: column;
+  }
+
+  //
+  // Wrapping ( style 'on' is applied by default )
+  //
+  &.wrap-on {
+    flex-wrap: wrap;
+  }
+
+  &.wrap-off {
+    flex-wrap: nowrap;
+  }
+
+  //
+  // Justification
+  //
+  &.justify-start {
+    justify-content: flex-start;
+  }
+  &.justify-end {
+    justify-content: flex-end;
+  }
+  &.justify-center {
+    justify-content: center;
+  }
+  &.justify-between {
+    justify-content: space-between;
+  }
+  &.justify-around {
+    justify-content: space-around;
+  }
+  &.justify-evenly {
+    justify-content: space-evenly;
+  }
+
+  //
+  // Alignment
+  //
+  &.align-start {
+    align-items: start;
+  }
+  &.align-end {
+    align-items: end;
+  }
+  &.align-center {
+    align-items: center;
+  }
+  &.align-baseline {
+    align-items: baseline;
+  }
+  &.align-stretch {
+    align-items: stretch;
+  }
+
+  //
+  // GAPS
+  //
+  @for $i from 1 through length($spacing-values) {
+    $value: nth($spacing-values, $i);
+
+    &.col-gap-#{$i} {
+      column-gap: $value;
+    }
+
+    &.row-gap-#{$i} {
+      row-gap: $value;
+    }
+
+    &.gap-#{$i} {
+      gap: $value;
+    }
+  }
+}

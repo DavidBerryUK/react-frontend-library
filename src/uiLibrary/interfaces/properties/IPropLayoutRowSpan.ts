@@ -1,4 +1,4 @@
-export default interface IPropGridRowSpan {
+export default interface IPropLayoutRowSpan {
   rowSpan?: number;
 
   rowSpan1?: boolean;

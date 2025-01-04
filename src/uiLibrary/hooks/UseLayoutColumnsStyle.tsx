@@ -1,6 +1,6 @@
-import IPropGridColumns from "../interfaces/properties/IPropGridColumns";
+import IPropLayoutColumns from "../interfaces/properties/IPropLayoutColumns";
 
-const useGridColumnsStyle = (style: IPropGridColumns): string => {
+const useLayoutColumnsStyle = (style: IPropLayoutColumns): string => {
   // Check each column directly using short-circuit evaluation
   const columns =
     (style.columns1 && 1) ||
@@ -24,4 +24,4 @@ const useGridColumnsStyle = (style: IPropGridColumns): string => {
   return "";
 };
 
-export default useGridColumnsStyle;
+export default useLayoutColumnsStyle;

@@ -1,4 +1,4 @@
-export default interface IPropGridColumns {
+export default interface IPropLayoutColumns {
   columns?: number;
 
   columns1?: boolean;

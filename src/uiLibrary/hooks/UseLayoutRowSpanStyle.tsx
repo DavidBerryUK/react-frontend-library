@@ -1,6 +1,6 @@
-import IPropGridRowSpan from "../interfaces/properties/IPropGridRowSpan";
+import IPropLayoutRowSpan from "../interfaces/properties/IPropLayoutRowSpan";
 
-const useGridRowSpanStyle = (style: IPropGridRowSpan): string => {
+const useLayoutRowSpanStyle = (style: IPropLayoutRowSpan): string => {
   const rows =
     (style.rowSpan1 && 1) ||
     (style.rowSpan2 && 2) ||
@@ -19,4 +19,4 @@ const useGridRowSpanStyle = (style: IPropGridRowSpan): string => {
   return rows ? `row-span-${rows}` : "";
 };
 
-export default useGridRowSpanStyle;
+export default useLayoutRowSpanStyle;

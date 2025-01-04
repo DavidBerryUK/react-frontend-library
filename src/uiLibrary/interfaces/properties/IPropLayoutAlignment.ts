@@ -1,6 +1,6 @@
 import EnumGridAlign from "../../enums/EnumGridAlign";
 
-export default interface IPropGridAlignment {
+export default interface IPropLayoutAlignment {
   alignment?: EnumGridAlign;
   default?: boolean;
   topLeft?: boolean;

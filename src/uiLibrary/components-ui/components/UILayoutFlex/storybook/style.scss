@@ -1,0 +1,21 @@
+@use "../../../../../styles//variables/ColourPalette.scss" as *;
+.demo-container {
+  border: solid 2px black;
+  border-radius: 8px;
+  padding: 4px;
+  background-color: $purple-300;
+
+  .ui-alert {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &.wide {
+    width: 800px;
+  }
+
+  &.tall {
+    height: 150px;
+  }
+}

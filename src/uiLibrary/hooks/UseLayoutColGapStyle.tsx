@@ -1,6 +1,6 @@
-import IPropGridColGap from "../interfaces/properties/IPropGridColGap";
+import IPropLayoutColGap from "../interfaces/properties/IPropLayoutColGap";
 
-const useGridColGapStyle = (style: IPropGridColGap): string => {
+const useLayoutColGapStyle = (style: IPropLayoutColGap): string => {
   const colGap =
     (style.colGap1 && 1) ||
     (style.colGap2 && 2) ||
@@ -19,4 +19,4 @@ const useGridColGapStyle = (style: IPropGridColGap): string => {
   return colGap ? `col-gap-${colGap}` : "";
 };
 
-export default useGridColGapStyle;
+export default useLayoutColGapStyle;

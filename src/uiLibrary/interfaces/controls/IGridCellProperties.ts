@@ -1,7 +1,7 @@
 import IPropChildren from "../properties/IPropChildren";
-import IPropGridColSpan from "../properties/IPropGridColSpan";
-import IPropGridRowSpan from "../properties/IPropGridRowSpan";
+import IPropLayoutColSpan from "../properties/IPropLayoutColSpan";
+import IPropLayoutRowSpan from "../properties/IPropLayoutRowSpan";
 
-type IGridCellProperties = IPropChildren & IPropGridRowSpan & IPropGridColSpan;
+type IGridCellProperties = IPropChildren & IPropLayoutRowSpan & IPropLayoutColSpan;
 
 export default IGridCellProperties;

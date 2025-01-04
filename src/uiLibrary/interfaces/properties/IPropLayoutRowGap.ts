@@ -1,4 +1,4 @@
-export default interface IPropGridRowGap {
+export default interface IPropLayoutRowGap {
   rowGap?: number;
   rowGap1?: boolean;
   rowGap2?: boolean;
