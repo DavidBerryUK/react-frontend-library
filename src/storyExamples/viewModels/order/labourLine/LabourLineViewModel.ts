@@ -1,12 +1,12 @@
 import { List, Record } from "immutable";
 import { nanoid } from "nanoid";
-import EnumFieldDataType from "../../uiLibrary/enums/EnumFieldDataType";
-import FieldModel from "../../uiLibrary/models/fields/FieldModel";
-import FieldValidation from "../../uiLibrary/validation/models/FieldValidation";
-import PartLineViewModel from "./PartLineViewModel";
-import RuleMandatory from "../../uiLibrary/validation/rules/RuleMandatory";
-import RuleMaxLength from "../../uiLibrary/validation/rules/RuleMaxLength";
-import RulePositive from "../../uiLibrary/validation/rules/RulePositive";
+import EnumFieldDataType from "../../../../uiLibrary/enums/EnumFieldDataType";
+import FieldModel from "../../../../uiLibrary/models/fields/FieldModel";
+import FieldValidation from "../../../../uiLibrary/validation/models/FieldValidation";
+import PartLineViewModel from "../partLine/PartLineViewModel";
+import RuleMandatory from "../../../../uiLibrary/validation/rules/RuleMandatory";
+import RuleMaxLength from "../../../../uiLibrary/validation/rules/RuleMaxLength";
+import RulePositive from "../../../../uiLibrary/validation/rules/RulePositive";
 
 //***************************************/
 // Labour Line                          */
@@ -143,7 +143,8 @@ export default class LabourLineViewModel extends LabourLineRecord {
     /****************************************************/
   addPartLine(): LabourLineViewModel {
     var model = this.clone();
-    model = model.set(labourLineFieldNames.partLines, model.partLines.push(new PartLineViewModel()));
+    var newPartLine = PartLineViewModel.create();
+    model = model.set(labourLineFieldNames.partLines, model.partLines.push(newPartLine));
     model = model.updateCalculations(model);
     return model;
   }

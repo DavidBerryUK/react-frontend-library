@@ -1,4 +1,4 @@
-import OrderViewModel from "../viewModels/OrderViewModel";
+import OrderViewModel from "../viewModels/order/order/OrderViewModel";
 import React, { useState } from "react";
 import type { Meta } from "@storybook/react";
 import UIOrderWidget from "../UIOrderWidget";

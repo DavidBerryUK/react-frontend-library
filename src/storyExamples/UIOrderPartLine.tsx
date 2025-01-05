@@ -1,5 +1,5 @@
 import FieldModel from "../uiLibrary/models/fields/FieldModel";
-import PartLineViewModel from "./viewModels/PartLineViewModel";
+import PartLineViewModel from "./viewModels/order/partLine/PartLineViewModel";
 import React from "react";
 import UIButton from "../uiLibrary/components-ui/components/UIButton/UIButton";
 import UIFormCurrency from "../uiLibrary/components-forms/UIFormCurrency/UIFormCurrency";

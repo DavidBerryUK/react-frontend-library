@@ -1,4 +1,4 @@
-import OrderViewModel from "./viewModels/OrderViewModel";
+import OrderViewModel from "./viewModels/order/order/OrderViewModel";
 import React from "react";
 import UIOrderHeader from "./UIOrderHeader";
 import UIOrderLabourLineCollection from "./UIOrderLabourLineCollection";

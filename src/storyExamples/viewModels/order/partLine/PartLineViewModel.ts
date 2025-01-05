@@ -1,77 +1,20 @@
 import { nanoid } from "nanoid";
-import { Record } from "immutable";
-import EnumFieldDataType from "../../uiLibrary/enums/EnumFieldDataType";
-import FieldModel from "../../uiLibrary/models/fields/FieldModel";
-import FieldValidation from "../../uiLibrary/validation/models/FieldValidation";
-import RuleMandatory from "../../uiLibrary/validation/rules/RuleMandatory";
-import RuleMaxLength from "../../uiLibrary/validation/rules/RuleMaxLength";
-import RulePositive from "../../uiLibrary/validation/rules/RulePositive";
+import FieldModel from "../../../../uiLibrary/models/fields/FieldModel";
+import PartLineSchemaModel from "./PartLineSchema";
+import { IPartLineParameters, partLineFieldNames, PartLineRecord } from "./PartLineConstants";
 
-//***************************************/
-// Part Line                            */
-//***************************************/
-
-interface IPartLineParameters {
-  // key = ui key, id = record id. The record id may not be known, e.g. when a new record is created on the ui.
-  id: string;
-  key: string;
-  // properties
-  code: FieldModel;
-  description: FieldModel;
-  price: FieldModel;
-  quantity: FieldModel;
-  discountPercentage: FieldModel;
-  lineTotal: FieldModel;
-}
-
-type PartLineFieldNamesType = keyof IPartLineParameters;
-
-const partLineFieldNames: { [key in PartLineFieldNamesType]: PartLineFieldNamesType } = {
-  id: "id",
-  key: "key",
-  code: "code",
-  description: "description",
-  price: "price",
-  quantity: "quantity",
-  discountPercentage: "discountPercentage",
-  lineTotal: "lineTotal",
-};
-
-// Initial record values
-const PartLineRecord = Record<IPartLineParameters>({
-  id: "",
-  key: "",
-  code: FieldModel.create(partLineFieldNames.code, "Code", EnumFieldDataType.string, "", new FieldValidation([new RuleMandatory(), new RuleMaxLength(20)])),
-  description: FieldModel.create(
-    partLineFieldNames.description,
-    "Description",
-    EnumFieldDataType.string,
-    "",
-    new FieldValidation([new RuleMandatory(), new RuleMaxLength(100)]),
-  ),
-  price: FieldModel.create(partLineFieldNames.price, "Price", EnumFieldDataType.number, "", new FieldValidation([new RuleMandatory(), new RulePositive(true)])),
-  quantity: FieldModel.create(
-    partLineFieldNames.quantity,
-    "Quantity",
-    EnumFieldDataType.number,
-    "",
-    new FieldValidation([new RuleMandatory(), new RulePositive(true)]),
-  ),
-  discountPercentage: FieldModel.create(
-    partLineFieldNames.discountPercentage,
-    "Discount Percentage",
-    EnumFieldDataType.number,
-    "",
-    new FieldValidation([new RuleMandatory(), new RulePositive(true)]),
-  ),
-  lineTotal: FieldModel.create(partLineFieldNames.lineTotal, "Line Total", EnumFieldDataType.number, ""),
-});
-
+/**
+ * This is a View Model that is created using the immutable framework, this enables the record to only be updated with the
+ * changed properties, making it faster to use with ReactJS.
+ *
+ * e.g. if Code is updated, then the other fields will not be updated.
+ *
+ */
 export default class PartLineViewModel extends PartLineRecord {
   /****************************************************/
   /* Constructor to initialize with a unique key    */
   /****************************************************/
-  constructor(params?: Partial<IPartLineParameters>) {
+  private constructor(params?: Partial<IPartLineParameters>) {
     const initParams = Object.assign({}, params, { key: params?.key ?? nanoid() });
     super(initParams);
   }
@@ -105,6 +48,21 @@ export default class PartLineViewModel extends PartLineRecord {
 
   get lineTotal(): FieldModel {
     return this.get(partLineFieldNames.lineTotal) as FieldModel;
+  }
+
+  /****************************************************/
+  /* Create New
+  /****************************************************/
+  static create(): PartLineViewModel {
+    const schema = new PartLineSchemaModel();
+    return new PartLineViewModel({
+      code: FieldModel.fromSchema(schema.code, ""),
+      description: FieldModel.fromSchema(schema.description, ""),
+      price: FieldModel.fromSchema(schema.price, ""),
+      quantity: FieldModel.fromSchema(schema.quantity, ""),
+      discountPercentage: FieldModel.fromSchema(schema.discountPercentage, ""),
+      lineTotal: FieldModel.fromSchema(schema.lineTotal, ""),
+    });
   }
 
   /****************************************************/

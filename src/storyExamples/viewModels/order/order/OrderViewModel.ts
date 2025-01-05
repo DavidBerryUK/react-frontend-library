@@ -1,8 +1,8 @@
 import { List, Record } from "immutable";
 import { nanoid } from "nanoid";
-import EnumFieldDataType from "../../uiLibrary/enums/EnumFieldDataType";
-import FieldModel from "../../uiLibrary/models/fields/FieldModel";
-import LabourLineViewModel from "./LabourLineViewModel";
+import EnumFieldDataType from "../../../../uiLibrary/enums/EnumFieldDataType";
+import FieldModel from "../../../../uiLibrary/models/fields/FieldModel";
+import LabourLineViewModel from "../../order/labourLine/LabourLineViewModel";
 
 //***************************************/
 // Order                                */

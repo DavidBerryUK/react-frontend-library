@@ -41,8 +41,8 @@ const UIFormBaseString: React.FC<IProperties> = (props) => {
   const showSuffix = props.textSuffix !== undefined;
   const isReadOnly = props.readonly === true || props.interactionMode === EnumFieldInteractionMode.ReadOnly;
   const inputClassName = classNames("ui-fc-text", variantClass);
-  const validationIcon = useGetValidationIcon(props);
 
+  const validationIcon = useGetValidationIcon(props);
   var textAlignmentStyle = useTextAlignmentStyle(props);
 
   return (

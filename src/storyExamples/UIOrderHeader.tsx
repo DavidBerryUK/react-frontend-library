@@ -1,5 +1,5 @@
 import FieldModel from "../uiLibrary/models/fields/FieldModel";
-import OrderViewModel from "./viewModels/OrderViewModel";
+import OrderViewModel from "./viewModels/order/order/OrderViewModel";
 import React from "react";
 import UIFormCurrency from "../uiLibrary/components-forms/UIFormCurrency/UIFormCurrency";
 import UIFormText from "../uiLibrary/components-forms/UIFormText/UIFormText";

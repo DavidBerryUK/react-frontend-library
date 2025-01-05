@@ -1,5 +1,5 @@
-import LabourLineViewModel from "./viewModels/LabourLineViewModel";
-import OrderViewModel from "./viewModels/OrderViewModel";
+import LabourLineViewModel from "./viewModels/order/labourLine/LabourLineViewModel";
+import OrderViewModel from "./viewModels/order/order/OrderViewModel";
 import React from "react";
 import UIButton from "../uiLibrary/components-ui/components/UIButton/UIButton";
 import UILayoutGrid from "../uiLibrary/components-ui/components/UILayoutGrid/UILayoutGrid";

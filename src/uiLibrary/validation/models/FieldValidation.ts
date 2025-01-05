@@ -2,11 +2,13 @@ import EnumValidationState from "../enum/EnumValidationState";
 import FieldModel from "../../models/fields/FieldModel";
 import IFieldValidation from "../interfaces/IFieldValidation";
 import IRule from "../interfaces/IRule";
+import { nanoid } from "nanoid";
 
 /**
  * performs validation for a UIField
  */
 export default class FieldValidation implements IFieldValidation {
+  public _id: string;
   private rules: Array<IRule>;
   private messages: Array<string>;
   private fieldCaption: string = "";
@@ -14,7 +16,12 @@ export default class FieldValidation implements IFieldValidation {
 
   constructor(rules: Array<IRule>) {
     this.rules = rules;
+    this._id = nanoid();
     this.messages = new Array<string>();
+  }
+
+  get id(): string {
+    return this._id;
   }
 
   get countAll(): number {

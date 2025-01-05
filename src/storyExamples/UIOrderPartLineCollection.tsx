@@ -1,5 +1,5 @@
-import LabourLineViewModel from "./viewModels/LabourLineViewModel";
-import PartLineViewModel from "./viewModels/PartLineViewModel";
+import LabourLineViewModel from "./viewModels/order/labourLine/LabourLineViewModel";
+import PartLineViewModel from "./viewModels/order/partLine/PartLineViewModel";
 import React from "react";
 import UIOrderPartLine from "./UIOrderPartLine";
 

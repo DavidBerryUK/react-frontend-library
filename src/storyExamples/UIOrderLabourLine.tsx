@@ -1,5 +1,5 @@
 import FieldModel from "../uiLibrary/models/fields/FieldModel";
-import LabourLineViewModel from "./viewModels/LabourLineViewModel";
+import LabourLineViewModel from "./viewModels/order/labourLine/LabourLineViewModel";
 import React from "react";
 import UIButton from "../uiLibrary/components-ui/components/UIButton/UIButton";
 import UIFormText from "../uiLibrary/components-forms/UIFormText/UIFormText";
