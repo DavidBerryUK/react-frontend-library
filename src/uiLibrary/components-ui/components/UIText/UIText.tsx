@@ -13,9 +13,17 @@ import ITextProperties from "../../../interfaces/controls/ITextProperties";
  */
 const UIText: React.FC<ITextProperties> = (props) => {
   var styleClass = useFontStyle(props);
+
   var sizeClass = useExtendedSizeStyle("text", props);
   var weightClass = useFontWeightStyle("text", props);
   var variantClass = useVariantStyle("text", props);
+
+  if (styleClass.length > 0) {
+    sizeClass = "";
+    weightClass = "";
+    variantClass = "";
+  }
+
   var className = classNames("ui-text", variantClass, styleClass, sizeClass, weightClass);
 
   return (

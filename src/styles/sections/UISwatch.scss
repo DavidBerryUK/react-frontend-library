@@ -1,8 +1,9 @@
 .ui-swatch {
   border: solid 1px black;
-  border-radius: 8px;
+  border-radius: 4px;
   width: 150px;
   padding-bottom: 4px;
+  overflow: none;
 
   .header {
     border-bottom: solid 2px black;
@@ -12,8 +13,8 @@
     padding: 4px;
     font-weight: bold;
     text-transform: capitalize;
-    border-top-right-radius: 8px;
-    border-top-left-radius: 8px;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
   }
 
   .body {
@@ -22,7 +23,6 @@
     flex-direction: column;
 
     .well {
-      border: solid 5px red;
       height: 26px;
       margin-left: 2px;
       margin-right: 2px;
@@ -36,8 +36,6 @@
       margin-left: 2px;
       margin-right: 2px;
       font-size: 12px;
-
-      font-family: "Roboto Mono", "Fira Code", "Source Code Pro", "Menlo", Consolas, monospace; /* Cleaner monospace fonts */
     }
   }
 }

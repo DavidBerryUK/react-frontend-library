@@ -1,4 +1,3 @@
-@forward "./sections/DefaultTable.scss";
 @forward "./sections/Text.scss";
 @forward "./sections/UIAccessability";
 @forward "./sections/UIAlert.scss";
@@ -8,8 +7,8 @@
 @forward "./sections/UIFormSelect.scss";
 @forward "./sections/UIFormText.scss";
 @forward "./sections/UIIcons.scss";
-@forward "./sections/UILayoutGrid.scss";
 @forward "./sections/UILayoutFlex.scss";
+@forward "./sections/UILayoutGrid.scss";
 @forward "./sections/UINavBar.scss";
 @forward "./sections/UINotifications.scss";
 @forward "./sections/UIPagination.scss";
@@ -18,6 +17,7 @@
 @forward "./sections/UISegment.scss";
 @forward "./sections/UISelect.scss";
 @forward "./sections/UISpinner.scss";
+@forward "./sections/UISwatch.scss";
 @forward "./sections/UISwitch.scss";
 @forward "./sections/UIText.scss";
 @forward "./sections/UIWorkflowBar.scss";
