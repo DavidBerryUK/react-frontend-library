@@ -1,0 +1,78 @@
+$panel-left-width: 200px;
+$panel-right-width: 350px;
+$panel-top-margin: 100px;
+$panel-bottom-margin: 100px;
+$panel-transition-duration: 0.3s;
+$panel-transition-easing: ease-in-out;
+$panel-border-transition-delay: 0.2s;
+
+.ui-layout-side-panels-host {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  .ui-layout-side-panels-left {
+    position: fixed;
+    top: $panel-top-margin;
+    bottom: $panel-bottom-margin;
+    left: 0;
+    background-color: lighten(green, 20);
+    border: solid 0px darken(green, 20);
+    box-sizing: border-box;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    z-index: 100;
+    width: 0;
+    opacity: 0;
+    transition:
+      width $panel-transition-duration $panel-transition-easing,
+      border-width $panel-transition-duration $panel-transition-easing $panel-border-transition-delay,
+      opacity $panel-transition-duration $panel-transition-easing;
+
+    &.open {
+      width: $panel-left-width;
+      border-width: 1px;
+      opacity: 1;
+    }
+  }
+
+  .ui-layout-side-panels-detail {
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: lightblue;
+    transition: margin $panel-transition-duration $panel-transition-easing;
+
+    &.left-open {
+      margin-left: $panel-left-width;
+    }
+    &.right-open {
+      margin-right: $panel-right-width;
+    }
+  }
+
+  .ui-layout-side-panels-right {
+    position: fixed;
+    background-color: lighten(yellow, 20);
+    border: solid 0px darken(yellow, 20);
+    box-sizing: border-box;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    top: $panel-top-margin;
+    bottom: $panel-bottom-margin;
+    right: 0;
+    z-index: 100;
+    width: 0;
+    opacity: 0;
+    transition:
+      width $panel-transition-duration $panel-transition-easing,
+      border-width $panel-transition-duration $panel-transition-easing $panel-border-transition-delay,
+      opacity $panel-transition-duration $panel-transition-easing;
+
+    &.open {
+      width: $panel-right-width;
+      border-width: 1px;
+      opacity: 1;
+    }
+  }
+}

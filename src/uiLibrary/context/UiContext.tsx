@@ -9,6 +9,8 @@ export interface IUiContextDispatchCommand {
 //
 export interface UiContextProps {
   notificationManager: NotificationManager;
+  panelLeftOpen: boolean;
+  panelRightOpen: boolean;
 }
 
 // Strongly type interface for updating this context, which is done by using
@@ -22,6 +24,8 @@ export interface InitContextProps {
 //
 const initialState: UiContextProps = {
   notificationManager: new NotificationManager(),
+  panelLeftOpen: false,
+  panelRightOpen: false,
 };
 
 // The reducer updates the actual data held in the context.
