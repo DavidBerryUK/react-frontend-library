@@ -1,4 +1,4 @@
-import { IPropLayoutAlign } from "../interfaces/properties/IPropLayoutAlign";
+import IPropLayoutAlign from "../interfaces/properties/IPropLayoutAlign";
 
 const useLayoutAlignClass = (style: IPropLayoutAlign): string => {
   var className =

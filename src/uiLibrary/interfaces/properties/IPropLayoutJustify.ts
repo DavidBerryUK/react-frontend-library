@@ -1,4 +1,4 @@
-export interface IPropLayoutJustify {
+export default interface IPropLayoutJustify {
   justifyStart?: boolean;
   justifyEnd?: boolean;
   justifyCenter?: boolean;

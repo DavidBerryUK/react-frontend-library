@@ -1,4 +1,4 @@
-export interface IPropLayoutDirection {
+export default interface IPropLayoutDirection {
   dirRow?: boolean;
   dirColumn?: boolean;
 }

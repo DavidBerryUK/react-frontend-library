@@ -6,6 +6,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import UILayoutGrid from "../../components-ui/components/UILayoutGrid/UILayoutGrid";
 import UISegment from "../../components-ui/components/UISegment/UISegment";
 import UIText from "../../components-ui/components/UIText/UIText";
+import "./Style.scss";
 
 import UIIconAlertCrossCircle from "../UIIconAlertCrossCircle";
 import UIIconAlertCrossCircleSolid from "../UIIconAlertCrossCircleSolid";

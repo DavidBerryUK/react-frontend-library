@@ -1,4 +1,4 @@
-import { IPropLayoutWrap } from "../interfaces/properties/IPropLayoutWrap";
+import IPropLayoutWrap from "../interfaces/properties/IPropLayoutWrap";
 
 const useLayoutWrapStyle = (style: IPropLayoutWrap): string => {
   var className = (style.wrap && "wrap-on") || (style.wrapOff && "wrap-off") || "wrap-on";

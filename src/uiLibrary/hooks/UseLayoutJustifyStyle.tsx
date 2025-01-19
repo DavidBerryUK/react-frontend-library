@@ -1,4 +1,4 @@
-import { IPropLayoutJustify } from "../interfaces/properties/IPropLayoutJustify";
+import IPropLayoutJustify from "../interfaces/properties/IPropLayoutJustify";
 
 const useLayoutJustifyStyle = (style: IPropLayoutJustify): string => {
   var className =

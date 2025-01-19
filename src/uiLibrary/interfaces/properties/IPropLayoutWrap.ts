@@ -1,4 +1,4 @@
-export interface IPropLayoutWrap {
+export default interface IPropLayoutWrap {
   wrap?: boolean;
   wrapOff?: boolean;
 }

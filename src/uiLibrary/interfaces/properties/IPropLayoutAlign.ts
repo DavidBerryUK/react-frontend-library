@@ -1,4 +1,4 @@
-export interface IPropLayoutAlign {
+export default interface IPropLayoutAlign {
   alignStart?: boolean;
   alignEnd?: boolean;
   alignCenter?: boolean;
