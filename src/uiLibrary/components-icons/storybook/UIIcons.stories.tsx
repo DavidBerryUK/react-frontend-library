@@ -130,6 +130,14 @@ import UIIconUserCircleSolid from "../UIIconUserCircleSolid";
 import UIIconUsers from "../UIIconUsers";
 import UIIconUserSolid from "../UIIconUserSolid";
 import UIIconUsersSolid from "../UIIconUsersSolid";
+
+import UIIconPanelLeftClosed from "../UIIconPanelLeftClosed";
+import UIIconPanelLeftOpenFull from "../UIIconPanelLeftOpenFull";
+import UIIconPanelLeftOpenPartial from "../UIIconPanelLeftOpenPartial";
+import UIIconPanelRightClosed from "../UIIconPanelRightClosed";
+import UIIconPanelRightOpenFull from "../UIIconPanelRightOpenFull";
+import UIIconPanelRightOpenPartial from "../UIIconPanelRightOpenPartial";
+
 import EnumColor from "../../enums/EnumColor";
 import IPropColor from "../../interfaces/properties/IPropColor";
 import IPropShade from "../../interfaces/properties/IPropShade";
@@ -452,9 +460,9 @@ function GetIcons(): Array<{
     UIIconAlertCrossCircleSolid,
     UIIconAlertExclamationCircle,
     UIIconAlertExclamationCircleSolid,
-    UIIconAlertExclamationTriangle,
     UIIconAlertExclamationOctagon,
     UIIconAlertExclamationOctagonSolid,
+    UIIconAlertExclamationTriangle,
     UIIconAlertExclamationTriangleSolid,
     UIIconAlertInfoCircle,
     UIIconAlertInfoCircleSolid,
@@ -537,6 +545,12 @@ function GetIcons(): Array<{
     UIIconMessagesSolid,
     UIIconMinusCircle,
     UIIconMinusCircleSolid,
+    UIIconPanelLeftClosed,
+    UIIconPanelLeftOpenFull,
+    UIIconPanelLeftOpenPartial,
+    UIIconPanelRightClosed,
+    UIIconPanelRightOpenFull,
+    UIIconPanelRightOpenPartial,
     UIIconPlusCircle,
     UIIconPlusCircleSolid,
     UIIconSave,

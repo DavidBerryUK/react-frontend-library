@@ -1,3 +1,3 @@
 export default interface IPropsText {
-  text: string;
+  text?: string;
 }

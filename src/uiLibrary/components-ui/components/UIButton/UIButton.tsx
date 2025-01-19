@@ -25,6 +25,7 @@ const UIButton: React.FC<IButtonProperties> = (props) => {
   return (
     <button className={className} disabled={props.disabled} aria-label={props.text} onClick={handleOnClickEvent} data-testid={props.testId}>
       {props.text}
+      {props.children}
     </button>
   );
 };
