@@ -28,9 +28,15 @@ const UIPanelButton: React.FC<IProperties> = ({ anchor, state, ...buttonProps })
     },
   };
 
+  const handleOnButtonPressEvent = () => {};
+
   const icon = icons[anchor]?.[state] || null;
 
-  return <UIButton {...buttonProps}>{icon}</UIButton>;
+  return (
+    <UIButton onClick={handleOnButtonPressEvent} {...buttonProps}>
+      {icon}
+    </UIButton>
+  );
 };
 
 export default UIPanelButton;

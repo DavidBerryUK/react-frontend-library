@@ -1,0 +1,9 @@
+@use "../variables/Rounding.scss" as *;
+
+@for $i from 1 through length($rounded-values) {
+  $value: nth($rounded-values, $i);
+
+  .rounded-#{$i} {
+    border-radius: $value;
+  }
+}

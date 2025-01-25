@@ -1,7 +1,7 @@
 import classNames from "classnames";
-import IPropsPadding from "../interfaces/properties/IPropPadding";
+import IPropPadding from "../interfaces/properties/IPropPadding";
 
-const usePaddingStyle = (style: IPropsPadding) => {
+const usePaddingStyle = (style: IPropPadding) => {
   // Padding styles
   const paddingClassName =
     (style.padding1 && "padding-1") ||

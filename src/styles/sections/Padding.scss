@@ -1,0 +1,25 @@
+@use "../variables/Spacing.scss" as *;
+
+@for $i from 1 through length($spacing-values) {
+  $value: nth($spacing-values, $i);
+
+  .padding-#{$i} {
+    padding: $value;
+  }
+
+  .padding-left-#{$i} {
+    padding-left: $value;
+  }
+
+  .padding-right-#{$i} {
+    padding-right: $value;
+  }
+
+  .padding-top-#{$i} {
+    padding-top: $value;
+  }
+
+  .padding-bottom-#{$i} {
+    padding-bottom: $value;
+  }
+}

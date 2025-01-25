@@ -1,0 +1,25 @@
+@use "../variables/Spacing.scss" as *;
+
+@for $i from 1 through length($spacing-values) {
+  $value: nth($spacing-values, $i);
+
+  .margin-#{$i} {
+    margin: $value;
+  }
+
+  .margin-left-#{$i} {
+    margin-left: $value;
+  }
+
+  .margin-right-#{$i} {
+    margin-right: $value;
+  }
+
+  .margin-top-#{$i} {
+    margin-top: $value;
+  }
+
+  .margin-bottom-#{$i} {
+    margin-bottom: $value;
+  }
+}

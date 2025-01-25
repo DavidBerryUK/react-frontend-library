@@ -1,4 +1,4 @@
-export default interface IPropsPadding {
+export default interface IPropPadding {
   padding?: number;
   padding1?: boolean;
   padding2?: boolean;
