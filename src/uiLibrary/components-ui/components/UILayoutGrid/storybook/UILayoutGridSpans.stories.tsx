@@ -1,8 +1,8 @@
 import React from "react";
 import type { Meta } from "@storybook/react";
 import UILayoutGrid from "../UILayoutGrid";
+import UILayoutContainer from "../../UILayoutContainer/UILayoutContainer";
 import UIGridCell from "../UIGridCell";
-import UIAlert from "../../UIAlert/UIAlert";
 import UIText from "../../UIText/UIText";
 
 const meta = {
@@ -36,9 +36,9 @@ export default meta;
 export const BasicGrid1x1: React.FC = () => {
   return (
     <UILayoutGrid>
-      <UIAlert info lighter>
+      <UILayoutContainer cyan rounded3 margin2 fill>
         Cell 1
-      </UIAlert>
+      </UILayoutContainer>
     </UILayoutGrid>
   );
 };
@@ -49,15 +49,15 @@ export const BasicGrid1x1: React.FC = () => {
 export const BasicGrid1x3: React.FC = () => {
   return (
     <UILayoutGrid columns3 colGap4>
-      <UIAlert info lighter>
+      <UILayoutContainer cyan rounded3 margin2 fill>
         Cell 1
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer cyan rounded3 margin2 fill>
         Cell 2
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer cyan rounded3 margin2 fill>
         Cell 3
-      </UIAlert>
+      </UILayoutContainer>
     </UILayoutGrid>
   );
 };
@@ -68,24 +68,24 @@ export const BasicGrid1x3: React.FC = () => {
 export const BasicGrid1x6: React.FC = () => {
   return (
     <UILayoutGrid columns6 colGap4>
-      <UIAlert info lighter>
+      <UILayoutContainer cyan rounded3 margin2 fill>
         Cell 1
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer cyan rounded3 margin2 fill>
         Cell 2
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer cyan rounded3 margin2 fill>
         Cell 3
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer cyan rounded3 margin2 fill>
         Cell 4
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer cyan rounded3 margin2 fill>
         Cell 5
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer cyan rounded3 margin2 fill>
         Cell 6
-      </UIAlert>
+      </UILayoutContainer>
     </UILayoutGrid>
   );
 };
@@ -96,42 +96,42 @@ export const BasicGrid1x6: React.FC = () => {
 export const BasicGrid2x6: React.FC = () => {
   return (
     <UILayoutGrid columns6 colGap3 rowGap2>
-      <UIAlert info lighter>
+      <UILayoutContainer cyan rounded3 margin2 fill>
         Cell 1
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer cyan rounded3 margin2 fill>
         Cell 2
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer cyan rounded3 margin2 fill>
         Cell 3
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer cyan rounded3 margin2 fill>
         Cell 4
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer cyan rounded3 margin2 fill>
         Cell 5
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer cyan rounded3 margin2 fill>
         Cell 6
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer cyan rounded3 margin2 fill>
         Cell 7
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer cyan rounded3 margin2 fill>
         Cell 8
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer cyan rounded3 margin2 fill>
         Cell 9
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer cyan rounded3 margin2 fill>
         Cell 10
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer cyan rounded3 margin2 fill>
         Cell 11
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer cyan rounded3 margin2 fill>
         Cell 12
-      </UIAlert>
+      </UILayoutContainer>
     </UILayoutGrid>
   );
 };
@@ -142,37 +142,37 @@ export const BasicGrid2x6: React.FC = () => {
 export const ColumnSpan: React.FC = () => {
   return (
     <UILayoutGrid columns6 colGap3 rowGap2>
-      <UIAlert info lighter>
+      <UILayoutContainer green rounded3 margin2 fill>
         Cell 1
-      </UIAlert>
+      </UILayoutContainer>
       <UIGridCell colSpan2>
-        <UIAlert success lighter>
+        <UILayoutContainer lime rounded3 margin2 fill>
           span 2
-        </UIAlert>
+        </UILayoutContainer>
       </UIGridCell>
-      <UIAlert info lighter>
+      <UILayoutContainer indigo rounded3 margin2 fill>
         Cell 4
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer cyan rounded3 margin2 fill>
         Cell 5
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer fuchsia rounded3 margin2 fill>
         Cell 6
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer teal rounded3 margin2 fill>
         Cell 7
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer stone rounded3 margin2 fill>
         Cell 8
-      </UIAlert>
+      </UILayoutContainer>
       <UIGridCell columnSpan={3}>
-        <UIAlert success lighter>
+        <UILayoutContainer orange rounded3 margin2 fill>
           span 3
-        </UIAlert>
+        </UILayoutContainer>
       </UIGridCell>
-      <UIAlert info lighter>
+      <UILayoutContainer sky rounded3 margin2 fill>
         Cell 12
-      </UIAlert>
+      </UILayoutContainer>
     </UILayoutGrid>
   );
 };
@@ -184,63 +184,63 @@ export const RowAndColumnSpans: React.FC = () => {
   return (
     <UILayoutGrid columns6 colGap3 rowGap2>
       <UIGridCell colSpan3>
-        <UIAlert danger lighter>
+        <UILayoutContainer cyan rounded3 margin2 fill>
           Cell 1 + 2 + 3
-        </UIAlert>
+        </UILayoutContainer>
       </UIGridCell>
-      <UIAlert info lighter>
+      <UILayoutContainer slate rounded3 margin2 fill>
         Cell 4
-      </UIAlert>
+      </UILayoutContainer>
       <UIGridCell rowSpan4>
-        <UIAlert success lighter>
+        <UILayoutContainer red rounded3 margin2 fill>
           <UIText subHeading>Cell 5 spans all four rows of the grid, displacing the other cells</UIText>
-        </UIAlert>
+        </UILayoutContainer>
       </UIGridCell>
-      <UIAlert info lighter>
+      <UILayoutContainer orange rounded3 margin2 fill>
         Cell 6
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer amber rounded3 margin2 fill>
         Cell 7
-      </UIAlert>
+      </UILayoutContainer>
       <UIGridCell colSpan2>
-        <UIAlert default lighter>
+        <UILayoutContainer yellow rounded3 margin2 fill>
           Cell 8 + 9
-        </UIAlert>
+        </UILayoutContainer>
       </UIGridCell>
-      <UIAlert info lighter>
+      <UILayoutContainer lime rounded3 margin2 fill>
         Cell 10
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer green rounded3 margin2 fill>
         Cell 12
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer emerald rounded3 margin2 fill>
         Cell 13
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer teal rounded3 margin2 fill>
         Cell 14
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer cyan rounded3 margin2 fill>
         Cell 15
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer sky rounded3 margin2 fill>
         Cell 16
-      </UIAlert>
-      <UIAlert info lighter>
+      </UILayoutContainer>
+      <UILayoutContainer blue rounded3 margin2 fill>
         Cell 18
-      </UIAlert>
+      </UILayoutContainer>
       <UIGridCell colSpan2>
-        <UIAlert primary lighter>
+        <UILayoutContainer indigo rounded3 margin2 fill>
           Cell 19 + 20
-        </UIAlert>
+        </UILayoutContainer>
       </UIGridCell>
       <UIGridCell colSpan2>
-        <UIAlert primary lighter>
+        <UILayoutContainer violet rounded3 margin2 fill>
           Cell 21 + 22
-        </UIAlert>
+        </UILayoutContainer>
       </UIGridCell>
-      <UIAlert info lighter>
+      <UILayoutContainer purple rounded3 margin2 fill>
         Cell 24
-      </UIAlert>
+      </UILayoutContainer>
     </UILayoutGrid>
   );
 };

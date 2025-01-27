@@ -1,8 +1,9 @@
+import ILayoutContainerProps from "../../../../interfaces/controls/ILayoutContainerProperties";
+import React from "react";
 import type { Meta } from "@storybook/react";
 import UILayoutContainer from "../UILayoutContainer";
-import React from "react";
-import UILayoutGrid from "../../UILayoutGrid/UILayoutGrid";
 import UILayoutFlex from "../../UILayoutFlex/UILayoutFlex";
+import UILayoutGrid from "../../UILayoutGrid/UILayoutGrid";
 import UIText from "../../UIText/UIText";
 
 const meta = {
@@ -20,6 +21,12 @@ const meta = {
 } satisfies Meta<typeof UILayoutContainer>;
 
 export default meta;
+
+const backgroundStyle: ILayoutContainerProps = {
+  emerald: true,
+  shade200: true,
+  rounded2: true,
+};
 
 export const Default: React.FC = () => {
   return <UILayoutContainer>Sample Contents</UILayoutContainer>;
@@ -101,28 +108,28 @@ export const MarginGlobal: React.FC = () => {
     <>
       <UIText subHeading>Margin Global</UIText>
       <UILayoutGrid columns1 colGap4 rowGap4 middleCenter>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer margin1>Global - Margin 1</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer margin2>Global - Margin 2</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer margin3>Global - Margin 3</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer margin4>Global - Margin 4</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer margin5>Global - Margin 5</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer margin6>Global - Margin 6</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer margin7>Global - Margin 7</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer margin8>Global - Margin 8</UILayoutContainer>
         </UILayoutContainer>
       </UILayoutGrid>
@@ -139,100 +146,100 @@ export const MarginTargeted: React.FC = () => {
         <UIText subHeading>Right</UIText>
         <UIText subHeading>Top</UIText>
         <UIText subHeading>Bottom</UIText>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginLeft1>Margin 1</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginRight1>Margin 1</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginTop1>Margin 1</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginBottom1>Margin 1</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginLeft2>Margin 2</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginRight2>Margin 2</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginTop2>Margin 2</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginBottom2>Margin 2</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginLeft3>Margin 3</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginRight3>Margin 3</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginTop3>Margin 3</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginBottom3>Margin 3</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginLeft4>Margin 4</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginRight4>Margin 4</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginTop4>Margin 4</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginBottom4>Margin 4</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginLeft5>Margin 5</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginRight5>Margin 5</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginTop5>Margin 5</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginBottom5>Margin 5</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginLeft6>Margin 6</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginRight6>Margin 6</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginTop6>Margin 6</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginBottom6>Margin 6</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginLeft7>Margin 7</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginRight7>Margin 7</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginTop7>Margin 7</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginBottom7>Margin 7</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginLeft8>Margin 8</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginRight8>Margin 8</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginTop8>Margin 8</UILayoutContainer>
         </UILayoutContainer>
-        <UILayoutContainer amber>
+        <UILayoutContainer {...backgroundStyle}>
           <UILayoutContainer marginBottom8>Margin 8</UILayoutContainer>
         </UILayoutContainer>
       </UILayoutGrid>

@@ -1,3 +1,8 @@
 .ui-layout-container {
-  border: solid 1px black;
+  border: none;
+
+  &.fill {
+    width: 100%;
+    height: 100%;
+  }
 }

@@ -7,7 +7,6 @@ import UIIconPanelRightClosed from "../../../components-icons/UIIconPanelRightCl
 import UIIconPanelRightOpenFull from "../../../components-icons/UIIconPanelRightOpenFull";
 import UIIconPanelRightOpenPartial from "../../../components-icons/UIIconPanelRightOpenPartial";
 import IButtonProperties from "../../../interfaces/controls/IButtonProperties";
-import UIButton from "../UIButton/UIButton";
 
 type IProperties = IButtonProperties & {
   anchor: EnumPanelButtonAnchor;
@@ -33,9 +32,9 @@ const UIPanelButton: React.FC<IProperties> = ({ anchor, state, ...buttonProps })
   const icon = icons[anchor]?.[state] || null;
 
   return (
-    <UIButton onClick={handleOnButtonPressEvent} {...buttonProps}>
+    <div style={{ height: 26, width: 22 }} onClick={handleOnButtonPressEvent} {...buttonProps}>
       {icon}
-    </UIButton>
+    </div>
   );
 };
 
