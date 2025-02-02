@@ -1,12 +1,12 @@
-import type { Meta } from "@storybook/react";
-import UIFormSegment from "../UIFormSegment";
-import FieldModel from "../../../models/fields/FieldModel";
 import EnumFieldDataType from "../../../enums/EnumFieldDataType";
+import FactoryCarLists from "../../../../storyExamples/factories/FactoryCarLists";
+import FieldModel from "../../../models/fields/FieldModel";
+import FieldValidation from "../../../validation/models/FieldValidation";
 import React, { useState } from "react";
 import RuleMandatory from "../../../validation/rules/RuleMandatory";
-import FieldValidation from "../../../validation/models/FieldValidation";
+import type { Meta } from "@storybook/react";
 import UIButton from "../../../components-ui/components/UIButton/UIButton";
-import FactoryCarLists from "../../../../storyExamples/factories/FactoryCarLists";
+import UIFormSegment from "../UIFormSegment";
 
 const meta = {
   title: "3 - Form/UIFormSegment",

@@ -9,7 +9,7 @@ import UIFormBaseString from "../base/UIFormBase/UIFormBaseString";
 type IProperties = IPropDisabled & IPropPlaceholder & IPropValue<FieldModel> & IPropOnChange<FieldModel> & IPropClassName;
 
 const UIFormPercent: React.FC<IProperties> = (props) => {
-  return <UIFormBaseString {...props} inputType="number" textSuffix="%" />;
+  return <UIFormBaseString {...props} alignTextRight inputType="number" textSuffix="%" />;
 };
 
 export default UIFormPercent;

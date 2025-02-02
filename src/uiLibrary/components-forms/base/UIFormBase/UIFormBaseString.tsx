@@ -12,8 +12,9 @@ import useGetValidationIcon from "../../../hooks/UseGetValidationIcon";
 import useVariantStyle from "../../../hooks/UseVariantStyle";
 import IPropTextAlignment from "../../../interfaces/properties/IPropTextAlignment";
 import useTextAlignmentStyle from "../../../hooks/UseTextAlignmentStyle";
+import IPropFocus from "../../../interfaces/properties/IPropFocus";
 
-type IProperties = IFormTextProperties & IPropInputType & IPropsTextPrefix & IPropsTextSuffix & IPropInteractionMode & IPropTextAlignment;
+type IProperties = IFormTextProperties & IPropInputType & IPropsTextPrefix & IPropsTextSuffix & IPropInteractionMode & IPropTextAlignment & IPropFocus;
 
 const UIFormBaseString: React.FC<IProperties> = (props) => {
   const variantClass = useVariantStyle("fc", props, props.value);
@@ -22,15 +23,24 @@ const UIFormBaseString: React.FC<IProperties> = (props) => {
    * EVENT HANDLERS
    */
   const handleOnChangeEvent = (event: React.ChangeEvent<HTMLInputElement>) => {
-    /**
-     * Event Handlers
-     */
     if (props.onChange) {
       if (props.value.dataType === EnumFieldDataType.boolean) {
         props.onChange(props.value.cloneWithValue(event.target.checked));
       } else {
         props.onChange(props.value.cloneWithValue(event.target.value));
       }
+    }
+  };
+
+  const handleOnGotFocus = () => {
+    if (props.onGotFocus) {
+      props.onGotFocus(props.value);
+    }
+  };
+
+  const handleOnLostFocus = () => {
+    if (props.onLostFocus) {
+      props.onLostFocus(props.value);
     }
   };
 
@@ -60,6 +70,8 @@ const UIFormBaseString: React.FC<IProperties> = (props) => {
           disabled={props.disabled}
           placeholder={props.placeholder}
           onChange={handleOnChangeEvent}
+          onFocus={handleOnGotFocus}
+          onBlur={handleOnLostFocus}
           autoComplete="off"
         />
         <div className="fc-validation-icon">{validationIcon}</div>

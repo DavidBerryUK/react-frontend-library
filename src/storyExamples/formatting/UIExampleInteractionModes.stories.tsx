@@ -7,7 +7,7 @@ import UIText from "../../uiLibrary/components-ui/components/UIText/UIText";
 import EnumFieldInteractionMode from "../../uiLibrary/enums/EnumFieldInteractionMode";
 
 const meta: Meta<typeof UIFormText> = {
-  title: "3 - Form Formatting/Example Interaction Modes",
+  title: "4 - Form Formatting/Example Interaction Modes",
   component: UIFormText,
   parameters: {
     docs: {

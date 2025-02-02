@@ -46,7 +46,7 @@
 
             &:read-only {
               border-color: map.get($properties, border-color);
-              background-color: map.get($properties, light-color);
+              background-color: lighten(map.get($properties, light-color), 10);
             }
           }
 

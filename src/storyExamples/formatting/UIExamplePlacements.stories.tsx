@@ -6,7 +6,7 @@ import UIFormText from "../../uiLibrary/components-forms/UIFormText/UIFormText";
 import UIText from "../../uiLibrary/components-ui/components/UIText/UIText";
 
 const meta: Meta<typeof UIFormText> = {
-  title: "3 - Form Formatting/Example Placement Options",
+  title: "4 - Form Formatting/Example Placement Options",
   component: UIFormText,
   parameters: {
     docs: {

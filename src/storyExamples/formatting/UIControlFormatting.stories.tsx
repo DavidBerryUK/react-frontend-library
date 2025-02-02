@@ -6,7 +6,7 @@ import UIText from "../../uiLibrary/components-ui/components/UIText/UIText";
 import useControlAndFormattingViewController from "./hooks/UseControlAndFormattingViewController";
 
 const meta: Meta<typeof UIFormText> = {
-  title: "3 - Form Formatting/Placement and Interaction",
+  title: "4 - Form Formatting/Placement and Interaction",
   component: UIFormText,
   parameters: {
     docs: {
