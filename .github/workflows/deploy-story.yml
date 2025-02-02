@@ -1,6 +1,7 @@
 # Workflow name
-name: Build and Publish Storybook to GitHub Pages
-
+name:
+  Build and Publish Storybook to GitHub Pages
+  # deploy storybook
 on:
   # Event for the workflow to run on
   push:
@@ -24,7 +25,7 @@ jobs:
       # Set up Node
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
       #👇 Add Storybook build and deploy to GitHub Pages as a step in the workflow
       - uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
         with:
